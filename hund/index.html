@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dein Hund ist kein Mülleimer – Artgerechte Ernährung | Andrea Nielbock</title>
+  <link rel="stylesheet" href="assets/css/ptsans.css">
+  <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+  <style>
+    /* ── Font Awesome webfonts – Pfade relativ zur HTML-Datei (überschreibt CSS-Datei) ── */
+    @font-face { font-family:'Font Awesome 6 Free'; font-style:normal; font-weight:900; font-display:block;
+      src: url('assets/webfonts/fa-solid-900.woff2') format('woff2'),
+           url('assets/webfonts/fa-solid-900.ttf')   format('truetype'); }
+    @font-face { font-family:'Font Awesome 6 Free'; font-style:normal; font-weight:400; font-display:block;
+      src: url('assets/webfonts/fa-regular-400.woff2') format('woff2'),
+           url('assets/webfonts/fa-regular-400.ttf')   format('truetype'); }
+    @font-face { font-family:'Font Awesome 6 Brands'; font-style:normal; font-weight:400; font-display:block;
+      src: url('assets/webfonts/fa-brands-400.woff2') format('woff2'),
+           url('assets/webfonts/fa-brands-400.ttf')   format('truetype'); }
+    @font-face { font-family:'Font Awesome 6 Free'; font-style:normal; font-weight:300; font-display:block;
+      src: url('assets/webfonts/fa-regular-400.woff2') format('woff2'),
+           url('assets/webfonts/fa-regular-400.ttf')   format('truetype'); }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'PT Sans', sans-serif; background: #fff; color: #1E2E1E; line-height: 1.7; overflow-x: hidden; }
+
+    :root {
+      --gruen:      #2C4A2C;
+      --gruen-mid:  #3A5C3A;
+      --gruen-hell: #F1F5F0;
+      --altrosa:    #C4848C;
+      --altrosa-pale:#F5EAEB;
+      --text:       #1E2E1E;
+      --text-mid:   #3A4A3A;
+      --text-light: #6A7A6A;
+    }
+
+    /* ── Layout ── */
+    .container      { max-width: 860px;  margin: 0 auto; padding: 0 24px; }
+    .container-wide { max-width: 1060px; margin: 0 auto; padding: 0 24px; }
+    section { padding: 80px 0; }
+
+    /* ── Scroll reveal ── */
+    .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-left  { opacity: 0; transform: translateX(-40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal-right { opacity: 0; transform: translateX( 40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal-left.visible, .reveal-right.visible { opacity: 1; transform: none; }
+    .delay-1 { transition-delay: 0.1s; }
+    .delay-2 { transition-delay: 0.2s; }
+    .delay-3 { transition-delay: 0.3s; }
+    .delay-4 { transition-delay: 0.4s; }
+
+    /* ── Nav ── */
+    nav {
+      background: var(--gruen); position: sticky; top: 0; z-index: 200;
+      padding: 13px 0; transition: box-shadow 0.3s;
+    }
+    nav.scrolled { box-shadow: 0 4px 20px rgba(0,0,0,0.25); }
+    nav .inner { max-width: 1060px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; }
+    nav .logo { color: #fff; font-weight: 700; font-size: 16px; line-height: 1.3; display: flex; align-items: center; gap: 10px; }
+    nav .logo i { color: var(--altrosa); font-size: 20px; }
+    nav .logo small { display: block; font-weight: 400; font-size: 11px; opacity: 0.7; }
+
+    /* ── Buttons ── */
+    .btn-primary { background: var(--altrosa); color: #fff; padding: 11px 26px; border-radius: 6px; font-weight: 700; font-size: 14px; text-decoration: none; display: inline-block; transition: background 0.2s, transform 0.2s; border: none; cursor: pointer; }
+    .btn-primary:hover { background: #b07078; transform: translateY(-2px); }
+    .btn-green   { background: var(--gruen); color: #fff; padding: 16px 38px; border-radius: 8px; font-weight: 700; font-size: 17px; text-decoration: none; display: inline-block; transition: background 0.2s, transform 0.2s, box-shadow 0.2s; border: none; cursor: pointer; }
+    .btn-green:hover { background: var(--gruen-mid); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(44,74,44,0.3); }
+
+    /* ── Typo ── */
+    h1 { font-size: clamp(26px, 5vw, 44px); font-weight: 700; line-height: 1.2; color: #fff; }
+    h2 { font-size: clamp(22px, 4vw, 34px); font-weight: 700; line-height: 1.25; color: var(--gruen); }
+    h3 { font-size: 18px; font-weight: 700; color: var(--gruen); }
+    .eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--altrosa); margin-bottom: 14px; }
+    .divider  { width: 54px; height: 2px; background: var(--altrosa); margin: 18px 0 28px; }
+    .divider.center { margin-left: auto; margin-right: auto; }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative; min-height: 92vh;
+      display: flex; align-items: center;
+      overflow: hidden; text-align: center;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background-image: url('assets/img/hund-fressen.jpg');
+      background-size: cover; background-position: center;
+      transform: scale(1.05);
+      transition: transform 8s ease-out;
+    }
+    .hero-bg.loaded { transform: scale(1); }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(160deg, rgba(44,74,44,0.82) 0%, rgba(30,46,30,0.75) 100%); }
+    .hero-content { position: relative; z-index: 2; width: 100%; padding: 60px 24px; }
+    .hero h1 { margin-bottom: 8px; }
+    .hero-sub { font-size: 18px; color: rgba(255,255,255,0.88); max-width: 620px; margin: 0 auto 36px; }
+    .hero-bullets { display: inline-flex; flex-direction: column; text-align: left; gap: 12px; margin-bottom: 40px; }
+    .bullet-row { display: flex; align-items: flex-start; gap: 10px; font-size: 15px; font-weight: 700; color: #fff; }
+    .bullet-row i { color: var(--altrosa); font-size: 16px; margin-top: 3px; flex-shrink: 0; }
+    .hero-note { font-size: 12px; color: rgba(255,255,255,0.6); margin-top: 14px; }
+
+    /* Floating paw prints */
+    .paw-float {
+      position: absolute; pointer-events: none; z-index: 1;
+      color: rgba(255,255,255,0.07); font-size: 60px;
+      animation: floatPaw 12s ease-in-out infinite;
+    }
+    @keyframes floatPaw {
+      0%   { transform: translateY(0) rotate(0deg); opacity: 0.07; }
+      50%  { transform: translateY(-30px) rotate(15deg); opacity: 0.12; }
+      100% { transform: translateY(0) rotate(0deg); opacity: 0.07; }
+    }
+
+    /* Scroll down arrow */
+    .scroll-arrow { position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%); z-index: 3; color: rgba(255,255,255,0.5); font-size: 22px; animation: bounce 2s infinite; }
+    @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0);} 50%{transform:translateX(-50%) translateY(8px);} }
+
+    /* ── PAIN ── */
+    .pain-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; margin: 36px 0; }
+    .pain-card {
+      background: #fff; border-radius: 12px; padding: 24px 22px;
+      box-shadow: 0 2px 12px rgba(44,74,44,0.08);
+      transition: transform 0.25s, box-shadow 0.25s;
+      border-top: 3px solid var(--altrosa);
+    }
+    .pain-card:hover { transform: translateY(-5px); box-shadow: 0 10px 28px rgba(44,74,44,0.13); }
+    .pain-icon { width: 44px; height: 44px; background: var(--altrosa-pale); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 14px; }
+    .pain-icon i { color: var(--altrosa); font-size: 18px; }
+    .pain-card p { font-size: 14px; color: var(--text-mid); }
+    .blockquote { border-left: 3px solid var(--altrosa); padding: 18px 22px; font-style: italic; color: var(--text-mid); font-size: 16px; background: #fff; border-radius: 0 10px 10px 0; margin-top: 28px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+
+    /* ── PHOTO STRIP ── */
+    .photo-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; height: 300px; overflow: hidden; }
+    .photo-strip-img { overflow: hidden; position: relative; }
+    .photo-strip-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+    .photo-strip-img:hover img { transform: scale(1.06); }
+    .photo-strip-img .caption { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(44,74,44,0.75)); color: #fff; font-size: 13px; font-weight: 700; padding: 24px 14px 12px; opacity: 0; transition: opacity 0.3s; }
+    .photo-strip-img:hover .caption { opacity: 1; }
+
+    /* ── WHY ── */
+    .why-section { position: relative; overflow: hidden; }
+    .bg-bone {
+      position: absolute; right: -60px; top: 50%; transform: translateY(-50%);
+      font-size: 320px; color: var(--gruen-hell); line-height: 1; pointer-events: none;
+      opacity: 0.6;
+    }
+    .why-box { background: var(--gruen); border-radius: 16px; padding: 44px 48px; margin-top: 32px; position: relative; overflow: hidden; }
+    .why-box::before { content: '\f520'; font-family: 'Font Awesome 6 Free'; font-weight: 900; position: absolute; right: -20px; bottom: -30px; font-size: 180px; color: rgba(255,255,255,0.04); pointer-events: none; }
+    .why-box h3 { color: #fff; margin-bottom: 16px; }
+    .why-box p  { color: rgba(255,255,255,0.88); font-size: 16px; margin-bottom: 14px; }
+    .why-benefits { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin: 22px 0; }
+    .why-benefit { display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,0.92); font-size: 15px; }
+    .why-benefit i { color: var(--altrosa); font-size: 16px; }
+
+    /* ── WORKBOOK ── */
+    .contents-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(265px, 1fr)); gap: 18px; margin-top: 36px; }
+    .content-item {
+      background: #fff; border: 1px solid #E4EDE4; border-radius: 12px; padding: 22px 20px;
+      display: flex; gap: 16px; align-items: flex-start;
+      transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+    }
+    .content-item:hover { transform: translateY(-4px); box-shadow: 0 10px 28px rgba(44,74,44,0.1); border-color: var(--altrosa); }
+    .content-icon { width: 40px; height: 40px; background: var(--gruen); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .content-icon i { color: #fff; font-size: 16px; }
+    .content-text { font-size: 14px; color: var(--text-mid); line-height: 1.5; }
+    .content-text strong { color: var(--gruen); display: block; margin-bottom: 4px; font-size: 15px; }
+    .cta-banner { background: var(--altrosa-pale); border: 1px solid #E0B8BE; border-radius: 14px; padding: 36px; text-align: center; margin-top: 48px; position: relative; overflow: hidden; }
+    .cta-banner::before { content: '\f1b0'; font-family: 'Font Awesome 6 Free'; font-weight: 900; position: absolute; left: -10px; bottom: -20px; font-size: 120px; color: rgba(196,132,140,0.1); }
+    .cta-banner::after  { content: '\f1b0'; font-family: 'Font Awesome 6 Free'; font-weight: 900; position: absolute; right: -10px; top: -20px; font-size: 120px; color: rgba(196,132,140,0.1); transform: scaleX(-1); }
+    .cta-banner p { color: var(--text-mid); margin-bottom: 20px; position: relative; z-index: 1; }
+    .cta-banner h3 { color: var(--gruen); margin-bottom: 8px; position: relative; z-index: 1; font-size: 20px; }
+
+    /* ── ABOUT ── */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+    @media (max-width: 640px) { .about-grid { grid-template-columns: 1fr; } }
+    .about-photo { border-radius: 16px; overflow: hidden; position: relative; aspect-ratio: 4/5; box-shadow: 0 16px 48px rgba(44,74,44,0.2); }
+    .about-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+    .about-photo:hover img { transform: scale(1.04); }
+    .about-photo .photo-badge { position: absolute; bottom: 20px; left: 20px; background: var(--gruen); color: #fff; padding: 8px 16px; border-radius: 20px; font-size: 13px; font-weight: 700; display: flex; align-items: center; gap: 7px; }
+    .about-photo .photo-badge i { color: var(--altrosa); }
+    .about-tag { display: inline-block; background: var(--altrosa-pale); color: var(--altrosa); border-radius: 20px; padding: 4px 14px; font-size: 12px; font-weight: 700; margin-bottom: 14px; }
+    .about-text p { font-size: 15px; color: var(--text-mid); margin-bottom: 14px; }
+    .mission-item { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; color: var(--text-mid); margin-bottom: 10px; }
+    .mission-item i { color: var(--altrosa); margin-top: 3px; flex-shrink: 0; }
+
+    /* ── OPT-IN ── */
+    .optin-section { background: var(--gruen); padding: 80px 0; position: relative; overflow: hidden; }
+    .optin-paw { position: absolute; color: rgba(255,255,255,0.04); font-size: 200px; pointer-events: none; }
+    .optin-box { background: #fff; border-radius: 18px; padding: 50px 46px; max-width: 560px; margin: 0 auto; text-align: center; box-shadow: 0 20px 60px rgba(0,0,0,0.25); position: relative; z-index: 1; }
+    .optin-box h2 { color: var(--gruen); margin-bottom: 8px; }
+    .optin-box .sub { font-size: 15px; color: var(--text-mid); margin-bottom: 28px; line-height: 1.6; }
+    .form-group { margin-bottom: 18px; text-align: left; }
+    .form-group label { display: block; font-size: 14px; font-weight: 700; color: var(--gruen); margin-bottom: 7px; }
+    .input-wrap { position: relative; }
+    .input-wrap i { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--gruen); font-size: 15px; opacity: 0.6; }
+    .form-group input { width: 100%; padding: 14px 16px 14px 42px; border: 2px solid #B8CDB8; border-radius: 8px; font-size: 15px; font-family: 'PT Sans', sans-serif; color: var(--text); outline: none; transition: border-color 0.2s, box-shadow 0.2s; background: #FAFCFA; }
+    .form-group input:focus { border-color: var(--gruen); box-shadow: 0 0 0 3px rgba(44,74,44,0.12); background: #fff; }
+    .form-group input::placeholder { color: #8fa08f; }
+    .datenschutz-row { display: flex; gap: 10px; align-items: flex-start; text-align: left; margin: 20px 0 26px; font-size: 13px; color: var(--text-mid); }
+    .datenschutz-row input[type="checkbox"] { margin-top: 3px; flex-shrink: 0; accent-color: var(--gruen); width: 16px; height: 16px; cursor: pointer; }
+    .datenschutz-row a { color: var(--altrosa); text-decoration: underline; }
+    .trust-row { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 22px; padding-top: 18px; border-top: 1px solid #E8F0E8; }
+    .trust-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text-mid); font-weight: 700; }
+    .trust-item i { color: var(--gruen); font-size: 14px; }
+
+    /* ── FOOTER ── */
+    footer { background: #1A2A1A; color: rgba(255,255,255,0.75); padding: 52px 0 28px; font-size: 13px; }
+    footer .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 36px; margin-bottom: 36px; }
+    footer h4 { color: #fff; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+    footer h4 i { color: var(--altrosa); }
+    footer p, footer a { margin-bottom: 6px; color: rgba(255,255,255,0.75); text-decoration: none; display: block; line-height: 1.6; }
+    footer a:hover { color: var(--altrosa); }
+    footer .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; align-items: center; }
+    footer .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
+    footer .footer-links a { display: inline; }
+
+    /* ── MODALS ── */
+    .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.65); z-index: 1000; align-items: center; justify-content: center; padding: 20px; }
+    .modal-overlay.open { display: flex; }
+    .modal-box { background: #fff; border-radius: 16px; max-width: 680px; width: 100%; max-height: 85vh; overflow-y: auto; padding: 40px; position: relative; }
+    .modal-box h2 { color: var(--gruen); margin-bottom: 20px; }
+    .modal-box h3 { color: var(--gruen); margin-top: 22px; margin-bottom: 8px; font-size: 16px; }
+    .modal-box p  { font-size: 14px; color: var(--text-mid); margin-bottom: 10px; }
+    .modal-close  { position: absolute; top: 16px; right: 20px; background: none; border: none; font-size: 22px; cursor: pointer; color: #888; }
+    .modal-close:hover { color: var(--gruen); }
+
+    /* ── NEWSLETTER FORM ── */
+    .nl-badge {
+      display: flex; align-items: center; gap: 14px;
+      background: linear-gradient(135deg, var(--gruen), #3d6b3d);
+      border-radius: 14px; padding: 16px 20px; margin-bottom: 28px;
+      box-shadow: 0 4px 16px rgba(44,74,44,0.25);
+    }
+    .nl-icon-big { font-size: 36px; color: #fff; flex-shrink: 0; }
+    .nl-badge-title { color: #fff; font-weight: 700; font-size: 16px; }
+    .nl-badge-sub   { color: rgba(255,255,255,0.88); font-size: 13px; margin-top: 2px; }
+
+    .field-hint { font-size: 12px; color: var(--text-mid); margin-top: 6px; display: flex; align-items: center; gap: 5px; }
+
+    .btn-nl-submit {
+      width: 100%; padding: 16px 20px; border-radius: 8px;
+      background: linear-gradient(135deg, var(--gruen), #3d6b3d);
+      color: #fff; font-family: 'PT Sans', sans-serif;
+      font-size: 17px; font-weight: 700;
+      border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 16px rgba(44,74,44,0.3);
+    }
+    .btn-nl-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(44,74,44,0.4); }
+
+    /* ── EXTRA ANIMATIONS ── */
+    /* Particle paws on hero */
+    @keyframes rise {
+      0%   { transform: translateY(0) rotate(0deg) scale(1); opacity: 0.12; }
+      100% { transform: translateY(-120vh) rotate(360deg) scale(0.4); opacity: 0; }
+    }
+    .particle-paw {
+      position: absolute; pointer-events: none; z-index: 1;
+      color: rgba(255,255,255,0.1); animation: rise linear infinite;
+    }
+
+    /* Shimmer on CTA buttons */
+    .btn-green { position: relative; overflow: hidden; }
+    .btn-green::after {
+      content: ''; position: absolute; top: -50%; left: -75%;
+      width: 50%; height: 200%; background: rgba(255,255,255,0.15);
+      transform: skewX(-20deg);
+      animation: shimmer 3s ease-in-out infinite;
+    }
+    @keyframes shimmer {
+      0%,70%  { left: -75%; }
+      100%    { left: 130%; }
+    }
+
+    /* Counter animation on stats (if any) */
+    @keyframes countUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+
+    /* Wiggle for paw icon in nav */
+    nav .logo i { animation: wiggle 4s ease-in-out infinite; }
+    @keyframes wiggle {
+      0%,90%,100% { transform: rotate(0deg); }
+      93%  { transform: rotate(-15deg); }
+      96%  { transform: rotate(12deg); }
+      99%  { transform: rotate(-8deg); }
+    }
+
+    /* Typing cursor on hero headline */
+    .hero h1 .cursor {
+      display: inline-block; width: 3px; height: 0.9em;
+      background: var(--altrosa); margin-left: 4px; vertical-align: middle;
+      animation: blink 1s step-end infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0;} }
+
+    /* Green gradient border on optin box */
+    .optin-box {
+      border: 2px solid transparent;
+      background-clip: padding-box;
+      position: relative;
+    }
+    .optin-box::before {
+      content:''; position:absolute; inset:-2px; border-radius:20px; z-index:-1;
+      background: linear-gradient(135deg, #25D366 0%, var(--altrosa) 50%, var(--gruen) 100%);
+      animation: borderSpin 6s linear infinite;
+      background-size: 200% 200%;
+    }
+    @keyframes borderSpin {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      section { padding: 56px 0; }
+      .photo-strip { grid-template-columns: 1fr; height: auto; }
+      .photo-strip-img { height: 200px; }
+      .why-box { padding: 28px 22px; }
+      .optin-box { padding: 32px 22px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- SVG Bone symbol for reuse -->
+<svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="bone-icon" viewBox="0 0 120 50">
+    <rect x="30" y="17" width="60" height="16" rx="5" fill="currentColor"/>
+    <circle cx="27" cy="14" r="10" fill="currentColor"/>
+    <circle cx="27" cy="36" r="10" fill="currentColor"/>
+    <circle cx="93" cy="14" r="10" fill="currentColor"/>
+    <circle cx="93" cy="36" r="10" fill="currentColor"/>
+  </symbol>
+  <symbol id="paw-icon" viewBox="0 0 100 90">
+    <ellipse cx="50" cy="65" rx="26" ry="20" fill="currentColor"/>
+    <circle cx="24" cy="44" r="11" fill="currentColor"/>
+    <circle cx="76" cy="44" r="11" fill="currentColor"/>
+    <circle cx="38" cy="28" r="10" fill="currentColor"/>
+    <circle cx="62" cy="28" r="10" fill="currentColor"/>
+  </symbol>
+</svg>
+
+
+<!-- ═══ NAV ═══ -->
+<nav id="main-nav">
+  <div class="inner">
+    <div class="logo">
+      <i class="fa-solid fa-paw"></i>
+      <div>tierisch erfolgreich <small>Andrea Nielbock</small></div>
+    </div>
+    <a href="#opt-in" class="btn-primary"><i class="fa-solid fa-download" style="margin-right:7px;"></i>Workbook sichern</a>
+  </div>
+</nav>
+
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="hero-bg" id="hero-bg"></div>
+  <div class="hero-overlay"></div>
+
+  <!-- Floating paws -->
+  <i class="fa-solid fa-paw paw-float" style="top:12%; left:6%; font-size:80px; animation-delay:0s;"></i>
+  <i class="fa-solid fa-paw paw-float" style="top:65%; left:3%; font-size:50px; animation-delay:2s;"></i>
+  <i class="fa-solid fa-paw paw-float" style="top:20%; right:5%; font-size:100px; animation-delay:1s;"></i>
+  <i class="fa-solid fa-paw paw-float" style="top:70%; right:8%; font-size:60px; animation-delay:3s;"></i>
+  <i class="fa-solid fa-bone paw-float" style="top:40%; left:2%; font-size:55px; animation-delay:1.5s;"></i>
+  <i class="fa-solid fa-bone paw-float" style="top:35%; right:3%; font-size:45px; animation-delay:2.5s;"></i>
+  <!-- Rising particles -->
+  <i class="fa-solid fa-paw particle-paw" style="left:10%; bottom:0; font-size:22px; animation-duration:9s; animation-delay:0s;"></i>
+  <i class="fa-solid fa-paw particle-paw" style="left:25%; bottom:0; font-size:14px; animation-duration:12s; animation-delay:1.5s;"></i>
+  <i class="fa-solid fa-paw particle-paw" style="left:50%; bottom:0; font-size:18px; animation-duration:10s; animation-delay:3s;"></i>
+  <i class="fa-solid fa-paw particle-paw" style="left:70%; bottom:0; font-size:12px; animation-duration:14s; animation-delay:0.8s;"></i>
+  <i class="fa-solid fa-paw particle-paw" style="left:88%; bottom:0; font-size:20px; animation-duration:11s; animation-delay:2s;"></i>
+  <i class="fa-solid fa-bone particle-paw" style="left:38%; bottom:0; font-size:16px; animation-duration:13s; animation-delay:4s;"></i>
+  <i class="fa-solid fa-bone particle-paw" style="left:60%; bottom:0; font-size:13px; animation-duration:8s; animation-delay:1s;"></i>
+
+  <div class="hero-content">
+    <div class="eyebrow" style="color:var(--altrosa);" class="reveal">Kostenloses Workbook</div>
+    <h1 class="reveal">Dein Hund ist kein Mülleimer –<br>artgerechte Ernährung für deinen Hund</h1>
+    <div class="divider center reveal delay-1"></div>
+    <p class="hero-sub reveal delay-1">Erfahre, wie du deinen Hund mit artgerechter, sauberer Nahrung und sanfter Vorsorge wirklich gut ernährst – ohne Chemie, ohne Marketingversprechen.</p>
+    <div class="hero-bullets reveal delay-2">
+      <div class="bullet-row"><i class="fa-solid fa-circle-check"></i> Verstehe, was artgerechte Ernährung wirklich bedeutet</div>
+      <div class="bullet-row"><i class="fa-solid fa-circle-check"></i> Erkenne, welche Zutaten deinem Hund schaden können</div>
+      <div class="bullet-row"><i class="fa-solid fa-circle-check"></i> Lerne natürliche Wurm- &amp; Zeckenprophylaxe kennen</div>
+    </div>
+    <a href="#opt-in" class="btn-green reveal delay-3">Jetzt GRATIS Workbook sichern &rarr;</a>
+    <p class="hero-note reveal delay-3">100% kostenlos &middot; Sofort-Download &middot; Kein Spam</p>
+  </div>
+  <a href="#pain" class="scroll-arrow"><i class="fa-solid fa-chevron-down"></i></a>
+</section>
+
+
+<!-- ═══ PAIN POINTS ═══ -->
+<section id="pain" style="background: var(--gruen-hell);">
+  <div class="container">
+    <div class="eyebrow reveal">Kennst du das?</div>
+    <h2 class="reveal">Gutes Gefühl im Napf –<br>oder doch nicht ganz?</h2>
+    <div class="divider reveal"></div>
+    <div class="pain-grid">
+      <div class="pain-card reveal delay-1">
+        <div class="pain-icon"><i class="fa-solid fa-stomach"></i></div>
+        <p>Dein Hund hat immer wieder <strong>Verdauungsprobleme</strong> – obwohl du glaubst, gut zu füttern.</p>
+      </div>
+      <div class="pain-card reveal delay-2">
+        <div class="pain-icon"><i class="fa-solid fa-star"></i></div>
+        <p>Das <strong>Fell wirkt stumpf oder juckt</strong> – und du weißt nicht warum.</p>
+      </div>
+      <div class="pain-card reveal delay-3">
+        <div class="pain-icon"><i class="fa-solid fa-bolt"></i></div>
+        <p>Er ist mal <strong>überdreht, mal total müde</strong> – die Energie schwankt stark.</p>
+      </div>
+      <div class="pain-card reveal delay-4">
+        <div class="pain-icon"><i class="fa-solid fa-circle-question"></i></div>
+        <p>Du bist <strong>unsicher, ob er wirklich bekommt, was er braucht</strong> – trotz teurem Futter.</p>
+      </div>
+    </div>
+    <div class="blockquote reveal">
+      <i class="fa-solid fa-quote-left" style="color:var(--altrosa); margin-right:8px;"></i>
+      Viele Futter sind auf Marketing optimiert – nicht auf Gesundheit. Begriffe wie „kaltgepresst", „getreidefrei" oder „viel Fleisch" klingen gut, sagen aber oft wenig über die tatsächliche Qualität aus.
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ PHOTO STRIP ═══ -->
+<div class="photo-strip">
+  <div class="photo-strip-img">
+    <img src="assets/img/hund-fressen.jpg" alt="Hund beim Fressen" loading="lazy">
+    <div class="caption"><i class="fa-solid fa-utensils" style="margin-right:6px;"></i>Artgerechte Fütterung</div>
+  </div>
+  <div class="photo-strip-img">
+    <img src="assets/img/hund-golden.jpg" alt="Glücklicher Hund" loading="lazy">
+    <div class="caption"><i class="fa-solid fa-heart" style="margin-right:6px;"></i>Gesund &amp; glücklich</div>
+  </div>
+  <div class="photo-strip-img">
+    <img src="assets/img/kraeuter.jpg" alt="Natürliche Kräuter" loading="lazy">
+    <div class="caption"><i class="fa-solid fa-leaf" style="margin-right:6px;"></i>Natürliche Kräuter</div>
+  </div>
+</div>
+
+
+<!-- ═══ WHY ═══ -->
+<section class="why-section" style="background:#fff;">
+  <!-- Big decorative paw behind content -->
+  <svg class="bg-bone" style="color:var(--gruen-hell);" width="1" height="1">
+    <use href="#paw-icon"/>
+  </svg>
+  <div class="container" style="position:relative; z-index:1;">
+    <div class="eyebrow reveal">Warum artgerechte Ernährung so wichtig ist</div>
+    <h2 class="reveal">Artgerechte Ernährung bedeutet<br>mehr als „kaltgepresst" auf der Verpackung</h2>
+    <div class="divider reveal"></div>
+    <p style="font-size:16px; color:var(--text-mid); max-width:720px;" class="reveal">
+      Dein Hund hat seinen Ursprung im Wolf – sein Verdauungssystem ist darauf ausgelegt, hochwertige tierische Proteine, gesunde Fette sowie ein ausgewogenes Mineralprofil zu verarbeiten. Nicht jedoch Zucker, billige Füllstoffe und synthetische Zusätze.
+    </p>
+    <div class="why-box reveal">
+      <h3><i class="fa-solid fa-paw" style="color:var(--altrosa); margin-right:10px;"></i>Wenn du seinen Napf artgerecht befüllst, verbessern sich oft deutlich:</h3>
+      <div class="why-benefits">
+        <div class="why-benefit"><i class="fa-solid fa-circle-check"></i> Die Verdauung</div>
+        <div class="why-benefit"><i class="fa-solid fa-circle-check"></i> Haut &amp; Fell</div>
+        <div class="why-benefit"><i class="fa-solid fa-circle-check"></i> Die Energie</div>
+        <div class="why-benefit"><i class="fa-solid fa-circle-check"></i> Das Wohlbefinden</div>
+      </div>
+      <p>Das Workbook unterstützt dich dabei: Futterangaben zu „übersetzen", die Bedürfnisse deines Hundes zu erkennen und Futter auszuwählen, das zu seinem Körper passt – nicht zu den Marketingstrategien.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ WORKBOOK INHALTE ═══ -->
+<section style="background:var(--gruen-hell);">
+  <div class="container">
+    <div class="eyebrow reveal">Blick ins Workbook</div>
+    <h2 class="reveal">Was dich im kostenlosen Workbook erwartet</h2>
+    <p style="font-size:15px; color:var(--text-mid); margin-top:8px;" class="reveal">
+      <em>„Artgerechte Ernährung, natürlicher Schutz &amp; mehr Lebensfreude"</em>
+    </p>
+    <div class="divider reveal"></div>
+    <div class="contents-grid">
+      <div class="content-item reveal delay-1">
+        <div class="content-icon"><i class="fa-solid fa-wolf" style="display:none;"></i><i class="fa-solid fa-paw"></i></div>
+        <div class="content-text"><strong>Hund &amp; Wolf</strong>Welche Veränderungen es gab – und welche nicht. Der evolutionäre Blick auf den Napf.</div>
+      </div>
+      <div class="content-item reveal delay-2">
+        <div class="content-icon"><i class="fa-solid fa-bowl-food"></i></div>
+        <div class="content-text"><strong>Der artgerechte Futternapf</strong>Die notwendigen Bestandteile – was wirklich drin sein sollte.</div>
+      </div>
+      <div class="content-item reveal delay-3">
+        <div class="content-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+        <div class="content-text"><strong>Mineralisches Gleichgewicht</strong>Die Bedeutung von Mineralien aus natürlichen Quellen für Gesundheit und Wohlbefinden.</div>
+      </div>
+      <div class="content-item reveal delay-1">
+        <div class="content-icon"><i class="fa-solid fa-seedling"></i></div>
+        <div class="content-text"><strong>Kräuter als sanfte Unterstützung</strong>Wie Kräutermischungen die Verdauung fördern und das innere Milieu stärken.</div>
+      </div>
+      <div class="content-item reveal delay-2">
+        <div class="content-icon"><i class="fa-solid fa-shield-halved"></i></div>
+        <div class="content-text"><strong>Natürliche Wurmprophylaxe</strong>Warum Entwurmen alle 3 Monate nicht artgerecht ist – und was du stattdessen tun kannst.</div>
+      </div>
+      <div class="content-item reveal delay-3">
+        <div class="content-icon"><i class="fa-solid fa-bug-slash"></i></div>
+        <div class="content-text"><strong>Natürliche Zeckenprophylaxe</strong>Chemikalien nur im Bedarfsfall – wie artgerechte Haltung echten Schutz bietet.</div>
+      </div>
+      <div class="content-item reveal delay-1">
+        <div class="content-icon"><i class="fa-solid fa-water"></i></div>
+        <div class="content-text"><strong>Meereskraft</strong>Natürliche Mineralstoffe aus dem Meer – wie sie die Ernährung deines Hundes bereichern.</div>
+      </div>
+      <div class="content-item reveal delay-2">
+        <div class="content-icon"><i class="fa-solid fa-clipboard-list"></i></div>
+        <div class="content-text"><strong>Dein Ernährungs-Check</strong>Fragen zur ehrlichen Reflexion – ohne Druck, perfekt sein zu müssen.</div>
+      </div>
+      <div class="content-item reveal delay-3">
+        <div class="content-icon"><i class="fa-solid fa-arrow-right"></i></div>
+        <div class="content-text"><strong>Nächste Schritte &amp; Einladung</strong>Tipps für den Alltag – inkl. Einladung zum kostenlosen Kennenlerngespräch.</div>
+      </div>
+    </div>
+
+    <!-- Inline CTA banner -->
+    <div class="cta-banner reveal">
+      <h3><i class="fa-solid fa-bone" style="color:var(--altrosa); margin-right:8px;"></i>Bereit, wirklich zu verstehen, was in deinen Hund gehört?</h3>
+      <p>Hol dir jetzt das kostenlose Workbook – kein Spam, sofort verfügbar.</p>
+      <a href="#opt-in" class="btn-green" style="font-size:16px; padding:14px 34px; position:relative; z-index:1;">Workbook jetzt sichern &rarr;</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ ÜBER ANDREA ═══ -->
+<section style="background:#fff;">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-photo reveal-left">
+        <img src="assets/img/hund-portrait.jpg" alt="Andrea Nielbock mit Hund" loading="lazy">
+        <div class="photo-badge"><i class="fa-solid fa-paw"></i> tierisch erfolgreich</div>
+      </div>
+      <div class="about-text reveal-right">
+        <div class="eyebrow">Über mich</div>
+        <h2 style="font-size:clamp(20px, 3.5vw, 28px);">Andrea Nielbock –<br>tierisch erfolgreich</h2>
+        <div class="divider"></div>
+        <span class="about-tag"><i class="fa-solid fa-paw" style="margin-right:5px;"></i>Hundeernährungsberaterin &middot; Coach &middot; Mentorin</span>
+        <p>Manchmal führt uns die Liebe zu unseren Tieren auf Wege, die unser ganzes Leben beeinflussen.</p>
+        <p>Ich bin die Gründerin von „tierisch erfolgreich", Hundeernährungsberaterin, Coach und Mentorin für Frauen, die sich ein erfülltes Leben mit mehr Sinn, Freiheit und Verbundenheit wünschen.</p>
+        <p>Meine Reise begann mit einer fundamentalen Überzeugung: <strong>Unsere Tiere verdienen die beste Ernährung.</strong></p>
+        <p style="font-size:14px; color:var(--text-light); margin-top:12px; margin-bottom:8px;">Meine Mission:</p>
+        <div class="mission-item"><i class="fa-solid fa-paw"></i><span>Hunde auf natürliche und gesunde Weise ernähren</span></div>
+        <div class="mission-item"><i class="fa-solid fa-leaf"></i><span>Mehr Bewusstsein und Achtsamkeit in den Alltag integrieren</span></div>
+        <div class="mission-item"><i class="fa-solid fa-heart"></i><span>Tierliebe Frauen ein selbstbestimmtes Leben ermöglichen</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ OPT-IN FORMULAR ═══ -->
+<section class="optin-section" id="opt-in">
+  <!-- Decorative elements -->
+  <i class="fa-solid fa-paw optin-paw" style="top:-30px; left:-30px; transform:rotate(-30deg);"></i>
+  <i class="fa-solid fa-paw optin-paw" style="bottom:-30px; right:-30px; transform:rotate(40deg);"></i>
+  <i class="fa-solid fa-bone optin-paw" style="top:40%; left:3%; font-size:130px; transform:rotate(15deg);"></i>
+  <i class="fa-solid fa-bone optin-paw" style="top:30%; right:3%; font-size:100px; transform:rotate(-20deg);"></i>
+
+  <div class="container">
+    <div class="optin-box reveal">
+
+      <!-- Newsletter Badge -->
+      <div class="nl-badge">
+        <i class="fa-solid fa-envelope-open-text nl-icon-big"></i>
+        <div>
+          <div class="nl-badge-title">Kostenloses Workbook per E-Mail</div>
+          <div class="nl-badge-sub">Direkt in dein Postfach – kostenlos & unverbindlich</div>
+        </div>
+      </div>
+
+      <h2>Hol dir dein kostenloses Workbook</h2>
+      <div class="divider center"></div>
+      <p class="sub">Trag dich ein – ich schicke dir das Workbook direkt in dein Postfach. Bitte bestätige danach kurz deine E-Mail.</p>
+
+      <!--
+        BREVO: In den Formular-Einstellungen im Brevo-Dashboard folgende Weiterleitungen setzen:
+        • Nach Opt-in (Success-Seite) → https://andrea.nielbock.de/hund/fast-geschafft.html
+        • Nach DOI-Bestätigung        → https://andrea.nielbock.de/hund/willkommen.html
+      -->
+      <form action="https://b044490d.sibforms.com/serve/MUIFANw3Ha9q6xDXQ87Tw3WoCi5gX-fS90RBqTYC5ZT1Dbl5gU7JXxR-bbKKDFtcE-JV3z3NV1TIb9iS_cpF8wiMg_Va1xsD4RY3xrzI0M1L9SKNn2RIwbpRMPwFwLg7kU_BJoghaDiyhbmJcge4aGLMRVko-XCDYnt4EKNd2p5weUaQQqFt3nyT6XZKYrDZMoG8SJwsSrYMwLei"
+            method="POST"
+            id="sib-form"
+            data-type="subscription"
+            onsubmit="handleSubmit(event)">
+
+        <!-- Brevo: Anti-Spam-Honeypot -->
+        <input type="text" name="email_address_check" value=""
+               style="display:none;" tabindex="-1" aria-hidden="true">
+        <input type="hidden" name="locale" value="de">
+        <input type="hidden" name="redirectionUrl" value="https://andrea.nielbock.de/hund/fast-geschafft.html">
+
+        <!-- Vorname -->
+        <div class="form-group">
+          <label for="name">Vorname *</label>
+          <div class="input-wrap">
+            <i class="fa-solid fa-user"></i>
+            <input type="text" id="name" name="VORNAME"
+                   placeholder="Dein Vorname" required autocomplete="given-name">
+          </div>
+        </div>
+
+        <!-- E-Mail -->
+        <div class="form-group">
+          <label for="email">E-Mail-Adresse *</label>
+          <div class="input-wrap">
+            <i class="fa-solid fa-envelope"></i>
+            <input type="email" id="email" name="EMAIL"
+                   placeholder="deine@email.de" required autocomplete="email">
+          </div>
+          <p class="field-hint">
+            <i class="fa-solid fa-lock"></i> Nur für die Zusendung des Workbooks. Kein Spam.
+          </p>
+        </div>
+
+        <!-- Datenschutz -->
+        <div class="datenschutz-row">
+          <input type="checkbox" id="datenschutz" required>
+          <label for="datenschutz">
+            Ich stimme der Verarbeitung meiner Daten gemäß der
+            <a href="#" onclick="openModal('datenschutz-modal'); return false;">Datenschutzerklärung</a> zu.
+          </label>
+        </div>
+
+        <button type="submit" class="btn-nl-submit">
+          <i class="fa-solid fa-paper-plane"></i>
+          Workbook jetzt sichern
+        </button>
+      </form>
+
+      <!-- Trust row -->
+      <div class="trust-row">
+        <div class="trust-item"><i class="fa-solid fa-lock"></i> Verschlüsselt</div>
+        <div class="trust-item"><i class="fa-solid fa-ban"></i> Kein Spam</div>
+        <div class="trust-item"><i class="fa-solid fa-envelope-circle-check"></i> Per E-Mail</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="container-wide">
+    <div class="footer-grid">
+      <div>
+        <h4><i class="fa-solid fa-paw"></i> tierisch erfolgreich</h4>
+        <p>Andrea Nielbock</p>
+        <p>Mentorin für Tiergesundheit, Persönlichkeitsentwicklung<br>und ethischen Businessaufbau</p>
+        <a href="mailto:andrea@nielbock.de"><i class="fa-solid fa-envelope" style="margin-right:6px; color:var(--altrosa);"></i>andrea@nielbock.de</a>
+        <a href="tel:01708942976"><i class="fa-solid fa-phone" style="margin-right:6px; color:var(--altrosa);"></i>0170 8942976</a>
+      </div>
+      <div>
+        <h4><i class="fa-solid fa-location-dot"></i> Adresse</h4>
+        <p>37520 Osterode am Harz</p>
+      </div>
+      <div>
+        <h4><i class="fa-solid fa-scale-balanced"></i> Rechtliches</h4>
+        <a href="#" onclick="openModal('impressum-modal'); return false;">Impressum</a>
+        <a href="#" onclick="openModal('datenschutz-modal'); return false;">Datenschutzerklärung</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Andrea Nielbock &ndash; tierisch erfolgreich. Alle Rechte vorbehalten.</p>
+      <div class="footer-links">
+        <a href="#" onclick="openModal('impressum-modal'); return false;">Impressum</a>
+        <a href="#" onclick="openModal('datenschutz-modal'); return false;">Datenschutz</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ═══ MODAL: IMPRESSUM ═══ -->
+<div class="modal-overlay" id="impressum-modal" onclick="closeModalOnBg(event,'impressum-modal')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('impressum-modal')">&times;</button>
+    <h2><i class="fa-solid fa-scale-balanced" style="color:var(--altrosa); margin-right:10px;"></i>Impressum</h2>
+    <h3>Angaben gemäß § 5 TMG</h3>
+    <p><strong>Andrea Nielbock</strong><br>Mentorin für Tiergesundheit, Persönlichkeitsentwicklung und ethischen Businessaufbau<br>37520 Osterode am Harz</p>
+    <h3>Kontakt</h3>
+    <p>Telefon: 0170 8942976<br>E-Mail: <a href="mailto:andrea@nielbock.de" style="color:var(--gruen);">andrea@nielbock.de</a></p>
+    <h3>Vertretungsberechtigte</h3>
+    <p>Andrea Nielbock</p>
+    <h3>Inhaltlich Verantwortlicher gemäß § 55 Abs. 2 RStV</h3>
+    <p>Andrea Nielbock</p>
+    <h3>Haftungshinweis</h3>
+    <p>Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung für die Inhalte externer Links. Die Inhalte dienen ausschließlich allgemeinen Informationszwecken und ersetzen keine tierärztliche Beratung.</p>
+  </div>
+</div>
+
+
+<!-- ═══ MODAL: DATENSCHUTZ ═══ -->
+<div class="modal-overlay" id="datenschutz-modal" onclick="closeModalOnBg(event,'datenschutz-modal')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('datenschutz-modal')">&times;</button>
+    <h2><i class="fa-solid fa-lock" style="color:var(--altrosa); margin-right:10px;"></i>Datenschutzerklärung</h2>
+    <h3>1. Verantwortliche Stelle</h3>
+    <p>Andrea Nielbock, 37520 Osterode am Harz<br>E-Mail: andrea@nielbock.de</p>
+    <h3>2. Erhobene Daten</h3>
+    <p>Beim Eintragen für das Workbook erheben wir: Vor- und Nachname, E-Mail-Adresse sowie optional die Mobilnummer. Diese werden ausschließlich zur Zusendung des Workbooks und relevanter Informationen verwendet.</p>
+    <h3>3. Zweck der Datenverarbeitung</h3>
+    <p>Deine Daten dienen der Zusendung des kostenlosen Workbooks und Informationen zu artgerechter Hundeernährung. Eine Weitergabe an Dritte erfolgt nicht.</p>
+    <h3>4. Deine Rechte</h3>
+    <p>Du hast das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung. Du kannst dich jederzeit per E-Mail an andrea@nielbock.de abmelden.</p>
+    <h3>5. Widerruf</h3>
+    <p>Die Einwilligung zur Datenverarbeitung kann jederzeit ohne Angabe von Gründen widerrufen werden. Sende eine E-Mail an andrea@nielbock.de.</p>
+    <h3>6. Cookies</h3>
+    <p>Diese Website verwendet ausschließlich technisch notwendige Cookies. Kein Tracking, keine Analyse-Tools.</p>
+  </div>
+</div>
+
+
+<script>
+  /* ── Scroll nav shadow ── */
+  window.addEventListener('scroll', function() {
+    document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 30);
+  });
+
+  /* ── Hero image parallax + load ── */
+  var heroBg = document.getElementById('hero-bg');
+  heroBg.classList.add('loaded');
+
+  /* ── Intersection Observer (scroll reveal) ── */
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(function(el) {
+    observer.observe(el);
+  });
+
+  /* ── Modal ── */
+  function openModal(id) {
+    document.getElementById(id).classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(id) {
+    document.getElementById(id).classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function closeModalOnBg(e, id) {
+    if (e.target === document.getElementById(id)) closeModal(id);
+  }
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.modal-overlay.open').forEach(function(m) {
+        m.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    }
+  });
+
+  /* ── Newsletter-Formular ── */
+  function handleSubmit(e) {
+    e.preventDefault();
+    var btn = e.target.querySelector('button[type="submit"]');
+    btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Wird gesendet …';
+    btn.disabled = true;
+    setTimeout(function() { e.target.submit(); }, 900);
+  }
+</script>
+
+<!-- Brevo: Fehlermeldungen (werden von Bravos main.js benötigt, falls AJAX-Fallback aktiv) -->
+<script>
+  window.REQUIRED_CODE_ERROR_MESSAGE = 'Wähle bitte einen Ländervorwahl aus.';
+  window.LOCALE = 'de';
+  window.EMAIL_INVALID_MESSAGE = 'Die eingegebenen Informationen sind nicht gültig. Bitte überprüfe das Feldformat und versuche es erneut.';
+  window.REQUIRED_ERROR_MESSAGE = 'Dieses Feld darf nicht leer sein.';
+  window.GENERIC_INVALID_MESSAGE = 'Die eingegebenen Informationen sind nicht gültig. Bitte überprüfe das Feldformat und versuche es erneut.';
+  window.translation = {
+    common: {
+      selectedList: '{quantity} Liste ausgewählt',
+      selectedLists: '{quantity} Listen ausgewählt'
+    }
+  };
+  var AUTOHIDE = Boolean(0);
+</script>
+<script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
+
+</body>
+</html>

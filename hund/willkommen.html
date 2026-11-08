@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Herzlich willkommen! – tierisch erfolgreich</title>
+  <link rel="stylesheet" href="assets/css/ptsans.css">
+  <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+  <style>
+    @font-face { font-family:'Font Awesome 6 Free'; font-style:normal; font-weight:900; font-display:block;
+      src: url('assets/webfonts/fa-solid-900.woff2') format('woff2'),
+           url('assets/webfonts/fa-solid-900.ttf')   format('truetype'); }
+    @font-face { font-family:'Font Awesome 6 Free'; font-style:normal; font-weight:400; font-display:block;
+      src: url('assets/webfonts/fa-regular-400.woff2') format('woff2'),
+           url('assets/webfonts/fa-regular-400.ttf')   format('truetype'); }
+    @font-face { font-family:'Font Awesome 6 Brands'; font-style:normal; font-weight:400; font-display:block;
+      src: url('assets/webfonts/fa-brands-400.woff2') format('woff2'),
+           url('assets/webfonts/fa-brands-400.ttf')   format('truetype'); }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'PT Sans', sans-serif;
+      background: #F1F5F0;
+      color: #1E2E1E;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── Variablen ── */
+    :root {
+      --gruen:       #2C4A2C;
+      --gruen-mid:   #3a5e3a;
+      --altrosa:     #C4848C;
+      --gruen-hell:  #F1F5F0;
+      --text:        #1E2E1E;
+      --text-mid:    #3a4a3a;
+      --text-light:  #7a8a7a;
+    }
+
+    /* ── Nav ── */
+    nav {
+      background: #fff;
+      border-bottom: 1px solid #e8f0e8;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .nav-logo {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--gruen);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .nav-logo i { color: var(--altrosa); }
+
+    /* ── Konfetti-Banner ── */
+    .confetti-banner {
+      background: linear-gradient(135deg, var(--gruen), #3d6b3d);
+      color: #fff;
+      text-align: center;
+      padding: 14px 24px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+    .confetti-banner span { opacity: 0.85; font-weight: 400; }
+
+    /* ── Main ── */
+    main {
+      flex: 1;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 48px 20px 64px;
+    }
+
+    .wrapper {
+      max-width: 600px;
+      width: 100%;
+    }
+
+    /* ── Hero Card ── */
+    .hero-card {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(44,74,44,0.12);
+      padding: 56px 48px 44px;
+      text-align: center;
+      margin-bottom: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-card::after {
+      content: '\f1b0';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      position: absolute;
+      bottom: -30px; left: -20px;
+      font-size: 180px;
+      color: rgba(44,74,44,0.04);
+      pointer-events: none;
+      transform: rotate(-20deg);
+    }
+
+    /* Paw burst */
+    .paw-burst {
+      position: relative;
+      width: 110px;
+      height: 110px;
+      margin: 0 auto 28px;
+    }
+    .paw-burst-bg {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #e8f4e8, #d0e8d0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: popIn 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+    }
+    .paw-burst-bg i {
+      font-size: 52px;
+      color: var(--gruen);
+      animation: floatPaw 3s ease-in-out 1s infinite;
+    }
+    .paw-ring {
+      position: absolute;
+      inset: -8px;
+      border-radius: 50%;
+      border: 3px solid rgba(44,74,44,0.15);
+      animation: ringPulse 2.5s ease-out 0.5s infinite;
+    }
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(0.5); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+    @keyframes floatPaw {
+      0%,100% { transform: translateY(0) rotate(0deg); }
+      50%     { transform: translateY(-6px) rotate(8deg); }
+    }
+    @keyframes ringPulse {
+      0%   { transform: scale(1);    opacity: 0.6; }
+      100% { transform: scale(1.35); opacity: 0; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: none; }
+    }
+
+    .welcome-badge {
+      display: inline-block;
+      background: #FFF0F2;
+      color: var(--altrosa);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 20px;
+      margin-bottom: 18px;
+      animation: fadeIn 0.5s 0.3s both;
+    }
+
+    h1 {
+      font-size: 34px;
+      font-weight: 700;
+      color: var(--gruen);
+      margin-bottom: 14px;
+      line-height: 1.25;
+      animation: fadeIn 0.5s 0.4s both;
+    }
+    .sub {
+      font-size: 16px;
+      color: var(--text-mid);
+      line-height: 1.7;
+      max-width: 420px;
+      margin: 0 auto 36px;
+      animation: fadeIn 0.5s 0.5s both;
+    }
+
+    /* ── CTA Block ── */
+    .cta-block {
+      background: var(--gruen-hell);
+      border: 2px dashed #b8ceb8;
+      border-radius: 14px;
+      padding: 28px 24px;
+      margin-bottom: 28px;
+      animation: fadeIn 0.5s 0.6s both;
+    }
+    .cta-block .cta-icon {
+      font-size: 40px;
+      color: var(--altrosa);
+      margin-bottom: 12px;
+      display: block;
+      animation: wiggle 4s ease-in-out 2s infinite;
+    }
+    @keyframes wiggle {
+      0%,80%,100% { transform: rotate(0deg); }
+      83%  { transform: rotate(-14deg); }
+      87%  { transform: rotate(12deg); }
+      91%  { transform: rotate(-8deg); }
+    }
+    .cta-block h2 {
+      font-size: 22px;
+      color: var(--gruen);
+      margin-bottom: 8px;
+    }
+    .cta-block p {
+      font-size: 15px;
+      color: var(--text-mid);
+      line-height: 1.6;
+      margin-bottom: 22px;
+    }
+
+    .btn-primary-large {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: linear-gradient(135deg, var(--gruen), #3d6b3d);
+      color: #fff;
+      font-family: 'PT Sans', sans-serif;
+      font-size: 17px;
+      font-weight: 700;
+      padding: 17px 36px;
+      border-radius: 10px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 6px 20px rgba(44,74,44,0.25);
+      width: 100%;
+    }
+    .btn-primary-large:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 28px rgba(44,74,44,0.35);
+    }
+
+    /* ── Was dich erwartet ── */
+    .next-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 32px 36px;
+      box-shadow: 0 8px 30px rgba(44,74,44,0.08);
+      animation: fadeIn 0.5s 0.7s both;
+    }
+    .next-card h3 {
+      font-size: 17px;
+      color: var(--gruen);
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .next-card h3 i { color: var(--altrosa); }
+
+    .benefit-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .benefit-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 1.5;
+    }
+    .benefit-list li i {
+      color: var(--altrosa);
+      margin-top: 2px;
+      flex-shrink: 0;
+      font-size: 15px;
+    }
+
+    /* ── Divider ── */
+    .divider {
+      width: 50px;
+      height: 3px;
+      background: var(--altrosa);
+      border-radius: 2px;
+      margin: 0 auto 28px;
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: #1A2A1A;
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      font-size: 12px;
+      padding: 18px 24px;
+    }
+    footer a { color: rgba(255,255,255,0.5); text-decoration: none; }
+    footer a:hover { color: var(--altrosa); }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .hero-card { padding: 40px 24px 36px; }
+      .next-card { padding: 28px 22px; }
+      h1 { font-size: 26px; }
+      .btn-primary-large { font-size: 15px; padding: 15px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Nav ── -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <i class="fa-solid fa-paw"></i> tierisch erfolgreich
+  </a>
+</nav>
+
+<!-- ── Konfetti-Banner ── -->
+<div class="confetti-banner">
+  🎉 &nbsp; Deine E-Mail wurde bestätigt – herzlichen Glückwunsch!
+  <span>&nbsp; Gleich geht's los 🐾</span>
+</div>
+
+<!-- ── Main ── -->
+<main>
+  <div class="wrapper">
+
+    <!-- Hero Card -->
+    <div class="hero-card">
+
+      <div class="paw-burst">
+        <div class="paw-burst-bg">
+          <i class="fa-solid fa-paw"></i>
+        </div>
+        <div class="paw-ring"></div>
+      </div>
+
+      <div class="welcome-badge"></div>
+
+      <h1>Lad dir gleich dein Workbook runter</h1>
+      <div class="divider"></div>
+      <p class="sub">
+        Das ist dein erster Schritt zur artgerechten Ernährung deiner Fellnase 💚
+      </p>
+
+      <!-- CTA -->
+      <div class="cta-block">
+        <i class="fa-solid fa-envelope-open-text cta-icon"></i>
+        <h2>Schau in deine Mails</h2>
+        <p>
+          Ich habe dir das Workbook <strong>„Artgerechte Ernährung für deinen Hund"</strong>
+          gerade per E-Mail zugeschickt. Lade es dir jetzt runter und leg gleich los!
+        </p>
+      </div>
+
+    </div>
+
+
+  </div>
+</main>
+
+<!-- ── Footer ── -->
+<footer>
+  © 2025 Andrea Nielbock &nbsp;·&nbsp;
+  Mentorin für Tiergesundheit, Persönlichkeitsentwicklung und ethischen Businessaufbau
+  &nbsp;·&nbsp;
+  <a href="index.html">Zurück zur Seite</a>
+</footer>
+
+</body>
+</html>

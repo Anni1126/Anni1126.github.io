@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fast geschafft! – tierisch erfolgreich</title>
+  <link rel="stylesheet" href="assets/css/ptsans.css">
+  <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+  <style>
+    @font-face { font-family:'Font Awesome 6 Free'; font-style:normal; font-weight:900; font-display:block;
+      src: url('assets/webfonts/fa-solid-900.woff2') format('woff2'),
+           url('assets/webfonts/fa-solid-900.ttf')   format('truetype'); }
+    @font-face { font-family:'Font Awesome 6 Free'; font-style:normal; font-weight:400; font-display:block;
+      src: url('assets/webfonts/fa-regular-400.woff2') format('woff2'),
+           url('assets/webfonts/fa-regular-400.ttf')   format('truetype'); }
+    @font-face { font-family:'Font Awesome 6 Brands'; font-style:normal; font-weight:400; font-display:block;
+      src: url('assets/webfonts/fa-brands-400.woff2') format('woff2'),
+           url('assets/webfonts/fa-brands-400.ttf')   format('truetype'); }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'PT Sans', sans-serif;
+      background: #F1F5F0;
+      color: #1E2E1E;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── Variablen ── */
+    :root {
+      --gruen:       #2C4A2C;
+      --gruen-mid:   #3a5e3a;
+      --altrosa:     #C4848C;
+      --gruen-hell:  #F1F5F0;
+      --text:        #1E2E1E;
+      --text-mid:    #3a4a3a;
+      --text-light:  #7a8a7a;
+    }
+
+    /* ── Nav ── */
+    nav {
+      background: #fff;
+      border-bottom: 1px solid #e8f0e8;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .nav-logo {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--gruen);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .nav-logo i { color: var(--altrosa); }
+
+    /* ── Main ── */
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 20px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(44,74,44,0.12);
+      padding: 56px 48px;
+      max-width: 560px;
+      width: 100%;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .card::before {
+      content: '\f1b0';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      position: absolute;
+      top: -20px; right: -20px;
+      font-size: 160px;
+      color: rgba(44,74,44,0.04);
+      pointer-events: none;
+    }
+
+    /* Icon Animation */
+    .icon-wrap {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gruen-hell), #deeade);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 28px;
+      animation: popIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+    }
+    .icon-wrap i {
+      font-size: 46px;
+      color: var(--gruen);
+      animation: wiggle 3s ease-in-out 1s infinite;
+    }
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(0.5); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+    @keyframes wiggle {
+      0%,85%,100% { transform: rotate(0deg); }
+      88%  { transform: rotate(-12deg); }
+      92%  { transform: rotate(10deg); }
+      96%  { transform: rotate(-6deg); }
+    }
+
+    .badge {
+      display: inline-block;
+      background: #FFF3CD;
+      color: #7a5c00;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 20px;
+      margin-bottom: 18px;
+      animation: fadeIn 0.5s 0.3s both;
+    }
+
+    h1 {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--gruen);
+      margin-bottom: 12px;
+      animation: fadeIn 0.5s 0.4s both;
+    }
+    .sub {
+      font-size: 16px;
+      color: var(--text-mid);
+      line-height: 1.7;
+      margin-bottom: 36px;
+      animation: fadeIn 0.5s 0.5s both;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: none; }
+    }
+
+    /* ── Schritt-Liste ── */
+    .steps {
+      list-style: none;
+      margin-bottom: 36px;
+      text-align: left;
+      animation: fadeIn 0.5s 0.6s both;
+    }
+    .steps li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 14px 0;
+      border-bottom: 1px solid #F0F5F0;
+      font-size: 15px;
+      color: var(--text-mid);
+    }
+    .steps li:last-child { border-bottom: none; }
+    .step-num {
+      min-width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--gruen-hell);
+      border: 2px solid #c8d8c8;
+      color: var(--gruen);
+      font-weight: 700;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .steps li.highlight .step-num {
+      background: var(--gruen);
+      border-color: var(--gruen);
+      color: #fff;
+    }
+    .steps li.highlight {
+      color: var(--text);
+      font-weight: 700;
+    }
+    .step-text strong { color: var(--gruen); }
+    .step-text span { display: block; font-size: 13px; color: var(--text-light); margin-top: 2px; font-weight: 400; }
+
+    /* ── Spam Hinweis ── */
+    .spam-hint {
+      background: #FFFBF0;
+      border: 1px solid #F5E6C8;
+      border-radius: 10px;
+      padding: 14px 18px;
+      font-size: 13px;
+      color: #7a6040;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      text-align: left;
+      margin-bottom: 28px;
+      animation: fadeIn 0.5s 0.7s both;
+    }
+    .spam-hint i { color: #C4A020; margin-top: 2px; flex-shrink: 0; }
+
+    /* ── CTA ── */
+    .btn-back-home {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-light);
+      font-size: 14px;
+      text-decoration: none;
+      padding: 10px 18px;
+      border-radius: 8px;
+      border: 1px solid #D8E4D8;
+      transition: color 0.2s, border-color 0.2s, background 0.2s;
+      animation: fadeIn 0.5s 0.8s both;
+    }
+    .btn-back-home:hover { color: var(--gruen); border-color: var(--gruen); background: var(--gruen-hell); }
+
+    /* ── Footer ── */
+    footer {
+      background: #1A2A1A;
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      font-size: 12px;
+      padding: 18px 24px;
+    }
+    footer a { color: rgba(255,255,255,0.5); text-decoration: none; }
+    footer a:hover { color: var(--altrosa); }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .card { padding: 40px 24px; }
+      h1 { font-size: 26px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Nav ── -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <i class="fa-solid fa-paw"></i> tierisch erfolgreich
+  </a>
+</nav>
+
+<!-- ── Main ── -->
+<main>
+  <div class="card">
+
+    <div class="icon-wrap">
+      <i class="fa-solid fa-envelope-open-text"></i>
+    </div>
+
+    <div class="badge">⏳ Fast geschafft!</div>
+
+    <h1>Nur noch ein Schritt!</h1>
+    <p class="sub">
+      Ich habe dir gerade eine <strong>Bestätigungs-E-Mail</strong> geschickt.<br>
+      Bitte klicke auf den Link darin, damit ich dir das Workbook zusenden kann.
+    </p>
+
+    <ul class="steps">
+      <li>
+        <div class="step-num">1</div>
+        <div class="step-text">
+          Du hast dich eingetragen ✓
+          <span>Das haben wir schon!</span>
+        </div>
+      </li>
+      <li class="highlight">
+        <div class="step-num">2</div>
+        <div class="step-text">
+          <strong>Öffne jetzt dein E-Mail-Postfach</strong>
+          <span>Suche nach einer E-Mail von Andrea Nielbock / tierisch erfolgreich</span>
+        </div>
+      </li>
+      <li>
+        <div class="step-num">3</div>
+        <div class="step-text">
+          Klicke auf den Bestätigungslink
+          <span>Danach schicke ich dir das Workbook direkt zu</span>
+        </div>
+      </li>
+    </ul>
+
+    <div class="spam-hint">
+      <i class="fa-solid fa-triangle-exclamation"></i>
+      <div>
+        <strong>Keine E-Mail erhalten?</strong> Schau bitte auch in deinem
+        <strong>Spam-</strong> oder <strong>Werbeordner</strong> nach.
+        Füge andrea@nielbock.de zu deinen Kontakten hinzu, damit meine Mails
+        immer ankommen.
+      </div>
+    </div>
+
+    <a href="index.html" class="btn-back-home">
+      <i class="fa-solid fa-arrow-left"></i> Zurück zur Seite
+    </a>
+
+  </div>
+</main>
+
+<!-- ── Footer ── -->
+<footer>
+  © 2025 Andrea Nielbock &nbsp;·&nbsp;
+  Mentorin für Tiergesundheit, Persönlichkeitsentwicklung und ethischen Businessaufbau
+</footer>
+
+</body>
+</html>
