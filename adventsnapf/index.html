@@ -1,0 +1,395 @@
+<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex"></head><body>
+<title>Adventsnapf</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lora:ital,wght@0,400;0,600;1,400&family=Figtree:wght@400;600;700&display=swap">
+<style>
+/* Layout: ein großes, buntes Winterbild als Kalenderblatt; die 24 Türchen sind hineingeschnitten und klappen auf */
+:root{
+  color-scheme: dark;
+  --night:#0E1435; --night2:#1A2050; --snow:#F7F3EA; --ink:#1E2433; --muted:#B9C0E0;
+  --gold:#F4B942; --red:#D7263D; --green:#1B998B; --blue:#2E86AB; --pink:#E86A92; --violet:#7B5EA7;
+  --paper:#FFFBF4; --paperline:#E8DFD0; --paperink:#2A2622; --papermuted:#6E655C; --accent:#C8553D;
+  --font-display:'Great Vibes', 'Georgia', serif; --font-serif:'Lora', Georgia, serif; --pine:#13302A; --pine2:#1C4038; --cream:#FBF3E4;
+  --font-body:'Figtree', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{overflow-x:clip}body{background:var(--pine);color:var(--snow);font-family:var(--font-body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(circle at 50% -10%, #2E5A4C 0, transparent 55%),radial-gradient(circle at 100% 100%, #0B1F1B 0, transparent 50%)}
+.wrap{max-width:1000px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:26px 48px}
+header{display:grid;gap:12px;margin-bottom:22px;text-align:center;justify-items:center}
+.eyebrow{font-size:13px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);font-weight:700}
+h1{font-family:var(--font-display);font-weight:400;font-size:clamp(58px,13vw,104px);line-height:.95;margin:4px 0 0;text-wrap:balance;color:var(--cream);text-shadow:0 2px 12px rgba(0,0,0,.25)}
+h1 em{font-style:normal;color:var(--gold)}
+.sub{font-family:var(--font-serif);font-size:clamp(19px,3.6vw,26px);color:var(--cream);margin:0}
+.sub i{color:var(--gold)}
+.lead{margin:0;max-width:56ch;color:#C9D8CF;font-size:15px}
+.status{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center;justify-content:center;font-size:14px;color:var(--muted);width:100%;max-width:520px}
+.bar{flex:1 1 180px;height:8px;border-radius:4px;background:rgba(255,255,255,.12);overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--red),var(--gold),var(--green));transition:width .5s ease}
+.notice{font-size:14px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,.08);color:var(--snow)}
+
+.board{position:relative;border-radius:46% 46% 22px 22px / 90px 90px 22px 22px;padding:58px 14px 14px;background-color:var(--pine2);background-repeat:no-repeat;box-shadow:0 0 0 5px var(--cream),0 0 0 7px var(--gold),0 24px 60px rgba(0,0,0,.5)}
+.seal{position:absolute;z-index:3;right:-6px;bottom:-34px;width:150px;height:150px;border-radius:50%;background:var(--red);color:var(--cream);display:grid;place-content:center;text-align:center;gap:2px;box-shadow:0 0 0 4px var(--cream),0 0 0 6px var(--gold),0 10px 24px rgba(0,0,0,.4);transform:rotate(-10deg);pointer-events:none}
+.seal small{font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700}.seal b{font-family:var(--font-display);font-weight:400;font-size:34px;line-height:.9}.seal span{font-size:12px;font-weight:600;line-height:1.2}
+.info{margin-top:56px;background:var(--cream);color:var(--paperink);border-radius:20px;padding:20px 24px;display:grid;gap:14px}
+.info ul{list-style:none;margin:0;padding:0 0 14px;border-bottom:1px solid #E6D3AE;display:flex;flex-wrap:wrap;gap:8px 28px;justify-content:space-between;font-weight:600;font-size:15px}
+.info li::before{content:'';display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--green);margin-right:10px;vertical-align:middle}
+.info .row{display:flex;flex-wrap:wrap;gap:10px 20px;align-items:flex-end;justify-content:space-between}
+.info .k{font-size:13px;color:var(--papermuted)}.info a{font-family:var(--font-serif);font-size:clamp(19px,3.4vw,24px);color:var(--paperink);text-decoration:none;font-weight:600}
+.info .sig{font-family:var(--font-display);font-size:30px;line-height:1;color:var(--accent);text-align:right}.info .sig small{display:block;font-family:var(--font-body);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--papermuted);margin-top:4px}
+@media (max-width:700px){.seal{width:112px;height:112px;right:-2px;bottom:-30px}.seal b{font-size:24px}.seal small{font-size:9px}.seal span{font-size:10px}.board{padding-top:44px;border-radius:46% 46% 16px 16px / 60px 60px 16px 16px}.info ul{justify-content:flex-start}}
+.grid{position:relative;display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:minmax(104px,auto);gap:12px;}
+@media (max-width:700px){.board{padding:10px;border-radius:16px}.grid{grid-template-columns:repeat(4,1fr);grid-auto-rows:minmax(82px,auto);gap:8px}}
+.door{position:relative;border:0;padding:0;cursor:pointer;font:inherit;background:transparent;perspective:900px;border-radius:10px}
+.door.w2{grid-column:span 2}.door.h2{grid-row:span 2}
+.door:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.back{position:absolute;inset:0;border-radius:10px;overflow:hidden;background:#000}
+.back svg,.back img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 35%}
+.flap{position:absolute;inset:0;border-radius:10px;background-repeat:no-repeat;transform-origin:left center;transition:transform .8s cubic-bezier(.3,.7,.2,1),box-shadow .8s;
+  box-shadow:inset 0 0 0 2px rgba(251,243,228,.95),inset 0 0 0 3px rgba(244,185,66,.55),0 3px 10px rgba(0,0,0,.35);display:flex;align-items:flex-start;justify-content:flex-start;padding:8px;backface-visibility:hidden}
+.flap::before{content:none}
+.flap::after{content:none}
+.num{position:relative;z-index:1;font-family:var(--font-display);font-size:clamp(16px,2.8vw,24px);line-height:1;color:var(--pine);background:rgba(251,243,228,.94);min-width:1.8em;height:1.8em;padding:0 .3em;border-radius:999px;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 2px var(--gold),0 3px 8px rgba(0,0,0,.3)}
+.flap.pic::after{opacity:0}.flap.pic{align-items:flex-start;justify-content:flex-start;padding:8px}.door .flap.pic .num{font-size:clamp(16px,2.6vw,22px)}
+.door.h2 .num{font-size:clamp(18px,3.4vw,28px)}
+.door:hover .flap{transform:rotateY(-12deg)}
+.door.locked:hover .flap{transform:rotateY(-4deg)}
+.door.open .flap{transform:rotateY(-104deg);box-shadow:inset 0 0 0 2px rgba(255,255,255,.4),-6px 4px 14px rgba(0,0,0,.35)}
+.door.today .flap{animation:glow 2.2s ease-in-out infinite}
+@keyframes glow{0%,100%{box-shadow:inset 0 0 0 2px rgba(255,255,255,.55),0 0 0 3px var(--gold),0 0 18px var(--gold)}50%{box-shadow:inset 0 0 0 2px rgba(255,255,255,.55),0 0 0 3px var(--gold),0 0 4px var(--gold)}}
+.tag{position:absolute;left:6px;bottom:6px;right:6px;width:max-content;max-width:calc(100% - 12px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;z-index:1;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:rgba(255,251,244,.94);color:var(--paperink);padding:3px 8px;border-radius:999px;opacity:0;transition:opacity .4s .4s}
+.door.open .tag{opacity:1}
+.chk{position:absolute;right:6px;top:6px;z-index:1;width:24px;height:24px;border-radius:50%;background:var(--green);color:#fff;font-size:14px;font-weight:700;display:none;align-items:center;justify-content:center;box-shadow:0 0 0 2px #fff}
+.door.done .chk{display:flex}
+
+.legend{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 10px;margin-top:30px;font-size:13px;color:var(--muted)}
+.legend span{background:rgba(251,243,228,.08);padding:4px 10px;border-radius:999px}
+footer{margin-top:24px;padding-top:0;font-size:12px;color:#9DB3A8;display:grid;gap:6px;text-align:center}
+footer a{color:var(--gold)}
+
+.sheet{position:fixed;inset:0;z-index:20;display:flex;align-items:flex-end;justify-content:center;background:rgba(5,8,25,.6);padding:16px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-bottom:calc(16px + env(safe-area-inset-bottom,0px));padding-top:calc(16px + env(safe-area-inset-top,0px))}
+@media (min-width:701px){.sheet{align-items:center}}
+.card{color-scheme:light;background:var(--paper);color:var(--paperink);width:100%;max-width:560px;max-height:100%;overflow:auto;border-radius:18px;padding:26px 24px 22px;box-shadow:0 20px 60px rgba(0,0,0,.45);animation:rise .4s ease}
+@keyframes rise{from{transform:translateY(20px) scale(.97);opacity:.3}to{transform:none;opacity:1}}
+.card .top{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.chip{font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--accent)}
+.close{border:0;background:transparent;color:var(--papermuted);font:inherit;font-size:14px;cursor:pointer;padding:6px 8px;border-radius:8px}
+.close:focus-visible{outline:2px solid var(--accent)}
+.card h2{font-family:var(--font-display);font-weight:400;font-size:32px;line-height:1.15;margin:10px 0 4px;text-wrap:balance;color:var(--paperink)}
+.meta{font-size:13px;color:var(--papermuted);margin-bottom:14px}
+.card p{margin:0 0 12px;max-width:62ch}
+.task{margin-top:16px;padding:14px 16px;border-radius:12px;background:#F3ECDF;border:1px solid var(--paperline);display:grid;gap:10px}
+.task .lbl{font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--papermuted)}
+.task label{display:flex;gap:10px;align-items:flex-start;cursor:pointer}
+.task input{width:20px;height:20px;accent-color:var(--green);margin-top:2px;flex:none}
+.gift{margin-top:16px;padding:16px;border-radius:12px;background:var(--red);color:#fff}
+.gift a{color:#fff;font-weight:700}
+.art{position:relative;margin:-26px -24px 18px;aspect-ratio:2/1;border-radius:18px 18px 0 0;overflow:hidden;background:#222}
+.art svg,.art img,.art video{display:block;width:100%;height:100%;object-fit:cover}
+.art img{object-position:center 35%}
+.art video{background:#000}
+.ov{position:absolute;inset:auto 0 0 0;padding:14px;display:flex;justify-content:center}
+.play{appearance:none;border:0;cursor:pointer;font:inherit;font-weight:700;font-size:16px;text-decoration:none;background:rgba(255,255,255,.95);color:#1d2b27;padding:12px 22px;border-radius:999px;box-shadow:0 6px 20px rgba(0,0,0,.25)}
+.play:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.ov audio{width:100%;max-width:420px}
+.ph{background:rgba(255,255,255,.9);color:#1d2b27;font-size:13px;padding:6px 12px;border-radius:999px}
+.qrbox{background:#fff;color:#1d2b27;border-radius:12px;padding:10px;display:flex;align-items:center;gap:12px;font-size:13px;font-weight:600;max-width:100%}
+.qrbox #qr img,.qrbox #qr canvas{width:110px!important;height:110px!important}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(20px + env(safe-area-inset-bottom,0px));background:var(--paper);color:var(--paperink);padding:10px 16px;border-radius:10px;font-size:14px;z-index:30;max-width:calc(100% - 32px);box-shadow:0 8px 24px rgba(0,0,0,.4)}
+@media (max-width:700px){.tk{display:none}}
+@media (max-width:480px){.art{margin:-26px -18px 16px}.card{padding:26px 18px 20px}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Adventskalender 2026</div>
+    <h1>Adventsnapf</h1>
+    <p class="sub">24 Türchen für <i>dich</i> und deinen Hund</p>
+    <p class="lead">Rund um gesunde Hundeernährung: Grundlagen, Rezeptideen und die typischen Gefahren der Weihnachtszeit. Mit einer kleinen Aufgabe für jeden Tag.</p>
+    <div class="status"><span id="count">0 von 24 Aufgaben erledigt</span><div class="bar" aria-hidden="true"><i id="fill"></i></div></div>
+    <div class="notice" id="notice" hidden></div>
+  </header>
+
+  <div class="board" id="board">
+    <main class="grid" id="grid" aria-label="24 Türchen"></main>
+    <div class="seal" aria-hidden="true"><small>Am 24.</small><b>Geschenk</b><span>Gratis<br>Futter-Check</span></div>
+  </div>
+
+  <section class="info" aria-label="Über den Kalender">
+    <ul><li>1. bis 24. Dezember</li><li>Jeden Tag eine kleine Aufgabe</li><li>Wissen, Rezepte &amp; Achtung-Tipps</li></ul>
+    <div class="row"><div><div class="k">Ernährungsberatung für deinen Hund:</div><a href="https://andrea.nielbock.de/" target="_blank" rel="noopener">Andrea Nielbock</a></div></div>
+  </section>
+
+  <div class="legend" id="legend"></div>
+
+  <footer>
+    <div>Die Inhalte sind allgemeine Informationen und ersetzen keine tierärztliche Untersuchung oder individuelle Futterberatung. Bei Verdacht auf eine Vergiftung sofort den Tierarzt anrufen. Dein Fortschritt wird nur in deinem Browser gespeichert.</div>
+  </footer>
+</div>
+
+<div class="sheet" id="sheet" hidden role="dialog" aria-modal="true" aria-labelledby="ttl">
+  <div class="card" id="card"></div>
+</div>
+<div class="toast" id="toast" hidden></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+const DATA = [{"kind": "basis", "title": "Frisches Wasser zuerst", "meta": "Grundlagen · Trinken", "text": ["Im Winter trinken viele Hunde weniger, weil sie draußen weniger warm werden. Dabei ist Heizungsluft trocken.", "Als grober Richtwert gelten etwa 40 bis 70 ml Wasser pro Kilo Körpergewicht am Tag. Wer Nassfutter bekommt, nimmt einen Teil davon schon über das Futter auf."], "task": "Wasche den Napf heute gründlich und stell einen zweiten an einen anderen Ort.", "media": {"type": "image", "src": "img/hund-01.jpg"}}, {"kind": "basis", "title": "Das Etikett lesen", "meta": "Grundlagen · Futterqualität", "text": ["Die Zusammensetzung steht immer nach Gewichtsanteil sortiert: was zuerst genannt ist, ist am meisten drin.", "Unter „Analytische Bestandteile“ findest du Rohprotein, Rohfett, Rohasche und Rohfaser. Das sagt etwas über die Nährstoffverteilung, aber noch nichts über die Qualität der Zutaten."], "task": "Nimm die Futterpackung deines Hundes und schau, was an erster Stelle steht.", "media": {"type": "image", "src": "img/labrador-02.jpg"}}, {"kind": "basis", "title": "Die 10-Prozent-Regel", "meta": "Grundlagen · Leckerli", "text": ["Leckerli, Kauartikel und Reste zählen mit. Als Faustregel sollten sie nicht mehr als etwa 10 Prozent der täglichen Energie ausmachen.", "Gerade in der Adventszeit kommen schnell Extras von Besuch und Familie zusammen. Was als Snack dazukommt, darf bei der Hauptmahlzeit weg."], "task": "Leg heute eine Tagesportion Leckerli abgezählt in eine Dose.", "media": {"type": "image", "src": "img/chihuahua-03.jpg"}}, {"kind": "basis", "title": "Rippen-Check", "meta": "Grundlagen · Figur", "text": ["Streich mit flachen Händen über den Brustkorb. Bei idealer Figur fühlst du die Rippen leicht, ohne drücken zu müssen, siehst sie aber nicht deutlich.", "Von oben betrachtet ist eine Taille hinter den Rippen erkennbar. Musst du suchen, ist es eher zu viel. Stehen sie deutlich hervor, eher zu wenig."], "task": "Mach heute den Rippen-Check und notiere dein Ergebnis.", "media": {"type": "image", "src": "img/hund-04.jpg"}}, {"kind": "vorsicht", "title": "Schokolade bleibt tabu", "meta": "Achtung · giftig", "text": ["Schokolade enthält Theobromin, das Hunde nur sehr langsam abbauen. Je dunkler die Schokolade, desto mehr steckt drin.", "Anzeichen einer Vergiftung sind zum Beispiel Unruhe, Erbrechen, Durchfall, Zittern und Herzrasen. Im Verdachtsfall sofort den Tierarzt anrufen, nicht abwarten."], "task": "Räum Adventskalender und Schokolade heute außer Reichweite deines Hundes.", "media": {"type": "image", "src": "img/hund-05.jpg"}}, {"kind": "rezept", "title": "Nikolaus-Kekse für Hunde", "meta": "Nikolaus · Rezept · 30 Minuten", "text": ["Vermische 150 g zarte Haferflocken, 100 g ungewürztes Kürbispüree und 1 Ei zu einem Teig. Ist er zu klebrig, gib noch etwas Haferflocken dazu.", "Kleine Kugeln formen, flach drücken und bei 160 °C Umluft etwa 20 bis 25 Minuten backen. Gut auskühlen lassen, im Kühlschrank ein paar Tage haltbar. Kein Zucker, kein Salz, keine Gewürze."], "task": "Back heute die Kekse oder schreib dir die Zutaten auf die Einkaufsliste.", "media": {"type": "image", "src": "img/golden-06.jpg"}, "gift": "<strong>Nikolaus-Überraschung für dich:</strong> Mein Workbook „Dein Hund ist kein Mülleimer – Artgerechte Ernährung“ bekommst du kostenlos.<br><br><a href=\"https://andrea.nielbock.de/hund/\" target=\"_blank\" rel=\"noopener\">Workbook holen</a><br><br><strong>Und nur heute:</strong> Wenn du dir heute deinen Beratungstermin buchst und es zu einer Bestellung kommt, bekommst du ein Nikolaus-Geschenk dazu.<br><br><a href=\"https://www.supersaas.de/schedule/andrea_nielbock/Buch_dir_deinen_Termin\" target=\"_blank\" rel=\"noopener\">Beratungstermin buchen</a>"}, {"kind": "vorsicht", "title": "Birkenzucker ist gefährlich", "meta": "Achtung · giftig", "text": ["Xylit, auch Birkenzucker oder E 967, ist für Hunde schon in kleinen Mengen hochgefährlich. Es kann den Blutzucker stark absinken lassen und die Leber schädigen.", "Es steckt in zuckerfreiem Kaugummi, Bonbons und vielen „zuckerfreien“ Backwaren. Das Weihnachtsgebäck für Diät-Gäste gehört also besonders gut verschlossen."], "task": "Prüf heute deine Vorräte auf Xylit und Birkenzucker.", "media": {"type": "image", "src": "img/beagle-07.jpg"}}, {"kind": "beschaeftigung", "title": "Futter darf Arbeit sein", "meta": "Beschäftigung · Schnüffeln", "text": ["Bei kaltem Wetter sind die Runden oft kürzer. Lass einen Teil der Tagesration erschnüffeln, zum Beispiel in einem Schnüffelteppich oder einem zerknüllten Handtuch.", "Suchen und Schnüffeln lasten geistig aus und machen zufrieden, ganz ohne zusätzliche Kalorien."], "task": "Versteck heute einen Teil des Futters und lass deinen Hund suchen.", "media": {"type": "image", "src": "img/aussie-08.jpg"}}, {"kind": "vorsicht", "title": "Rosinen und Trauben", "meta": "Achtung · giftig", "text": ["Weintrauben und Rosinen können bei Hunden zu Nierenversagen führen. Wie viel gefährlich ist, ist sehr unterschiedlich, deshalb gilt: gar nicht.", "Im Advent stecken Rosinen im Stollen, Früchtebrot und Müsli. Auch Macadamianüsse gehören nicht in den Hund."], "task": "Sag heute allen im Haushalt Bescheid: kein Stollen für den Hund.", "media": {"type": "image", "src": "img/bully-09.jpg"}}, {"kind": "vorsicht", "title": "Zwiebeln in der Soße", "meta": "Achtung · giftig", "text": ["Zwiebeln, Knoblauch und Lauch enthalten Stoffe, die die roten Blutkörperchen schädigen. Gekocht, gebraten oder als Pulver, die Wirkung bleibt.", "Deshalb sind Bratensoße und gewürzte Reste vom Festessen keine gute Idee, auch wenn der Hund noch so schön guckt."], "task": "Überleg dir heute, was du Gästen sagst, die dem Hund etwas vom Tisch geben wollen."}, {"kind": "vorsicht", "title": "Keine gekochten Knochen", "meta": "Achtung · Verletzungsgefahr", "text": ["Gegarte Knochen, vor allem von Geflügel, werden spröde und können splittern. Das kann Maul, Speiseröhre und Darm verletzen.", "Die Knochen vom Gänse- oder Entenbraten kommen also direkt in einen verschlossenen Mülleimer."], "task": "Stell heute sicher, dass dein Mülleimer hundesicher verschlossen ist."}, {"kind": "vorsicht", "title": "Fett macht Bauchweh", "meta": "Achtung · Verdauung", "text": ["Bratenhaut, Fettränder und Sahnesoße sind für Hunde schwer verdaulich. Große Fettmengen auf einmal können Durchfall und Erbrechen auslösen und eine Bauchspeicheldrüsenentzündung begünstigen.", "Wenn es ein Festtagshappen sein soll, dann ein kleines Stück mageres, ungewürztes Fleisch."], "task": "Leg dir heute einen „Hundeteller“ mit erlaubten Kleinigkeiten zurecht.", "media": {"type": "image", "src": "img/hund-12.jpg"}}, {"kind": "basis", "title": "Futterwechsel mit Geduld", "meta": "Grundlagen · Umstellung", "text": ["Ein neues Futter sollte schrittweise eingeführt werden, meist über 7 bis 10 Tage. Anfangs etwa ein Viertel neues Futter, dann die Hälfte, dann drei Viertel.", "So kann sich die Darmflora anpassen. Wer abrupt wechselt, riskiert weichen Kot und Blähungen."], "task": "Wenn du eine Umstellung planst, schreib dir heute einen 10-Tage-Plan."}, {"kind": "rezept", "title": "Gemüse, das passt", "meta": "Rezeptidee · Beilagen", "text": ["Karotte, Kürbis, Zucchini und Pastinake sind gut verträglich. Gedünstet und püriert kann der Hund sie besser verwerten als in groben Stücken.", "Eine Karotte roh zum Kauen ist trotzdem ein schöner, kalorienarmer Snack."], "task": "Dünste heute etwas Gemüse und biete einen Löffel davon an.", "media": {"type": "image", "src": "img/dalmatiner-14.jpg"}}, {"kind": "beschaeftigung", "title": "Drei Tage Protokoll", "meta": "Aufgabe · Überblick", "text": ["Schreib drei Tage lang alles auf, was dein Hund frisst: Hauptmahlzeiten, Leckerli, Kauartikel, Reste. Mit Menge und Uhrzeit.", "Die meisten sind überrascht, wie viel da zusammenkommt. Das Protokoll ist auch die beste Grundlage für eine Futterberatung."], "task": "Starte heute dein Fütterungsprotokoll.", "media": {"type": "image", "src": "img/hund-15.jpg"}}, {"kind": "basis", "title": "Der Blick in den Kotbeutel", "meta": "Grundlagen · Verdauung", "text": ["Kot verrät viel über die Verdauung. Ideal ist er geformt, fest und lässt sich gut aufnehmen. Dauerhaft weich, sehr viel oder schleimig ist ein Hinweis, genauer hinzuschauen.", "Einzelne Ausreißer nach einem aufregenden Tag sind normal. Hält eine Veränderung an, lohnt der Weg zum Tierarzt."], "task": "Achte heute bewusst auf Form und Menge.", "media": {"type": "image", "src": "img/jackrussell-16.jpg"}}, {"kind": "basis", "title": "Gute Fette", "meta": "Grundlagen · Omega-3", "text": ["Omega-3-Fettsäuren aus Fisch- oder Algenöl unterstützen Haut und Fell, was in der trockenen Heizungszeit oft auffällt.", "Wie viel sinnvoll ist, hängt vom Futter und vom Hund ab. Öl einfach „nach Gefühl“ dazuzugeben bringt oft zu viel Energie. Lass dich bei der Dosierung beraten."], "task": "Schau heute, ob in eurem Futter schon Fischöl oder Algenöl enthalten ist."}, {"kind": "beschaeftigung", "title": "Pfoten nach dem Spaziergang", "meta": "Winterpflege · Streusalz", "text": ["Streusalz reizt die Ballen und wird beim Ablecken mit aufgenommen. Das kann den Magen reizen.", "Spül die Pfoten nach dem Spaziergang mit lauwarmem Wasser ab und trockne sie gut, auch zwischen den Zehen."], "task": "Stell heute ein Handtuch und eine Schüssel an die Haustür.", "media": {"type": "image", "src": "img/hund-18.jpg"}}, {"kind": "basis", "title": "Weniger Bewegung, weniger Futter", "meta": "Grundlagen · Energiebedarf", "text": ["Viele Hunde bewegen sich im Winter weniger. Bekommen sie dabei die gleiche Menge, wird es schnell enger am Halsband.", "Wieg deinen Hund jetzt und Anfang Januar. Geht das Gewicht hoch, reduziere die Ration in kleinen Schritten."], "task": "Wieg deinen Hund heute und notiere das Gewicht."}, {"kind": "basis", "title": "Nicht direkt aus dem Kühlschrank", "meta": "Grundlagen · Verträglichkeit", "text": ["Kühlschrankkaltes Futter wird von manchen Hunden schlechter vertragen und riecht weniger, was mäkelige Esser abschreckt.", "Nimm angebrochenes Nassfutter rechtzeitig heraus, damit es Zimmertemperatur hat."], "task": "Stell die nächste Portion heute 30 Minuten vorher raus."}, {"kind": "vorsicht", "title": "Gewürze im Gebäck", "meta": "Achtung · Weihnachtsgewürze", "text": ["Muskatnuss kann für Hunde giftig sein. Sie steckt in Lebkuchen, Spekulatius und manchen Soßen.", "Dazu kommen Zucker, Fett und oft Rosinen oder Schokolade. Weihnachtsgebäck bleibt deshalb komplett beim Menschen."], "task": "Stell die Plätzchendose heute an einen Platz, den dein Hund nicht erreicht.", "media": {"type": "image", "src": "img/hund-21.jpg"}}, {"kind": "beschaeftigung", "title": "Notfallnummer griffbereit", "meta": "Vorsorge · Feiertage", "text": ["An den Feiertagen hat die Tierarztpraxis meist geschlossen. Gut, wenn du dann nicht erst suchen musst.", "Speichere die Nummer des tierärztlichen Notdienstes in deiner Region und die nächstgelegene Tierklinik im Handy. Schreib sie auch auf einen Zettel am Kühlschrank."], "task": "Speichere heute die Notdienstnummer in deinem Handy."}, {"kind": "rezept", "title": "Ein Festtagsnapf", "meta": "Rezeptidee · für Heiligabend", "text": ["Ein kleiner Festtagsnapf: gekochtes, ungewürztes Putenfleisch, eine gekochte Kartoffel und gedünstete Karotte, alles klein geschnitten.", "Kleine Portion, und die Menge von der normalen Tagesration abziehen. Hunde mit empfindlichem Magen oder einer Spezialdiät bleiben lieber bei ihrem gewohnten Futter."], "task": "Kauf heute die Zutaten für den Festtagsnapf ein.", "media": {"type": "image", "src": "img/berner-23.jpg"}}, {"kind": "geschenk", "title": "Dein Weihnachtsgeschenk", "meta": "Heiligabend · für dich und deinen Hund", "text": ["24 Tage lang hast du genauer hingeschaut: auf Etiketten, Leckerli, Gewicht und Gefahren in der Adventszeit. Dein Hund profitiert davon.", "Nimm dir heute dein Protokoll vom 15. Dezember und deinen Rippen-Check vom 4. Dezember noch einmal vor. Das ist der beste Start für das neue Jahr."], "task": "Leg heute deine Notizen aus dem Kalender gesammelt an einen Ort.", "gift": "<strong>Mein Geschenk für dich:</strong> Mit dem Stichwort <strong>ADVENTSNAPF</strong> bekommst du im Januar einen kostenlosen Futter-Check: Du schickst mir dein Fütterungsprotokoll, ich schaue drauf und gebe dir eine erste Einschätzung.<br><br><a href=\"https://andrea.nielbock.de/#kontakt\" target=\"_blank\" rel=\"noopener\">Kontakt aufnehmen</a>", "media": {"type": "image", "src": "img/hund-24.jpg"}}];
+const KINDS = {"basis": {"label": "Grundlagen"}, "vorsicht": {"label": "Achtung"}, "rezept": {"label": "Rezept"}, "beschaeftigung": {"label": "Alltag"}, "geschenk": {"label": "Geschenk"}};
+const SCENE = 'napf';
+const ORDER = [13,7,21,2,18,10,5,24,16,1,9,22,4,15,11,19,6,23,3,12,20,8,17,14];
+const MAPS = {
+ 6:[[13,7,21,21,2,18],[13,10,5,24,24,18],[16,1,4,24,24,22],[15,1,9,9,11,22],[19,6,6,23,3,3],[12,20,8,17,14,14]],
+ 4:[[13,7,21,21],[13,2,10,18],[5,24,24,18],[16,24,24,1],[4,15,22,1],[9,9,22,11],[19,6,6,23],[3,3,12,20],[8,17,14,14]]
+};
+const mq = window.matchMedia('(max-width:700px)');
+function spans(){ const map=MAPS[mq.matches?4:6], o={}; map.forEach((row,r)=>row.forEach((d,c)=>{ const x=o[d]||(o[d]={r0:r,r1:r,c0:c,c1:c}); x.r0=Math.min(x.r0,r);x.r1=Math.max(x.r1,r);x.c0=Math.min(x.c0,c);x.c1=Math.max(x.c1,c); })); return o; }
+const TINTS = ['#D7263D','#1B998B','#F4B942','#2E86AB','#E86A92','#7B5EA7'];
+const KEY = 'adventsnapf-v1';
+const preview = false;
+
+// ---- Farbige Bilder je Türchen (gezeichnet, keine externen Dateien) ----
+const PALS = [
+  ['#2E6F95','#5FB49C','#F2C14E','#F78154','#FDF6E3'],
+  ['#4B3F72','#9B5DE5','#F15BB5','#FEE440','#FFF3E6'],
+  ['#1B4D3E','#3FA796','#F5C26B','#E86A5C','#F4F1DE'],
+  ['#264653','#2A9D8F','#E9C46A','#F4A261','#FAF3E0'],
+  ['#3A2E5C','#6C8EBF','#F6AE2D','#F26419','#F5EFE6'],
+  ['#5B2A3C','#C8553D','#F28F3B','#FFD5C2','#FFF8F0']
+];
+function rng(seed){ let s=seed*9301+49297; return ()=>{ s=(s*9301+49297)%233280; return s/233280; }; }
+function art(day, kind){
+  if(typeof SCENE!=='undefined' && SCENE==='napf') return dogArt(day,kind);
+  const R=rng(day*7+3), P=PALS[(day+Math.floor(day/6))%PALS.length], W=600, H=300;
+  const c=i=>P[i%P.length];
+  let s='<defs><linearGradient id="g'+day+'" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="'+c(0)+'"/><stop offset="1" stop-color="'+c(1)+'"/></linearGradient></defs><rect width="'+W+'" height="'+H+'" fill="url(#g'+day+')"/>';
+  const cx=150+R()*300, cy=90+R()*120;
+  if(kind==='atem'){ for(let i=6;i>0;i--) s+='<circle cx="'+cx+'" cy="'+cy+'" r="'+(i*42)+'" fill="'+c(i+1)+'" opacity="'+(0.14+0.1*(6-i))+'"/>'; s+='<circle cx="'+cx+'" cy="'+cy+'" r="22" fill="'+c(4)+'"/>'; }
+  else if(kind==='klang'){ for(let i=0;i<6;i++){ const y=60+i*38, a=18+R()*26, f=0.012+R()*0.012; let d='M0 '+y; for(let x=0;x<=W;x+=12) d+=' L'+x+' '+(y+Math.sin(x*f+i)*a).toFixed(1); s+='<path d="'+d+'" fill="none" stroke="'+c(i+2)+'" stroke-width="'+(5+i)+'" stroke-linecap="round" opacity=".85"/>'; } }
+  else if(kind==='qigong'){ s+='<circle cx="'+cx+'" cy="'+(cy-20)+'" r="46" fill="'+c(2)+'"/>'; for(let i=0;i<4;i++){ const base=150+i*38; let d='M0 '+H+' L0 '+base; for(let x=0;x<=W;x+=40) d+=' L'+x+' '+(base-Math.abs(Math.sin(x*0.008+i*1.7+R()))*60).toFixed(1); d+=' L'+W+' '+H+' Z'; s+='<path d="'+d+'" fill="'+c(i+3)+'" opacity="'+(0.55+i*0.12)+'"/>'; } }
+  else if(kind==='pmr'){ for(let i=0;i<9;i++){ const x=40+R()*520,y=30+R()*240,r=24+R()*70; s+='<rect x="'+(x-r)+'" y="'+(y-r)+'" width="'+(2*r)+'" height="'+(2*r)+'" rx="'+(r*0.45)+'" fill="'+c(i+2)+'" opacity=".7" transform="rotate('+(R()*40-20).toFixed(0)+' '+x+' '+y+')"/>'; } }
+  else if(kind==='at'){ for(let i=0;i<18;i++){ const a=i/18*Math.PI*2; s+='<line x1="'+cx+'" y1="'+cy+'" x2="'+(cx+Math.cos(a)*400)+'" y2="'+(cy+Math.sin(a)*400)+'" stroke="'+c(i%2?2:3)+'" stroke-width="14" opacity=".35"/>'; } s+='<circle cx="'+cx+'" cy="'+cy+'" r="70" fill="'+c(3)+'"/><circle cx="'+cx+'" cy="'+cy+'" r="44" fill="'+c(2)+'"/>'; }
+  else if(kind==='alltag'||kind==='beschaeftigung'){ for(let i=0;i<40;i++) s+='<circle cx="'+(R()*W)+'" cy="'+(R()*H)+'" r="'+(2+R()*6)+'" fill="'+c(4)+'" opacity="'+(0.4+R()*0.6)+'"/>'; s+='<circle cx="'+cx+'" cy="'+cy+'" r="54" fill="'+c(2)+'"/><circle cx="'+(cx+22)+'" cy="'+(cy-14)+'" r="48" fill="'+c(0)+'"/>'; }
+  else if(kind==='geschenk'){ s+='<rect x="0" y="'+(H/2-22)+'" width="'+W+'" height="44" fill="'+c(3)+'"/><rect x="'+(W/2-22)+'" y="0" width="44" height="'+H+'" fill="'+c(3)+'"/>'; s+='<ellipse cx="'+(W/2-50)+'" cy="'+(H/2-40)+'" rx="56" ry="30" fill="'+c(2)+'" transform="rotate(-25 '+(W/2-50)+' '+(H/2-40)+')"/><ellipse cx="'+(W/2+50)+'" cy="'+(H/2-40)+'" rx="56" ry="30" fill="'+c(2)+'" transform="rotate(25 '+(W/2+50)+' '+(H/2-40)+')"/>'; for(let i=0;i<24;i++) s+='<circle cx="'+(R()*W)+'" cy="'+(R()*H)+'" r="'+(2+R()*4)+'" fill="'+c(4)+'"/>'; }
+  else if(kind==='rezept'){ for(let i=0;i<10;i++){ const x=R()*W,y=R()*H,r=26+R()*34; s+='<circle cx="'+x+'" cy="'+y+'" r="'+r+'" fill="'+c(2+i%3)+'"/>'; for(let k=0;k<4;k++) s+='<circle cx="'+(x+(R()-.5)*r)+'" cy="'+(y+(R()-.5)*r)+'" r="4" fill="'+c(0)+'" opacity=".6"/>'; } }
+  else { // basis, vorsicht: Pfotenabdrücke
+    for(let i=0;i<7;i++){ const x=40+i*80, y=80+(i%2)*100+R()*30, col=c(kind==='vorsicht'?3:2+i%3);
+      s+='<g transform="translate('+x+' '+y+') rotate('+(20+R()*30).toFixed(0)+')" fill="'+col+'"><ellipse cx="0" cy="18" rx="22" ry="18"/><circle cx="-22" cy="-8" r="8"/><circle cx="-8" cy="-20" r="8"/><circle cx="8" cy="-20" r="8"/><circle cx="22" cy="-8" r="8"/></g>'; }
+    if(kind==='vorsicht') s+='<circle cx="'+(W-80)+'" cy="70" r="44" fill="'+c(4)+'"/><rect x="'+(W-86)+'" y="44" width="12" height="34" rx="4" fill="'+c(3)+'"/><circle cx="'+(W-80)+'" cy="92" r="7" fill="'+c(3)+'"/>';
+  }
+  return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 '+W+' '+H+'" preserveAspectRatio="xMidYMid slice">'+s+'</svg>';
+}
+function artURL(d,k){ return 'url("data:image/svg+xml,'+encodeURIComponent(art(d,k))+'")'; }
+
+// ---- Hundekalender: weihnachtlich geschmückte Hunde verschiedener Rassen ----
+const BREEDS = [
+  {n:'Golden Retriever', fur:'#E2A75A', dark:'#C08436', light:'#F6D9A6', ear:'flop'},
+  {n:'Dalmatiner', fur:'#FBFAF7', dark:'#E4E0D8', light:'#FFFFFF', ear:'flop', spots:'#26211F'},
+  {n:'Husky', fur:'#7D8798', dark:'#5D6576', light:'#FFFFFF', ear:'point', mask:true},
+  {n:'Dackel', fur:'#9A5228', dark:'#6E3618', light:'#C27A48', ear:'long'},
+  {n:'Mops', fur:'#E9CB9C', dark:'#C9A270', light:'#F3DDB8', ear:'small', black:true},
+  {n:'Border Collie', fur:'#2A2626', dark:'#151313', light:'#FFFFFF', ear:'semi', blaze:true},
+  {n:'Beagle', fur:'#B8682B', dark:'#3B2A22', light:'#FFFFFF', ear:'long', blaze:true},
+  {n:'Schäferhund', fur:'#B97E3E', dark:'#2B211B', light:'#D9A66A', ear:'point', black:true},
+  {n:'Pudel', fur:'#F1EBE3', dark:'#D9CFC2', light:'#FFFFFF', ear:'curl'},
+  {n:'Labrador', fur:'#3A2A22', dark:'#241812', light:'#4D3A2F', ear:'flop'},
+  {n:'Corgi', fur:'#D9822B', dark:'#A85E18', light:'#FFFFFF', ear:'point', blaze:true},
+  {n:'Berner Sennenhund', fur:'#1F1B1A', dark:'#121010', light:'#FFFFFF', ear:'flop', blaze:true, tan:'#B4652B'}
+];
+const DECOS = ['hat','bow','scarf','antlers'];
+const BGS = [['#C2263A','#7E1630'],['#1B8A6B','#0E5444'],['#2E6FB0','#1A3F73'],['#7B4FB0','#4A2A78'],['#E0892B','#A24D16'],['#C24F7E','#7E2550']];
+function dogArt(day, kind){
+  const B=BREEDS[(day*7)%BREEDS.length], deco=DECOS[(day+(day>12?1:0))%4], bg=BGS[(day*5+(day>12?2:0))%BGS.length], R=rng(day*13+1);
+  const W=600,H=300,cx=300,cy=160;
+  let s='<defs><radialGradient id="dg'+day+'" cx=".5" cy=".45" r=".75"><stop offset="0" stop-color="'+bg[0]+'"/><stop offset="1" stop-color="'+bg[1]+'"/></radialGradient></defs>';
+  s+='<rect width="'+W+'" height="'+H+'" fill="url(#dg'+day+')"/>';
+  for(let i=0;i<46;i++) s+='<circle cx="'+(R()*W).toFixed(0)+'" cy="'+(R()*H).toFixed(0)+'" r="'+(1.5+R()*3.5).toFixed(1)+'" fill="#fff" opacity="'+(0.35+R()*0.5).toFixed(2)+'"/>';
+  // Lichterkette
+  for(let i=0;i<13;i++){ const x=i*50, y=18+Math.sin(i*1.3)*6; s+='<circle cx="'+x+'" cy="'+y.toFixed(0)+'" r="6" fill="'+['#F4B942','#3DDC97','#5BC0EB','#F7A1C4'][i%4]+'"/>'; }
+  // Körper
+  s+='<path d="M'+(cx-95)+' '+H+' Q'+(cx-90)+' '+(cy+70)+' '+cx+' '+(cy+62)+' Q'+(cx+90)+' '+(cy+70)+' '+(cx+95)+' '+H+'z" fill="'+B.fur+'"/>';
+  if(B.blaze||B.mask) s+='<path d="M'+(cx-38)+' '+H+' Q'+cx+' '+(cy+50)+' '+(cx+38)+' '+H+'z" fill="'+B.light+'"/>';
+  // Ohren hinten
+  const ear=B.ear, ec=B.dark;
+  if(ear==='flop') s+='<ellipse cx="'+(cx-78)+'" cy="'+(cy+8)+'" rx="28" ry="56" fill="'+ec+'" transform="rotate(18 '+(cx-78)+' '+(cy+8)+')"/><ellipse cx="'+(cx+78)+'" cy="'+(cy+8)+'" rx="28" ry="56" fill="'+ec+'" transform="rotate(-18 '+(cx+78)+' '+(cy+8)+')"/>';
+  if(ear==='long') s+='<ellipse cx="'+(cx-80)+'" cy="'+(cy+30)+'" rx="30" ry="72" fill="'+ec+'" transform="rotate(10 '+(cx-80)+' '+(cy+30)+')"/><ellipse cx="'+(cx+80)+'" cy="'+(cy+30)+'" rx="30" ry="72" fill="'+ec+'" transform="rotate(-10 '+(cx+80)+' '+(cy+30)+')"/>';
+  if(ear==='curl') { for(let i=0;i<6;i++){ s+='<circle cx="'+(cx-84+(i%2)*10)+'" cy="'+(cy-10+i*16)+'" r="20" fill="'+ec+'"/><circle cx="'+(cx+84-(i%2)*10)+'" cy="'+(cy-10+i*16)+'" r="20" fill="'+ec+'"/>'; } }
+  // Kopf
+  s+='<ellipse cx="'+cx+'" cy="'+cy+'" rx="80" ry="72" fill="'+B.fur+'"/>';
+  if(ear==='curl') s+='<circle cx="'+cx+'" cy="'+(cy-66)+'" r="30" fill="'+B.fur+'"/><circle cx="'+(cx-24)+'" cy="'+(cy-58)+'" r="22" fill="'+B.fur+'"/><circle cx="'+(cx+24)+'" cy="'+(cy-58)+'" r="22" fill="'+B.fur+'"/>';
+  if(B.tan) s+='<circle cx="'+(cx-32)+'" cy="'+(cy-24)+'" r="9" fill="'+B.tan+'"/><circle cx="'+(cx+32)+'" cy="'+(cy-24)+'" r="9" fill="'+B.tan+'"/><ellipse cx="'+cx+'" cy="'+(cy+38)+'" rx="56" ry="26" fill="'+B.tan+'"/>';
+  if(B.mask) s+='<path d="M'+(cx-60)+' '+(cy+10)+' Q'+(cx-50)+' '+(cy-40)+' '+(cx-14)+' '+(cy-30)+' L'+cx+' '+(cy-62)+' L'+(cx+14)+' '+(cy-30)+' Q'+(cx+50)+' '+(cy-40)+' '+(cx+60)+' '+(cy+10)+' Q'+cx+' '+(cy+80)+' '+(cx-60)+' '+(cy+10)+'z" fill="'+B.light+'"/>';
+  if(B.blaze) s+='<path d="M'+(cx-10)+' '+(cy-70)+' Q'+cx+' '+(cy-74)+' '+(cx+10)+' '+(cy-70)+' L'+(cx+18)+' '+(cy+5)+' L'+(cx-18)+' '+(cy+5)+'z" fill="'+B.light+'"/>';
+  if(B.spots){ for(let i=0;i<9;i++){ const a=R()*Math.PI*2, d=30+R()*40; s+='<circle cx="'+(cx+Math.cos(a)*d).toFixed(0)+'" cy="'+(cy+Math.sin(a)*d*0.8-10).toFixed(0)+'" r="'+(4+R()*6).toFixed(1)+'" fill="'+B.spots+'"/>'; } }
+  // Ohren vorn
+  if(ear==='point') s+='<path d="M'+(cx-70)+' '+(cy-30)+' L'+(cx-62)+' '+(cy-112)+' L'+(cx-22)+' '+(cy-62)+'z" fill="'+B.fur+'"/><path d="M'+(cx-60)+' '+(cy-46)+' L'+(cx-58)+' '+(cy-94)+' L'+(cx-34)+' '+(cy-62)+'z" fill="#F2A7A0"/><path d="M'+(cx+70)+' '+(cy-30)+' L'+(cx+62)+' '+(cy-112)+' L'+(cx+22)+' '+(cy-62)+'z" fill="'+B.fur+'"/><path d="M'+(cx+60)+' '+(cy-46)+' L'+(cx+58)+' '+(cy-94)+' L'+(cx+34)+' '+(cy-62)+'z" fill="#F2A7A0"/>';
+  if(ear==='semi') s+='<path d="M'+(cx-72)+' '+(cy-30)+' L'+(cx-66)+' '+(cy-96)+' L'+(cx-26)+' '+(cy-62)+'z" fill="'+B.fur+'"/><path d="M'+(cx-66)+' '+(cy-96)+' L'+(cx-44)+' '+(cy-72)+' L'+(cx-72)+' '+(cy-62)+'z" fill="'+B.light+'"/><path d="M'+(cx+72)+' '+(cy-30)+' L'+(cx+66)+' '+(cy-96)+' L'+(cx+26)+' '+(cy-62)+'z" fill="'+B.fur+'"/><path d="M'+(cx+66)+' '+(cy-96)+' L'+(cx+44)+' '+(cy-72)+' L'+(cx+72)+' '+(cy-62)+'z" fill="'+B.light+'"/>';
+  if(ear==='small') s+='<path d="M'+(cx-74)+' '+(cy-38)+' Q'+(cx-60)+' '+(cy-78)+' '+(cx-30)+' '+(cy-62)+' Q'+(cx-60)+' '+(cy-46)+' '+(cx-74)+' '+(cy-38)+'z" fill="#2B211C"/><path d="M'+(cx+74)+' '+(cy-38)+' Q'+(cx+60)+' '+(cy-78)+' '+(cx+30)+' '+(cy-62)+' Q'+(cx+60)+' '+(cy-46)+' '+(cx+74)+' '+(cy-38)+'z" fill="#2B211C"/>';
+  // Schnauze, Nase, Augen, Maul
+  const mz = B.black ? '#2B211C' : B.light;
+  s+='<ellipse cx="'+cx+'" cy="'+(cy+30)+'" rx="44" ry="32" fill="'+mz+'"/>';
+  s+='<ellipse cx="'+cx+'" cy="'+(cy+14)+'" rx="17" ry="12" fill="#1A1414"/><ellipse cx="'+(cx-5)+'" cy="'+(cy+10)+'" rx="5" ry="3" fill="#fff" opacity=".6"/>';
+  s+='<path d="M'+cx+' '+(cy+26)+' v8 M'+(cx-16)+' '+(cy+38)+' Q'+cx+' '+(cy+48)+' '+(cx+16)+' '+(cy+38)+'" stroke="#1A1414" stroke-width="4" fill="none" stroke-linecap="round"/>';
+  if(day%3===0) s+='<path d="M'+(cx-9)+' '+(cy+42)+' Q'+cx+' '+(cy+66)+' '+(cx+9)+' '+(cy+42)+'z" fill="#E86A7A"/>';
+  [-1,1].forEach(k=>{ const ex=cx+k*30, ey=cy-12; s+='<ellipse cx="'+ex+'" cy="'+ey+'" rx="10" ry="11" fill="#1A1414"/><circle cx="'+(ex+3)+'" cy="'+(ey-4)+'" r="3.5" fill="#fff"/>'; });
+  s+='<ellipse cx="'+(cx-52)+'" cy="'+(cy+16)+'" rx="12" ry="7" fill="#F28B9A" opacity=".45"/><ellipse cx="'+(cx+52)+'" cy="'+(cy+16)+'" rx="12" ry="7" fill="#F28B9A" opacity=".45"/>';
+  // Weihnachtsschmuck
+  if(deco==='hat'){ s+='<path d="M'+(cx-74)+' '+(cy-50)+' Q'+(cx-20)+' '+(cy-150)+' '+(cx+62)+' '+(cy-128)+' Q'+(cx+40)+' '+(cy-90)+' '+(cx+66)+' '+(cy-50)+'z" fill="#D7263D"/><rect x="'+(cx-84)+'" y="'+(cy-64)+'" width="160" height="26" rx="13" fill="#fff" transform="rotate(-4 '+cx+' '+(cy-50)+')"/><circle cx="'+(cx+66)+'" cy="'+(cy-128)+'" r="17" fill="#fff"/>'; }
+  if(deco==='bow'){ const bx=cx+62, by=cy-56; s+='<path d="M'+bx+' '+by+' L'+(bx-34)+' '+(by-24)+' L'+(bx-30)+' '+(by+22)+'z" fill="#D7263D"/><path d="M'+bx+' '+by+' L'+(bx+34)+' '+(by-24)+' L'+(bx+30)+' '+(by+22)+'z" fill="#D7263D"/><circle cx="'+bx+'" cy="'+by+'" r="10" fill="#A81C2E"/><circle cx="'+(bx-14)+'" cy="'+(by-4)+'" r="3" fill="#F4B942"/><circle cx="'+(bx+16)+'" cy="'+(by+2)+'" r="3" fill="#F4B942"/>'; }
+  if(deco==='scarf'){ s+='<path d="M'+(cx-82)+' '+(cy+62)+' Q'+cx+' '+(cy+92)+' '+(cx+82)+' '+(cy+62)+' L'+(cx+86)+' '+(cy+88)+' Q'+cx+' '+(cy+118)+' '+(cx-86)+' '+(cy+88)+'z" fill="#1B998B"/><rect x="'+(cx+34)+'" y="'+(cy+84)+'" width="30" height="64" rx="6" fill="#1B998B" transform="rotate(-10 '+(cx+49)+' '+(cy+84)+')"/>';
+    for(let i=-3;i<=3;i++) s+='<path d="M'+(cx+i*24)+' '+(cy+76+Math.abs(i)*-3)+' v24" stroke="#fff" stroke-width="7" opacity=".85"/>'; }
+  if(deco==='antlers'){ [-1,1].forEach(k=>{ const ax=cx+k*40, ay=cy-62; s+='<path d="M'+ax+' '+ay+' Q'+(ax+k*10)+' '+(ay-50)+' '+(ax+k*36)+' '+(ay-74)+' M'+(ax+k*6)+' '+(ay-30)+' Q'+(ax+k*30)+' '+(ay-34)+' '+(ax+k*42)+' '+(ay-50)+' M'+(ax+k*14)+' '+(ay-54)+' Q'+(ax-k*4)+' '+(ay-74)+' '+(ax-k*2)+' '+(ay-86)+'" stroke="#8A5A33" stroke-width="10" fill="none" stroke-linecap="round"/>'; });
+    s+='<circle cx="'+cx+'" cy="'+(cy+14)+'" r="15" fill="#E0263D"/><circle cx="'+(cx-5)+'" cy="'+(cy+9)+'" r="4" fill="#fff" opacity=".7"/>'; }
+  if(kind==='vorsicht') s+='<g transform="translate(520 220)"><path d="M0 -40 L38 28 L-38 28z" fill="#F4B942" stroke="#fff" stroke-width="5" stroke-linejoin="round"/><rect x="-4" y="-18" width="8" height="26" rx="3" fill="#2A1E1A"/><circle cx="0" cy="17" r="5" fill="#2A1E1A"/></g>';
+  s+='<text x="20" y="'+(H-18)+'" font-family="Figtree, system-ui, sans-serif" font-size="15" font-weight="700" fill="#fff" opacity=".9">'+B.n+'</text>';
+  return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 '+W+' '+H+'" preserveAspectRatio="xMidYMid slice">'+s+'</svg>';
+}
+
+
+// ---- Das große Winterbild (Kalenderblatt) ----
+function scene(W,H){
+  const R=rng(SCENE==='napf'?11:5); let s='';
+  const sky = SCENE==='napf' ? ['#0E3A52','#2A6F7F','#B3546B'] : ['#1D2470','#5A2D91','#C2508A'];
+  s+='<defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="'+sky[0]+'"/><stop offset=".55" stop-color="'+sky[1]+'"/><stop offset="1" stop-color="'+sky[2]+'"/></linearGradient>'+
+     '<filter id="bl" x="-30%" y="-100%" width="160%" height="300%"><feGaussianBlur stdDeviation="18"/></filter><radialGradient id="moon"><stop offset="0" stop-color="#FFF6D6"/><stop offset=".55" stop-color="#FFE9A8"/><stop offset="1" stop-color="#FFE9A8" stop-opacity="0"/></radialGradient></defs>';
+  s+='<rect width="'+W+'" height="'+H+'" fill="url(#sky)"/>';
+  // Polarlicht
+  [['#3DDC97',H*0.2],['#F7A1C4',H*0.3],['#5BC0EB',H*0.4]].forEach(([col,y],i)=>{ let d='M-40 '+y; for(let x=0;x<=W+40;x+=60) d+=' Q'+(x+30)+' '+(y-60+R()*120)+' '+(x+60)+' '+(y-20+R()*40); s+='<path d="'+d+'" stroke="'+col+'" stroke-width="70" fill="none" opacity=".33" filter="url(#bl)"/>'; });
+  for(let i=0;i<140;i++){ const r=R()*1.8+0.4; s+='<circle cx="'+(R()*W).toFixed(0)+'" cy="'+(R()*H*0.7).toFixed(0)+'" r="'+r.toFixed(1)+'" fill="#fff" opacity="'+(0.5+R()*0.5).toFixed(2)+'"/>'; }
+  s+='<circle cx="'+(W-110)+'" cy="'+(H*0.16)+'" r="120" fill="url(#moon)" opacity=".55"/><circle cx="'+(W-110)+'" cy="'+(H*0.16)+'" r="46" fill="#FFF3C4"/>';
+  for(let i=0;i<14;i++){ const x=R()*W,y=R()*H*0.6,r=5+R()*6; s+='<path d="M'+x+' '+(y-r)+' L'+(x+r*0.3)+' '+(y-r*0.3)+' L'+(x+r)+' '+y+' L'+(x+r*0.3)+' '+(y+r*0.3)+' L'+x+' '+(y+r)+' L'+(x-r*0.3)+' '+(y+r*0.3)+' L'+(x-r)+' '+y+' L'+(x-r*0.3)+' '+(y-r*0.3)+'z" fill="#FFE9A8"/>'; }
+  // Lichterkette oben
+  s+='<path d="M0 30 Q'+(W/4)+' 150 '+(W/2)+' 30 Q'+(W*3/4)+' 150 '+W+' 30" stroke="#2B3A2E" stroke-width="3" fill="none"/>';
+  for(let i=0;i<=24;i++){ const x=i*25*W/600, tt=(x%(W/2))/(W/2), y=30+2*tt*(1-tt)*120; s+='<circle cx="'+x+'" cy="'+(y+6).toFixed(0)+'" r="7" fill="'+TINTS[i%6]+'"/><circle cx="'+x+'" cy="'+(y+6).toFixed(0)+'" r="14" fill="'+TINTS[i%6]+'" opacity=".25"/>'; }
+  // Hügel mit Schnee
+  const hills=[[H*0.68,'#BFD0F2'],[H*0.77,'#DCE6F8'],[H*0.87,'#F7F9FD']];
+  hills.forEach(([y,col],i)=>{ let d='M0 '+H+' L0 '+y; for(let x=0;x<=W;x+=50) d+=' Q'+(x+25)+' '+(y-30-R()*40)+' '+(x+50)+' '+(y+R()*20-10); d+=' L'+W+' '+H+' Z'; s+='<path d="'+d+'" fill="'+col+'"/>';
+    for(let k=0;k<5-i;k++){ const tx=R()*W, ty=y-6, th=50+R()*70+i*15; s+=tree(tx,ty,th); } });
+  // Häuser oder Hundehütte
+  if(SCENE==='napf'){ const hx=W*0.6,hy=H*0.84; s+='<path d="M'+hx+' '+hy+' l60 -55 l60 55 v70 h-120z" fill="#C8553D"/><path d="M'+(hx-10)+' '+(hy+4)+' l70 -64 l70 64" stroke="#7A2E25" stroke-width="14" fill="none" stroke-linecap="round"/><path d="M'+(hx+38)+' '+(hy+70)+' v-34 a22 22 0 0 1 44 0 v34z" fill="#3A1D1A"/><path d="M'+(hx-10)+' '+(hy-2)+' l70 -64 l70 64" stroke="#fff" stroke-width="6" fill="none" stroke-linecap="round" opacity=".9"/>';
+    for(let i=0;i<9;i++){ const px=40+i*34, py=H*0.95-i*8+(i%2)*14; s+='<g fill="#9FB3D6" transform="translate('+px+' '+py+') scale(.45)"><ellipse cx="0" cy="18" rx="22" ry="18"/><circle cx="-22" cy="-8" r="8"/><circle cx="-8" cy="-20" r="8"/><circle cx="8" cy="-20" r="8"/><circle cx="22" cy="-8" r="8"/></g>'; } }
+  else { [[W*0.15,H*0.8,1],[W*0.33,H*0.83,.8],[W*0.72,H*0.81,.9]].forEach(([x,y,k])=>{ s+='<g transform="translate('+x+' '+y+') scale('+k+')"><rect x="-34" y="-40" width="68" height="50" fill="#5B2A3C"/><path d="M-44 -38 L0 -78 L44 -38z" fill="#2E2240"/><path d="M-46 -38 L0 -80 L46 -38" stroke="#fff" stroke-width="6" fill="none"/><rect x="-22" y="-28" width="16" height="16" fill="#FFD36E"/><rect x="6" y="-28" width="16" height="16" fill="#FFB347"/></g>'; }); }
+  // Schneeflocken
+  for(let i=0;i<90;i++) s+='<circle cx="'+(R()*W).toFixed(0)+'" cy="'+(R()*H).toFixed(0)+'" r="'+(1.5+R()*3).toFixed(1)+'" fill="#fff" opacity="'+(0.35+R()*0.5).toFixed(2)+'"/>';
+  return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 '+W+' '+H+'" preserveAspectRatio="xMidYMid slice">'+s+'</svg>';
+}
+function tree(x,y,h){ const w=h*0.55; let t='<g transform="translate('+x.toFixed(0)+' '+y.toFixed(0)+')">';
+  for(let i=0;i<3;i++){ const yy=-h*(0.35+i*0.28), ww=w*(1-i*0.25); t+='<path d="M'+(-ww/2)+' '+(yy+h*0.35)+' L0 '+(yy-h*0.12)+' L'+(ww/2)+' '+(yy+h*0.35)+'z" fill="#1F5C4A"/><path d="M'+(-ww/4)+' '+(yy+h*0.08)+' L0 '+(yy-h*0.12)+' L'+(ww/4)+' '+(yy+h*0.08)+'z" fill="#fff" opacity=".85"/>'; }
+  return t+'</g>'; }
+let SCENE_URL='';
+function coverBox(br){ const ar=mq.matches?800/1800:1536/1024; let w=br.width,h=br.width/ar; if(h<br.height){h=br.height;w=h*ar;} return {w:w,h:h,x:(br.width-w)/2,y:(br.height-h)/2}; }
+function makeScene(){ const r=board.getBoundingClientRect(); const W=600, H=Math.round(600*r.height/Math.max(r.width,1)); SCENE_URL=mq.matches?'url("img/front-hoch.jpg")':'url("img/front.jpg")'; board.style.backgroundImage=SCENE_URL; const c=coverBox(r); board.style.backgroundSize=c.w+'px '+c.h+'px'; board.style.backgroundPosition=c.x+'px '+c.y+'px'; }
+
+// ---- Aufnahmen: type "audio" oder "video" (Datei) oder "link" (z. B. YouTube) ----
+function mediaHTML(it){
+  const m=it.media;
+  if(!m) return preview ? '<span class="ph">Hier erscheint später deine Aufnahme</span>' : '';
+  const lbl = m.type==='audio' ? 'Anhören' : 'Video ansehen';
+  if(m.type==='qr') return '<div class="qrbox"><div id="qr"></div><span>'+(m.label||'Mit dem Handy scannen')+'</span></div>';
+  if(m.type==='image') return '';
+  if(m.type==='link') return '<a class="play" href="'+m.src+'" target="_blank" rel="noopener">▶ '+lbl+'</a>';
+  return '<button class="play" type="button" id="play">▶ '+lbl+'</button>';
+}
+
+
+let state = {open:{},done:{}};
+try{ const s = JSON.parse(localStorage.getItem(KEY)||'null'); if(s) state = Object.assign(state,s);}catch(e){}
+function save(){ try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){} }
+
+const now = new Date();
+function unlocked(d){
+  if(preview) return true;
+  const m = now.getMonth();
+  if(m===11) return now.getDate()>=d;
+  if(m===0 && now.getDate()<=6) return true;
+  return false;
+}
+function isToday(d){ return now.getMonth()===11 && now.getDate()===d; }
+
+const board=document.getElementById('board'), grid=document.getElementById('grid');
+function render(){
+  grid.innerHTML='';
+  const sp=spans();
+  ORDER.forEach((d,i)=>{
+    const it = DATA[d-1], ok = unlocked(d), op = state.open[d] && ok;
+    const b = document.createElement('button');
+    b.type='button'; b.dataset.d=d;
+    const q=sp[d], big=(q.r1>q.r0)||(q.c1>q.c0);
+    b.style.gridRow=(q.r0+1)+' / '+(q.r1+2); b.style.gridColumn=(q.c0+1)+' / '+(q.c1+2);
+    b.className='door '+(big?'h2':'')+(ok?'':' locked')+(op?' open':'')+(state.done[d]?' done':'')+(isToday(d)&&!op?' today':'');
+    b.style.setProperty('--tint', TINTS[(d*5)%6]);
+    b.setAttribute('aria-label', ok ? 'Türchen '+d+(op?': '+it.title:'') : 'Türchen '+d+', öffnet am '+d+'. Dezember');
+    const m=it.media, pic = (m && m.type==='image' && !it.cover) ? '<img src="'+m.src+'" alt="">' : art(d,it.kind);
+    b.innerHTML='<span class="back">'+(op?pic:'')+'</span><span class="tag">'+d+'<span class="tk"> · '+KINDS[it.kind].label+'</span></span><span class="chk">✓</span><span class="flap"><span class="num">'+d+'</span></span>';
+    b.addEventListener('click',()=>openDoor(d,b));
+    grid.appendChild(b);
+  });
+  makeScene(); placeFlaps();
+  const n = Object.keys(state.done).filter(k=>state.done[k]).length;
+  document.getElementById('count').textContent = n+' von 24 Aufgaben erledigt';
+  document.getElementById('fill').style.width = (n/24*100)+'%';
+}
+// Jede Klappe zeigt genau den Ausschnitt des großen Bildes, der darunter liegt
+function placeFlaps(){
+  const br=board.getBoundingClientRect();
+  grid.querySelectorAll('.door').forEach(b=>{ const r=b.getBoundingClientRect(), f=b.querySelector('.flap');
+    const c=coverBox(br); f.style.backgroundImage=SCENE_URL; f.style.backgroundSize=c.w+'px '+c.h+'px'; f.style.backgroundPosition=(br.left-r.left+c.x)+'px '+(br.top-r.top+c.y)+'px';
+    const cv=DATA[b.dataset.d-1].cover; if(cv){ f.style.backgroundImage='url("'+cv+'")'; f.style.backgroundSize='cover'; f.style.backgroundPosition='center 30%'; f.classList.add('pic'); } });
+}
+let rt; window.addEventListener('resize',()=>{clearTimeout(rt); rt=setTimeout(render,150);});
+
+function toast(t){ const el=document.getElementById('toast'); el.textContent=t; el.hidden=false; clearTimeout(toast.t); toast.t=setTimeout(()=>el.hidden=true,2400); }
+
+const sheet=document.getElementById('sheet'), card=document.getElementById('card');
+let lastFocus=null;
+function esc(s){return s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+function openDoor(d,btn){
+  if(!unlocked(d)){ toast('Geduld! Dieses Türchen öffnet sich am '+d+'. Dezember.'); return; }
+  const it = DATA[d-1], m = it.media;
+  const pic = m && m.type==='image' ? '<img src="'+m.src+'" alt="">' : art(d,it.kind);
+  const first = !state.open[d];
+  state.open[d]=true; save();
+  if(btn && first){ btn.querySelector('.back').innerHTML=pic; btn.classList.remove('today'); btn.classList.add('open'); }
+  lastFocus=btn||document.activeElement;
+  setTimeout(()=>showCard(d,it,m,pic), first?650:0);
+}
+function showCard(d,it,m,pic){
+  card.innerHTML =
+    '<div class="art" id="art">'+pic+'<div class="ov">'+mediaHTML(it)+'</div></div>'+
+    '<div class="top"><span class="chip">'+d+'. Dezember · '+KINDS[it.kind].label+'</span><button class="close" id="cls" type="button">Schließen ✕</button></div>'+
+    '<h2 id="ttl">'+esc(it.title)+'</h2>'+
+    '<div class="meta">'+esc(it.meta)+'</div>'+
+    it.text.map(p=>'<p>'+esc(p)+'</p>').join('')+
+    '<div class="task"><span class="lbl">Deine Aufgabe heute</span><label for="t'+d+'"><input type="checkbox" id="t'+d+'" '+(state.done[d]?'checked':'')+'><span>'+esc(it.task)+'</span></label></div>'+
+    (it.gift?'<div class="gift">'+it.gift+'</div>':'');
+  sheet.hidden=false;
+  document.getElementById('cls').addEventListener('click',closeSheet);
+  document.getElementById('t'+d).addEventListener('change',e=>{state.done[d]=e.target.checked; save(); const b=grid.querySelector('[data-d="'+d+'"]'); if(b) b.classList.toggle('done',e.target.checked); updateCount(); if(e.target.checked) toast('Abgehakt. Schön gemacht!');});
+  const pb=document.getElementById('play');
+  if(pb) pb.addEventListener('click',()=>{
+    const box=document.getElementById('art');
+    if(m.type==='video'){ box.innerHTML='<video src="'+m.src+'" controls autoplay playsinline></video>'; }
+    else { box.querySelector('.ov').innerHTML='<audio src="'+m.src+'" controls autoplay></audio>'; }
+  });
+  if(m && m.type==='qr' && window.QRCode){ try{ new QRCode(document.getElementById('qr'),{text:m.src,width:132,height:132,colorDark:'#1d2b27',colorLight:'#ffffff'}); }catch(e){} }
+  document.getElementById('cls').focus();
+}
+function updateCount(){ const n = Object.keys(state.done).filter(k=>state.done[k]).length; document.getElementById('count').textContent = n+' von 24 Aufgaben erledigt'; document.getElementById('fill').style.width = (n/24*100)+'%'; }
+function closeSheet(){ card.querySelectorAll('audio,video').forEach(x=>x.pause()); card.innerHTML=''; sheet.hidden=true; if(lastFocus) lastFocus.focus(); }
+sheet.addEventListener('click',e=>{ if(e.target===sheet) closeSheet(); });
+document.addEventListener('keydown',e=>{ if(e.key==='Escape' && !sheet.hidden) closeSheet(); });
+
+const notice=document.getElementById('notice');
+if(preview){ notice.textContent='Vorschau: Alle Türchen lassen sich öffnen.'; notice.hidden=false; }
+else if(now.getMonth()<11 && !(now.getMonth()===0 && now.getDate()<=6)){
+  const start=new Date(now.getFullYear(),11,1); const days=Math.round((start-new Date(now.getFullYear(),now.getMonth(),now.getDate()))/864e5);
+  notice.textContent='Noch '+days+' Tage bis zum ersten Türchen'; notice.hidden=false;
+}
+document.getElementById('legend').innerHTML = Object.keys(KINDS).map(k=>'<span>'+KINDS[k].label+' · '+DATA.filter(x=>x.kind===k).length+'</span>').join('');
+render();
+</script>
+
+</body></html>
