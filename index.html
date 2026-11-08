@@ -230,34 +230,23 @@ footer a{color:inherit;text-underline-offset:3px}
  .video-area .two{align-items:center}
  .video-frame{max-width:320px;margin:0}
 }
-/* ---------- Adventskalender-Hinweis (Saison) ---------- */
-section.advent{background:var(--dark);color:#fbf8f4;padding:0}
-.advent .wrap{display:flex;gap:18px;align-items:center;padding-top:22px;padding-bottom:22px}
-.advent svg{flex:0 0 92px;width:92px;height:auto}
-.advent .eyebrow{color:#e8c48a}
-.advent h2{margin:.25em 0 .3em;font-size:clamp(1.35rem,5vw,1.9rem);color:#fbf8f4}
-.advent p{margin:0 0 14px;font-size:.95rem;line-height:1.5;color:#e9e3da}
-.advent .btn{display:inline-flex;background:#e8c48a;color:#2b2b28;font-weight:700}
-@media(max-width:420px){.advent .wrap{flex-direction:column;align-items:flex-start}.advent svg{width:76px;flex-basis:auto}}
+/* ---------- Adventskalender-Sticker auf dem Startfoto (Saison) ---------- */
+.hero .photo{position:relative}
+.advent-sticker{position:absolute;bottom:12px;left:10px;width:116px;transform:rotate(-8deg);background:#fbf8f4;border:2px solid #e8c48a;box-shadow:0 6px 18px #0004;padding:10px 10px 12px;text-align:center;text-decoration:none;color:var(--dark);z-index:2;transition:transform .2s}
+.advent-sticker:hover{transform:rotate(-4deg) scale(1.04)}
+.advent-sticker svg{display:block;width:70px;margin:0 auto 4px}
+.advent-sticker b{display:block;font-size:.56rem;letter-spacing:.08em;text-transform:uppercase;color:var(--rose)}
+.advent-sticker span{display:block;font-family:Georgia,serif;font-size:.92rem;line-height:1.15;margin-top:3px}
+.advent-sticker i{display:block;font-style:normal;font-size:.7rem;font-weight:700;margin-top:6px;border-bottom:1px solid var(--rose);display:inline-block}
+@media(min-width:820px){.advent-sticker{width:160px;top:22px;bottom:auto;left:-26px}.advent-sticker b{font-size:.62rem;letter-spacing:.12em}.advent-sticker span{font-size:1.05rem}.hero .photo{overflow:visible}}
 </style></head><body>
-<header><div class="wrap nav"><a class="brand" href="#start"><img src="img/logo-herz.png" alt="" width="40" height="46"/><span>Andrea Nielbock<small>tierisch erfolgreich</small></span></a><nav aria-label="Hauptnavigation"><a href="#advent">Advent</a><a href="#ueber">Über Andrea</a><a href="#magazin">Magazin</a><a href="#angebote">Angebote</a><a href="#firmen">Für Firmen</a><a href="#kontakt">Kontakt</a></nav></div></header>
+<header><div class="wrap nav"><a class="brand" href="#start"><img src="img/logo-herz.png" alt="" width="40" height="46"/><span>Andrea Nielbock<small>tierisch erfolgreich</small></span></a><nav aria-label="Hauptnavigation"><a href="adventskalender/">Advent</a><a href="#ueber">Über Andrea</a><a href="#magazin">Magazin</a><a href="#angebote">Angebote</a><a href="#firmen">Für Firmen</a><a href="#kontakt">Kontakt</a></nav></div></header>
 
 <main id="start">
 
-<!-- ===== Adventskalender (Saison): verschwindet nach dem Datum in data-bis automatisch ===== -->
-<section class="advent" id="advent" data-bis="2026-12-31" aria-labelledby="advent-titel"><div class="wrap">
- <svg viewBox="0 0 100 80" aria-hidden="true"><ellipse cx="50" cy="66" rx="44" ry="11" fill="#3f6b4a"/><ellipse cx="50" cy="63" rx="38" ry="8" fill="#55865f"/><circle cx="22" cy="64" r="3" fill="#c0503f"/><circle cx="50" cy="71" r="3" fill="#c0503f"/><circle cx="78" cy="64" r="3" fill="#c0503f"/><rect x="18" y="34" width="9" height="28" rx="2" fill="#f3e6d0"/><rect x="36" y="30" width="9" height="34" rx="2" fill="#f3e6d0"/><rect x="55" y="30" width="9" height="34" rx="2" fill="#f3e6d0"/><rect x="73" y="34" width="9" height="28" rx="2" fill="#f3e6d0"/><path d="M22.5 22c-4 5-3 9 0 10 3-1 4-5 0-10zM40.5 18c-4 5-3 9 0 10 3-1 4-5 0-10zM59.5 18c-4 5-3 9 0 10 3-1 4-5 0-10zM77.5 22c-4 5-3 9 0 10 3-1 4-5 0-10z" fill="#ffcf6b"/></svg>
- <div>
-  <span class="eyebrow">Adventskalender · 1. bis 24. Dezember</span>
-  <h2 id="advent-titel">Durchatmen im Advent</h2>
-  <p>24 kleine Pausen für den Alltag: Jeden Tag öffnet sich ein Türchen mit einer kurzen Übung zur Entspannung. Zwei bis drei Minuten, ganz ohne Vorbereitung.</p>
-  <a class="btn" href="adventskalender/">Zum Adventskalender</a>
- </div>
-</div></section>
-
 <!-- ===== Start ===== -->
 <div class="hero">
- <figure class="photo"><img alt="Andrea Nielbock lächelnd am Wasser" src="img/andrea-portrait.jpg" fetchpriority="high"/></figure>
+ <figure class="photo"><img alt="Andrea Nielbock lächelnd am Wasser" src="img/andrea-portrait.jpg" fetchpriority="high"/><a class="advent-sticker" href="adventskalender/" data-bis="2026-12-31" aria-label="Zum Adventskalender Durchatmen im Advent"><svg viewBox="0 0 100 80" aria-hidden="true"><ellipse cx="50" cy="66" rx="44" ry="11" fill="#3f6b4a"/><ellipse cx="50" cy="63" rx="38" ry="8" fill="#55865f"/><circle cx="22" cy="64" r="3" fill="#c0503f"/><circle cx="50" cy="71" r="3" fill="#c0503f"/><circle cx="78" cy="64" r="3" fill="#c0503f"/><rect x="18" y="34" width="9" height="28" rx="2" fill="#efe0c6"/><rect x="36" y="30" width="9" height="34" rx="2" fill="#efe0c6"/><rect x="55" y="30" width="9" height="34" rx="2" fill="#efe0c6"/><rect x="73" y="34" width="9" height="28" rx="2" fill="#efe0c6"/><path d="M22.5 22c-4 5-3 9 0 10 3-1 4-5 0-10zM40.5 18c-4 5-3 9 0 10 3-1 4-5 0-10zM59.5 18c-4 5-3 9 0 10 3-1 4-5 0-10zM77.5 22c-4 5-3 9 0 10 3-1 4-5 0-10z" fill="#f2a93b"/></svg><b>Adventskalender</b><span>Durchatmen im Advent</span><i>Hier entlang →</i></a></figure>
  <div class="copy">
   <span class="eyebrow">Lebenswege · Begegnungen · neue Perspektiven</span>
   <h1>Das Leben darf sich nach dir anfühlen.</h1>

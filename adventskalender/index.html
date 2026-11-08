@@ -1,4 +1,5 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html><html><head>
+<meta name="robots" content="noindex"><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>Durchatmen im Advent</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -324,7 +325,6 @@ body { margin: 0; padding-left: var(--g-l); padding-right: var(--g-r); }
       <div class="controls">
         <span class="progress" id="progress"></span>
         <button class="btn check-cta" id="checkBtn">Wie gestresst bist du?</button>
-        <label class="switch" for="preview"><input type="checkbox" id="preview"> Vorschau: alle Türchen offen</label>
       </div>
     </div>
   </header>
@@ -380,7 +380,7 @@ body { margin: 0; padding-left: var(--g-l); padding-right: var(--g-r); }
         <button class="btn" id="nextCheck">Zum Abschluss-Check</button>
       </div>
       <div class="next-card hl">
-        <div class="days">Ab Mitte Januar · 8 Wochen</div>
+        <div class="days">Ab Februar 2027</div>
         <h3>Folgekurs „Durchatmen im Alltag“</h3>
         <p>Im Folgekurs vertiefen wir die Übungen aus dem Advent und machen daraus eine feste Routine, die auch im vollen Arbeitsalltag hält. Du bekommst die Infos per Mail, sobald die Anmeldung öffnet.</p>
       </div>
@@ -721,9 +721,8 @@ let done = new Set(store.get("adv-done", []));
 let now = new Date();
 const inDecember = now.getMonth() === 11;
 const todayNum = inDecember ? now.getDate() : 0;
-// vor Dezember standardmäßig Vorschau, damit der Entwurf vollständig sichtbar ist
-let preview = store.get("adv-preview", !inDecember);
-$("#preview").checked = preview;
+// Türchen öffnen sich nur am jeweiligen Tag (keine Vorschau für Besucher)
+let preview = false;
 
 const isOpen = d => preview || (inDecember && d <= todayNum);
 
@@ -782,7 +781,6 @@ $("#tDone").addEventListener("click", () => {
 $("#sClose").addEventListener("click", () => $("#sheet").close());
 $("#sheet").addEventListener("close", stopTimer);
 $("#sheet").addEventListener("click", e => { if (e.target === $("#sheet")) $("#sheet").close(); });
-$("#preview").addEventListener("change", e => { preview = e.target.checked; store.set("adv-preview", preview); render(); });
 
 // Timer mit Atemkreis: 4 s ein, 6 s aus
 let tick = null, left = 0, phaseT = 0;
@@ -968,7 +966,7 @@ function drawResult() {
     const yes = qAns.weiter === "Ja, erzähl mir mehr" || qAns.weiter === "Vielleicht";
     h = `<h2 id="qTitle">Dein Advent im Rückblick</h2>
       <div class="result"><p>${cmp}</p>
-      <p class="tip"><b>Wie es weitergeht</b>Ab Mitte Januar starte ich den Folgekurs „Durchatmen im Alltag“, in dem wir die Übungen vertiefen und zu einer festen Routine machen.${yes && qSent === "ok" ? " Ich schreibe dir rechtzeitig, wenn es losgeht." : ""}</p>
+      <p class="tip"><b>Wie es weitergeht</b>Ab Februar 2027 starte ich den Folgekurs „Durchatmen im Alltag“, in dem wir die Übungen vertiefen und zu einer festen Routine machen.${yes && qSent === "ok" ? " Ich schreibe dir rechtzeitig, wenn es losgeht." : ""}</p>
       <div class="btns"><button class="btn" id="qMore">Wie es weitergeht</button><button class="btn ghost" id="qEnd">Schließen</button></div></div>`;
   }
   h += `<p class="q-small">${sentNote}</p>`;
