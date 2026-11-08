@@ -1,153 +1,743 @@
-<!DOCTYPE HTML> <html class="no-js responsivelayout" lang="de"> <head> <script>
-		document.documentElement.className = document.documentElement.className.replace(/no-js/g, 'js');
-	</script> <title>Andrea Nielbock - Start</title> <meta http-equiv="content-type" content="text/html; charset=utf-8"> <meta name="description" content=""> <meta name="keywords" content="Nielbock mindfulness Achtsamkeit Qigong auszeit Klang Meditation Klangmassage NLP Coaching"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <meta name="generator" content="Zeta Producer 14.3.3.0, ZP14B, 04.09.2018 12:40:38"> <meta name="robots" content="index, follow"> <link rel="shortcut icon" type="image/x-icon" href="assets/unbenannt-1.gif"> <script>
-		// if after 1000ms we haven't got webfonts, show the user something, a FOUT is better than nothing
-		// http://kevindew.me/post/47052453532/a-fallback-for-when-google-web-font-loader-fails
-		setTimeout(function() {
-			// you can have the webfont.js cached but still have no classes fire and you will have a window.WebFontConfig object
-			if ( ! ("WebFont" in window)) {
-				// non wfl loader class name because their events could still fire
-				document.getElementsByTagName("html")[0].className += " wf-fail";
-			}
-		}, 1000);
-	
-		WebFontConfig = {
-			google: { families: [ 'Roboto:300,400,700' ] }
-		};
-		(function() {
-			var wf = document.createElement('script');
-			wf.src = "assets/js/webfont/1.5.18/webfont.js";
-			wf.type = 'text/javascript';
-			wf.async = 'true';
-			var s = document.getElementsByTagName('script')[0];
-			s.parentNode.insertBefore(wf, s);
-		})(); 
-	</script> <noscript> <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto:300,400,700"> </noscript> <link rel="stylesheet" type="text/css" href="assets/bundle.css?v=636921753586239797"> <link rel="stylesheet" type="text/css" href="assets/bundle-print.css?v=636831786603833613" media="print"> <style>
-#a2203.zpwButton p{text-align: left;}
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!DOCTYPE html>
+<html lang="de"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>Andrea Nielbock – tierisch erfolgreich</title><meta content="Andrea Nielbock: Klang und Stille, Lebensbalance, Ernährung für Hunde und selbstbestimmte Zusammenarbeit." name="description"/><meta name="theme-color" content="#f7f3ed"/><style>
+/* ================================================================
+   Andrea Nielbock · tierisch erfolgreich
+   Fassung 3 · mobile-first (Basis = Handy, ab 820px = Desktop)
 
-</style> <script type="text/javascript" src="assets/bundle.js?v=636921753586239797"></script> </head> <body id="locus-responsive" class="notouch"> <a id="top"></a> <div id="logo"><a href="index.html"><img src="assets/logo.png" width="67" height="50" alt="index.html"></a></div> <div id="wrapper" class="container"> <div id="header"> <div class="topline"> <div id="webdescription"> <div id="webtext"> <div id="webname"><a href="index.html">andrea nielbock</a></div> </div> <div class="clearx"></div> </div> </div> <div id="nav"> <ul data-trianglemode="true" class="submenu touchhovermenu clickhovermenu"> <li class="haschilds open active"> <a class="active" href="index.html">Startseite</a> <ul> <li> <a href="ueber-mich.html">Ueber mich</a> </li> </ul> </li> <li class="haschilds"> <a href="rauszeiten.html">Für DICH</a> <ul> <li> <a href="qigong.html">QiGong</a> </li> <li> <a href="autogenes-training.html">Autogenes Training</a> </li> <li> <a href="pmr-progressive-muskelentspannung.html">PMR Progressive Muskelentspannung</a> </li> <li> <a href="klang.html">Klang</a> </li> </ul> </li> <li> <a href="blog.html">Blog</a> </li> <li class="haschilds"> <a href="impressum.html">Impressum</a> <ul> <li> <a href="datenschutz.html">Datenschutz</a> </li> <li> <a href="agbs.html">AGBs</a> </li> </ul> </li> <li class="overflownonly"><a href="#" id="mobilenavtoggle" class="tabletonly toggle" aria-label="Menü ein-/ausblenden">&#9776; Menü</a></li> </ul> </div> </div> <div id="slider" class="noprint"> <a id="a1674"></a> <div id="headerslider" class="flexslider"> <div class="flex-container"> <ul class="slides"> <li> <img src="media/images/andrea_nielbock-rauszeiten-2023-a-large.jpg" alt=""> </li> </ul> </div> </div> <script>
-		$z(document).ready(function() {
-			var useCssAnimation = true;
-			if ( $z.browser.safari ){
-				useCssAnimation = false;
-			}
-			
-			function initSlider(){
-				$z('#headerslider .flex-container').flexslider({
-					useCSS: useCssAnimation,
-					touch: true,
-					keyboard: true,
-					itemMargin: 0,
-					animation: 'fade',
-					controlsContainer: '#headerslider.flexslider',
-					slideshow: false,
-					slideshowSpeed: 7000,
-					directionNav: true,
-					controlNav: false,
-					randomize: false,
-					
-					pauseOnHover: true,
-					smoothHeight: true,
-					prevText: "zur&#252;ck",
-					nextText: "weiter"
-				});
-			}
-			
-			if ( $z('#headerslider .flex-container ul.slides li img').length > 0 ){
-				// init flexslider after 1st image has loaded, so have dimensions as quickly as possible without having to wait too long on window loaded or such and can start right with doc ready
-				$z('#headerslider .flex-container ul.slides li img').first().one("load", initSlider).each(function() {
-					if(this.complete) $z(this).load();
-				}); // .each() is to work around a browser bugs which don't fire load() for cached images http://stackoverflow.com/a/3877079
-			}
-			else{
-				// also init flexslider if it doesn't contain images and is text only
-				initSlider();
-			}
-			
-			// activate links for individual slideshow
-			$z('#headerslider .flex-container ul.slides li[data-clickurl]').css("cursor","pointer");
-			$z('#headerslider .flex-container ul.slides li[data-clickurl]').click(function (event){
-				// Because this script captures clicks for a container, it will also fire when a regular link inside the container 
-				// is clicked. Therefore, we check below, if a regular link i.e. <a href="#"> was the target of the click.
-				// Depending on the browser used, event.target might not be available, but event.srcElement would…
-				var targ;
-				if (event.target){
-					targ = event.target;
-				}
-				else if (event.srcElement) {
-					targ = event.srcElement;
-				}
-				if (targ.nodeName == "A") {
-					// a regular link i.e. in a Caption was clicked. Return early, so the link's href doesn't get overridden
-					return;
-				}
-				
-				if ( $z(this).data("clicktarget") ){
-					window.open($z(this).data("clickurl"), $z(this).data("clicktarget"));
-				}
-				else{
-					window.location = $z(this).data("clickurl");
-				}
-				event.preventDefault;
-				return false;
-			});
-		});
-  	</script> </div> <div id="content" class="main style1 rounded"> <div class="zparea zpgrid" data-numcolumns="" data-areaname="Standard"> <div class="zpContainer "> <div class="zpRow standard "><div class="zpRowInner"> <div class="zpColumn odd zpColumnWidth1 c12" style=" "> <div class="zpColumnItem"> <div id="a2197" data-articleid="2197" class="articlearea zpwText"> <h2 style="color: #7F20DF; ">Veranstaltungen 2026:</h2> </div> </div> </div> </div></div> <div class="zpRow standard "><div class="zpRowInner"> <div class="zpColumn odd zpColumnWidth1 c12" style=" "> <div class="clearx"></div> <div class="zpColumnItem"> <div id="a2181" data-articleid="2181" class="articlearea zpwTrennlinie zpSO-separator"> <hr class="zpSO-separator" style="display:block;border:none;height:1px;line-height:1px;color:#D0D0D0;background-color:#D0D0D0;margin-top:20px;margin-bottom:20px;"> </div> </div> </div> </div></div> <div class="zpRow standard "><div class="zpRowInner"> <div class="zpColumn odd zpColumnWidth1 c12" style=" "> <div class="zpColumnItem"> <div id="a2198" data-articleid="2198" class="articlearea zpwText"> <h2 style="color: #FF00FF; ">Klangabende in der Einhornhöhle</h2> <p><strong>&gt; Seite </strong><a href="klang.html"><strong>Klang</strong></a></p> </div> </div> </div> </div></div> <div class="zpRow standard "><div class="zpRowInner"> <div class="zpColumn odd zpColumnWidth1 c12" style=" "> <div class="clearx"></div> <div class="zpColumnItem"> <div id="a2199" data-articleid="2199" class="articlearea zpwTrennlinie zpSO-separator"> <hr class="zpSO-separator" style="display:block;border:none;height:1px;line-height:1px;color:#D0D0D0;background-color:#D0D0D0;margin-top:20px;margin-bottom:20px;"> </div> </div> </div> </div></div> <div class="zpRow standard "><div class="zpRowInner"> <div class="zpColumn odd zpColumnWidth1 c12" style=" "> <div class="zpColumnItem"> <div id="a2202" data-articleid="2202" class="articlearea zpwText"> <h2>DAS Workbook über Hundeernährung</h2> <p>Dein Hund ist kein Mülleimer –<br>artgerechte Ernährung für deinen Hund:</p> <p>von: </p> <p><br><span style="color: #003300">tierisch erfolgreich</span></p> <p><small><span style="color: #003300">Andrea Nielbock</span></small></p> <p>&nbsp;</p> </div> </div> <div class="zpColumnItem"> <div id="a2203" data-articleid="2203" class="articlearea zpwButton"> <p> <a href="https://andrea.nielbock.de/hund/" target="_blank" rel="noopener" class="button"> <span>Zum Workbook >></span> </a> </p> </div> </div> </div> </div></div> <div class="zpRow standard "><div class="zpRowInner"> <div class="zpColumn odd zpColumnWidth1 c12" style=" "> <div class="clearx"></div> <div class="zpColumnItem"> <div id="a2204" data-articleid="2204" class="articlearea zpwTrennlinie zpSO-separator"> <hr class="zpSO-separator" style="display:block;border:none;height:1px;line-height:1px;color:#D0D0D0;background-color:#D0D0D0;margin-top:20px;margin-bottom:20px;"> </div> </div> </div> </div></div> <div class="zpRow standard "><div class="zpRowInner"> <div class="zpColumn odd zpColumnWidth1 c12" style=" "> <div class="zpColumnItem"> <div id="a2159" data-articleid="2159" class="articlearea zpwText"> <h2 style="color: #FF00FF; text-align:left;">rAuszeiten für Businessfrauen</h2> <span style="color: #ff00ff; font-size: medium"> <p style="text-align: left"><em><strong>- Andrea Nielbock</strong></em></p></span> </div> </div> <div class="zpColumnItem"> <div id="a2160" data-articleid="2160" class="articlearea zpwText"> <p><b>Balance zwischen Erfolg und Selbstfürsorge</b></p> <p>raus - aus dem ständigen Druck</p> <p>raus-&nbsp; aus endlosen Deadlines </p> <p>raus - aus der nie enden wollenden Hektik des Alltags</p> <p>raus - aus dem Hamsterrad, das dich gefangen hält und dir das Gefühl gibt, dass du niemals genug tun kannst</p> </div> </div> <div class="zpColumnItem"> <div id="a2161" data-articleid="2161" class="articlearea zpwText"> <p>Ich kenne die Herausforderungen als Businessfrau nur zu gut, denn auch ich war jahrelang wie ein Hamster im Rad gefangen. Der ständige Druck, die endlosen Fristen und die immer wachsenden Anforderungen schienen mein Leben zu beherrschen. Es war noch ein langer Weg, bis ich meine ersten Erkenntnisse Wirklichkeit werden lassen konnte. Zu stark war ich in ein Konstrukt eingebunden, aus dem es keinen Ausweg zu geben schien. </p> <p>Den ersten Anstoß erhielt ich in einem KlangWorkshop als die Dozentin mich am Ende fragte&nbsp; “Andrea, was glaubst du wohl, wie lange dein Körper das noch mit macht?” Mit verschränkten Armen und Schmollmund erwiderte ich wie ein kleines, bockiges Mädchen “Was denn”?</p> <p>Es dauerte noch Jahre und ich musste noch durch ein ganz tiefes Tal gehen, bis die Veränderung im Kopf auch wirklich ankam. </p> <p>Genau aus dieser persönlichen Erfahrung heraus ist das tiefe Bedürfnis in mir entstanden, ganz besonders Frauen - Unternehmerinnen, Selbstständige, Frauen in Führungspositionen erfahren zu lassen, dass es durchaus Sinn macht, voller Selbstachtung und Selbstliebe Pausen zu machen.</p> </div> </div> <div class="zpColumnItem"> <div id="a2162" data-articleid="2162" class="articlearea zpwText"> <p style="text-align: right"><strong><a href="index.html#a2159"><em><span style="color: #99cc00">up</span></em></a></strong></p> <p><strong>rAuszeiten</strong> - aus dem Teufelskreis ausbrechen und einen Schritt zurückzutreten- dem Alltag entfliehen - an einem Ort, der dir Ruhe, Entspannung und Erneuerung schenkt- dich von der Last des Erfolgs befreit- dich in Kontakt mit dir selbst bringt.</p> <p>So kannst du deinem Körper und deinem Geist die nötige Aufmerksamkeit schenken, um zu regenerieren und neue Energie zu tanken.</p> <p>Rauskommen - nicht nur physisch an einem anderen Ort sein, sondern auch mental und emotional</p> <p>Raum für dich selbst, um wieder in Balance zu kommen und deine eigenen Bedürfnisse spüren und wertschätzen zu können.</p> </div> </div> <div class="zpColumnItem"> <div id="a2163" data-articleid="2163" class="articlearea zpwText"> <p><b>Und wofür das alles?</b></p> <p><span style="color: #ff00ff">Stelle dir doch mal vor:</span></p> <p>●&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; du würdest ganz entspannt und frei von Gedanken an dein Business, endlich mal wieder mit deinem Partner ins Theater gehen.</p> <p>●&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; du hast wieder Zeit, mit deinen Kindern zu spielen oder in den Zoo zu gehen</p> <p>●&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; du nimmst dir Zeit, abends zum Sport zu gehen</p> <p>●&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; triffst dich endlich mal wieder mit Freundinnen und verbringst eine lustige Zeit mit ihnen</p> <p>●&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; du genießt dein Leben ohne Schuldgefühle, wenn du nicht arbeitest</p> <p>&nbsp;</p> <p>&nbsp;</p> </div> </div> <div class="zpColumnItem"> <div id="a2164" data-articleid="2164" class="articlearea zpwText"> <p><b><span style="color: #ff00ff">Und dann gibt's da auch noch die positiven Wirkungen auf dein Business:</span></b></p> <p>●&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; du wirst deine Produktivität steigern, weil du deine Akkus aufgeladen hast</p> <p>●&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; klarer Kopf durch Entspannung für kluge Entscheidungen und strategische Schritte für Ihr Geschäft </p> <p>●&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; besserer&nbsp; Umgang mit stressigen Situationen - gesunde Bewältigungsstrategie und langfristig ein geringerer Stresspegel </p> <p>●&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mehr Wohlbefinden und Zufriedenheit- und wirst&nbsp; in der Lage sein, deine Erfolge und Fortschritte zu genießen und ein ausgeglichenes Leben führen</p> </div> </div> <div class="zpColumnItem"> <div id="a2165" data-articleid="2165" class="articlearea zpwText"> <p>Und insgesamt spürst du in allen Lebensbereichen die&nbsp; positiven Veränderungen. Du verbesserst deine Work-Life-Balance und schaffst dir mehr Raum für persönliche Interessen, Familie und Freizeit</p> <p>Du wirst in deinem Geschäft erfolgreicher sein, weil du deine Akkus nie wieder ganz entlädst, weil du ein erfülltes und ausgeglichenes Leben führst.</p> <p style="text-align: center"><i><strong>"Wenn der Mensch zur Ruhe gekommen ist, dann wirkt er.“</strong></i></p> <p style="text-align: center"><em><span style="font-size: xx-small">– Francesco Petrarca</span></em></p> <p style="text-align: right"><strong><a href="index.html#a2159"><em><span style="color: #99cc00">up</span></em></a></strong></p> </div> </div> </div> </div></div> <div class="zpRow standard "><div class="zpRowInner"> <div class="zpColumn odd zpColumnWidth1 c12" style=" "> <div class="zpColumnItem"> <div id="a2167" data-articleid="2167" class="articlearea zpwText"> <p style="text-align: center"><img title="" class="singleImage" alt="" src="media/images/andreanielbock_rauszeiten2023-01.jpg"></p> </div> </div> <div class="clearx"></div> <div class="zpColumnItem"> <div id="a2169" data-articleid="2169" class="articlearea zpwTrennlinie zpSO-separator"> <hr class="zpSO-separator" style="display:block;border:none;height:1px;line-height:1px;color:#D0D0D0;background-color:#D0D0D0;margin-top:20px;margin-bottom:20px;"> </div> </div> <div class="zpColumnItem"> <div id="a2168" data-articleid="2168" class="articlearea zpwText"> <p>Stress ist essentiell für uns. Er treibt uns auch zu Höchstleistungen an. Stell dir nur mal einen Sprinter vor. Ohne den Antrieb Stress für diesen Moment würde er noch immer im Startblock hocken.</p> <p>Es geht also nicht darum, Stress komplett zu vermeiden, sondern viel mehr darum, besser mit ihm umzugehen. </p> <p>Dafür ist eine <strong>rAuszeit </strong>in der Natur bestens geeignet.</p> <p>Stell dir doch mal vor oder erinnere dich daran, du stehst im Wald und hörst die Vögel zwitschern, du hast den Duft von Farnen, Gräsern und Pilzen in der Nase und du genießt den Anblick von all den bunten Blumen und Blüten dort vorn auf der Wiese. Wie geht es dir damit? In den <strong>rAuszeiten</strong> erlebst du noch viel mehr, was dich glücklich und zufrieden macht. </p> </div> </div> <div class="zpColumnItem"> <div id="a2170" data-articleid="2170" class="articlearea zpwText"> <p style="text-align: center"><i><strong>„Statt zu sagen: Sitz nicht einfach nur da – tu irgendetwas, sollten wir das Gegenteil fordern: Tu nicht einfach irgendetwas – sitz nur da.“</strong></i></p> <p style="text-align: center"><em><span style="font-size: xx-small">– Thich Nhat Hanh</span></em></p> <p style="text-align: center"><em><span style="font-size: xx-small"><img title="" class="singleImage" alt="" src="media/images/andreanielbock_rauszeiten2023-02.jpg"></span></em></p> </div> </div> </div> </div></div> <div class="zpRow standard "><div class="zpRowInner"> <div class="zpColumn odd zpColumnWidth1 c12" style=" "> <div class="clearx"></div> <div class="zpColumnItem"> <div id="a2129" data-articleid="2129" class="articlearea zpwTrennlinie zpSO-separator"> <hr class="zpSO-separator" style="display:block;border:none;height:1px;line-height:1px;color:#D0D0D0;background-color:#D0D0D0;margin-top:20px;margin-bottom:20px;"> </div> </div> </div> </div></div> <div class="zpRow standard "><div class="zpRowInner"> <div class="zpColumn odd zpColumnWidth1 c12" style=" "> <div class="zpColumnItem"> <div id="a2171" data-articleid="2171" class="articlearea zpwText"> <p>rein - in Lebensfreude und Zufriedenheit</p> <p>rein - in Selbstliebe und Selbstfürsorge</p> <p>rein - in Stärke, Frische und Inspiration </p> <p>rein - in deinen Erfolg </p> <p>Du kannst unterschiedliche rAuszeiten mit mir machen. Bitte wähle die für dich Passende aus. </p> <p><span style="color: #ff00ff"><b>Entscheide dich für dich, bevor es zu spät ist.</b><b> </b></span></p> </div> </div> </div> </div></div> <div class="zpRow standard "><div class="zpRowInner"> <div class="zpColumn odd zpColumnWidth1 c12" style=" "> <div class="zpColumnItem"> <div id="a2175" data-articleid="2175" class="articlearea zpwText"> <p style="text-align: right"><a href="index.html"><em><span style="color: #99cc00">&nbsp;up&nbsp;</span></em></a></p> </div> </div> </div> </div></div> <div class="zpRow standard "><div class="zpRowInner"> <div class="zpColumn odd zpColumnWidth1 c12" style=" "> <div class="clearx"></div> <div class="zpColumnItem"> <div id="a2151" data-articleid="2151" class="articlearea zpwTrennlinie zpSO-separator"> <hr class="zpSO-separator" style="display:block;border:none;height:1px;line-height:1px;color:#D0D0D0;background-color:#D0D0D0;margin-top:3px;margin-bottom:3px;"> </div> </div> </div> </div></div> <div class="zpRow standard "><div class="zpRowInner"> <div class="zpColumn odd zpColumnWidth1 c12" style=" "> <div class="clearx"></div> <div class="zpColumnItem"> <div id="a2155" data-articleid="2155" class="articlearea zpwTrennlinie zpSO-separator"> <hr class="zpSO-separator" style="display:block;border:none;height:1px;line-height:1px;color:#D0D0D0;background-color:#D0D0D0;margin-top:20px;margin-bottom:20px;"> </div> </div> </div> </div></div> <div class="zpRow standard "><div class="zpRowInner"> <div class="zpColumn odd zpColumnWidth1 c12" style=" "> <div class="zpColumnItem"> <div id="a2156" data-articleid="2156" class="articlearea zpwText"> <h2 style="color: #333333; ">Stark wie ein Baum - unten fest und oben leicht</h2> <p>Andrea Nielbock - Coach und Trainerin</p> <p><img title="" class="singleImage" style="HEIGHT: 520px; WIDTH: 780px" alt="" src="media/images/2019-05-andrea-2171-1920x1280px.jpg" width="780" height="520"></p> <p><em><span style="color: #c0c0c0"></span></em>&nbsp;</p> </div> </div> </div> </div></div> <div class="zpRow standard "><div class="zpRowInner"> <div class="zpColumn odd zpColumnWidth1 c12" style=" "> <div class="clearx"></div> <div class="zpColumnItem"> <div id="a2157" data-articleid="2157" class="articlearea zpwTrennlinie zpSO-separator"> <hr class="zpSO-separator" style="display:block;border:none;height:1px;line-height:1px;color:#D0D0D0;background-color:#D0D0D0;margin-top:30px;margin-bottom:30px;"> </div> </div> <div class="zpColumnItem"> <div id="a2158" data-articleid="2158" class="articlearea zpwText"> <p> </p><p><em><strong>Mitgliedschaften:</strong></em></p> <p><a href="https://win-women-in-network.com/" target="_blank"></a>&nbsp;&nbsp;&nbsp;<a href="https://www.fachverband-klang.de/" target="_blank"><img title="" class="singleImage" style="HEIGHT: 75px; WIDTH: 151px" alt="" src="media/images/eingefuegt-am-11.02.2020.png" width="151" height="75"></a>&nbsp;&nbsp;&nbsp;<a href="https://www.gesundharzev.de/" target="_blank"></a>&nbsp; <a href="https://www.qigong-gesellschaft.de/" target="_blank"><img title="" class="singleImage" style="HEIGHT: 76px; WIDTH: 276px" alt="" src="media/images/f16e98026fde464e8bb0d2e4c98f677b.png" width="276" height="76"></a></p> <p><em><strong>Interne Links:</strong> </em></p> <p><a href="http://www.trainatur.de/" target="_blank"><img title="Andrea Nielbock - TraiNatur" class="singleImage" style="HEIGHT: 86px; WIDTH: 184px; MARGIN: 0px" alt="" src="media/images/tn-logo-04.jpg" width="184" height="86"></a>&nbsp;&nbsp;<a href="http://www.einhornhoehle.de/" target="_blank"><img title="Die Einhornh&#246;hle - Unicorn Cave" class="singleImage" style="HEIGHT: 87px; WIDTH: 79px; MARGIN: 0px" alt="" src="media/images/einhornhoehle-04.jpg" width="79" height="87"></a>&nbsp; <a href="https://www.facebook.com/nielbock.de/" rel="noopener" target="_blank"><img title="Andrea Nielbock -FB" class="singleImage" style="MARGIN: 0px" alt="" src="media/images/6caa3a36d8c4412698c68b37325f7cc6.png"></a></p> <p style="text-align: right"><a href="index.html"><em><span style="color: #808080">&nbsp;up&nbsp;</span></em></a></p> </div> </div> </div> </div></div> </div> </div> </div> </div> <div id="footer" class="container"> <div id="xmenu" class=""> <a href="index.html">Startseite</a> <a href="datenschutz.html">Datenschutz</a> <a href="impressum.html">Impressum</a> </div> <div id="copyright"> © 2020 andrea nielbock </div> </div> <script>	
-		function setoverflown(){
-			if ( $z("#nav").is(":hover") || ! $z("#nav > ul > li").length ){
-				return;
-			}
-			if ( $z("#nav:not(.on)").overflown() ){
-				$z("#nav > ul").css("text-align", "left");
-				$z("#nav, #nav > ul li.overflownonly").addClass("overflown");
-				// hide overflown list items
-				var firstTop = $z("#nav > ul > li").eq(0).position().top;
-				$z("#nav > ul > li").each(function(){
-					if ( $z(this).position().top > firstTop ){
-						$z(this).addClass("overflowing");
-					}
-				});
-			}
-			else{
-				$z("#nav > ul").css("text-align", "");
-				$z("#nav, #nav > ul li.overflownonly").removeClass("overflown");
-				// re show previously hidden, overflowing li
-				$z("#nav > ul > li").removeClass("overflowing");
-			}
-		}
-		
-		$z(document).ready(function(){
-			// switches the Mobile Navigation-Menu on/off, when "Menu" link is clicked.
-			$z("a#mobilenavtoggle").on("click", function(e){
-				e.preventDefault();
-				if ( $z("#nav").hasClass("on") ){
-					// we're switching to off now
-					$z("#nav ul li").removeClass("hoverToClickMenuAdded clicked");
-					$z("#nav ul ul").css("display", "").css("visibility", "");
-				}
-				$z("#nav").toggleClass("on");
-			});	
-			
-			setoverflown();
-			var resizeTimeout = null;
-			$z(window).resize(function() {
-				if (resizeTimeout) {
-					clearTimeout(resizeTimeout);
-				}
-				// throttle the resize event
-				resizeTimeout = setTimeout(function () {
-					setoverflown();
-				},150);
-			});
-		});
-		
-		$z(window).load(function(){
-			setoverflown();
-			setTimeout(function(){setoverflown();}, 1000);
-		});
-	</script> 
-<!--
-* Layout: Locus Responsive by StS
-* $Id: default.html 68738 2018-11-09 13:07:55Z sseiz $
--->
- </body> </html>
+   VOR VERÖFFENTLICHUNG: <body class="vorschau"> in <body> ändern.
+   Dann verschwinden alle gestrichelten „Notiz für Andrea“-Kästen.
+   ================================================================ */
+:root{--bg:#f7f3ed;--ink:#30302c;--sub:#5f5a53;--rose:#9a7570;--rose-soft:#e9dcd6;--sand:#ece4d9;--taupe:#e4dbd0;--line:#d8d0c7;--dark:#333934;--white:#fbf8f4}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+html,body{max-width:100%;overflow-x:clip}
+body{margin:0;background:var(--bg);color:var(--ink);font:16.5px/1.7 system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--rose);outline-offset:3px}
+[id]{scroll-margin-top:90px}
+
+/* ---------- Typografie ---------- */
+h1,h2,h3,.brand,.lead,.quote{font-family:Georgia,"Times New Roman",serif;font-weight:400}
+h1{font-size:clamp(2.3rem,9.5vw,5.4rem);line-height:1.08;letter-spacing:-.035em;margin:.25em 0 .4em}
+h2{font-size:clamp(1.85rem,7.6vw,3.6rem);line-height:1.14;letter-spacing:-.025em;margin:.25em 0 .6em;overflow-wrap:break-word;hyphens:manual}
+h3{font-size:clamp(1.35rem,5.4vw,2rem);line-height:1.22;margin:1.6em 0 .5em}
+p{margin:0 0 1.15em}
+.lead{font-size:clamp(1.18rem,4.6vw,1.6rem);line-height:1.5;color:var(--ink)}
+.eyebrow{display:block;font-size:.7rem;letter-spacing:.17em;text-transform:uppercase;font-weight:700;color:var(--rose)}
+.mini{font-size:.84rem;color:var(--sub)}
+.quote{font-size:clamp(1.45rem,5.6vw,2.3rem);line-height:1.35;margin:1.6em 0;padding-left:20px;border-left:2px solid var(--rose)}
+.prose{max-width:640px}
+
+/* ---------- Grundgerüst ---------- */
+.wrap{width:min(1100px,calc(100% - 40px));margin-inline:auto}
+section{padding:56px 0}
+.band{background:var(--sand)}
+.two{display:grid;gap:8px}
+.two>*{min-width:0}
+
+/* ---------- Kopfzeile ---------- */
+header{background:#f7f3edf2;border-bottom:1px solid var(--line);z-index:20}
+.nav{display:flex;flex-direction:column;gap:10px;padding:14px 0 12px}
+.brand{text-decoration:none;font-size:1.25rem;line-height:1.1}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{width:40px;height:auto;flex:none}
+footer .brand img{filter:brightness(1.6) saturate(.8)}
+.brand small{display:block;font:600 .62rem/1 system-ui,sans-serif;letter-spacing:.24em;text-transform:uppercase;color:var(--rose);margin-top:6px}
+nav{display:flex;gap:4px 18px;flex-wrap:wrap}
+nav a{text-decoration:none;font-size:.84rem;padding:6px 0;white-space:nowrap}
+nav a:hover{text-decoration:underline;text-underline-offset:4px}
+
+/* ---------- Knöpfe & Links ---------- */
+.actions{display:flex;flex-direction:column;gap:10px;margin-top:22px}
+.btn{display:flex;align-items:center;justify-content:center;min-height:48px;background:var(--dark);color:#fff;text-decoration:none;padding:12px 22px;font-size:.88rem;letter-spacing:.02em;text-align:center}
+.btn.whatsapp{background:#25643f}
+.btn.secondary{background:transparent;border:1px solid var(--dark);color:var(--dark)}
+.btn:hover{opacity:.85}
+.textlink{display:inline-block;text-decoration:none;border-bottom:1px solid var(--rose);padding:6px 0 3px;font-weight:600;font-size:.9rem}
+
+/* ---------- Bilder ---------- */
+.photo{margin:0;overflow:hidden;min-height:0}
+.photo img{width:100%;height:100%;object-fit:cover}
+figcaption,.image-caption{font-size:.8rem;color:var(--sub);margin-top:8px}
+/* Bildplatz: einheitlicher Platzhalter für noch fehlende Stimmungsfotos */
+.bildplatz{position:relative;margin:0;aspect-ratio:3/2;display:flex;flex-direction:column;justify-content:flex-end;padding:18px 20px;color:#4a443e;background:linear-gradient(150deg,#d9d2c6 0%,#ece3d7 50%,#c9c8b8 100%)}
+.bildplatz b{font:italic 400 1.08rem/1.35 Georgia,serif}
+.bildplatz small{font-size:.74rem;color:#6a625a;margin-top:4px}
+.bildplatz::before{content:"Bildplatz";position:absolute;top:12px;left:14px;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:#7d6f66}
+.bp-hoehle{background:linear-gradient(160deg,#5b544c 0%,#8a7a6a 45%,#c7b39c 100%);color:#f6efe6}
+.bp-hoehle small,.bp-hoehle::before{color:#eadfd2}
+.bp-natur{background:linear-gradient(160deg,#c4cbbb 0%,#e7e3d6 55%,#b9c1ad 100%)}
+.bp-napf{background:linear-gradient(160deg,#e3d2c7 0%,#f1e7dc 55%,#d6c2b4 100%)}
+.bp-weite{background:linear-gradient(160deg,#c9d1d4 0%,#ebe5db 55%,#c7c1b4 100%)}
+
+/* ---------- Für Unternehmen ---------- */
+.firmen-liste{display:grid;gap:14px;margin:26px 0 8px}
+.firmen-item{background:var(--white);border-left:3px solid var(--rose);padding:18px 20px}
+.firmen-item h3{margin:.2em 0 .3em;font-size:1.15rem}
+.firmen-item p{margin:0;color:var(--sub)}
+.foerder{background:var(--rose-soft);padding:16px 18px;margin:22px 0;font-size:.95rem}
+.firmen-item details{margin-top:10px}
+.firmen-item summary{cursor:pointer;font-weight:600;font-size:.9rem;padding:8px 0 4px;display:inline-block;border-bottom:1px solid var(--rose)}
+.firmen-item details[open] summary{margin-bottom:12px}
+.firmen-item details p,.firmen-item details li{color:var(--ink);font-size:.95rem}
+.firmen-item details p{margin:0 0 .9em}
+.firmen-item h4{font:400 1.1rem/1.3 Georgia,"Times New Roman",serif;margin:1.1em 0 .4em}
+.firmen-item ol,.firmen-item ul{padding-left:1.2em;margin:0 0 1em}
+.firmen-item li{margin-bottom:.35em}
+.firmen-item .fakten{list-style:none;padding:12px 14px;background:var(--bg)}
+.firmen-liste{align-items:start}
+@media(min-width:760px){.firmen-liste{grid-template-columns:repeat(2,1fr)}}
+/* ---------- Interne Notizen (nur in der Vorschau sichtbar) ---------- */
+.intern{display:none}
+.vorschau .intern{display:block;border:1px dashed #b08e86;background:#f3e9e4;color:#6b4f49;font-size:.8rem;line-height:1.5;padding:10px 14px;margin:14px 0}
+.vorschau .intern::before{content:"Notiz für Andrea · wird vor Veröffentlichung entfernt";display:block;font-weight:700;font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:3px}
+
+/* ---------- Startbereich ---------- */
+.hero .copy{padding:26px 20px 52px}
+.hero .photo{width:calc(100% - 40px);margin:20px auto 0;aspect-ratio:4/3;max-height:270px}
+.hero .photo img{object-position:center 42%}
+
+/* ---------- Über Andrea ---------- */
+#ueber .lead{margin-bottom:1.3em}
+
+/* ---------- Augenblick / Audio ---------- */
+.audio-area{background:#eee7de}
+.audio-choices{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:26px 0 20px}
+.audio-choice{border:1px solid #c8b8aa;background:var(--white);color:var(--ink);cursor:pointer;padding:0 0 12px;font:inherit;font-size:.95rem;text-align:center;overflow:hidden;transition:background .2s,box-shadow .2s}
+.audio-choice img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;margin-bottom:10px;transition:transform .4s}
+.audio-choice:hover img{transform:scale(1.04)}
+.audio-choice span{color:var(--rose);margin-right:5px}
+.audio-choice{position:relative}
+.audio-choice::after{content:"\25B6";position:absolute;right:10px;top:10px;width:42px;height:42px;border-radius:50%;background:#fbf8f4eb;color:var(--rose);font-size:1rem;line-height:42px;text-indent:3px;box-shadow:0 2px 10px #0003;pointer-events:none;transition:transform .2s}
+.audio-choice:hover::after{transform:scale(1.1)}
+.audio-choice small{display:block;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--sub);margin-top:2px}
+.audio-choice[aria-pressed=true]{background:#ded0c4;border-color:#866e64;box-shadow:0 0 0 2px #866e64}
+.audio-result{padding:22px 20px;background:var(--white);border-left:3px solid var(--rose);margin-bottom:18px}
+.audio-result[hidden]{display:none}
+.audio-result h3{margin:.3em 0 .4em}
+.audio-result audio{display:block;width:100%;margin:14px 0}
+.audio-script{margin-top:14px;padding-top:12px;border-top:1px solid #d9cec3}
+.audio-script summary{cursor:pointer;font-weight:600;font-size:.9rem;padding:6px 0}
+.audio-script p{margin-top:10px}
+
+/* ---------- KI-Video ---------- */
+.video-area{background:var(--taupe)}
+.claim{font-size:clamp(1.6rem,6.4vw,2.8rem);line-height:1.2}
+.claim span{display:block;text-wrap:balance}
+.claim span+span{color:var(--rose);margin-top:.15em}
+.ki-hinweis{font-size:.92rem;background:var(--white);border-left:3px solid var(--rose);padding:14px 16px;margin:6px 0 24px}
+.video-frame{position:relative;margin:0 auto;max-width:300px}
+.video-frame video{display:block;width:100%;aspect-ratio:9/16;background:#2c2a27;object-fit:cover}
+.ki-badge{position:absolute;top:10px;left:10px;z-index:2;background:#333934e6;color:#fff;font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:4px 9px;pointer-events:none}
+.video-frame figcaption{text-align:center}
+
+/* ---------- Magazin ---------- */
+.feature{display:grid;gap:22px;margin-top:10px}
+
+/* ---------- Magazin: Gedanke der Woche & Beiträge ---------- */
+.gedanke{background:var(--white);border-left:3px solid var(--rose);padding:22px 20px;margin:30px 0 10px;max-width:760px}
+.gedanke h3{margin:.35em 0 .45em}
+.gedanke .frage{font-style:italic;color:var(--sub)}
+.artikel-liste{display:grid;gap:18px;margin-top:30px}
+.artikel{background:var(--white);padding:22px 22px 16px;min-width:0}
+.artikel h3{margin-top:.35em}
+.artikel summary{cursor:pointer;font-weight:600;font-size:.9rem;padding:8px 0 4px;display:inline-block;border-bottom:1px solid var(--rose)}
+.artikel details[open] summary{margin-bottom:16px}
+.artikel h4{font:400 1.2rem/1.3 Georgia,"Times New Roman",serif;margin:1.4em 0 .45em}
+.artikel ul{padding-left:1.2em;margin:0 0 1.15em}
+.artikel li{margin-bottom:.45em}
+.ebook{padding:24px 20px;background:var(--white);border-top:3px solid var(--rose);margin:26px 0}
+.ebook-top{display:grid;gap:8px}
+.buch{width:150px;margin:6px auto 22px;perspective:900px}
+.buch-cover{position:relative;aspect-ratio:3/4.2;display:flex;flex-direction:column;gap:7px;padding:16px 14px 14px 20px;color:#fbf8f4;background:linear-gradient(155deg,#a8827c 0%,#8a6862 60%,#6f524d 100%);border-radius:2px 6px 6px 2px;box-shadow:inset 7px 0 0 #00000026,inset 9px 0 0 #ffffff1f,12px 14px 26px #3339344d;transform:rotateY(-16deg);transform-origin:left center}
+.buch-cover::after{content:"";position:absolute;right:-7px;top:5px;bottom:5px;width:7px;border-radius:0 3px 3px 0;background:repeating-linear-gradient(#fbf8f4 0 2px,#e2d8cc 2px 3px)}
+.buch-cover img{width:26px;height:auto;filter:brightness(0) invert(1);opacity:.9}
+.buch-label{font-size:.5rem;letter-spacing:.1em;white-space:nowrap;text-transform:uppercase;font-weight:700;opacity:.85}
+.buch-cover b{font:400 1.18rem/1.12 Georgia,"Times New Roman",serif}
+.buch-sub{font-size:.62rem;line-height:1.35;opacity:.9}
+.buch-cover small{margin-top:auto;font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;opacity:.85}
+.ebook-punkte{list-style:none;padding:0;margin:0 0 18px;display:grid;gap:10px}
+.ebook-punkte li{display:flex;align-items:center;gap:12px;font-size:.93rem}
+.ebook-punkte svg{width:30px;height:30px;flex:none;padding:5px;border-radius:50%;background:var(--rose-soft);fill:none;stroke:var(--rose);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.ebook-extras{display:grid;gap:12px;margin-top:22px;padding-top:20px;border-top:1px solid var(--line)}
+.extra{display:grid;grid-template-columns:60px minmax(0,1fr);gap:14px;background:var(--bg);padding:16px}
+.extra-icon{width:60px;height:60px;border-radius:50%;background:var(--rose-soft);display:grid;place-items:center}
+.extra-icon svg{width:36px;height:36px;fill:none;stroke:var(--rose);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.extra h4{font:400 1.15rem/1.25 Georgia,"Times New Roman",serif;margin:4px 0 6px}
+.extra p{font-size:.9rem;margin-bottom:8px}
+/* Platzhalter (fehlende Links/Dateien): nur in der Vorschau sichtbar */
+body:not(.vorschau) [data-platzhalter]{display:none}
+.vorschau [data-platzhalter]{outline:1px dashed #b08e86;outline-offset:2px}
+/* ---------- Angebote (Karten) ---------- */
+.cards{display:grid;gap:18px;margin-top:28px}
+.card{background:var(--white);display:flex;flex-direction:column}
+.card .bildplatz{aspect-ratio:16/10}
+.card .photo img{aspect-ratio:16/10;height:auto}
+.photo.wide img{aspect-ratio:3/2;height:auto}
+.card .body{padding:22px 22px 26px}
+.card h3{margin-top:.35em}
+.card p{color:var(--sub)}
+
+/* ---------- Detail-Abschnitte ---------- */
+.detail .two{gap:4px}
+.detail .media{margin:4px 0 26px}
+.portrait{max-width:420px;aspect-ratio:4/3}
+.portrait img{object-position:28% 38%}
+.book{padding:22px;background:var(--rose-soft);margin:26px 0}
+.book .btn{margin-top:6px}
+.note{border-top:1px solid var(--line);padding-top:16px;margin-top:26px;font-size:.86rem;color:var(--sub)}
+.podcast{display:flex;flex-direction:column;gap:10px;margin:20px 0}
+
+/* ---------- Kontakt & Fußzeile ---------- */
+.contact{background:var(--taupe)}
+.contact-card{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:22px 0 18px;max-width:440px}
+.contact-card .whatsapp{grid-column:1/-1}
+.contact-social{font-size:.88rem;color:var(--sub);display:flex;flex-wrap:wrap;gap:8px 10px;align-items:center}
+.contact-social a{display:inline-flex;align-items:center;min-height:40px;padding:6px 16px;border:1px solid var(--rose);border-radius:999px;text-decoration:none;color:var(--ink)}
+.legal{border-top:1px solid var(--line);font-size:.92rem}
+.legal h2{font-size:clamp(1.6rem,6vw,2.4rem)}
+.legal h3{font-size:1.15rem;margin:1.5em 0 .4em}
+.legal a:not(.textlink){overflow-wrap:anywhere}
+footer{background:var(--dark);color:#f4eee7;padding:40px 0 46px}
+footer .brand small{color:#d9bdb6}
+footer .mini{color:#cfc7bd;margin-top:16px}
+footer a{color:inherit;text-underline-offset:3px}
+.footer-links a{display:inline-block;padding:8px 0}
+
+/* ================= Ab Tablet/Desktop ================= */
+@media(min-width:560px){
+ .actions,.podcast{flex-direction:row;flex-wrap:wrap}
+ .audio-choices{grid-template-columns:repeat(4,1fr)}
+ .cards{grid-template-columns:repeat(2,1fr)}
+}
+@media(min-width:820px){
+ body{font-size:17px}
+ section{padding:88px 0}
+ header{position:sticky;top:0}
+ .nav{flex-direction:row;align-items:center;justify-content:space-between;min-height:76px;padding:0}
+ .brand{font-size:1.35rem}
+ nav{gap:26px}
+ .hero{display:grid;grid-template-columns:1.1fr .9fr;align-items:center;width:min(1100px,calc(100% - 40px));margin:auto;gap:56px;padding:56px 0 64px}
+ .hero .copy{padding:0}
+ .hero .photo{order:2;width:100%;margin:0;aspect-ratio:4/5;max-height:560px}
+ .two{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:64px;align-items:start}
+ .detail .media{margin:22px 0 0}
+ .feature{grid-template-columns:1fr 1fr;gap:44px;align-items:center}
+ .cards{gap:22px}
+ .artikel-liste{grid-template-columns:1fr 1fr;align-items:start;gap:22px}
+ .ebook{padding:30px 28px}
+ .ebook-top{grid-template-columns:160px minmax(0,1fr);gap:28px;align-items:start}
+ .buch{margin:8px 0 0}
+ .portrait{aspect-ratio:4/5;max-width:380px}
+ .portrait img{object-position:40% 40%}
+ .audio-result{padding:28px 30px;max-width:760px}
+ .video-area .two{align-items:center}
+ .video-frame{max-width:320px;margin:0}
+}
+</style></head><body class="vorschau">
+<header><div class="wrap nav"><a class="brand" href="#start"><img src="img/logo-herz.png" alt="" width="40" height="46"/><span>Andrea Nielbock<small>tierisch erfolgreich</small></span></a><nav aria-label="Hauptnavigation"><a href="#ueber">Über Andrea</a><a href="#magazin">Magazin</a><a href="#angebote">Angebote</a><a href="#firmen">Für Firmen</a><a href="#kontakt">Kontakt</a></nav></div></header>
+
+<main id="start">
+
+<!-- ===== Start ===== -->
+<div class="hero">
+ <figure class="photo"><img alt="Andrea Nielbock lächelnd am Wasser" src="img/andrea-portrait.jpg" fetchpriority="high"/></figure>
+ <div class="copy">
+  <span class="eyebrow">Lebenswege · Begegnungen · neue Perspektiven</span>
+  <h1>Das Leben darf sich nach dir anfühlen.</h1>
+  <p class="lead">Manchmal braucht es einen Moment der Stille. Manchmal eine neue Idee. Und manchmal einfach den Mut, den eigenen Weg weiterzugehen.</p>
+  <p>Ich bin Andrea. Hier erzähle ich von dem, was mich bewegt – und von Möglichkeiten, das Leben bewusster, lebendiger und selbstbestimmter zu gestalten.</p>
+  <div class="actions"><a class="btn" href="#angebote">Meine Angebote entdecken</a><a class="btn secondary" href="#ueber">Mich kennenlernen</a></div>
+ </div>
+</div>
+
+<!-- ===== Über Andrea ===== -->
+<section id="ueber"><div class="wrap two">
+ <div><span class="eyebrow">Über Andrea</span><h2>Neugierig bleiben. Auch auf sich selbst.</h2></div>
+ <div class="prose">
+  <p class="lead">Ich glaube nicht, dass wir irgendwann fertig sind mit dem Leben. Es verändert sich – und wir dürfen uns mitverändern.</p>
+  <p>In meiner Arbeit begegnen sich Themen, die auf den ersten Blick unterschiedlich wirken: Entspannung, bewusste Lebensführung, die Beziehung zu unseren Tieren und die Freiheit, beruflich eigene Ideen zu entwickeln.</p>
+  <p>Was sie verbindet, ist meine Überzeugung: Gute Entscheidungen beginnen mit Aufmerksamkeit. Mit dem ehrlichen Blick auf das, was uns wichtig ist. Mit Respekt vor den eigenen Grenzen. Und mit der Bereitschaft, manchmal etwas Neues zu wagen.</p>
+  <p>Ich teile Erfahrungen und begleite Menschen, ohne ihnen einen fertigen Lebensentwurf vorzugeben. Denn jeder Weg hat seinen eigenen Rhythmus.</p>
+  <a class="textlink" href="#magazin">Gedanken aus meinem Leben lesen</a>
+ </div>
+</div></section>
+
+<!-- ===== KI-Video „Alles ist möglich“ ===== -->
+<section class="video-area" id="moeglich"><div class="wrap two">
+ <div>
+  <h2 class="claim"><span>Du kannst alles schaffen.</span> <span>Die Grenzen sind nur in deinem Kopf.</span></h2>
+  <p class="ki-hinweis"><strong>Mit KI erstellt:</strong> Hier ist mein KI-Zwilling unterwegs – nicht ganz 1:1 ich, und diese Abenteuer habe ich so nicht erlebt.</p>
+ </div>
+ <figure class="video-frame">
+  <span class="ki-badge" aria-hidden="true">KI-Video</span>
+  <video controls playsinline preload="none" poster="video/alles-ist-moeglich-poster.jpg" aria-label="KI-generiertes Video: Andrea als Figur in verschiedenen Abenteuern">
+   <source src="video/alles-ist-moeglich.mp4" type="video/mp4"/>
+  </video>
+  <figcaption>KI-generiert · ca. 30 Sekunden · startet erst, wenn du auf Abspielen tippst</figcaption>
+ </figure>
+</div></section>
+
+<!-- ===== Ein Augenblick für dich ===== -->
+<section class="audio-area" id="augenblick"><div class="wrap">
+ <span class="eyebrow">Ein Augenblick für dich · mit Andrea</span>
+ <h2>Was würde dir gerade guttun?</h2>
+ <p class="lead prose">Ein kleiner Moment zum Innehalten. Nur ein Gedanke, der dich vielleicht durch den Tag begleitet.</p>
+ <div aria-label="Wähle einen Impuls zum Anhören" class="audio-choices" role="group">
+  <button aria-pressed="false" class="audio-choice" data-impulse="ruhe" type="button"><img src="img/impuls-ruhe.jpg" alt="" loading="lazy" width="480" height="360"/><span aria-hidden="true">☁</span>Ruhe<small>Anhören</small></button>
+  <button aria-pressed="false" class="audio-choice" data-impulse="energie" type="button"><img src="img/impuls-energie.jpg" alt="" loading="lazy" width="480" height="360"/><span aria-hidden="true">☀</span>Neue Energie<small>Anhören</small></button>
+  <button aria-pressed="false" class="audio-choice" data-impulse="klarheit" type="button"><img src="img/impuls-klarheit.jpg" alt="" loading="lazy" width="480" height="360"/><span aria-hidden="true">◇</span>Klarheit<small>Anhören</small></button>
+  <button aria-pressed="false" class="audio-choice" data-impulse="mut" type="button"><img src="img/impuls-mut.jpg" alt="" loading="lazy" width="480" height="360"/><span aria-hidden="true">✦</span>Mut<small>Anhören</small></button>
+ </div>
+ <div aria-live="polite" class="audio-result" hidden id="audio-result">
+  <span class="eyebrow">Dein Moment</span><h3 id="audio-title"></h3><p id="audio-description"></p>
+  <div id="audio-player"></div>
+  <p class="mini" id="audio-status"></p>
+  <details class="audio-script" id="audio-details"><summary>Den Impuls lesen</summary><p id="audio-transcript"></p></details>
+ </div>
+ <p class="mini">Nichts startet von selbst. Die Aufnahmen spielst du nur ab, wenn du es möchtest.</p>
+ <p class="intern">Die vier Audios sind eingebaut (Ordner „audio“). Sie wurden mit deinem HeyGen-Stimmklon erzeugt, deshalb steht beim Abspielen ein kurzer KI-Hinweis.</p>
+</div></section>
+
+<!-- ===== Magazin ===== -->
+<section id="magazin"><div class="wrap">
+ <span class="eyebrow">Magazin · Gedanken, die bleiben</span>
+ <h2>Geschichten aus dem echten Leben.</h2>
+ <div class="feature">
+  <figure class="photo wide"><img alt="Andrea steht im Meer und breitet die Arme aus" src="img/offen-am-meer.jpg" style="object-position:center 20%"/></figure>
+  <div>
+   <h3 style="margin-top:0">Offen bleiben, auch wenn sich Pläne ändern.</h3>
+   <p>Manchmal entstehen die interessantesten Wege nicht aus einem großen Entschluss, sondern aus vielen kleinen Erfahrungen. Ein Text über Neugier, Veränderung und die Freiheit, das eigene Leben immer wieder neu zu betrachten.</p>
+   <p class="mini">Weitere persönliche Texte sind in Vorbereitung.</p>
+  </div>
+ </div>
+
+ <!-- Gedanke der Woche: wechselt automatisch jeden Montag (Liste GEDANKEN im Skript unten) -->
+ <div class="gedanke" id="gedanke-der-woche" aria-live="polite">
+  <span class="eyebrow">Gedanke der Woche · <span id="gdw-thema">Ruhe</span></span>
+  <h3 id="gdw-titel">Du darfst langsamer werden.</h3>
+  <p id="gdw-text">Die Tage werden kürzer, und die Natur zieht sich zurück. Sie macht es uns vor: Nicht jede Zeit ist zum Wachsen da. Manche ist zum Ausruhen. Vielleicht darfst du dir diese Woche erlauben, eine Sache weniger zu tun.</p>
+  <p class="frage" id="gdw-frage">Was würdest du weglassen, wenn niemand es bemerkt?</p>
+  <a class="textlink" href="#augenblick" id="gdw-audio" data-impulse="ruhe">Möchtest du den Gedanken vertiefen? Hör dir das Audio „Ruhe“ an</a>
+  <p class="intern">Der Gedanke wechselt automatisch jeden Montag. Hinterlegt sind 8 Gedanken vom 9.11. bis 28.12.2026 (bis dahin steht der erste). Für die Zeit ab Januar brauchen wir neue Gedanken.</p>
+ </div>
+
+ <div class="artikel-liste">
+  <!-- Saisonbeitrag: verschwindet nach dem Datum in data-bis automatisch von der Seite -->
+  <article class="artikel" id="weihnachten-hund" data-bis="2027-01-06">
+   <span class="eyebrow">Magazin · Hunde &amp; Ernährung</span>
+   <h3>Ein Festessen für alle? Was dein Hund an Weihnachten fressen darf.</h3>
+   <p>Der Duft von Braten, Plätzchen auf dem Tisch, und unter dem Tisch zwei treue Augen. Gerade an den Feiertagen möchten wir unsere Hunde gern teilhaben lassen. Das ist schön. Aber nicht alles, was uns schmeckt, tut ihnen auch gut.</p>
+   <details>
+    <summary>Weiterlesen</summary>
+    <p>Hier ist ein kleiner Wegweiser, damit das Fest für alle entspannt bleibt.</p>
+    <h4>Das bleibt auf deinem Teller</h4>
+    <ul>
+     <li><strong>Schokolade, Kakao und alles mit Schokolade.</strong> Der Stoff Theobromin ist für Hunde giftig. Je dunkler die Schokolade, desto gefährlicher.</li>
+     <li><strong>Rosinen und Weintrauben</strong>, also auch Stollen, Früchtebrot und viele Plätzchen. Schon kleine Mengen können die Nieren schädigen.</li>
+     <li><strong>Süßes mit Xylit (Birkenzucker).</strong> Steckt oft in zuckerfreiem Gebäck und Kaugummi und ist für Hunde lebensgefährlich.</li>
+     <li><strong>Gekochte Knochen</strong>, besonders von Gans, Ente und Pute. Sie splittern und können Maul und Darm verletzen.</li>
+     <li><strong>Fette Bratenhaut, Bratenfett und Soße.</strong> Zu viel Fett auf einmal kann die Bauchspeicheldrüse überfordern.</li>
+     <li><strong>Zwiebeln und Lauch</strong>, auch versteckt in Soßen und Füllungen.</li>
+     <li><strong>Macadamia-Nüsse, Alkohol und Rumkugeln.</strong></li>
+     <li><strong>Lebkuchen und stark gewürztes Gebäck.</strong> Muskat und viel Zucker verträgt der Hundebauch nicht.</li>
+    </ul>
+    <h4>Das darf in den Napf</h4>
+    <ul>
+     <li>ein Stück Fleisch, ungewürzt und ohne Haut, zum Beispiel vom Braten, bevor die Gewürze drankommen</li>
+     <li>etwas gegarte Möhre, Kürbis oder Pastinake</li>
+     <li>ein paar Apfelstücke ohne Kerngehäuse</li>
+     <li>selbst gebackene Hundekekse ohne Zucker</li>
+    </ul>
+    <p>Das Wichtigste ist die Menge. Ein neues Festtagsmenü auf einen Schlag bringt viele Hundebäuche durcheinander. Lieber eine kleine Extraportion zum normalen Futter als ein ganzer Teller.</p>
+    <h4>Wenn doch etwas passiert ist</h4>
+    <p>Hat dein Hund Schokolade, Rosinen oder etwas mit Xylit erwischt? Dann warte nicht ab, bis er Anzeichen zeigt. Ruf sofort deinen Tierarzt oder den tierärztlichen Notdienst an und nimm die Verpackung mit.</p>
+    <h4>Mein Weihnachtswunsch für deinen Hund</h4>
+    <p>Zeig ihm deine Liebe ruhig auch an Weihnachten. Mit einem langen Spaziergang, einem gemütlichen Platz in deiner Nähe und Futter, das ihm wirklich guttut. Er wird es dir danken.</p>
+    <p>Wenn du mehr über artgerechte Ernährung wissen möchtest: Mein kostenloses E-Book <a href="#ebook"><strong>„Dein Hund ist kein Mülleimer“</strong></a> zeigt dir, worauf es im Napf ankommt.</p>
+    <p class="mini">Dieser Beitrag ersetzt keine tierärztliche Beratung.</p>
+   </details>
+   <p class="intern">Saisonbeitrag: verschwindet nach dem 6. Januar 2027 automatisch von der Seite.</p>
+  </article>
+
+  <article class="artikel" id="gong-einhornhoehle">
+   <span class="eyebrow">Magazin · Klang &amp; Stille</span>
+   <h3>Wenn der Gong erklingt: Was dich in der Einhornhöhle erwartet.</h3>
+   <p>Es gibt Klänge, die hörst du nicht nur mit den Ohren. Du spürst sie im ganzen Körper. Der Gong ist so ein Instrument. Und an kaum einem Ort klingt er so besonders wie tief im Berg.</p>
+   <details>
+    <summary>Weiterlesen</summary>
+    <h4>Was macht der Gong eigentlich?</h4>
+    <p>Ein Gong ist eine große Scheibe aus Metall. Wird er sanft angeschlagen, beginnt er zu schwingen, erst leise, dann immer voller. Dabei entstehen viele Töne gleichzeitig, die sich überlagern und ineinanderfließen. Man nennt sie Obertöne.</p>
+    <p>Diese Klangvielfalt ist für unseren Kopf kaum zu „verstehen“. Und genau das ist das Schöne daran: Die Gedanken dürfen loslassen, weil es nichts zu analysieren gibt. Viele Menschen erleben dabei eine tiefe Entspannung, ein Gefühl von Weite oder einfach Ruhe. Manche spüren die Schwingung wie eine sanfte Welle, die durch den Körper geht.</p>
+    <p>Jeder erlebt einen Gongklang anders. Es gibt kein Richtig und kein Falsch. Du musst nichts können und nichts leisten. Nur da sein und hören.</p>
+    <h4>Warum gerade die Einhornhöhle?</h4>
+    <p>Die Einhornhöhle liegt im Südharz bei Scharzfeld, ganz in meiner Nähe. Schon vor Jahrhunderten fanden Menschen hier Knochen von Höhlenbären und hielten sie für die Überreste von Einhörnern. Daher hat die Höhle ihren Namen.</p>
+    <p>In der Höhle ist es still, wie es draußen kaum noch irgendwo still ist. Kein Handy, kein Verkehr, kein Alltag. Die Felsen tragen den Klang auf ihre ganz eigene Weise weiter. Zusammen mit dem Gong und meinen Klangschalen entsteht ein Raum, in dem die Zeit für einen Moment stehen bleibt.</p>
+    <h4>So läuft ein Klangabend ab</h4>
+    <ul>
+     <li>Wir treffen uns am Eingang der Höhle und gehen gemeinsam hinein.</li>
+     <li>Du machst es dir bequem, im Sitzen. Bring dir 2 Decken und warme Kleidung mit.</li>
+     <li>Ich führe dich mit ein paar Worten ins Ankommen.</li>
+     <li>Dann spielen Gong und Klangschalen.</li>
+     <li>Zum Schluss ist Zeit für Stille und, wenn du magst, einen kurzen Austausch.</li>
+    </ul>
+    <h4>Gut zu wissen</h4>
+    <ul>
+     <li>In der Höhle ist es auch im Sommer kühl. Zieh dich warm an und bring eine Decke mit.</li>
+     <li>Feste Schuhe sind hilfreich, der Weg kann feucht sein.</li>
+     <li>Du brauchst keine Vorkenntnisse.</li>
+     <li>Bist du schwanger, hast du einen Herzschrittmacher oder bist du gerade gesundheitlich angeschlagen, sprich mich bitte vorher an.</li>
+    </ul>
+    <p>Aktuelle Termine gebe ich gesondert bekannt.</p>
+    <p class="mini">Ein Klangabend ist ein Entspannungsangebot und ersetzt keine ärztliche oder therapeutische Behandlung.</p>
+    <a class="textlink" href="#klang">Mehr über Klang &amp; Stille</a>
+   </details>
+  </article>
+ </div>
+</div></section>
+
+<!-- ===== Angebote ===== -->
+<section class="band" id="angebote"><div class="wrap">
+ <span class="eyebrow">Angebote &amp; Begegnungen</span>
+ <h2>Was zu deinem Leben passt.</h2>
+ <p class="prose">Vier Themen, die mich begleiten. Beginne dort, wo deine Neugier gerade am größten ist.</p>
+ <div class="cards">
+  <article class="card"><figure class="photo"><img alt="Drei Gongs vor der Felswand der Einhornhöhle, davor Kerzen" src="img/hoehle-gongs.jpg"/></figure><div class="body"><span class="eyebrow">01 · Zur Ruhe kommen</span><h3>Klang &amp; Stille</h3><p>Ein besonderer Ort, an dem Klänge und Stille Raum bekommen.</p><a class="textlink" href="#klang">Die Einhornhöhle entdecken</a></div></article>
+  <article class="card"><figure class="photo"><img alt="Füße im Gras, dahinter das Meer unter blauem Himmel" src="img/auszeit-meer.jpg"/></figure><div class="body"><span class="eyebrow">02 · Bewusster leben</span><h3>Gesundheit &amp; Lebensbalance</h3><p>Wahrnehmen, was guttut. Grenzen respektieren. Den eigenen Alltag neu betrachten.</p><a class="textlink" href="#balance">Mehr über Lebensbalance</a></div></article>
+  <article class="card"><figure class="photo"><img alt="Andreas Hund schaut aus dem Wohnmobil in den Sonnenuntergang mit Palmen" src="img/hund-sonnenuntergang.jpg"/></figure><div class="body"><span class="eyebrow">03 · Fürsorge im Alltag</span><h3>Liebe geht auch durch den Napf</h3><p>Ernährung, die zu deinem Hund passt – und eine Einladung zum Festessen.</p><a class="textlink" href="#ernaehrung">Zum Festessen</a></div></article>
+  <article class="card"><figure class="photo"><img alt="Wohnmobil am Rand eines Lavendelfelds" src="img/unterwegs-camper.jpg"/></figure><div class="body"><span class="eyebrow">04 · Eigene Wege</span><h3>Zusammenarbeit &amp; Perspektiven</h3><p>Wie aus anfänglicher Skepsis eine unternehmerische Möglichkeit wurde.</p><a class="textlink" href="#partnerschaft">Meine Geschichte lesen</a></div></article>
+ </div>
+</div></section>
+
+<!-- ===== 01 Klang & Stille ===== -->
+<section class="detail" id="klang"><div class="wrap two">
+ <div>
+  <span class="eyebrow">01 · Klang und Stille in der Einhornhöhle</span>
+  <h2>Wo die Welt für einen Moment leiser wird.</h2>
+  <div class="media"><figure class="photo wide"><img alt="Gongs und Klangschalen im Kerzenlicht in der Einhornhöhle" src="img/einhornhoehle.jpg" style="aspect-ratio:1/1;object-position:center top"/></figure></div>
+ </div>
+ <div class="prose">
+  <p class="lead">Manche Orte laden uns ein, für eine Weile nichts leisten zu müssen.</p>
+  <p>Die Einhornhöhle ist für mich ein solcher Ort. Ihre besondere Atmosphäre, der Klang von Schalen und Gongs und die Momente dazwischen schaffen Raum, um anzukommen und den Alltag ein Stück hinter sich zu lassen.</p>
+  <p>Es geht nicht darum, etwas Bestimmtes zu erreichen. Sondern darum, sich Zeit zu nehmen: für die Stille, für das Hören, für das eigene Empfinden.</p>
+  <p class="mini">Aktuelle Termine werden gesondert bekannt gegeben.</p>
+  <div class="actions"><a class="btn secondary" href="https://www.einhornhoehle.de/" rel="noopener" target="_blank">Zur Einhornhöhle</a></div>
+ </div>
+</div></section>
+
+<!-- ===== 02 Lebensbalance ===== -->
+<section class="detail band" id="balance"><div class="wrap two">
+ <div>
+  <span class="eyebrow">02 · Gesundheit &amp; Lebensbalance</span>
+  <h2>Nicht immer mehr. Sondern wieder mehr bei sich.</h2>
+  <div class="media"><figure class="photo wide"><img alt="Sonnenuntergang über einem Strand mit Palmen" src="img/sonnenuntergang.jpg"/></figure></div>
+ </div>
+ <div class="prose">
+  <p class="lead">Wer viel Verantwortung trägt, verliert manchmal aus dem Blick, was er selbst braucht.</p>
+  <p>Wir organisieren, kümmern uns, halten durch. Und irgendwann stellt sich die Frage, wie viel Raum eigentlich noch für uns selbst bleibt.</p>
+  <p>Mir geht es nicht um Selbstoptimierung. Sondern darum, die eigenen Bedürfnisse ernst zu nehmen, Warnsignale wahrzunehmen und bewusster mit den eigenen Kräften umzugehen.</p>
+  <h3>Was ab Februar 2027 geplant ist</h3>
+  <p>Autogenes Training, Progressive Muskelentspannung und QiGong können hilfreiche Wege sein, um wieder bei sich anzukommen. Die Kurse sind ab Februar 2027 geplant; Einzelheiten und Anmeldung folgen.</p>
+ </div>
+</div></section>
+
+<!-- ===== 03 Hundeernährung ===== -->
+<section class="detail" id="ernaehrung"><div class="wrap two">
+ <div>
+  <span class="eyebrow">03 · Hunde · Ernährung · Lebensfreude</span>
+  <h2>Liebe geht auch durch den Napf.</h2>
+  <div class="media"><figure class="photo wide"><img alt="Andrea sitzt mit ihrem Hund auf einem Felsen am Wasser" src="img/andrea-hund-wasser.jpg" style="object-position:center 70%"/></figure></div>
+ </div>
+ <div class="prose">
+  <p class="lead">Weil Wohlbefinden bei den kleinen Dingen beginnt.</p>
+  <p>Unsere Hunde begleiten uns durch den Alltag. Sie bringen uns in Bewegung, schenken uns Nähe und erinnern uns oft daran, wie schön die einfachen Dinge sein können.</p>
+  <p>Zu dieser besonderen Verbindung gehört für mich auch die Frage, wie wir unsere Hunde ernähren. Eine ausgewogene, an den jeweiligen Hund angepasste Ernährung trägt dazu bei, ihn gut zu versorgen – in jungen Jahren ebenso wie im Alter.</p>
+  <p>Doch kein Hund ist wie der andere. Lebensphase, Aktivität und individuelle Bedürfnisse spielen eine Rolle. Deshalb beginnt eine gute Beratung für mich mit Zuhören und genauem Hinsehen, nicht mit einer fertigen Antwort.</p>
+  <p>Wenn es unseren Hunden gut geht, macht das auch uns Menschen glücklich. Wir wünschen uns schließlich, dass sie lange gesund, zufrieden und voller Lebensfreude an unserer Seite bleiben.</p>
+  <div class="ebook" id="ebook">
+   <div class="ebook-top">
+    <div class="buch" aria-hidden="true">
+     <div class="buch-cover">
+      <img src="img/logo-herz.png" alt="" width="28" height="32"/>
+      <span class="buch-label">Kostenloses E-Book</span>
+      <b>Dein Hund ist kein Mülleimer</b>
+      <span class="buch-sub">Artgerechte Ernährung für deinen Hund</span>
+      <small>Andrea Nielbock</small>
+     </div>
+    </div>
+    <div>
+     <span class="eyebrow">Kostenloses E-Book</span>
+     <h3 style="margin-top:.3em">Dein Hund ist kein Mülleimer.</h3>
+     <p>Was braucht dein Hund wirklich im Napf? In meinem E-Book erfährst du, was artgerechte Ernährung bedeutet, warum der Darm so wichtig ist und woran du gutes Futter erkennst.</p>
+     <ul class="ebook-punkte">
+      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5C6.5 4 9.5 4 12 6c2.5-2 5.5-2 8-.5V19c-2.5-1.5-5.5-1.5-8 .5-2.5-2-5.5-2-8-.5z"/><path d="M12 6v13.5"/></svg><span>Artgerecht füttern, einfach erklärt</span></li>
+      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg><span>Darmgesundheit als Fundament</span></li>
+      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg><span>Natürlicher Schutz und Platz für deine Beobachtungen</span></li>
+     </ul>
+     <a class="btn" href="https://andrea.nielbock.de/hund/#opt-in" rel="noopener" target="_blank">E-Book kostenlos anfordern</a>
+     <p class="mini" style="margin-top:10px">Du bekommst das E-Book per E-Mail, wenn du dich für meinen Newsletter anmeldest. Abmelden kannst du dich jederzeit.</p>
+    </div>
+   </div>
+   <div class="ebook-extras">
+    <div class="extra">
+     <div class="extra-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="9" y="8" width="14" height="30" rx="7"/><path d="M9 22h14"/><circle cx="31" cy="27" r="9"/><path d="M37.5 33.5L44 40"/><path d="M27 27h8M31 23v8"/></svg></div>
+     <div>
+      <h4>Wurmtest für zu Hause</h4>
+      <p>Statt auf Verdacht zu entwurmen: Mit einer Kotuntersuchung siehst du, ob eine Wurmkur wirklich nötig ist.</p>
+      <a class="textlink" href="https://vetevo.de?sca_ref=9269253.CzPjpxCqjnW8&amp;utm_source=affiliate-andrea-nielbock-9269253&amp;utm_medium=affiliate&amp;utm_campaign=231981&amp;utm_term=Offline-Partner-(Flyer+Code)" rel="noopener sponsored" target="_blank">Wurmtest bestellen*</a>
+      <p class="mini" style="margin:8px 0 0">* Empfehlungslink: Ich bekomme eine kleine Provision, für dich ändert sich am Preis nichts.</p>
+     </div>
+    </div>
+    <div class="extra">
+     <div class="extra-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="10" width="36" height="32" rx="3"/><path d="M6 19h36M15 6v8M33 6v8"/><path d="M24 36s-6-3.6-6-8a3.2 3.2 0 0 1 6-1.6 3.2 3.2 0 0 1 6 1.6c0 4.4-6 8-6 8z"/></svg></div>
+     <div>
+      <h4>Kostenlose Futterberatung</h4>
+      <p>Wir schauen gemeinsam auf deinen Hund, seinen Alltag und sein Futter. Unverbindlich und in Ruhe.</p>
+      <a class="textlink" href="https://www.supersaas.de/schedule/andrea_nielbock/Buch_dir_deinen_Termin" rel="noopener" target="_blank">Termin aussuchen</a><br/>
+      <a class="textlink" href="https://www.supersaas.de/form/andrea_nielbock/Futterberatung" rel="noopener" target="_blank">Vorab ein paar Fragen zu deinem Hund</a>
+     </div>
+    </div>
+   </div>
+   <p class="intern">Der Knopf „E-Book kostenlos anfordern“ führt zu deiner Seite andrea.nielbock.de/hund mit dem bestehenden Brevo-Formular (Liste „Workbook“, Download-Mail ist aktiv). Der Wurmtest-Link (Vetevo) ist eingebaut. Die Kachel „Kostenlose Futterberatung“ hat zwei Links: deinen Hunde-Kalender zum Buchen und dein Formular „Futterberatung“ mit den Fragen zum Hund. Das Buch ist gezeichnet, kein Foto: Wenn du ein Bild vom echten Cover hast, setze ich es gern ein.</p>
+  </div>
+  <div class="book">
+   <h3 style="margin-top:0">Darf ich deinen Hund zum Festessen einladen?</h3>
+   <p>Eine Einladung, Ernährung einmal aus einer anderen Perspektive kennenzulernen: mit Zeit für Fragen, einem persönlichen Gespräch und natürlich etwas zum Probieren für den vierbeinigen Gast.</p>
+   <a class="btn" href="https://www.supersaas.de/schedule/andrea_nielbock/Buch_dir_deinen_Termin" rel="noopener" target="_blank">Termin für deinen Hund anfragen</a>
+   <p class="intern">Bitte im SuperSaaS-Kalender prüfen, ob „Festessen“ bzw. Ernährungsberatung dort wirklich als Terminart auswählbar ist.</p>
+  </div>
+  <p class="note">Bei meiner Ernährungsberatung arbeite ich mit REICO Vital-Systeme. Gern erzähle ich dir im persönlichen Gespräch, warum ich mich dafür entschieden habe.</p>
+ </div>
+</div></section>
+
+<!-- ===== Für Unternehmen ===== -->
+<section class="detail" id="firmen" style="background:var(--taupe)"><div class="wrap">
+ <div class="prose">
+  <span class="eyebrow">Für Unternehmen</span>
+  <h2>Auszeiten, die im Arbeitsalltag ankommen.</h2>
+  <p class="lead">Gesunde Mitarbeitende brauchen keine perfekten Programme. Sondern Momente, in denen sie durchatmen können.</p>
+  <p>Ich bringe Ruhe, Klang und Bewegung dorthin, wo gearbeitet wird: in deinen Betrieb, in andere Räume oder in die Einhornhöhle. Für kleine Teams genauso wie für größere Firmen.</p>
+ </div>
+ <div class="firmen-liste">
+  <article class="firmen-item"><span class="eyebrow">01 · Advent</span><h3>Adventskalender fürs Team</h3><p>Ein kleiner Moment Ruhe, jeden Tag vom 1. bis 24. Dezember.</p>
+   <details><summary>Mehr erfahren</summary>
+    <p>Die Adventszeit ist in vielen Firmen die vollste Zeit des Jahres. Jahresabschluss, Weihnachtsfeier, Termine. Mit meinem Adventskalender schenkst du deinem Team jeden Tag einen kurzen Impuls zum Durchatmen: einen Gedanken, eine kleine Übung oder eine Frage, die guttut.</p>
+    <h4>So läuft es ab</h4><ol><li>Du meldest dich bei mir und sagst, wie viele Mitarbeitende den Kalender bekommen sollen.</li><li>Deine Mitarbeitenden erhalten ihren Zugang.</li><li>Ab dem 1. Dezember öffnet sich jeden Tag ein neues Türchen.</li></ol>
+    <ul class="fakten"><li><strong>Dauer:</strong> 24 Tage, jeden Tag ein kurzer Impuls</li><li><strong>Gruppengröße:</strong> vom kleinen Team bis zur ganzen Firma</li><li><strong>Ort:</strong> digital, am Arbeitsplatz oder zu Hause</li><li><strong>Preis:</strong> Bitte Angebot anfordern.</li></ul>
+    <p><strong>Was es deiner Firma bringt:</strong> ein Weihnachtsgeschenk, das nicht im Schrank verschwindet. Wertschätzung, die jeden Tag spürbar ist. Und kurze Pausen, die mitten im Jahresendstress entlasten.</p>
+   </details>
+  </article>
+  <article class="firmen-item"><span class="eyebrow">02 · Kurse</span><h3>Entspannungskurse im Betrieb</h3><p>Zertifizierte Kurse, die dein Team selbst im Alltag anwenden kann.</p>
+   <details><summary>Mehr erfahren</summary>
+    <p>Stress lässt sich nicht immer vermeiden. Aber man kann lernen, besser mit ihm umzugehen. In meinen Kursen lernen deine Mitarbeitenden einfache Methoden, die sie danach selbst nutzen können: in der Mittagspause, vor einem schwierigen Gespräch oder am Abend zum Abschalten.</p><ul><li><strong>Autogenes Training:</strong> Mit kurzen Formeln zur Ruhe kommen. Gut für Menschen, die viel im Kopf haben.</li><li><strong>Progressive Muskelentspannung (PMR):</strong> Muskeln bewusst anspannen und wieder loslassen. Leicht zu lernen und sehr alltagstauglich.</li><li><strong>QiGong:</strong> Ruhige, fließende Bewegungen mit bewusstem Atmen. Gut für alle, die viel sitzen.</li></ul><p><strong>Alle Kurse sind zertifiziert.</strong></p>
+    <h4>So läuft es ab</h4><ol><li>Wir sprechen kurz über dein Team, euren Arbeitsalltag und welcher Kurs passt.</li><li>Wir legen Termine fest, zum Beispiel einmal pro Woche zur gleichen Zeit.</li><li>Der Kurs findet bei euch vor Ort statt. Es braucht nur einen ruhigen Raum und bequeme Kleidung.</li></ol>
+    <ul class="fakten"><li><strong>Dauer:</strong> Autogenes Training und PMR: je 8 Termine à 90 Minuten. QiGong: 8 Termine à 75 Minuten</li><li><strong>Ort:</strong> bei euch im Betrieb, vor Ort</li><li><strong>Start:</strong> ab Februar 2027</li><li><strong>Preis:</strong> Bitte Angebot anfordern.</li></ul>
+    <p><strong>Was es deiner Firma bringt:</strong> Mitarbeitende, die Werkzeuge gegen Stress kennen und selbst anwenden. Weil alle drei Kurse zertifiziert sind, kann deine Firma sie unter bestimmten Voraussetzungen steuer- und sozialversicherungsfrei bezahlen, bis 600 Euro pro Person und Jahr (§ 3 Nr. 34 EStG).</p>
+   </details>
+  </article>
+  <article class="firmen-item"><span class="eyebrow">03 · Klang</span><h3>Klang-Auszeit fürs Team</h3><p>Gong und Klangschalen in der Einhornhöhle oder in euren eigenen Räumen.</p>
+   <details><summary>Mehr erfahren</summary>
+    <p>Kein Handy, kein Verkehr, kein Büro. In der Einhornhöhle im Südharz ist es so still wie kaum noch irgendwo. Dort spiele ich für dein Team Gong und Klangschalen. Niemand muss etwas leisten oder können. Alle dürfen einfach da sein und hören. Die Klang-Auszeit ist auch in anderen Räumen möglich, zum Beispiel in euren eigenen Firmenräumen. Dann bringe ich Gong und Klangschalen zu euch.</p>
+    <h4>So läuft es ab</h4><ol><li>Wir treffen uns am Eingang der Höhle oder in eurem Raum.</li><li>Alle machen es sich im Sitzen bequem.</li><li>Ich führe mit ein paar Worten ins Ankommen.</li><li>Dann spielen Gong und Klangschalen.</li><li>Zum Schluss ist Zeit für Stille und, wer mag, einen kurzen Austausch.</li></ol>
+    <ul class="fakten"><li><strong>Gruppengröße:</strong> Ein individueller Termin für eure Firma ist ab einer Mindestteilnehmerzahl bzw. einem Mindestbetrag möglich.</li><li><strong>Ort:</strong> Einhornhöhle bei Scharzfeld oder andere Räume, z. B. eure eigenen Firmenräume</li><li><strong>Für die Höhle mitbringen:</strong> warme Kleidung, 2 Decken, feste Schuhe (in der Höhle ist es auch im Sommer kühl)</li><li><strong>Preis:</strong> Bitte Angebot anfordern.</li></ul>
+    <p><strong>Was es deiner Firma bringt:</strong> ein besonderer Teamtag statt dem üblichen Ausflug. Gemeinsam zur Ruhe kommen verbindet. Gut auch als Abschluss einer Klausur, eines Projekts oder als Weihnachtsfeier der anderen Art.</p>
+    <p class="mini">Wer schwanger ist, einen Herzschrittmacher hat oder gerade gesundheitlich angeschlagen ist, spricht mich bitte vorher an. Ein Klangerlebnis ist ein Entspannungsangebot und ersetzt keine ärztliche Behandlung. Anders als die Kurse ist es nicht zertifiziert.</p>
+   </details>
+  </article>
+  <article class="firmen-item"><span class="eyebrow">04 · Workshop</span><h3>Kräfte gut einteilen</h3><p>Ein Impuls für Teams, die viel leisten und dabei gesund bleiben wollen.</p>
+   <details><summary>Mehr erfahren</summary>
+    <p>Wer viel Verantwortung trägt, merkt oft erst spät, dass die Kraft nachlässt. In diesem Workshop schauen wir gemeinsam hin: Woran erkenne ich, dass es zu viel wird? Was gibt mir Energie, was kostet sie? Und wie baue ich kleine Pausen so in den Tag ein, dass sie wirklich wirken? Es geht nicht um Selbstoptimierung, sondern um einen ehrlichen Blick auf die eigenen Grenzen.</p>
+    <h4>So läuft es ab</h4><ol><li>Kurzer Impuls: Was passiert bei Dauerstress im Körper und im Kopf?</li><li>Selbstcheck: Jede Person schaut für sich auf ihre Warnsignale und Kraftquellen.</li><li>Praxis: Zwei bis drei kurze Entspannungsübungen zum Mitnehmen, zum Beispiel aus PMR oder QiGong.</li><li>Austausch im Team: Was können wir im Arbeitsalltag gemeinsam anders machen?</li></ol>
+    <ul class="fakten"><li><strong>Ort:</strong> bei euch im Betrieb oder in einem Seminarraum</li><li><strong>Preis:</strong> Bitte Angebot anfordern.</li></ul>
+    <p><strong>Was es deiner Firma bringt:</strong> ein guter Einstieg ins Thema Gesundheit, auch für Teams, die mit Entspannungskursen noch nichts anfangen können. Gut geeignet für einen Gesundheitstag, eine Teamklausur oder als Auftakt vor einem Kurs.</p>
+   </details>
+  </article>
+ </div>
+ <div class="prose">
+  <p class="foerder"><strong>Gut zu wissen:</strong> Alle meine Kurse (Autogenes Training, PMR und QiGong) sind zertifiziert. Arbeitgeber können zertifizierte Präventionskurse unter bestimmten Voraussetzungen steuer- und sozialversicherungsfrei für ihre Mitarbeitenden bezahlen, bis zu 600 Euro pro Person und Jahr (§ 3 Nr. 34 EStG). Sprich mich gern darauf an.</p>
+  <p>Jedes Angebot stimme ich auf dein Team ab: auf die Größe, den Arbeitsalltag und das, was gerade gebraucht wird.</p>
+  <div class="actions"><a class="btn" href="mailto:andrea@nielbock.de?subject=Anfrage%20f%C3%BCr%20mein%20Team">Angebot für mein Team anfragen</a><a class="btn secondary" href="#kontakt">Andere Wege zum Kontakt</a></div>
+  <p class="intern">Noch offen, steht deshalb nicht auf der Seite: Wie der Adventskalender bei den Mitarbeitenden ankommt, Gruppengröße der Kurse, Dauer der Klang-Auszeit, Dauer und Gruppengröße des Workshops, Zertifizierungsstelle der Kurse. Preise und Mindestzahlen bleiben bewusst unsichtbar.</p>
+ </div>
+</div></section>
+
+<!-- ===== 04 Zusammenarbeit ===== -->
+<section class="detail band" id="partnerschaft"><div class="wrap two">
+ <div>
+  <span class="eyebrow">04 · Zusammenarbeit &amp; eigene Perspektiven</span>
+  <h2>Neue Wege beginnen selten mit einem fertigen Plan.</h2>
+  <div class="media"><figure class="photo wide"><img alt="Andrea arbeitet im Wohnmobil am Laptop, mit einer Tasse in der Hand" src="img/arbeiten-unterwegs.jpg"/></figure></div>
+ </div>
+ <div class="prose">
+  <p class="lead">Manchmal beginnt eine neue Perspektive genau dort, wo man sie am wenigsten erwartet.</p>
+  <p>Es gab eine Zeit, in der ich mir nicht hätte vorstellen können, im Network Marketing tätig zu sein. Zu groß waren meine Vorbehalte gegenüber einer Vertriebsform, die ich vor allem mit Verkaufsdruck und unrealistischen Versprechungen verband.</p>
+  <p>Dass ich mich dennoch näher damit beschäftigt habe, hatte zunächst nichts mit beruflichen Plänen zu tun. Es begann mit meinem Hund und der Suche nach einer Ernährung, die zu ihm passt.</p>
+  <p>Aus einer persönlichen Erfahrung wurde Neugier. Und irgendwann entstand die Frage, ob sich daraus auch beruflich etwas entwickeln könnte. Nicht als radikaler Neuanfang, sondern Schritt für Schritt.</p>
+  <h3>Erfolg hat für mich auch mit Haltung zu tun.</h3>
+  <p class="quote">Ich möchte Menschen nicht überreden. Ich möchte ihnen zuhören.</p>
+  <p>Ich möchte ihre Wünsche verstehen und gemeinsam herausfinden, ob eine Zusammenarbeit sinnvoll ist. Dazu gehören Ehrlichkeit, Verlässlichkeit und die Freiheit, auch Nein sagen zu dürfen. Ein gutes Netzwerk wächst für mich dort, wo Menschen sich gegenseitig unterstützen, Verantwortung übernehmen und ihren eigenen Weg gestalten können.</p>
+  <h3>Freiheit braucht Eigenverantwortung.</h3>
+  <p>Mich reizt die Möglichkeit, unternehmerisch tätig zu sein und den Arbeitsalltag selbst zu gestalten. Eigene Ideen verfolgen. Vielleicht eines Tages auch unterwegs arbeiten, mit meinem Hund an meiner Seite.</p>
+  <p>Gleichzeitig weiß ich: Ein eigenes Geschäft entsteht nicht von allein. Es braucht Einsatz, Geduld, Lernbereitschaft – und ein gutes Gespür für die eigenen Grenzen. Auch das habe ich auf meinem Weg gelernt.</p>
+  <h3>Vielleicht beginnt auch dein nächster Weg mit einem Gespräch.</h3>
+  <p>Du musst keine fertige Geschäftsidee haben. Und du musst auch nicht bereits überzeugt sein. Wenn du neugierig bist, wie ich arbeite und was eine Zusammenarbeit bedeutet, erzähle ich dir gern mehr – offen und ohne Erwartungsdruck.</p>
+  <p><a class="btn" href="https://www.supersaas.de/schedule/andrea_nielbock/Zusammenarbeit" rel="noopener" target="_blank">Kennenlerngespräch buchen</a></p>
+  <p class="mini" style="margin-bottom:0">Meine Geschichte im Podcast:</p>
+  <div class="podcast"><a class="btn" href="https://youtu.be/_UeJBdA5-y4" rel="noopener" target="_blank">Auf YouTube ansehen</a><a class="btn secondary" href="https://open.spotify.com/episode/5xn50RLRnYWDzhrHZt8NtR" rel="noopener" target="_blank">Auf Spotify anhören</a></div>
+  <p class="note">Ich arbeite als selbstständige Vertriebspartnerin mit REICO Vital-Systeme. Die Tätigkeit ist mit unternehmerischem Aufwand und Risiken verbunden; ein bestimmtes Einkommen ist nicht zugesichert.</p>
+ </div>
+</div></section>
+
+<!-- ===== Kontakt ===== -->
+<section class="contact" id="kontakt"><div class="wrap two">
+ <div><span class="eyebrow">Kontakt</span><h2>Vielleicht beginnt alles mit einem Gespräch.</h2></div>
+ <div class="prose">
+  <p class="lead">Eine Frage, eine Idee oder einfach Neugier?</p>
+  <p>Ich freue mich, von dir zu hören.</p>
+  <div class="contact-card">
+   <a class="btn whatsapp" href="https://wa.me/491708942976" rel="noopener" target="_blank">WhatsApp</a>
+   <a class="btn secondary" href="mailto:andrea@nielbock.de">E-Mail</a>
+   <a class="btn secondary" href="tel:+491708942976">Anrufen</a>
+  </div>
+  <p class="contact-social"><span>Folge mir:</span> <a href="https://www.facebook.com/nielbock.de/" rel="noopener" target="_blank">Facebook</a> <a href="https://www.instagram.com/andreanielbock_rauszeiten/" rel="noopener" target="_blank">Instagram</a></p>
+  <p class="intern">Handynummer 0170 8942976 aus deinen Kursflyern übernommen – bitte bestätigen, dass WhatsApp darunter läuft. Instagram führt vorerst zu andreanielbock_rauszeiten – wenn du ein neues Konto anlegst, schick mir den Link.</p>
+ </div>
+</div></section>
+
+<!-- ===== Impressum ===== -->
+<section class="legal" id="impressum"><div class="wrap prose">
+ <span class="eyebrow">Rechtliches</span>
+ <h2>Impressum</h2>
+ <h3>Angaben gemäß § 5 DDG</h3>
+ <p>Andrea Nielbock<br/>Coaching · Training · Klangmassagen<br/>Im Strange 12<br/>37520 Osterode am Harz</p>
+ <h3>Kontakt</h3>
+ <p>Telefon/WhatsApp: <a href="tel:+491708942976">0170 8942976</a><br/>E-Mail: <a href="mailto:andrea@nielbock.de">andrea@nielbock.de</a></p>
+ <h3>Umsatzsteuer</h3>
+ <p>Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG: DE234566043</p>
+ <h3>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h3>
+ <p>Andrea Nielbock, Anschrift wie oben</p>
+ <h3>Haftung für Links</h3>
+ <p>Diese Website enthält Links zu externen Websites Dritter, auf deren Inhalte ich keinen Einfluss habe. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber verantwortlich. Zum Zeitpunkt der Verlinkung waren keine Rechtsverstöße erkennbar. Werden mir Rechtsverletzungen bekannt, entferne ich solche Links umgehend.</p>
+ <h3>Bildnachweis</h3>
+ <p>Fotos: Andrea Nielbock. Das Video im Abschnitt „Du kannst alles schaffen“ wurde mit künstlicher Intelligenz (KI) erstellt, die Audio-Impulse unter „Ein Augenblick für dich“ mit einer KI-Version von Andreas Stimme.</p>
+ <p><a class="textlink" href="#start">Zurück nach oben</a></p>
+</div></section>
+
+<!-- ===== Datenschutz (Entwurf) ===== -->
+<section class="legal" id="datenschutz"><div class="wrap prose">
+ <span class="eyebrow">Rechtliches</span>
+ <h2>Datenschutzerklärung</h2>
+ <p class="intern">Entwurf, Stand Oktober 2026. Ersetzt die alte Erklärung (Shore entfernt, sendinblue heißt jetzt Brevo, SuperSaaS neu). Coachy ist entfernt; PayPal und Digistore24 bleiben auf deinen Wunsch drin. Bitte vor Veröffentlichung rechtlich prüfen lassen.</p>
+ <p>Der Schutz deiner persönlichen Daten ist mir wichtig. Hier erfährst du, welche Daten beim Besuch dieser Website verarbeitet werden und welche Rechte du hast. Grundlage sind die Datenschutz-Grundverordnung (DSGVO), das Bundesdatenschutzgesetz (BDSG) und das Telekommunikation-Digitale-Dienste-Datenschutz-Gesetz (TDDDG).</p>
+
+ <h3>Verantwortlich</h3>
+ <p>Andrea Nielbock, Im Strange 12, 37520 Osterode am Harz<br/>Telefon: 0170 8942976 · E-Mail: <a href="mailto:andrea@nielbock.de">andrea@nielbock.de</a></p>
+
+ <h3>Hosting und Server-Logfiles</h3>
+ <p>Diese Website wird über GitHub Pages bereitgestellt, einen Dienst der GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA. Beim Aufruf der Seite verarbeitet GitHub technisch notwendige Daten, insbesondere deine IP-Adresse, Datum und Uhrzeit des Abrufs, die aufgerufene Seite, Browsertyp und Betriebssystem. Das ist nötig, um die Website sicher und stabil auszuliefern (berechtigtes Interesse nach Art. 6 Abs. 1 lit. f DSGVO). Eine Übermittlung in die USA ist möglich; GitHub ist nach dem EU-US Data Privacy Framework zertifiziert. Weitere Informationen: <a href="https://docs.github.com/de/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener" target="_blank">Datenschutzerklärung von GitHub</a>.</p>
+
+ <h3>Keine Cookies, kein Tracking</h3>
+ <p>Diese Website setzt keine Cookies und verwendet keine Analyse- oder Trackingdienste. Schriften und Bilder werden nicht von fremden Servern nachgeladen.</p>
+
+ <h3>Kontakt</h3>
+ <p>Wenn du mir per E-Mail, Telefon oder WhatsApp schreibst, verarbeite ich deine Angaben nur, um deine Anfrage zu beantworten (Art. 6 Abs. 1 lit. b bzw. f DSGVO). Ich lösche sie, sobald sie nicht mehr benötigt werden und keine gesetzlichen Aufbewahrungspflichten bestehen. Bei WhatsApp gelten zusätzlich die Datenschutzbestimmungen von WhatsApp (Meta); nutze diesen Weg bitte nur, wenn du damit einverstanden bist.</p>
+
+ <h3>Terminbuchung mit SuperSaaS</h3>
+ <p>Für die Buchung von Terminen verlinke ich auf das Buchungssystem SuperSaaS der SuperSaaS B.V., Amsterdam, Niederlande. Erst wenn du den Link anklickst und dort einen Termin buchst, werden die von dir eingegebenen Daten (z. B. Name, E-Mail-Adresse, Telefonnummer, Terminwunsch) von SuperSaaS in meinem Auftrag verarbeitet, um den Termin zu verwalten (Art. 6 Abs. 1 lit. b DSGVO). Weitere Informationen: <a href="https://www.supersaas.de/info/privacy" rel="noopener" target="_blank">Datenschutzerklärung von SuperSaaS</a>.</p>
+
+ <h3>Newsletter mit Brevo</h3>
+ <p>Wenn du dich für meinen Newsletter anmeldest, nutze ich dafür Brevo (Sendinblue GmbH, Köpenicker Straße 126, 10179 Berlin). Die Anmeldung erfolgt im Double-Opt-in-Verfahren: Du erhältst eine E-Mail, mit der du deine Anmeldung bestätigst. Gespeichert werden deine E-Mail-Adresse, ggf. dein Name sowie Zeitpunkt und IP-Adresse der Anmeldung und Bestätigung. Rechtsgrundlage ist deine Einwilligung (Art. 6 Abs. 1 lit. a DSGVO), die du jederzeit über den Abmeldelink in jedem Newsletter widerrufen kannst. Weitere Informationen: <a href="https://www.brevo.com/de/legal/privacypolicy/" rel="noopener" target="_blank">Datenschutzerklärung von Brevo</a>.</p>
+
+ <h3>Bezahlung mit PayPal und Digistore24</h3>
+ <p>Wenn du ein Angebot von mir kaufst oder bezahlst, kann das über PayPal (PayPal (Europe) S.à r.l. et Cie, S.C.A., 22–24 Boulevard Royal, L-2449 Luxemburg) oder über Digistore24 (Digistore24 GmbH, St.-Godehard-Straße 32, 31139 Hildesheim) geschehen. Dabei werden die für die Zahlung nötigen Daten, etwa Name, E-Mail-Adresse, Rechnungsdaten und Zahlungsinformationen, an den jeweiligen Anbieter übermittelt (Art. 6 Abs. 1 lit. b DSGVO). Digistore24 tritt dabei als Wiederverkäufer auf. Es gelten die Datenschutzbestimmungen von <a href="https://www.paypal.com/de/legalhub/privacy-full" rel="noopener" target="_blank">PayPal</a> und <a href="https://www.digistore24.com/page/privacy" rel="noopener" target="_blank">Digistore24</a>.</p>
+
+ <h3>Links zu YouTube, Spotify und anderen Seiten</h3>
+ <p>Auf dieser Website sind keine Inhalte von YouTube, Spotify oder sozialen Netzwerken eingebettet. Es gibt nur normale Links, zum Beispiel zu YouTube, Spotify oder der Einhornhöhle. Erst wenn du einen Link anklickst, verlässt du diese Seite; dann gelten die Datenschutzbestimmungen des jeweiligen Anbieters.</p>
+
+ <h3>Audios und Video</h3>
+ <p>Die Audio-Impulse und das Video werden zusammen mit dieser Website ausgeliefert (nicht über YouTube oder andere Plattformen) und starten nur, wenn du selbst auf „Abspielen“ tippst. Dabei werden keine zusätzlichen Daten an Dritte übermittelt.</p>
+
+ <h3>Deine Rechte</h3>
+ <p>Du hast jederzeit das Recht auf Auskunft über deine gespeicherten Daten, auf Berichtigung, Löschung, Einschränkung der Verarbeitung und Datenübertragbarkeit sowie das Recht, der Verarbeitung zu widersprechen und eine erteilte Einwilligung zu widerrufen. Wende dich dazu einfach an die oben genannte Adresse. Außerdem kannst du dich bei einer Datenschutz-Aufsichtsbehörde beschweren, zum Beispiel bei der Landesbeauftragten für den Datenschutz Niedersachsen.</p>
+
+ <h3>Werbe-E-Mails</h3>
+ <p>Der Nutzung der im Impressum veröffentlichten Kontaktdaten zur Zusendung nicht ausdrücklich angeforderter Werbung wird widersprochen.</p>
+
+ <h3>Änderungen</h3>
+ <p>Ich passe diese Datenschutzerklärung an, wenn sich die Website oder die rechtlichen Vorgaben ändern. Stand: Oktober 2026.</p>
+ <p><a class="textlink" href="#start">Zurück nach oben</a></p>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+ <div class="brand"><img src="img/logo-herz.png" alt="" width="40" height="46"/><span>Andrea Nielbock<small>tierisch erfolgreich</small></span></div>
+ <p class="mini footer-links"><a href="#impressum">Impressum</a> · <a href="#datenschutz">Datenschutz</a> · <a href="#start">Nach oben</a></p>
+ 
+</div></footer>
+
+<script>
+/* Audio-Dateien: sobald vorhanden, Pfad eintragen, z. B. ruhe:'audio/ruhe.mp3'.
+   Leere Einträge = es wird nur der Text gezeigt (kein leerer Player). */
+const AUDIO_DATEIEN={ruhe:'audio/ruhe.mp3',energie:'audio/neue-energie.mp3',klarheit:'audio/klarheit.mp3',mut:'audio/mut.mp3'};
+
+const impulses={
+ruhe:{title:"Du darfst einfach einen Moment hier sein.",desc:"Ein kurzer Augenblick zum Ankommen.",text:"Schön, dass du dir gerade einen Moment Zeit nimmst. Vielleicht setzt du dich bequem hin und lässt die Schultern ein wenig sinken. Du musst jetzt nichts erledigen. Nimm wahr, wie du sitzt oder stehst. Spüre den Boden unter deinen Füßen. Atme in deinem eigenen Rhythmus. Vielleicht gibt es gerade ein Geräusch, das du hören kannst. Und vielleicht darf für einen kleinen Augenblick alles genau so sein, wie es ist. Wenn du magst, nimm dieses Gefühl mit in deinen Tag. Ganz ohne Eile."},
+energie:{title:"Ein neuer Anfang darf ganz klein sein.",desc:"Ein freundlicher Impuls für neue Bewegung.",text:"Manchmal brauchen wir keinen großen Plan. Nur einen kleinen Anfang. Vielleicht öffnest du jetzt das Fenster. Vielleicht streckst du dich oder gehst ein paar Schritte. Spüre, wie es ist, wieder ein wenig in Bewegung zu kommen. Nicht, weil du etwas leisten musst. Sondern weil es guttun kann, den eigenen Körper wahrzunehmen. Frage dich: Was wäre heute ein kleiner Schritt, auf den ich mich freuen könnte? Mehr braucht es für diesen Moment nicht."},
+klarheit:{title:"Nicht alles muss heute entschieden werden.",desc:"Ein Moment, um Gedanken zu ordnen.",text:"Vielleicht ist gerade vieles gleichzeitig in deinem Kopf. Wünsche, Aufgaben, Fragen. Du musst nicht alles auf einmal lösen. Nimm dir einen Moment und frage dich: Was ist heute wirklich wichtig? Und was darf noch warten? Manchmal wird es schon leichter, wenn wir die Dinge nicht alle gleich dringend behandeln. Vielleicht fällt dir jetzt ein einziger Gedanke ein, dem du heute Raum geben möchtest. Das genügt."},
+mut:{title:"Du darfst neue Wege für möglich halten.",desc:"Ein Gedanke über Veränderung und Vertrauen.",text:"Es gibt Ideen, die begleiten uns eine ganze Weile, bevor wir ihnen Beachtung schenken. Vielleicht, weil wir uns noch nicht sicher sind. Vielleicht, weil wir denken, es sei nicht der richtige Zeitpunkt. Du musst heute keine große Entscheidung treffen. Aber du darfst neugierig sein. Du darfst eine Frage stellen, eine Möglichkeit prüfen oder etwas anders betrachten als gestern. Manchmal beginnt Veränderung mit dem leisen Gedanken: Warum eigentlich nicht?"}
+};
+const $=id=>document.getElementById(id);
+function nurText(){
+ $('audio-player').replaceChildren();
+ $('audio-status').textContent='Die persönliche Aufnahme von Andrea folgt. Bis dahin kannst du den Impuls hier lesen.';
+ $('audio-details').open=true;
+}
+document.querySelectorAll('.audio-choice').forEach(button=>button.addEventListener('click',()=>{
+ const key=button.dataset.impulse, item=impulses[key], src=AUDIO_DATEIEN[key];
+ document.querySelectorAll('.audio-choice').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));
+ $('audio-title').textContent=item.title;
+ $('audio-description').textContent=item.desc;
+ $('audio-transcript').textContent=item.text;
+ document.querySelectorAll('audio').forEach(a=>a.pause());
+ if(src){
+  const a=document.createElement('audio');
+  a.controls=true;a.preload='none';a.src=src;
+  a.addEventListener('error',nurText); /* Datei fehlt? Dann still auf Text umschalten. */
+  $('audio-player').replaceChildren(a);
+  $('audio-status').textContent='In Andreas Stimme, mit KI erzeugt · etwa 30 bis 40 Sekunden';
+  $('audio-details').open=false;
+ } else nurText();
+ $('audio-result').hidden=false;
+ $('audio-result').scrollIntoView({behavior:'smooth',block:'nearest'});
+}));
+/* ---------- Gedanke der Woche: wechselt automatisch jeden Montag ---------- */
+const GEDANKEN=[
+{ab:'2026-11-09',thema:'Ruhe',audio:'ruhe',titel:'Du darfst langsamer werden.',text:'Die Tage werden kürzer, und die Natur zieht sich zurück. Sie macht es uns vor: Nicht jede Zeit ist zum Wachsen da. Manche ist zum Ausruhen. Vielleicht darfst du dir diese Woche erlauben, eine Sache weniger zu tun.',frage:'Was würdest du weglassen, wenn niemand es bemerkt?'},
+{ab:'2026-11-16',thema:'Neue Energie',audio:'energie',titel:'Kraft entsteht oft im Kleinen.',text:'Wir warten gern auf den großen Schwung. Dabei beginnt neue Energie oft mit etwas ganz Einfachem: einem Spaziergang an der frischen Luft, einem Glas Wasser, einem ehrlichen Lachen. Mein Hund erinnert mich jeden Morgen daran.',frage:'Was gibt dir in fünf Minuten ein bisschen Kraft zurück?'},
+{ab:'2026-11-23',thema:'Klarheit',audio:'klarheit',titel:'Nicht alles muss heute entschieden werden.',text:'Wenn sich die Gedanken im Kreis drehen, hilft es selten, noch länger zu grübeln. Manchmal wird es klarer, wenn wir einen Schritt zurückgehen. Schreib auf, was dich beschäftigt, und lass es eine Nacht liegen.',frage:'Welche Frage trägst du gerade mit dir herum?'},
+{ab:'2026-11-30',thema:'Mut',audio:'mut',titel:'Ein kleines Licht reicht für den nächsten Schritt.',text:'Am ersten Advent brennt nur eine Kerze. Und doch macht sie den Raum heller. Mut muss nicht laut sein. Er kann auch leise beginnen, mit einem Gedanken, den du dir zum ersten Mal erlaubst.',frage:'Welchen kleinen Schritt würdest du gehen, wenn du keine Angst hättest?'},
+{ab:'2026-12-07',thema:'Ruhe',audio:'ruhe',titel:'Mitten im Trubel einmal durchatmen.',text:'Die Adventszeit soll besinnlich sein und ist oft das Gegenteil. Geschenke, Termine, Erwartungen. Du darfst zwischendurch anhalten. Drei tiefe Atemzüge, bevor du die nächste Sache anfängst, können schon einen Unterschied machen.',frage:'Wann hast du heute schon bewusst geatmet?'},
+{ab:'2026-12-14',thema:'Neue Energie',audio:'energie',titel:'Was dich lebendig macht, ist kein Luxus.',text:'Wir kümmern uns um so viele andere. Um die Familie, die Arbeit, unsere Tiere. Doch auch du brauchst Momente, die dich auftanken. Das ist nicht egoistisch. Es ist die Voraussetzung, um für andere da sein zu können.',frage:'Was hast du lange nicht mehr getan, obwohl es dir Freude macht?'},
+{ab:'2026-12-21',thema:'Klarheit',audio:'klarheit',titel:'Das Wichtigste passt in keine Geschenkverpackung.',text:'Kurz vor Weihnachten lohnt sich ein ehrlicher Blick: Was zählt für mich an diesen Tagen wirklich? Oft sind es nicht die perfekten Plätzchen, sondern Zeit, Nähe und ein gutes Gespräch.',frage:'Was soll sich an diesem Weihnachten richtig anfühlen?'},
+{ab:'2026-12-28',thema:'Mut',audio:'mut',titel:'Du musst nicht alles anders machen. Nur etwas.',text:'Zwischen den Jahren ist eine besondere Zeit. Das Alte ist noch da, das Neue noch nicht. Statt großer Vorsätze darfst du dir eine Sache vornehmen, die sich nach dir anfühlt. Die Grenzen sind oft nur in unserem Kopf.',frage:'Was nimmst du mit ins neue Jahr, und was lässt du hier?'}
+];
+(function(){
+ const heute=new Date(), tag=d=>new Date(d+'T00:00:00');
+ let g=GEDANKEN[0];
+ GEDANKEN.forEach(x=>{if(tag(x.ab)<=heute) g=x;});
+ $('gdw-thema').textContent=g.thema; $('gdw-titel').textContent=g.titel;
+ $('gdw-text').textContent=g.text; $('gdw-frage').textContent=g.frage;
+ const link=$('gdw-audio');
+ link.dataset.impulse=g.audio;
+ link.textContent='Möchtest du den Gedanken vertiefen? Hör dir das Audio „'+g.thema+'“ an';
+ link.addEventListener('click',()=>{const b=document.querySelector('.audio-choice[data-impulse="'+link.dataset.impulse+'"]'); if(b) setTimeout(()=>b.click(),400);});
+ /* Saisonbeiträge nach Ablauf entfernen (in der Vorschau bleiben sie sichtbar) */
+ if(!document.body.classList.contains('vorschau'))
+  document.querySelectorAll('[data-bis]').forEach(el=>{if(heute>new Date(el.dataset.bis+'T23:59:59')) el.remove();});
+})();
+</script></body></html>
+
+</body></html>
