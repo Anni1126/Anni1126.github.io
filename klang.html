@@ -1,0 +1,174 @@
+<!DOCTYPE HTML> <html class="no-js responsivelayout" lang="de"> <head> <script>
+		document.documentElement.className = document.documentElement.className.replace(/no-js/g, 'js');
+	</script> <title>Klang</title> <meta http-equiv="content-type" content="text/html; charset=utf-8"> <meta name="description" content=""> <meta name="keywords" content=""> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <meta name="generator" content="Zeta Producer 14.3.3.0, ZP14B, 04.09.2018 12:40:38"> <meta name="robots" content="index, follow"> <link rel="shortcut icon" type="image/x-icon" href="assets/unbenannt-1.gif"> <script>
+		// if after 1000ms we haven't got webfonts, show the user something, a FOUT is better than nothing
+		// http://kevindew.me/post/47052453532/a-fallback-for-when-google-web-font-loader-fails
+		setTimeout(function() {
+			// you can have the webfont.js cached but still have no classes fire and you will have a window.WebFontConfig object
+			if ( ! ("WebFont" in window)) {
+				// non wfl loader class name because their events could still fire
+				document.getElementsByTagName("html")[0].className += " wf-fail";
+			}
+		}, 1000);
+	
+		WebFontConfig = {
+			google: { families: [ 'Roboto:300,400,700' ] }
+		};
+		(function() {
+			var wf = document.createElement('script');
+			wf.src = "assets/js/webfont/1.5.18/webfont.js";
+			wf.type = 'text/javascript';
+			wf.async = 'true';
+			var s = document.getElementsByTagName('script')[0];
+			s.parentNode.insertBefore(wf, s);
+		})(); 
+	</script> <noscript> <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto:300,400,700"> </noscript> <link rel="stylesheet" type="text/css" href="assets/bundle.css?v=636921753586239797"> <link rel="stylesheet" type="text/css" href="assets/bundle-print.css?v=636831786603833613" media="print"> <style>
+#a2196.zpwButton p{text-align: left;}
+
+</style><style>
+#a1975.zpwButton p{text-align: left;}
+
+</style> <script type="text/javascript" src="assets/bundle.js?v=636921753586239797"></script> </head> <body id="locus-responsive" class="notouch"> <a id="top"></a> <div id="logo"><a href="index.html"><img src="assets/logo.png" width="67" height="50" alt="index.html"></a></div> <div id="wrapper" class="container"> <div id="header"> <div class="topline"> <div id="webdescription"> <div id="webtext"> <div id="webname"><a href="index.html">andrea nielbock</a></div> </div> <div class="clearx"></div> </div> </div> <div id="nav"> <ul data-trianglemode="true" class="submenu touchhovermenu clickhovermenu"> <li class="haschilds"> <a href="index.html">Startseite</a> <ul> <li> <a href="ueber-mich.html">Ueber mich</a> </li> </ul> </li> <li class="haschilds active open"> <a href="rauszeiten.html">Für DICH</a> <ul> <li> <a href="qigong.html">QiGong</a> </li> <li> <a href="autogenes-training.html">Autogenes Training</a> </li> <li> <a href="pmr-progressive-muskelentspannung.html">PMR Progressive Muskelentspannung</a> </li> <li class="active"> <a class="active" href="klang.html">Klang</a> </li> </ul> </li> <li> <a href="blog.html">Blog</a> </li> <li class="haschilds"> <a href="impressum.html">Impressum</a> <ul> <li> <a href="datenschutz.html">Datenschutz</a> </li> <li> <a href="agbs.html">AGBs</a> </li> </ul> </li> <li class="overflownonly"><a href="#" id="mobilenavtoggle" class="tabletonly toggle" aria-label="Menü ein-/ausblenden">&#9776; Menü</a></li> </ul> </div> </div> <div id="slider" class="noprint"> <a id="a1838"></a> <div id="headerslider" class="flexslider"> <div class="flex-container"> <ul class="slides"> <li> <img src="media/images/9662f5f9e7bc47569a6ce5b5a384bb08-large.png" alt=""> </li> </ul> </div> </div> <script>
+		$z(document).ready(function() {
+			var useCssAnimation = true;
+			if ( $z.browser.safari ){
+				useCssAnimation = false;
+			}
+			
+			function initSlider(){
+				$z('#headerslider .flex-container').flexslider({
+					useCSS: useCssAnimation,
+					touch: true,
+					keyboard: true,
+					itemMargin: 0,
+					animation: 'fade',
+					controlsContainer: '#headerslider.flexslider',
+					slideshow: false,
+					slideshowSpeed: 7000,
+					directionNav: true,
+					controlNav: false,
+					randomize: false,
+					
+					pauseOnHover: true,
+					smoothHeight: true,
+					prevText: "zur&#252;ck",
+					nextText: "weiter"
+				});
+			}
+			
+			if ( $z('#headerslider .flex-container ul.slides li img').length > 0 ){
+				// init flexslider after 1st image has loaded, so have dimensions as quickly as possible without having to wait too long on window loaded or such and can start right with doc ready
+				$z('#headerslider .flex-container ul.slides li img').first().one("load", initSlider).each(function() {
+					if(this.complete) $z(this).load();
+				}); // .each() is to work around a browser bugs which don't fire load() for cached images http://stackoverflow.com/a/3877079
+			}
+			else{
+				// also init flexslider if it doesn't contain images and is text only
+				initSlider();
+			}
+			
+			// activate links for individual slideshow
+			$z('#headerslider .flex-container ul.slides li[data-clickurl]').css("cursor","pointer");
+			$z('#headerslider .flex-container ul.slides li[data-clickurl]').click(function (event){
+				// Because this script captures clicks for a container, it will also fire when a regular link inside the container 
+				// is clicked. Therefore, we check below, if a regular link i.e. <a href="#"> was the target of the click.
+				// Depending on the browser used, event.target might not be available, but event.srcElement would…
+				var targ;
+				if (event.target){
+					targ = event.target;
+				}
+				else if (event.srcElement) {
+					targ = event.srcElement;
+				}
+				if (targ.nodeName == "A") {
+					// a regular link i.e. in a Caption was clicked. Return early, so the link's href doesn't get overridden
+					return;
+				}
+				
+				if ( $z(this).data("clicktarget") ){
+					window.open($z(this).data("clickurl"), $z(this).data("clicktarget"));
+				}
+				else{
+					window.location = $z(this).data("clickurl");
+				}
+				event.preventDefault;
+				return false;
+			});
+		});
+  	</script> </div> <div id="content" class="main style1 rounded"> <div class="zparea zpgrid" data-numcolumns="" data-areaname="Standard"> <div class="zpContainer "> <div class="zpRow standard "><div class="zpRowInner"> <div class="zpColumn odd zpColumnWidth1 c12" style=" "> <div class="zpColumnItem"> <div id="a1843" data-articleid="1843" class="articlearea zpwText"> <h2>Klang in der Einhornhöhle</h2> <p><strong><span style="color: #660099">"Klang und Stille in der Einhornhöhle"</span>&nbsp;</strong></p><strong> <p><strong>Termine 2026 jeweils um 17:30</strong></p> <p><strong><strong>30.Mai, 27.Juni, 8.August, 19. Sept.</strong></strong><br></p></strong> <p> </p><p>Für kurze Zeit aus dem Alltagsleben heraus treten an einen besonderen Ort: </p> <p>In die Einhornhöhle.<br>In dieser mystischen, beruhigenden Atmosphäre bei sich selbst sein,<br>die lauten Gedanken abstellen und den Klängen von Klangschalen und Gongs lauschen.<br>Klang und Stille sind die Begleiter dieser Reise.<br>Stille dient hier der Konzentration und erhöht die Aufmerksamkeit . Ankommen, Innehalten, eigenen Impulsen folgen.&nbsp; Stille schafft Raum.<br>Immer wieder ist sie da, die Stille zwischen all den Klängen, die das Höhlenlabyrinth durchströmen.<br><br><a href="https://www.einhornhoehle.de"><span style="color: #800080"><strong><strong>Termine&nbsp;auch</strong></strong><strong><strong>&nbsp;auf der HP der Einhornhöhle.</strong></strong></span></a></p><strong><span style="color: #660099"> <p>&nbsp;</p></span></strong> <p>Alle Termine unter Vorbehalt. Es können sich Änderungen ergeben. Evtl. gekaufte Tickets behalten für eine andere Veranstaltung ihre Gültigkeit. Die Veranstaltungen beginnen jeweils Punkt 17:30. Späteres Erscheinen zur Veranstaltung berechtigt nicht zur Ticketrückgabe. Ein Zugang zur Untertage-Veranstaltung&nbsp;&nbsp;ist nach&nbsp;&nbsp;Beginn nicht mehr möglich.</p> <p>Leitung: Andrea Nielbock TraiNatur<br>in Kooperation mit GUf e.V. Tel.: 05521 / 997559<br>Treffpunkt: <a href="http://www.einhornhoehle.de" rel="noopener" target="_blank">Haus Einhorn an der Einhornhöhle</a>, 37412 Herzberg am Harz<br>Anmeldung: unbedingt Reservierung unter&nbsp;<a href="mailto:mail@einhornhoehle.de">mail@einhornhoehle.de</a> </p> <p>Bitte unbedingt warm anziehen, Decke/Sitzkissen mitbringen !!!</p> <p>Entgelt 25,- € p.P.</p> <p><img title="" class="singleImage" style="HEIGHT: 351px; WIDTH: 467px" alt="" src="media/images/p1000870.jpg" width="467" height="351"></p> <p>&nbsp;</p> </div> </div> <div class="zpColumnItem"> <div id="a2196" data-articleid="2196" class="articlearea zpwButton"> <p> <a href="https://connect.shore.com/bookings/einhornhoehle/services?locale=de&origin=standalone" target="_blank" rel="noopener" class="button"> <span>Veranstaltung reservieren</span> </a> </p> </div> </div> <div class="zpColumnItem"> <div id="a2106" data-articleid="2106" class="articlearea zpwText"> <p style="text-align: right"><a href="klang.html"><em>&nbsp;<span style="color: #808080">up&nbsp;</span></em></a></p> </div> </div> <div class="clearx"></div> <div class="zpColumnItem"> <div id="a2103" data-articleid="2103" class="articlearea zpwTrennlinie zpSO-separator"> <hr class="zpSO-separator" style="display:block;border:none;height:1px;line-height:1px;color:#D0D0D0;background-color:#D0D0D0;margin-top:30px;margin-bottom:30px;"> </div> </div> <div class="zpColumnItem"> <div id="a1975" data-articleid="1975" class="articlearea zpwButton"> <p> <a href="klang.html#a1975" class="button"> <span>Location Einhornhöhle >></span> </a> </p> </div> </div> </div> </div></div> <div class="zpRow standard "><div class="zpRowInner"> <div class="zpColumn odd zpColumnWidth1 c12" style=" "> <div class="zpColumnItem"> <div id="a2102" data-articleid="2102" class="articlearea zpwText"> <h3 style="color: #88822E; ">Die Einhornhöhle</h3> <p>Bereits seit über 10 Jahren finden in den Sommermonaten regelmäßig Klangveranstaltungen in der Einhornhöhle statt.</p> <p><img title="" class="singleImage" style="HEIGHT: 142px; WIDTH: 581px" alt="" src="media/images/andrea_nielbock_klangevent1-rand.jpg" width="581" height="142"></p> <p>Der Weg zur Location Einhornhöhle führt durch den Ort Scharzfeld (Navi-Eingabe Straße "Im Rott") zu unserem Waldparkplatz. Von dort sind es wenige Minuten zur Fuß zum Haus Einhorn.</p> <p><img title="" class="singleImage" style="HEIGHT: 150px; WIDTH: 585px" alt="" src="media/images/andrea_nielbock_klangevent2-rand.jpg" width="585" height="150"></p> </div> </div> <div class="zpColumnItem"> <div id="a2105" data-articleid="2105" class="articlearea zpwGoogle_Maps"> <h3 style="color: #7F20DF; ">Dein Weg zur Höhle:</h3> <iframe id="zgmap2105" name="zgmap2105" class="zgmap" width="480" height="320" src="https://maps.google.com/maps?q=Parkplatz%20%22An%20der%20Einhornh%C3%B6hle%22%20Unnamed%20Road%2C%2C%2037412%20Herzberg%20am%20Harz&amp;ie=UTF8&amp;hnear=Parkplatz%20%22An%20der%20Einhornh%C3%B6hle%22%20Unnamed%20Road%2C%2C%2037412%20Herzberg%20am%20Harz&amp;t=m&amp;z=15&amp;output=embed"> </iframe> <script>
+		// prevent scroll-wheel-support in map while browser window is being scrolled
+		var allSet2105 = false;
+		$z(window).off('scroll.zgmap2105');
+		$z(window).on('scroll.zgmap2105', function(){
+			if ( !allSet2105 ){
+				$z("#zgmap2105").css("pointer-events", "none");
+				allSet2105 = true;
+			}
+			
+			clearTimeout($.data(this, 'scrollTimer2105'));
+			$.data(this, 'scrollTimer2105', setTimeout(function() {
+				$z("#zgmap2105").css("pointer-events", "");
+				allSet2105 = false;
+			}, 250));
+			
+			
+		});
+	</script> </div> </div> <div class="zpColumnItem"> <div id="a2109" data-articleid="2109" class="articlearea zpwText"> <p><strong></strong>&nbsp;</p> <p><strong></strong>&nbsp;</p> <p><strong>&gt;</strong> zurück zu: &nbsp;<strong><a href="rauszeiten.html"><span style="color: #800080">Für DICH</span></a></strong></p> </div> </div> <div class="zpColumnItem"> <div id="a2107" data-articleid="2107" class="articlearea zpwText"> <p style="text-align: right"><a href="klang.html"><em>&nbsp;<span style="color: #808080">up&nbsp;</span></em></a></p> </div> </div> </div> </div></div> </div> <div class="zpContainer "> <div class="zpRow standard "><div class="zpRowInner"> <div class="zpColumn odd zpColumnWidth1 c12" style=" "> <div class="clearx"></div> <div class="zpColumnItem"> <div id="a1840" data-articleid="1840" class="articlearea zpwTrennlinie zpSO-separator"> <hr class="zpSO-separator" style="display:block;border:none;height:1px;line-height:1px;color:#D0D0D0;background-color:#D0D0D0;margin-top:30px;margin-bottom:30px;"> </div> </div> </div> </div></div> </div> </div> </div> </div> <div id="footer" class="container"> <div id="xmenu" class=""> <a href="index.html">Startseite</a> <a href="datenschutz.html">Datenschutz</a> <a href="impressum.html">Impressum</a> </div> <div id="copyright"> © 2020 andrea nielbock </div> </div> <script>	
+		function setoverflown(){
+			if ( $z("#nav").is(":hover") || ! $z("#nav > ul > li").length ){
+				return;
+			}
+			if ( $z("#nav:not(.on)").overflown() ){
+				$z("#nav > ul").css("text-align", "left");
+				$z("#nav, #nav > ul li.overflownonly").addClass("overflown");
+				// hide overflown list items
+				var firstTop = $z("#nav > ul > li").eq(0).position().top;
+				$z("#nav > ul > li").each(function(){
+					if ( $z(this).position().top > firstTop ){
+						$z(this).addClass("overflowing");
+					}
+				});
+			}
+			else{
+				$z("#nav > ul").css("text-align", "");
+				$z("#nav, #nav > ul li.overflownonly").removeClass("overflown");
+				// re show previously hidden, overflowing li
+				$z("#nav > ul > li").removeClass("overflowing");
+			}
+		}
+		
+		$z(document).ready(function(){
+			// switches the Mobile Navigation-Menu on/off, when "Menu" link is clicked.
+			$z("a#mobilenavtoggle").on("click", function(e){
+				e.preventDefault();
+				if ( $z("#nav").hasClass("on") ){
+					// we're switching to off now
+					$z("#nav ul li").removeClass("hoverToClickMenuAdded clicked");
+					$z("#nav ul ul").css("display", "").css("visibility", "");
+				}
+				$z("#nav").toggleClass("on");
+			});	
+			
+			setoverflown();
+			var resizeTimeout = null;
+			$z(window).resize(function() {
+				if (resizeTimeout) {
+					clearTimeout(resizeTimeout);
+				}
+				// throttle the resize event
+				resizeTimeout = setTimeout(function () {
+					setoverflown();
+				},150);
+			});
+		});
+		
+		$z(window).load(function(){
+			setoverflown();
+			setTimeout(function(){setoverflown();}, 1000);
+		});
+	</script> 
+<!--
+* Layout: Locus Responsive by StS
+* $Id: default.html 68738 2018-11-09 13:07:55Z sseiz $
+-->
+ </body> </html>

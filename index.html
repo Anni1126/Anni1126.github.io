@@ -1,0 +1,153 @@
+<!DOCTYPE HTML> <html class="no-js responsivelayout" lang="de"> <head> <script>
+		document.documentElement.className = document.documentElement.className.replace(/no-js/g, 'js');
+	</script> <title>Andrea Nielbock - Start</title> <meta http-equiv="content-type" content="text/html; charset=utf-8"> <meta name="description" content=""> <meta name="keywords" content="Nielbock mindfulness Achtsamkeit Qigong auszeit Klang Meditation Klangmassage NLP Coaching"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <meta name="generator" content="Zeta Producer 14.3.3.0, ZP14B, 04.09.2018 12:40:38"> <meta name="robots" content="index, follow"> <link rel="shortcut icon" type="image/x-icon" href="assets/unbenannt-1.gif"> <script>
+		// if after 1000ms we haven't got webfonts, show the user something, a FOUT is better than nothing
+		// http://kevindew.me/post/47052453532/a-fallback-for-when-google-web-font-loader-fails
+		setTimeout(function() {
+			// you can have the webfont.js cached but still have no classes fire and you will have a window.WebFontConfig object
+			if ( ! ("WebFont" in window)) {
+				// non wfl loader class name because their events could still fire
+				document.getElementsByTagName("html")[0].className += " wf-fail";
+			}
+		}, 1000);
+	
+		WebFontConfig = {
+			google: { families: [ 'Roboto:300,400,700' ] }
+		};
+		(function() {
+			var wf = document.createElement('script');
+			wf.src = "assets/js/webfont/1.5.18/webfont.js";
+			wf.type = 'text/javascript';
+			wf.async = 'true';
+			var s = document.getElementsByTagName('script')[0];
+			s.parentNode.insertBefore(wf, s);
+		})(); 
+	</script> <noscript> <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto:300,400,700"> </noscript> <link rel="stylesheet" type="text/css" href="assets/bundle.css?v=636921753586239797"> <link rel="stylesheet" type="text/css" href="assets/bundle-print.css?v=636831786603833613" media="print"> <style>
+#a2203.zpwButton p{text-align: left;}
+
+</style> <script type="text/javascript" src="assets/bundle.js?v=636921753586239797"></script> </head> <body id="locus-responsive" class="notouch"> <a id="top"></a> <div id="logo"><a href="index.html"><img src="assets/logo.png" width="67" height="50" alt="index.html"></a></div> <div id="wrapper" class="container"> <div id="header"> <div class="topline"> <div id="webdescription"> <div id="webtext"> <div id="webname"><a href="index.html">andrea nielbock</a></div> </div> <div class="clearx"></div> </div> </div> <div id="nav"> <ul data-trianglemode="true" class="submenu touchhovermenu clickhovermenu"> <li class="haschilds open active"> <a class="active" href="index.html">Startseite</a> <ul> <li> <a href="ueber-mich.html">Ueber mich</a> </li> </ul> </li> <li class="haschilds"> <a href="rauszeiten.html">Für DICH</a> <ul> <li> <a href="qigong.html">QiGong</a> </li> <li> <a href="autogenes-training.html">Autogenes Training</a> </li> <li> <a href="pmr-progressive-muskelentspannung.html">PMR Progressive Muskelentspannung</a> </li> <li> <a href="klang.html">Klang</a> </li> </ul> </li> <li> <a href="blog.html">Blog</a> </li> <li class="haschilds"> <a href="impressum.html">Impressum</a> <ul> <li> <a href="datenschutz.html">Datenschutz</a> </li> <li> <a href="agbs.html">AGBs</a> </li> </ul> </li> <li class="overflownonly"><a href="#" id="mobilenavtoggle" class="tabletonly toggle" aria-label="Menü ein-/ausblenden">&#9776; Menü</a></li> </ul> </div> </div> <div id="slider" class="noprint"> <a id="a1674"></a> <div id="headerslider" class="flexslider"> <div class="flex-container"> <ul class="slides"> <li> <img src="media/images/andrea_nielbock-rauszeiten-2023-a-large.jpg" alt=""> </li> </ul> </div> </div> <script>
+		$z(document).ready(function() {
+			var useCssAnimation = true;
+			if ( $z.browser.safari ){
+				useCssAnimation = false;
+			}
+			
+			function initSlider(){
+				$z('#headerslider .flex-container').flexslider({
+					useCSS: useCssAnimation,
+					touch: true,
+					keyboard: true,
+					itemMargin: 0,
+					animation: 'fade',
+					controlsContainer: '#headerslider.flexslider',
+					slideshow: false,
+					slideshowSpeed: 7000,
+					directionNav: true,
+					controlNav: false,
+					randomize: false,
+					
+					pauseOnHover: true,
+					smoothHeight: true,
+					prevText: "zur&#252;ck",
+					nextText: "weiter"
+				});
+			}
+			
+			if ( $z('#headerslider .flex-container ul.slides li img').length > 0 ){
+				// init flexslider after 1st image has loaded, so have dimensions as quickly as possible without having to wait too long on window loaded or such and can start right with doc ready
+				$z('#headerslider .flex-container ul.slides li img').first().one("load", initSlider).each(function() {
+					if(this.complete) $z(this).load();
+				}); // .each() is to work around a browser bugs which don't fire load() for cached images http://stackoverflow.com/a/3877079
+			}
+			else{
+				// also init flexslider if it doesn't contain images and is text only
+				initSlider();
+			}
+			
+			// activate links for individual slideshow
+			$z('#headerslider .flex-container ul.slides li[data-clickurl]').css("cursor","pointer");
+			$z('#headerslider .flex-container ul.slides li[data-clickurl]').click(function (event){
+				// Because this script captures clicks for a container, it will also fire when a regular link inside the container 
+				// is clicked. Therefore, we check below, if a regular link i.e. <a href="#"> was the target of the click.
+				// Depending on the browser used, event.target might not be available, but event.srcElement would…
+				var targ;
+				if (event.target){
+					targ = event.target;
+				}
+				else if (event.srcElement) {
+					targ = event.srcElement;
+				}
+				if (targ.nodeName == "A") {
+					// a regular link i.e. in a Caption was clicked. Return early, so the link's href doesn't get overridden
+					return;
+				}
+				
+				if ( $z(this).data("clicktarget") ){
+					window.open($z(this).data("clickurl"), $z(this).data("clicktarget"));
+				}
+				else{
+					window.location = $z(this).data("clickurl");
+				}
+				event.preventDefault;
+				return false;
+			});
+		});
+  	</script> </div> <div id="content" class="main style1 rounded"> <div class="zparea zpgrid" data-numcolumns="" data-areaname="Standard"> <div class="zpContainer "> <div class="zpRow standard "><div class="zpRowInner"> <div class="zpColumn odd zpColumnWidth1 c12" style=" "> <div class="zpColumnItem"> <div id="a2197" data-articleid="2197" class="articlearea zpwText"> <h2 style="color: #7F20DF; ">Veranstaltungen 2026:</h2> </div> </div> </div> </div></div> <div class="zpRow standard "><div class="zpRowInner"> <div class="zpColumn odd zpColumnWidth1 c12" style=" "> <div class="clearx"></div> <div class="zpColumnItem"> <div id="a2181" data-articleid="2181" class="articlearea zpwTrennlinie zpSO-separator"> <hr class="zpSO-separator" style="display:block;border:none;height:1px;line-height:1px;color:#D0D0D0;background-color:#D0D0D0;margin-top:20px;margin-bottom:20px;"> </div> </div> </div> </div></div> <div class="zpRow standard "><div class="zpRowInner"> <div class="zpColumn odd zpColumnWidth1 c12" style=" "> <div class="zpColumnItem"> <div id="a2198" data-articleid="2198" class="articlearea zpwText"> <h2 style="color: #FF00FF; ">Klangabende in der Einhornhöhle</h2> <p><strong>&gt; Seite </strong><a href="klang.html"><strong>Klang</strong></a></p> </div> </div> </div> </div></div> <div class="zpRow standard "><div class="zpRowInner"> <div class="zpColumn odd zpColumnWidth1 c12" style=" "> <div class="clearx"></div> <div class="zpColumnItem"> <div id="a2199" data-articleid="2199" class="articlearea zpwTrennlinie zpSO-separator"> <hr class="zpSO-separator" style="display:block;border:none;height:1px;line-height:1px;color:#D0D0D0;background-color:#D0D0D0;margin-top:20px;margin-bottom:20px;"> </div> </div> </div> </div></div> <div class="zpRow standard "><div class="zpRowInner"> <div class="zpColumn odd zpColumnWidth1 c12" style=" "> <div class="zpColumnItem"> <div id="a2202" data-articleid="2202" class="articlearea zpwText"> <h2>DAS Workbook über Hundeernährung</h2> <p>Dein Hund ist kein Mülleimer –<br>artgerechte Ernährung für deinen Hund:</p> <p>von: </p> <p><br><span style="color: #003300">tierisch erfolgreich</span></p> <p><small><span style="color: #003300">Andrea Nielbock</span></small></p> <p>&nbsp;</p> </div> </div> <div class="zpColumnItem"> <div id="a2203" data-articleid="2203" class="articlearea zpwButton"> <p> <a href="https://andrea.nielbock.de/hund/" target="_blank" rel="noopener" class="button"> <span>Zum Workbook >></span> </a> </p> </div> </div> </div> </div></div> <div class="zpRow standard "><div class="zpRowInner"> <div class="zpColumn odd zpColumnWidth1 c12" style=" "> <div class="clearx"></div> <div class="zpColumnItem"> <div id="a2204" data-articleid="2204" class="articlearea zpwTrennlinie zpSO-separator"> <hr class="zpSO-separator" style="display:block;border:none;height:1px;line-height:1px;color:#D0D0D0;background-color:#D0D0D0;margin-top:20px;margin-bottom:20px;"> </div> </div> </div> </div></div> <div class="zpRow standard "><div class="zpRowInner"> <div class="zpColumn odd zpColumnWidth1 c12" style=" "> <div class="zpColumnItem"> <div id="a2159" data-articleid="2159" class="articlearea zpwText"> <h2 style="color: #FF00FF; text-align:left;">rAuszeiten für Businessfrauen</h2> <span style="color: #ff00ff; font-size: medium"> <p style="text-align: left"><em><strong>- Andrea Nielbock</strong></em></p></span> </div> </div> <div class="zpColumnItem"> <div id="a2160" data-articleid="2160" class="articlearea zpwText"> <p><b>Balance zwischen Erfolg und Selbstfürsorge</b></p> <p>raus - aus dem ständigen Druck</p> <p>raus-&nbsp; aus endlosen Deadlines </p> <p>raus - aus der nie enden wollenden Hektik des Alltags</p> <p>raus - aus dem Hamsterrad, das dich gefangen hält und dir das Gefühl gibt, dass du niemals genug tun kannst</p> </div> </div> <div class="zpColumnItem"> <div id="a2161" data-articleid="2161" class="articlearea zpwText"> <p>Ich kenne die Herausforderungen als Businessfrau nur zu gut, denn auch ich war jahrelang wie ein Hamster im Rad gefangen. Der ständige Druck, die endlosen Fristen und die immer wachsenden Anforderungen schienen mein Leben zu beherrschen. Es war noch ein langer Weg, bis ich meine ersten Erkenntnisse Wirklichkeit werden lassen konnte. Zu stark war ich in ein Konstrukt eingebunden, aus dem es keinen Ausweg zu geben schien. </p> <p>Den ersten Anstoß erhielt ich in einem KlangWorkshop als die Dozentin mich am Ende fragte&nbsp; “Andrea, was glaubst du wohl, wie lange dein Körper das noch mit macht?” Mit verschränkten Armen und Schmollmund erwiderte ich wie ein kleines, bockiges Mädchen “Was denn”?</p> <p>Es dauerte noch Jahre und ich musste noch durch ein ganz tiefes Tal gehen, bis die Veränderung im Kopf auch wirklich ankam. </p> <p>Genau aus dieser persönlichen Erfahrung heraus ist das tiefe Bedürfnis in mir entstanden, ganz besonders Frauen - Unternehmerinnen, Selbstständige, Frauen in Führungspositionen erfahren zu lassen, dass es durchaus Sinn macht, voller Selbstachtung und Selbstliebe Pausen zu machen.</p> </div> </div> <div class="zpColumnItem"> <div id="a2162" data-articleid="2162" class="articlearea zpwText"> <p style="text-align: right"><strong><a href="index.html#a2159"><em><span style="color: #99cc00">up</span></em></a></strong></p> <p><strong>rAuszeiten</strong> - aus dem Teufelskreis ausbrechen und einen Schritt zurückzutreten- dem Alltag entfliehen - an einem Ort, der dir Ruhe, Entspannung und Erneuerung schenkt- dich von der Last des Erfolgs befreit- dich in Kontakt mit dir selbst bringt.</p> <p>So kannst du deinem Körper und deinem Geist die nötige Aufmerksamkeit schenken, um zu regenerieren und neue Energie zu tanken.</p> <p>Rauskommen - nicht nur physisch an einem anderen Ort sein, sondern auch mental und emotional</p> <p>Raum für dich selbst, um wieder in Balance zu kommen und deine eigenen Bedürfnisse spüren und wertschätzen zu können.</p> </div> </div> <div class="zpColumnItem"> <div id="a2163" data-articleid="2163" class="articlearea zpwText"> <p><b>Und wofür das alles?</b></p> <p><span style="color: #ff00ff">Stelle dir doch mal vor:</span></p> <p>●&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; du würdest ganz entspannt und frei von Gedanken an dein Business, endlich mal wieder mit deinem Partner ins Theater gehen.</p> <p>●&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; du hast wieder Zeit, mit deinen Kindern zu spielen oder in den Zoo zu gehen</p> <p>●&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; du nimmst dir Zeit, abends zum Sport zu gehen</p> <p>●&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; triffst dich endlich mal wieder mit Freundinnen und verbringst eine lustige Zeit mit ihnen</p> <p>●&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; du genießt dein Leben ohne Schuldgefühle, wenn du nicht arbeitest</p> <p>&nbsp;</p> <p>&nbsp;</p> </div> </div> <div class="zpColumnItem"> <div id="a2164" data-articleid="2164" class="articlearea zpwText"> <p><b><span style="color: #ff00ff">Und dann gibt's da auch noch die positiven Wirkungen auf dein Business:</span></b></p> <p>●&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; du wirst deine Produktivität steigern, weil du deine Akkus aufgeladen hast</p> <p>●&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; klarer Kopf durch Entspannung für kluge Entscheidungen und strategische Schritte für Ihr Geschäft </p> <p>●&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; besserer&nbsp; Umgang mit stressigen Situationen - gesunde Bewältigungsstrategie und langfristig ein geringerer Stresspegel </p> <p>●&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mehr Wohlbefinden und Zufriedenheit- und wirst&nbsp; in der Lage sein, deine Erfolge und Fortschritte zu genießen und ein ausgeglichenes Leben führen</p> </div> </div> <div class="zpColumnItem"> <div id="a2165" data-articleid="2165" class="articlearea zpwText"> <p>Und insgesamt spürst du in allen Lebensbereichen die&nbsp; positiven Veränderungen. Du verbesserst deine Work-Life-Balance und schaffst dir mehr Raum für persönliche Interessen, Familie und Freizeit</p> <p>Du wirst in deinem Geschäft erfolgreicher sein, weil du deine Akkus nie wieder ganz entlädst, weil du ein erfülltes und ausgeglichenes Leben führst.</p> <p style="text-align: center"><i><strong>"Wenn der Mensch zur Ruhe gekommen ist, dann wirkt er.“</strong></i></p> <p style="text-align: center"><em><span style="font-size: xx-small">– Francesco Petrarca</span></em></p> <p style="text-align: right"><strong><a href="index.html#a2159"><em><span style="color: #99cc00">up</span></em></a></strong></p> </div> </div> </div> </div></div> <div class="zpRow standard "><div class="zpRowInner"> <div class="zpColumn odd zpColumnWidth1 c12" style=" "> <div class="zpColumnItem"> <div id="a2167" data-articleid="2167" class="articlearea zpwText"> <p style="text-align: center"><img title="" class="singleImage" alt="" src="media/images/andreanielbock_rauszeiten2023-01.jpg"></p> </div> </div> <div class="clearx"></div> <div class="zpColumnItem"> <div id="a2169" data-articleid="2169" class="articlearea zpwTrennlinie zpSO-separator"> <hr class="zpSO-separator" style="display:block;border:none;height:1px;line-height:1px;color:#D0D0D0;background-color:#D0D0D0;margin-top:20px;margin-bottom:20px;"> </div> </div> <div class="zpColumnItem"> <div id="a2168" data-articleid="2168" class="articlearea zpwText"> <p>Stress ist essentiell für uns. Er treibt uns auch zu Höchstleistungen an. Stell dir nur mal einen Sprinter vor. Ohne den Antrieb Stress für diesen Moment würde er noch immer im Startblock hocken.</p> <p>Es geht also nicht darum, Stress komplett zu vermeiden, sondern viel mehr darum, besser mit ihm umzugehen. </p> <p>Dafür ist eine <strong>rAuszeit </strong>in der Natur bestens geeignet.</p> <p>Stell dir doch mal vor oder erinnere dich daran, du stehst im Wald und hörst die Vögel zwitschern, du hast den Duft von Farnen, Gräsern und Pilzen in der Nase und du genießt den Anblick von all den bunten Blumen und Blüten dort vorn auf der Wiese. Wie geht es dir damit? In den <strong>rAuszeiten</strong> erlebst du noch viel mehr, was dich glücklich und zufrieden macht. </p> </div> </div> <div class="zpColumnItem"> <div id="a2170" data-articleid="2170" class="articlearea zpwText"> <p style="text-align: center"><i><strong>„Statt zu sagen: Sitz nicht einfach nur da – tu irgendetwas, sollten wir das Gegenteil fordern: Tu nicht einfach irgendetwas – sitz nur da.“</strong></i></p> <p style="text-align: center"><em><span style="font-size: xx-small">– Thich Nhat Hanh</span></em></p> <p style="text-align: center"><em><span style="font-size: xx-small"><img title="" class="singleImage" alt="" src="media/images/andreanielbock_rauszeiten2023-02.jpg"></span></em></p> </div> </div> </div> </div></div> <div class="zpRow standard "><div class="zpRowInner"> <div class="zpColumn odd zpColumnWidth1 c12" style=" "> <div class="clearx"></div> <div class="zpColumnItem"> <div id="a2129" data-articleid="2129" class="articlearea zpwTrennlinie zpSO-separator"> <hr class="zpSO-separator" style="display:block;border:none;height:1px;line-height:1px;color:#D0D0D0;background-color:#D0D0D0;margin-top:20px;margin-bottom:20px;"> </div> </div> </div> </div></div> <div class="zpRow standard "><div class="zpRowInner"> <div class="zpColumn odd zpColumnWidth1 c12" style=" "> <div class="zpColumnItem"> <div id="a2171" data-articleid="2171" class="articlearea zpwText"> <p>rein - in Lebensfreude und Zufriedenheit</p> <p>rein - in Selbstliebe und Selbstfürsorge</p> <p>rein - in Stärke, Frische und Inspiration </p> <p>rein - in deinen Erfolg </p> <p>Du kannst unterschiedliche rAuszeiten mit mir machen. Bitte wähle die für dich Passende aus. </p> <p><span style="color: #ff00ff"><b>Entscheide dich für dich, bevor es zu spät ist.</b><b> </b></span></p> </div> </div> </div> </div></div> <div class="zpRow standard "><div class="zpRowInner"> <div class="zpColumn odd zpColumnWidth1 c12" style=" "> <div class="zpColumnItem"> <div id="a2175" data-articleid="2175" class="articlearea zpwText"> <p style="text-align: right"><a href="index.html"><em><span style="color: #99cc00">&nbsp;up&nbsp;</span></em></a></p> </div> </div> </div> </div></div> <div class="zpRow standard "><div class="zpRowInner"> <div class="zpColumn odd zpColumnWidth1 c12" style=" "> <div class="clearx"></div> <div class="zpColumnItem"> <div id="a2151" data-articleid="2151" class="articlearea zpwTrennlinie zpSO-separator"> <hr class="zpSO-separator" style="display:block;border:none;height:1px;line-height:1px;color:#D0D0D0;background-color:#D0D0D0;margin-top:3px;margin-bottom:3px;"> </div> </div> </div> </div></div> <div class="zpRow standard "><div class="zpRowInner"> <div class="zpColumn odd zpColumnWidth1 c12" style=" "> <div class="clearx"></div> <div class="zpColumnItem"> <div id="a2155" data-articleid="2155" class="articlearea zpwTrennlinie zpSO-separator"> <hr class="zpSO-separator" style="display:block;border:none;height:1px;line-height:1px;color:#D0D0D0;background-color:#D0D0D0;margin-top:20px;margin-bottom:20px;"> </div> </div> </div> </div></div> <div class="zpRow standard "><div class="zpRowInner"> <div class="zpColumn odd zpColumnWidth1 c12" style=" "> <div class="zpColumnItem"> <div id="a2156" data-articleid="2156" class="articlearea zpwText"> <h2 style="color: #333333; ">Stark wie ein Baum - unten fest und oben leicht</h2> <p>Andrea Nielbock - Coach und Trainerin</p> <p><img title="" class="singleImage" style="HEIGHT: 520px; WIDTH: 780px" alt="" src="media/images/2019-05-andrea-2171-1920x1280px.jpg" width="780" height="520"></p> <p><em><span style="color: #c0c0c0"></span></em>&nbsp;</p> </div> </div> </div> </div></div> <div class="zpRow standard "><div class="zpRowInner"> <div class="zpColumn odd zpColumnWidth1 c12" style=" "> <div class="clearx"></div> <div class="zpColumnItem"> <div id="a2157" data-articleid="2157" class="articlearea zpwTrennlinie zpSO-separator"> <hr class="zpSO-separator" style="display:block;border:none;height:1px;line-height:1px;color:#D0D0D0;background-color:#D0D0D0;margin-top:30px;margin-bottom:30px;"> </div> </div> <div class="zpColumnItem"> <div id="a2158" data-articleid="2158" class="articlearea zpwText"> <p> </p><p><em><strong>Mitgliedschaften:</strong></em></p> <p><a href="https://win-women-in-network.com/" target="_blank"></a>&nbsp;&nbsp;&nbsp;<a href="https://www.fachverband-klang.de/" target="_blank"><img title="" class="singleImage" style="HEIGHT: 75px; WIDTH: 151px" alt="" src="media/images/eingefuegt-am-11.02.2020.png" width="151" height="75"></a>&nbsp;&nbsp;&nbsp;<a href="https://www.gesundharzev.de/" target="_blank"></a>&nbsp; <a href="https://www.qigong-gesellschaft.de/" target="_blank"><img title="" class="singleImage" style="HEIGHT: 76px; WIDTH: 276px" alt="" src="media/images/f16e98026fde464e8bb0d2e4c98f677b.png" width="276" height="76"></a></p> <p><em><strong>Interne Links:</strong> </em></p> <p><a href="http://www.trainatur.de/" target="_blank"><img title="Andrea Nielbock - TraiNatur" class="singleImage" style="HEIGHT: 86px; WIDTH: 184px; MARGIN: 0px" alt="" src="media/images/tn-logo-04.jpg" width="184" height="86"></a>&nbsp;&nbsp;<a href="http://www.einhornhoehle.de/" target="_blank"><img title="Die Einhornh&#246;hle - Unicorn Cave" class="singleImage" style="HEIGHT: 87px; WIDTH: 79px; MARGIN: 0px" alt="" src="media/images/einhornhoehle-04.jpg" width="79" height="87"></a>&nbsp; <a href="https://www.facebook.com/nielbock.de/" rel="noopener" target="_blank"><img title="Andrea Nielbock -FB" class="singleImage" style="MARGIN: 0px" alt="" src="media/images/6caa3a36d8c4412698c68b37325f7cc6.png"></a></p> <p style="text-align: right"><a href="index.html"><em><span style="color: #808080">&nbsp;up&nbsp;</span></em></a></p> </div> </div> </div> </div></div> </div> </div> </div> </div> <div id="footer" class="container"> <div id="xmenu" class=""> <a href="index.html">Startseite</a> <a href="datenschutz.html">Datenschutz</a> <a href="impressum.html">Impressum</a> </div> <div id="copyright"> © 2020 andrea nielbock </div> </div> <script>	
+		function setoverflown(){
+			if ( $z("#nav").is(":hover") || ! $z("#nav > ul > li").length ){
+				return;
+			}
+			if ( $z("#nav:not(.on)").overflown() ){
+				$z("#nav > ul").css("text-align", "left");
+				$z("#nav, #nav > ul li.overflownonly").addClass("overflown");
+				// hide overflown list items
+				var firstTop = $z("#nav > ul > li").eq(0).position().top;
+				$z("#nav > ul > li").each(function(){
+					if ( $z(this).position().top > firstTop ){
+						$z(this).addClass("overflowing");
+					}
+				});
+			}
+			else{
+				$z("#nav > ul").css("text-align", "");
+				$z("#nav, #nav > ul li.overflownonly").removeClass("overflown");
+				// re show previously hidden, overflowing li
+				$z("#nav > ul > li").removeClass("overflowing");
+			}
+		}
+		
+		$z(document).ready(function(){
+			// switches the Mobile Navigation-Menu on/off, when "Menu" link is clicked.
+			$z("a#mobilenavtoggle").on("click", function(e){
+				e.preventDefault();
+				if ( $z("#nav").hasClass("on") ){
+					// we're switching to off now
+					$z("#nav ul li").removeClass("hoverToClickMenuAdded clicked");
+					$z("#nav ul ul").css("display", "").css("visibility", "");
+				}
+				$z("#nav").toggleClass("on");
+			});	
+			
+			setoverflown();
+			var resizeTimeout = null;
+			$z(window).resize(function() {
+				if (resizeTimeout) {
+					clearTimeout(resizeTimeout);
+				}
+				// throttle the resize event
+				resizeTimeout = setTimeout(function () {
+					setoverflown();
+				},150);
+			});
+		});
+		
+		$z(window).load(function(){
+			setoverflown();
+			setTimeout(function(){setoverflown();}, 1000);
+		});
+	</script> 
+<!--
+* Layout: Locus Responsive by StS
+* $Id: default.html 68738 2018-11-09 13:07:55Z sseiz $
+-->
+ </body> </html>

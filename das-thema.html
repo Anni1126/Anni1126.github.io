@@ -1,0 +1,154 @@
+<!DOCTYPE HTML> <html class="no-js responsivelayout" lang="de"> <head> <script>
+		document.documentElement.className = document.documentElement.className.replace(/no-js/g, 'js');
+	</script> <title>Das THEMA</title> <meta http-equiv="content-type" content="text/html; charset=utf-8"> <meta name="description" content=""> <meta name="keywords" content=""> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <meta name="generator" content="Zeta Producer 14.3.3.0, ZP14B, 04.09.2018 12:40:38"> <meta name="robots" content="index, follow"> <link rel="shortcut icon" type="image/x-icon" href="assets/unbenannt-1.gif"> <script>
+		// if after 1000ms we haven't got webfonts, show the user something, a FOUT is better than nothing
+		// http://kevindew.me/post/47052453532/a-fallback-for-when-google-web-font-loader-fails
+		setTimeout(function() {
+			// you can have the webfont.js cached but still have no classes fire and you will have a window.WebFontConfig object
+			if ( ! ("WebFont" in window)) {
+				// non wfl loader class name because their events could still fire
+				document.getElementsByTagName("html")[0].className += " wf-fail";
+			}
+		}, 1000);
+	
+		WebFontConfig = {
+			google: { families: [ 'Roboto:300,400,700' ] }
+		};
+		(function() {
+			var wf = document.createElement('script');
+			wf.src = "assets/js/webfont/1.5.18/webfont.js";
+			wf.type = 'text/javascript';
+			wf.async = 'true';
+			var s = document.getElementsByTagName('script')[0];
+			s.parentNode.insertBefore(wf, s);
+		})(); 
+	</script> <noscript> <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto:300,400,700"> </noscript> <link rel="stylesheet" type="text/css" href="assets/bundle.css?v=636921753586239797"> <link rel="stylesheet" type="text/css" href="assets/bundle-print.css?v=636831786603833613" media="print"> <style>
+#a1901.zpwButton p{text-align: left;}
+#a1901.zpwButton a.button{border-color: #A6A6A6 !important;}
+
+</style> <script type="text/javascript" src="assets/bundle.js?v=636921753586239797"></script> </head> <body id="locus-responsive" class="notouch"> <a id="top"></a> <div id="logo"><a href="index.html"><img src="assets/logo.png" width="67" height="50" alt="index.html"></a></div> <div id="wrapper" class="container"> <div id="header"> <div class="topline"> <div id="webdescription"> <div id="webtext"> <div id="webname"><a href="index.html">andrea nielbock</a></div> </div> <div class="clearx"></div> </div> </div> <div id="nav"> <ul data-trianglemode="true" class="submenu touchhovermenu clickhovermenu"> <li class="haschilds active open"> <a href="index.html">Startseite</a> <ul> <li> <a href="ueber-mich.html">Ueber mich</a> </li> </ul> </li> <li class="haschilds"> <a href="rauszeiten.html">Für DICH</a> <ul> <li> <a href="qigong.html">QiGong</a> </li> <li> <a href="autogenes-training.html">Autogenes Training</a> </li> <li> <a href="pmr-progressive-muskelentspannung.html">PMR Progressive Muskelentspannung</a> </li> <li> <a href="klang.html">Klang</a> </li> </ul> </li> <li> <a href="blog.html">Blog</a> </li> <li class="haschilds"> <a href="impressum.html">Impressum</a> <ul> <li> <a href="datenschutz.html">Datenschutz</a> </li> <li> <a href="agbs.html">AGBs</a> </li> </ul> </li> <li class="overflownonly"><a href="#" id="mobilenavtoggle" class="tabletonly toggle" aria-label="Menü ein-/ausblenden">&#9776; Menü</a></li> </ul> </div> </div> <div id="slider" class="noprint"> <a id="a1894"></a> <div id="headerslider" class="flexslider"> <div class="flex-container"> <ul class="slides"> <li> <img src="media/images/andrea_nielbock-rauszeiten-2023-a-large.jpg" alt=""> </li> </ul> </div> </div> <script>
+		$z(document).ready(function() {
+			var useCssAnimation = true;
+			if ( $z.browser.safari ){
+				useCssAnimation = false;
+			}
+			
+			function initSlider(){
+				$z('#headerslider .flex-container').flexslider({
+					useCSS: useCssAnimation,
+					touch: true,
+					keyboard: true,
+					itemMargin: 0,
+					animation: 'fade',
+					controlsContainer: '#headerslider.flexslider',
+					slideshow: false,
+					slideshowSpeed: 7000,
+					directionNav: true,
+					controlNav: false,
+					randomize: false,
+					
+					pauseOnHover: true,
+					smoothHeight: true,
+					prevText: "zur&#252;ck",
+					nextText: "weiter"
+				});
+			}
+			
+			if ( $z('#headerslider .flex-container ul.slides li img').length > 0 ){
+				// init flexslider after 1st image has loaded, so have dimensions as quickly as possible without having to wait too long on window loaded or such and can start right with doc ready
+				$z('#headerslider .flex-container ul.slides li img').first().one("load", initSlider).each(function() {
+					if(this.complete) $z(this).load();
+				}); // .each() is to work around a browser bugs which don't fire load() for cached images http://stackoverflow.com/a/3877079
+			}
+			else{
+				// also init flexslider if it doesn't contain images and is text only
+				initSlider();
+			}
+			
+			// activate links for individual slideshow
+			$z('#headerslider .flex-container ul.slides li[data-clickurl]').css("cursor","pointer");
+			$z('#headerslider .flex-container ul.slides li[data-clickurl]').click(function (event){
+				// Because this script captures clicks for a container, it will also fire when a regular link inside the container 
+				// is clicked. Therefore, we check below, if a regular link i.e. <a href="#"> was the target of the click.
+				// Depending on the browser used, event.target might not be available, but event.srcElement would…
+				var targ;
+				if (event.target){
+					targ = event.target;
+				}
+				else if (event.srcElement) {
+					targ = event.srcElement;
+				}
+				if (targ.nodeName == "A") {
+					// a regular link i.e. in a Caption was clicked. Return early, so the link's href doesn't get overridden
+					return;
+				}
+				
+				if ( $z(this).data("clicktarget") ){
+					window.open($z(this).data("clickurl"), $z(this).data("clicktarget"));
+				}
+				else{
+					window.location = $z(this).data("clickurl");
+				}
+				event.preventDefault;
+				return false;
+			});
+		});
+  	</script> </div> <div id="content" class="main style1 rounded"> <div class="zparea zpgrid" data-numcolumns="" data-areaname="Standard"> <div class="zpContainer "> <div class="zpRow standard "><div class="zpRowInner"> <div class="zpColumn odd zpColumnWidth1 c12" style=" "> <div class="zpColumnItem"> <div id="a1893" data-articleid="1893" class="articlearea zpwText"> <h2 style="color: #7F20DF; ">Das THEMA</h2> <p><span style="color: #800080">Ein absolutes Tabu Thema. Noch !!!</span></p> <p>Denn immer mehr mutige Frauen wollen nicht mehr schweigen. Sie wollen mit ihrer Geschichte raus, aufmerksam darauf machen, was ihnen passiert ist. Sie sprechen über das Thema "Sexualisierte Gewalt" Sie entscheiden sich für emotionale Freiheit und befreien sich von ihren Tabus. Scham und Angst sind allgegenwärtig und es braucht viel Mut, sich zu zeigen.&nbsp;Es muss ja nicht gleich so in die Öffentlichkeit wie ich es mit vielen anderen mutigen Frauen getan habe. Überhaupt erst einmal darüber zu sprechen ist ein erster großer Schritt.</p> <p>Wenn wir mit unseren Geschichten darauf aufmerksam machen, dann auch um ein Umdenken in der Politik und in der Gesellschaft zu erreichen.</p> <p>Denn wusstest du, das lt. einer weltweiten Studie jede 3.Frau einmal in ihrem Leben sexualisierte Gewalt erfährt? Die WHO sagt, das Gewalt gegen Frauen eines der größten Gesundheitsrisiken für Frauen ist.&nbsp; Alarmierende Zahlen, wie ich finde.&nbsp; Dabei sollten wir uns alle gleichberechtigt und auf Augenhöhe begegnen. Für eine würdevolle Welt in gegenseitigem Respekt.</p> <p>Frauen (oder auch Männer) die als Kind sexualisierte Gewalt erfahren haben, begeben sich nachweislich öfter in Beziehungen die von Gewalt geprägt sind, als andere.</p> <p>Ich habe erst mit 45 Jahren von der Tat als kleines Mädchen erfahren. Bis dahin hatte mein Gehirn die Tat fein säuberlich im Verborgenen gehalten.</p> <p>Dann begann die Zeit der Aufarbeitung, der Erkenntnisse warum-wieso -weshalb. Das wurde immer leichter mit der Zeit. Meine Ausbildungen zum Coach und Trainer waren ein Geschenk auf meinem Weg. immer wieder&nbsp;durfte ich dort an meinen Grenzen schnuppern und diese dann schließlich sprengen. Viele Tränen sind geflossen. Gut so. Probleme sind wasserlöslich- ein Spruch von meiner Klangausbilderin.</p> <p>Ich bin vom&nbsp;Weg der Achtsamkeit fest überzeugt. Im HIER und JETZT zu sein, sich auf den Körper zu fokussieren ist mein Begleiter.</p> <p>Es ist wichtig, die Traumata zu bearbeiten. Ganz ganz sicher.</p> <p>Dein Weg mit mir findet tatsächlich in der Gegenwart statt. Raus aus der Opferrolle.</p> <p>Im Augenblick&nbsp; sein, beim Körper, beim Atem.</p> <p><strong><span style="color: #800080">SPÜREN</span></strong></p> <p><strong><span style="color: #800080">FÜHLEN</span></strong></p> <p><strong><span style="color: #800080">WAHRNEHMEN</span></strong></p> <p><strong><span style="color: #800080">SELBSTLIEBE</span></strong></p> <p><strong><span style="color: #800080">SELBSTWERTSCHÄTZUNG</span></strong></p> <p><strong><span style="color: #800080">FRIEDEN</span></strong></p> <p><span style="color: #800080"></span>&nbsp;</p> </div> </div> <div class="zpColumnItem"> <div id="a1899" data-articleid="1899" class="articlearea zpwText"> <h2 style="color: #7F20DF; ">UNSICHTBAR - wir zeigen Gesicht</h2> </div> </div> </div> </div></div> <div class="zpRow standard "><div class="zpRowInner"> <div class="zpColumn odd zpColumnWidth2 c5" style=" "> <div class="zpColumnItem"> <div id="a1900" data-articleid="1900" class="articlearea zpwBild popupimage"> <div id="igal1900" class="zpImageGallery" data-kind="singleimage" data-titleshow="1" data-htmltitle="" data-width="auto" data-height="auto" data-bordercolor="default" data-borderwidth="0" data-margin="0" data-titleposition="outside" data-transition="elastic" data-slideshow="0"> <div class="productimage zoomable zpnolayoutlinkstyles" data-zoom="media/images/andrea-nielbock_buecher-003-large-large.jpg" title=""> <img class="singleImage" src="media/images/andrea-nielbock_buecher-003-large.jpg" width="422" height="409" alt=""> </div> </div> </div> </div> </div> <div class="zpColumn even zpColumnWidth2 c7" style=" "> <div class="zpColumnItem"> <div id="a1901" data-articleid="1901" class="articlearea zpwButton"> <p> <a href="https://stresspraevention.coachy.net/lp/unsichtbar" target="_blank" rel="noopener" class="button"> <span>zur Buchbestellung</span> </a> </p> </div> </div> </div> </div></div> <div class="zpRow standard "><div class="zpRowInner"> <div class="zpColumn odd zpColumnWidth1 c11" style=" "> <div class="zpColumnItem"> <div id="a1902" data-articleid="1902" class="articlearea zpwText"> <div class="productimage zoomable zpnolayoutlinkstyles" data-zoom="media/images/mockup_unsichtbar_2_buecher-large.jpg"> <p>Hier kannst Du&nbsp;ein Buch für Dich bestellen, bei dem ich Coautorin bin. Ganz egal ob du es dir schenkst oder an jemand anderen. Bei Bestellungen nach dem 15.Dezember diesen Jahres&nbsp; werde ich mit Rücksicht auf die Zusteller erst wieder im neuen Jahr versenden. Sichere dir noch dein Exemplar. Die ersten zehn Bestellungen erhalten ein individuelles Lesezeichen dazu. </p></div> </div> </div> </div> </div></div> </div> </div> </div> </div> <div id="footer" class="container"> <div id="xmenu" class=""> <a href="index.html">Startseite</a> <a href="datenschutz.html">Datenschutz</a> <a href="impressum.html">Impressum</a> </div> <div id="copyright"> © 2020 andrea nielbock </div> </div> <script>	
+		function setoverflown(){
+			if ( $z("#nav").is(":hover") || ! $z("#nav > ul > li").length ){
+				return;
+			}
+			if ( $z("#nav:not(.on)").overflown() ){
+				$z("#nav > ul").css("text-align", "left");
+				$z("#nav, #nav > ul li.overflownonly").addClass("overflown");
+				// hide overflown list items
+				var firstTop = $z("#nav > ul > li").eq(0).position().top;
+				$z("#nav > ul > li").each(function(){
+					if ( $z(this).position().top > firstTop ){
+						$z(this).addClass("overflowing");
+					}
+				});
+			}
+			else{
+				$z("#nav > ul").css("text-align", "");
+				$z("#nav, #nav > ul li.overflownonly").removeClass("overflown");
+				// re show previously hidden, overflowing li
+				$z("#nav > ul > li").removeClass("overflowing");
+			}
+		}
+		
+		$z(document).ready(function(){
+			// switches the Mobile Navigation-Menu on/off, when "Menu" link is clicked.
+			$z("a#mobilenavtoggle").on("click", function(e){
+				e.preventDefault();
+				if ( $z("#nav").hasClass("on") ){
+					// we're switching to off now
+					$z("#nav ul li").removeClass("hoverToClickMenuAdded clicked");
+					$z("#nav ul ul").css("display", "").css("visibility", "");
+				}
+				$z("#nav").toggleClass("on");
+			});	
+			
+			setoverflown();
+			var resizeTimeout = null;
+			$z(window).resize(function() {
+				if (resizeTimeout) {
+					clearTimeout(resizeTimeout);
+				}
+				// throttle the resize event
+				resizeTimeout = setTimeout(function () {
+					setoverflown();
+				},150);
+			});
+		});
+		
+		$z(window).load(function(){
+			setoverflown();
+			setTimeout(function(){setoverflown();}, 1000);
+		});
+	</script> 
+<!--
+* Layout: Locus Responsive by StS
+* $Id: default.html 68738 2018-11-09 13:07:55Z sseiz $
+-->
+ </body> </html>

@@ -1,0 +1,425 @@
+<!DOCTYPE HTML> <html class="no-js responsivelayout" lang="de"> <head> <script>
+		document.documentElement.className = document.documentElement.className.replace(/no-js/g, 'js');
+	</script> <title>Suche</title> <meta http-equiv="content-type" content="text/html; charset=utf-8"> <meta name="description" content=""> <meta name="keywords" content=""> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <meta name="generator" content="Zeta Producer 14.3.3.0, ZP14B, 04.09.2018 12:40:38"> <meta name="robots" content="index, follow"> <link rel="shortcut icon" type="image/x-icon" href="assets/unbenannt-1.gif"> <script>
+		// if after 1000ms we haven't got webfonts, show the user something, a FOUT is better than nothing
+		// http://kevindew.me/post/47052453532/a-fallback-for-when-google-web-font-loader-fails
+		setTimeout(function() {
+			// you can have the webfont.js cached but still have no classes fire and you will have a window.WebFontConfig object
+			if ( ! ("WebFont" in window)) {
+				// non wfl loader class name because their events could still fire
+				document.getElementsByTagName("html")[0].className += " wf-fail";
+			}
+		}, 1000);
+	
+		WebFontConfig = {
+			google: { families: [ 'Roboto:300,400,700' ] }
+		};
+		(function() {
+			var wf = document.createElement('script');
+			wf.src = "assets/js/webfont/1.5.18/webfont.js";
+			wf.type = 'text/javascript';
+			wf.async = 'true';
+			var s = document.getElementsByTagName('script')[0];
+			s.parentNode.insertBefore(wf, s);
+		})(); 
+	</script> <noscript> <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto:300,400,700"> </noscript> <link rel="stylesheet" type="text/css" href="assets/bundle.css?v=636921753586239797"> <link rel="stylesheet" type="text/css" href="assets/bundle-print.css?v=636831786603833613" media="print"> <script type="text/javascript" src="assets/bundle.js?v=636921753586239797"></script> </head> <body id="locus-responsive" class="notouch"> <a id="top"></a> <div id="banner" class="container"> <div class="zparea zpgrid" data-numcolumns="" data-areaname="Banner"> <div class="zpContainer "> <div class="zpRow standard "><div class="zpRowInner"> <div class="zpColumn odd zpColumnWidth1 c12" style=" "> <div class="zpColumnItem"> <div id="a2034" data-articleid="2034" class="articlearea zpwBild"> <img class="singleImage" src="media/images/andrea_nielbock-rauszeiten-2024-a.jpg" width="979" height="431" alt=""> </div> </div> </div> </div></div> </div> </div> </div> <div id="logo"><a href="index.html"><img src="assets/logo.png" width="67" height="50" alt="index.html"></a></div> <div id="wrapper" class="container"> <div id="header"> <div class="topline"> <div id="webdescription"> <div id="webtext"> <div id="webname"><a href="index.html">andrea nielbock</a></div> </div> <div class="clearx"></div> </div> </div> <div id="nav"> <ul data-trianglemode="true" class="submenu touchhovermenu clickhovermenu"> <li class="haschilds"> <a href="index.html">Startseite</a> <ul> <li> <a href="ueber-mich.html">Ueber mich</a> </li> <li> <a href="das-thema.html">Das THEMA</a> </li> <li> <a href="newletter.html">newsletter</a> </li> </ul> </li> <li class="haschilds"> <a href="rauszeiten.html">Für DICH</a> <ul> <li> <a href="qigong.html">QiGong</a> </li> <li> <a href="autogenes-training.html">Autogenes Training</a> </li> <li> <a href="pmr-progressive-muskelentspannung.html">PMR Progressive Muskelentspannung</a> </li> <li> <a href="klang.html">Klang</a> </li> <li> <a href="waldbaden.html">Waldbaden</a> </li> </ul> </li> <li> <a href="blog.html">Blog</a> </li> <li class="haschilds"> <a href="impressum.html">Impressum</a> <ul> <li> <a href="datenschutz.html">Datenschutz</a> </li> <li> <a href="agbs.html">AGBs</a> </li> </ul> </li> <li class="overflownonly"><a href="#" id="mobilenavtoggle" class="tabletonly toggle" aria-label="Menü ein-/ausblenden">&#9776; Menü</a></li> </ul> </div> </div> <div id="slider" class="noprint"> <a id="a1683"></a> <div id="headerslider" class="flexslider"> <div class="flex-container"> <ul class="slides"> <li> <img src="media/images/andrea_nielbock-rauszeiten-2023-a-large.jpg" alt=""> </li> </ul> </div> </div> <script>
+		$z(document).ready(function() {
+			var useCssAnimation = true;
+			if ( $z.browser.safari ){
+				useCssAnimation = false;
+			}
+			
+			function initSlider(){
+				$z('#headerslider .flex-container').flexslider({
+					useCSS: useCssAnimation,
+					touch: true,
+					keyboard: true,
+					itemMargin: 0,
+					animation: 'fade',
+					controlsContainer: '#headerslider.flexslider',
+					slideshow: false,
+					slideshowSpeed: 7000,
+					directionNav: true,
+					controlNav: false,
+					randomize: false,
+					
+					pauseOnHover: true,
+					smoothHeight: true,
+					prevText: "zur&#252;ck",
+					nextText: "weiter"
+				});
+			}
+			
+			if ( $z('#headerslider .flex-container ul.slides li img').length > 0 ){
+				// init flexslider after 1st image has loaded, so have dimensions as quickly as possible without having to wait too long on window loaded or such and can start right with doc ready
+				$z('#headerslider .flex-container ul.slides li img').first().one("load", initSlider).each(function() {
+					if(this.complete) $z(this).load();
+				}); // .each() is to work around a browser bugs which don't fire load() for cached images http://stackoverflow.com/a/3877079
+			}
+			else{
+				// also init flexslider if it doesn't contain images and is text only
+				initSlider();
+			}
+			
+			// activate links for individual slideshow
+			$z('#headerslider .flex-container ul.slides li[data-clickurl]').css("cursor","pointer");
+			$z('#headerslider .flex-container ul.slides li[data-clickurl]').click(function (event){
+				// Because this script captures clicks for a container, it will also fire when a regular link inside the container 
+				// is clicked. Therefore, we check below, if a regular link i.e. <a href="#"> was the target of the click.
+				// Depending on the browser used, event.target might not be available, but event.srcElement would…
+				var targ;
+				if (event.target){
+					targ = event.target;
+				}
+				else if (event.srcElement) {
+					targ = event.srcElement;
+				}
+				if (targ.nodeName == "A") {
+					// a regular link i.e. in a Caption was clicked. Return early, so the link's href doesn't get overridden
+					return;
+				}
+				
+				if ( $z(this).data("clicktarget") ){
+					window.open($z(this).data("clickurl"), $z(this).data("clicktarget"));
+				}
+				else{
+					window.location = $z(this).data("clickurl");
+				}
+				event.preventDefault;
+				return false;
+			});
+		});
+  	</script> </div> <div id="content" class="main style1 rounded"> <div class="zparea zpgrid" data-numcolumns="" data-areaname="Standard"> <div class="zpContainer "> <div class="zpRow standard "><div class="zpRowInner"> <div class="zpColumn odd zpColumnWidth1 c12" style=" "> <div class="zpColumnItem"> <div id="a1669" data-articleid="1669" class="articlearea zpwSuche"> <h1 style="text-align:left;">Suche</h1> <script class="zpsearchinlinescript">
+
+			function getParameterByName(name)
+			{
+				name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+				var regexS = "[\\?&]" + name + "=([^&#]*)";
+				var regex = new RegExp(regexS);
+				var results = regex.exec(window.location.search);
+				if(results == null) {
+					return "";
+				}
+				else {
+					return decodeURIComponent(results[1].replace(/\+/g, " "));
+				}
+			}
+	
+			function encode_html(astring) //helps prevent XSS e.g. when printing search strings
+			{
+				astring = typeof astring !== 'undefined' ? astring : "";
+
+				astring = astring.replace(/</g, "&lt;");
+				astring = astring.replace(/>/g, "&gt;");
+				astring = astring.replace(/"/g, "&quo" + "t;");
+				astring = astring.replace(/'/g, "&#x27;");
+				astring = astring.replace(/\//g, "&#x2F;");
+				astring = astring.replace(/\[\$/g, "");
+				astring = astring.replace(/\$\]/g, "");
+	
+				return astring;
+			}
+
+			function search()
+			{
+			  if ( document.forms.searchengine.q.value.length == 0)
+			  {
+				alert("Bitte geben Sie einen Suchbegriff ein.");
+				return false;
+			  }
+			}
+						
+			document.write( "<form id=\"zpsearchengine\" name=\"searchengine\" method=\"get\" onSubmit=\"return search()\" class=\"SO-SiteSearchForm zp-form zp14 autohidelabels\" style=\"margin-bottom: 20px;\"‚>" );
+			document.write( "<div class=\"resizablefield c12 fieldinnewline nofloat\"><label class=\"field\" for=\"q2\">Suchbegriff</label> <input placeholder=\"Suchbegriff\" class=\"typetext\" type=\"text\" id=\"q2\" name=\"q\" size=\"20\" style=\"margin: 0;\" /></div> <input type=\"submit\" class=\"button\" value=\"Suchen\" />" );
+			document.write( "</form>" );
+
+
+			var c = getParameterByName("q");
+			if ( c === "" ) {
+				// if q parameter is absent, it may be old search tags are in use which just pass a string as query
+				c = decodeURIComponent(window.location.search.substring(1));
+				// zp internal preview mode
+				
+			}
+			if ( c != null && c != "" ) 		{
+			  var aName = new Array(25);
+			  var aDescription = new Array(25);
+			  var aURL = new Array(25);
+			  var aKeys = new Array(25);
+				
+ 
+						aName[0] = "Startseite";
+						aDescription[0] = "";
+						aURL[0] = "index.html";
+						aKeys[0] = "startseite andrea nielbock  start mindfulness achtsamkeit qigong auszeit klang meditation klangmassage nlp coaching #d0d0d0 rauszeiten für businessfrauen up stark wie ein baum unten fest und oben leicht coach trainerin mitgliedschaften interne links balance zwischen erfolg selbstfürsorge raus aus dem ständigen druck endlosen deadlines der nie enden wollenden hektik des alltags hamsterrad das dich gefangen hält dir gefühl gibt dass du niemals genug tun kannst ich kenne die herausforderungen als businessfrau nur zu gut denn auch ich war jahrelang hamster im rad der ständige fristen immer wachsenden anforderungen schienen mein leben beherrschen es noch langer weg bis meine ersten erkenntnisse wirklichkeit werden lassen konnte zu stark in konstrukt eingebunden es keinen ausweg geben schien den anstoß erhielt einem klangworkshop dozentin mich am ende fragte “andrea was glaubst wohl lange dein körper mit macht?” mit verschränkten armen schmollmund erwiderte kleines bockiges mädchen “was denn” dauerte jahre musste durch ganz tiefes tal gehen veränderung kopf wirklich ankam genau dieser persönlichen erfahrung heraus ist tiefe bedürfnis mir entstanden besonders frauen unternehmerinnen selbstständige führungspositionen erfahren durchaus sinn macht voller selbstachtung selbstliebe pausen machen stress essentiell uns er treibt höchstleistungen an stell mal einen sprinter vor ohne den antrieb diesen moment würde er startblock hocken geht also nicht darum komplett vermeiden sondern viel mehr besser ihm umzugehen dafür eine rauszeit natur bestens geeignet doch oder erinnere daran stehst wald hörst vögel zwitschern hast duft von farnen gräsern pilzen nase genießt anblick all bunten blumen blüten dort vorn auf wiese wie damit in erlebst glücklich zufrieden h teufelskreis ausbrechen schritt zurückzutreten alltag entfliehen ort ruhe entspannung erneuerung schenkt last erfolgs befreit kontakt selbst bringt so deinem geist nötige aufmerksamkeit schenken um regenerieren neue energie tanken rauskommen physisch anderen sein mental emotional raum wieder kommen deine eigenen bedürfnisse spüren wertschätzen können „statt sagen sitz einfach da – tu irgendetwas sollten wir gegenteil fordern tu sitz da.“ thich nhat hanh hier und wofür alles stelle ● würdest entspannt frei gedanken business endlich partner ins theater zeit deinen kindern spielen zoo nimmst abends zum sport triffst freundinnen verbringst lustige ihnen ohne schuldgefühle wenn arbeitest dann gibt&#x27;s positiven wirkungen wirst produktivität steigern weil akkus aufgeladen klarer kluge entscheidungen strategische schritte ihr geschäft besserer umgang stressigen situationen gesunde bewältigungsstrategie langfristig geringerer stresspegel wohlbefinden zufriedenheit lage erfolge fortschritte genießen ausgeglichenes führen insgesamt spürst allen lebensbereichen veränderungen du verbesserst work-life-balance schaffst persönliche interessen familie freizeit erfolgreicher entlädst erfülltes führst wenn mensch zur gekommen wirkt er.“ francesco petrarca rein lebensfreude stärke frische inspiration unterschiedliche bitte wähle passende entscheide bevor spät 1 klangvolle 2 stunden entspannungs-coaching einer klangschalen bekleideten gestellt angeschlagen klänge diese eine klangschalenmassage sehr entspannend lösend wir besprechen vorher anliegen je nachdem deiner klangzeit kann sich etwas bewegen lösen bringen 37520 osterode harz terminbuchung https:&#x2F;&#x2F;www.supersaas.de&#x2F;schedule&#x2F;rauszeiten&#x2F;rauszeit_klangmassage whats app 01708942976 kosten 190 euro inkl 19 % mwst gemeinsame pause gearbeitet sind leer wind bäumen betrittst höhle mystisch anmutenden höhlenlabyrinth um herum nichts außer dicken felsen dunkel angenehm kühl still wassertropfen boden klatschen sonst fühlst sofort geborgen aufgehoben mach drei atemzüge jedem ausatmen kommst augenblick 4 tage lang besonderen einzigartigen atmosphäre auftanken füllen gemeinschaft gleichgesinnter austauschen zusammen schweigen so richtig nach weiteren projekte sprühst neuen ideen neu entdeckt diese spezielle erfolgreiche führungskräfte findet setting statt wohnmobil (wenn kein eigenes sprich bitte an) alle übungen alltagstauglich akku wird weißt schon memoryeffekt batterie starte jetzt richtung selbstfürsorge selbstliebe https:&#x2F;&#x2F;www.supersaas.de&#x2F;schedule&#x2F;rauszeiten&#x2F;die_gemeinsame-_rauszeit whatsapp 0170 8942976 29.juli 1.august 2023 3 exklusive egal wo deutschland bist komme ganz individuell dich gestalten von 10-18 uhr meinem basis klick info https:&#x2F;&#x2F;stresspraevention.coachy.net&#x2F;lp&#x2F;rauszeit&#x2F; freue unsere gemeinsame";
+				
+						aName[1] = "";
+						aDescription[1] = "";
+						aURL[1] = "";
+						aKeys[1] = "";
+					
+ 
+						aName[2] = "Datenschutz";
+						aDescription[2] = "";
+						aURL[2] = "datenschutz.html";
+						aKeys[2] = "datenschutz #d0d0d0 geltungsbereich diese datenschutzerklärung soll die nutzer dieser website gemäß dsgvo bundesdatenschutzgesetz und telemediengesetz über art den umfang zweck der erhebung verwendung personenbezogener daten durch websitebetreiber informieren die betreiber site nehmen schutz ihrer persönlichen sehr ernst wir behandeln ihre personenbezogenen vertraulich entsprechend gesetzlichen datenschutzvorschriften sowie nutzung unserer ist in regel ohne angabe möglich soweit auf unseren seiten oder duch von kontaktmöglichkeiten personenbezogene (beispielsweise name anschrift e-mail-adressen) erhoben werden erfolgt dies soweit stets freiwilliger basis ausdrückliche zustimmung nicht an dritte weitergegeben weisen darauf hin dass datenübertragung im internet (z.b bei kommunikation per e-mail) sicherheitslücken aufweisen kann ein lückenloser vor dem zugriff umgang mit kontaktdaten nehmen sie angebotenen verbindung angaben gespeichert damit diese zur bearbeitung beantwortung anfrage zurückgegriffen ohne einwilligung halten uns grundsätze datenvermeidung datensparsamkeit speichern daher nur so lange wie erreichung hier genannten zwecke erforderlich es vom gesetzgeber vorgesehenen vielfältigen speicherfristen vorsehen nach fortfall des jeweiligen zweckes bzw ablauf fristen entsprechenden routinemäßig vorschriften gesperrt gelöscht server-log-files der provider erhebt speichert automatisch informationen server-log files ihr browser übermittelt dies sind  browsertyp browserversion verwendetes betriebssystem referrer url hostname zugreifenden rechners uhrzeit serveranfrage bestimmten personen zuordenbar eine zusammenführung anderen datenquellen wird vorgenommen behalten nachträglich zu prüfen wenn konkrete anhaltspunkte für eine rechtswidrige bekannt benutzen keine cookies webanalysedienste facebook-plugins (like-button) o.ä auf zzt plugins sozialen netzwerks facebook anderer sozial media youtube twitter integriert recht auskunft löschung sperrung haben jederzeit das unentgeltliche gespeicherten deren herkunft empfänger datenverarbeitung ein berichtigung hierzu weiteren fragen zum thema können sich unter impressum angegebenen adresse wenden widerspruch werbe-mails rahmen impressumspflicht veröffentlichten übersendung ausdrücklich angeforderter werbung informationsmaterialien hiermit widersprochen rechtliche schritte falle unverlangten zusendung werbeinformationen etwa spam-e-mails up datenschutzbestimmungen einsatz linkweiterleitungen paypal bieten wir einige kauf-angebote u.a bezahlung via anbieter dieses zahlungsdienstes (europe) s.à.r.l et cie s.c.a 22-24 boulevard royal l-2449 luxembourg (im folgenden “paypal”) wenn auswählen ihnen eingegebenen zahlungsdaten übermittlung grundlage 6 abs 1 lit a (einwilligung) b (verarbeitung erfüllung eines vertrags) möglichkeit widerrufen widerruf wirkt wirksamkeit vergangenheit liegenden datenverarbeitungsvorgängen aus coachy zusätzlich webinare online-coachings “coachy” es wurden entsprechende verlinkungen unsere angebote internet-video-kursportal video-publishern einstellen onlinekursen ermöglicht inhaber dennis spohr international limited 36 st domenica street victoria vct 9030 malta e-mail support@coachy.net stellt verarbeitung verantwortlichen nutzers zwecks kundensupport verfügung – emailadresse verantwortliche durchführen weitere https:&#x2F;&#x2F;www.coachy.net&#x2F; abgerufen https:&#x2F;&#x2F;www.coachy.net&#x2F;de&#x2F;datenschutzerklaerung&#x2F; abrufbar geben aufschluss digistore24 von einem externen link coachy.net digitale produkte zb online-kurs kauf angeboten dafür nutzen dienst gmbh st.-godehard-straße 32 31139 hildesheim deutschland sobald einen produktbutton klicken weitergeleitet digistore vertragspartner käufer leistungen produkten verantwortlich für erwerb begleitende gelten bestimmungen agb https:&#x2F;&#x2F;www.digistore24.com&#x2F;info&#x2F;terms?language=de 2 https:&#x2F;&#x2F;www.digistore24.com&#x2F;info&#x2F;privacy?language=de rechtsgrundlage „digistore24“ b) shore verwaltung termine (online terminbuchung terminerinnerung) nutzten serviceangebot firma seidlstrasse 23 80335 münchen bei service u allein dienste unterliegt vollständig nutzungsbedingungen einzelheiten ihren rechten einstellungsmöglichkeiten finden https:&#x2F;&#x2F;www.shore.com&#x2F;de&#x2F;datenschutz&#x2F; sendinblue anmeldung unserem newsletter doppelklick-prinzip unser partner fa köpenicker straße 126 10179 berlin sendinblue-dienste erfassten erfahren de.sendinblue.com&#x2F;datenschutz-uebersicht&#x2F; messenger-dienst whatsapp um kunden kontaktieren auch reine webseiten-besucher datenverarbeitungsart betroffen instant messenger dienstes somit vorliegt widerrufs rechtmäßigkeit aufgrund bis erfolgten berührt übertragen hierbei kontaktverzeichnis hinterlegte um ermöglichen vorrangig vor nachname telefonnummer selbst ausschließlich identifikation funktioniert persönliche nachrichten neben teilen dritten wiederum eigenständig holt hierfür informiert rechte einstellungsoptionen privatsphäre bezüglich datenschutzinformationen verweisen webangebot (https:&#x2F;&#x2F;www.whatsapp com&#x2F;legal&#x2F;#privacy-policy) instant-messaging-dienstes „whatsapp“ ireland 4 grand canal square harbour dublin irland land europäischen union lebt zuständig sein jedoch ausschließen (insbesondere metadaten kommunikation) erhält servern staaten außerhalb eu usa) verarbeitet gibt möglicherweise andere unternehmen innerhalb facebook-unternehmensgruppe weiter ems for you hat weder genaue kenntnis noch einfluss inc beim us-handelsministerium eu-us-datenschutzschild schweiz-us-datenschutzschild zertifiziert änderung gelegentlich anzupassen sie aktuellen rechtlichen anforderungen entspricht änderungen umzusetzen z b einführung neuer services erneutes aufsuchen gilt dann neue verantwortlich folgender andrea nielbock im strange 12 37520 osterode am harz 05522-76666 andrea @ trainatur.de erklärung wurde generator erecht24.de erstellt ergänzt";
+				
+ 
+						aName[3] = "Ueber mich";
+						aDescription[3] = "";
+						aURL[3] = "ueber-mich.html";
+						aKeys[3] = "ueber mich #d0d0d0 mitgliedschaften interne links up  über wie ich den weg in meine widerstandskraft gefunden habe es ist ende der saison und bin vollkommen ausgebrannt viel zu viel arbeit keine zeit für auch auf gesundheit nicht geachtet – eine ganz normale im leben einer unternehmerin eben weil weiß dass irgendetwas tun muss um wieder die beine kommen melde ein „klangwochenende“ an was immer das sein mag meinen entschluss bereue sofort denn besagtem wochenende stehe vor einem etwas verfallen aussehenden haus dessen putz allen stellen so fest wänden hielt eine frau schlappen sie sieht wirklich ausgeschlafen aus stellt sich als kursleiterin denke ernsthaft darüber nach hause fahren aber ich hab ja bezahlt also lasse drauf das wird meiner wichtigsten erlebnisse hinter bröckelnden fassade erfahre geborgenheit herzlichkeit einen frieden wie selten zuvor meinem dieses erlebnis startschuss reise welt klänge achtsamkeit bewussten auszeit viele jahre examinierte krankenschwester gearbeitet kauffrau gesundheitswesen nlp master zertifizierte trainerin erwachsenenbildung entspannung meditation klangmassagepraktikerin peter hess qigong bei aller power verrücktheit mir trage inzwischen gelernt achten spüren wahrzunehmen was tut gut brauche jetzt diesem moment täglich kaltes duschen freien 365 tagen jahr eisbaden winter meer seen es genauso natur jahreszeiten zieht draußen hier kann hier tanke kraft sehr schwere erkrankung 2012 hat bahn geworfen heute wofür diese nützlich war diese andauernde belastung mehr höher weiter völlig mürbe gemacht jeder motor braucht stillstand neues öl inspektion sollte gewartet werden bestellt mit als 10 jährige wurde opfer sexuellen missbrauchs mein vater von familie verabschiedet da noch voll käseschmiere meine klassenkameraden sagen heute du warst erwachsen war hatte große glück mutter meinen großeltern nestwärme erfahren so konnte behütet aufwachsen mein geheimnis erst über 40 lüftete bewusst zwischenzeitlich starb wichtigste bezugsperson nur 55 jahren plötzlich ohne vorankündigung stand allein großen not zu mann zur seite bis dahin eher wir mal angespanntes verhältnis männern krebserkrankung schmerzen krankheit geprägten folgejahre haben erneut probe gestellt kämpfen,fliehen oder totstellen entschied dafür kampf aufzunehmen wusste beginn siegerin vom platz gehen werde dieser optimismus lässt (fast) licht am des tunnels sehen jugend leistungssportlerin wenn hätte siegen wollen schuhe schnüren müssen einstellung half ganzen nie aufzugeben zugegeben leicht vielen tränen verbunden liest wunderbar doch langer doch stark baum kein sturm verwurzelung bringen herzensangelegenheit dich deinem stabilität deine stärke begleiten";
+				
+						aName[4] = "";
+						aDescription[4] = "";
+						aURL[4] = "";
+						aKeys[4] = "";
+					
+						aName[5] = "";
+						aDescription[5] = "";
+						aURL[5] = "";
+						aKeys[5] = "";
+					
+						aName[6] = "";
+						aDescription[6] = "";
+						aURL[6] = "";
+						aKeys[6] = "";
+					
+ 
+						aName[7] = "AGBs";
+						aDescription[7] = "";
+						aURL[7] = "agbs.html";
+						aKeys[7] = "agbs allgemeine geschäftsbedingungen von andrea nielbock r auszeiten und trainatur ‐ coaching &#x2F; training klang 1 teilnahme anmeldung die an den veranstaltungen coachings trainings oder ist allen interessierten möglich sofern für einzelne ausbildungen bestimmte zugangsvoraussetzungen bestehen deren erfüllung voraussetzung eine entsprechende regelungen sind ggf dem veranstaltungsprogramm zu entnehmen teilnehmerzahlen alle seminare zumeist begrenzt platzvergabe ergibt sich aus der reihenfolge schriftlichen anmeldungen 2 zahlungsbedingungen leistungsumfang jeweiligen teilnahmeentgelte spätestens mit veranstaltungsbeginn fällig bei reiseveranstaltungen lt ausschreibung eine verpflichtung zur zahlung veranstaltungsentgelte besteht auch dann wenn die veranstaltung nicht nur teilweise besucht wird zahlungen erfolgen bar per überweisung gemäß auf rechnung bzw angegebenen bei bestimmten seminaren workshops entsprechende seminarunterlagen evtl verzehr enthalten für einzelveranstaltungen gelten eigene in informations‐ anmeldeunterlagen einsehbar eventuell anfallende kosten übernachtung weitere verpflegung teilnehmern selbst tragen ausdrücklich als inklusiv angegeben 3 verhinderung nichtdurchführung sollte gezwungen sein ein seminar einen workshop abzusagen (soweit dies absprache teilnehmern) einem späteren zeitpunkt nachgeholt ist teilnehmer nachfolgetermin verhindert bekommt er das bereits bezahlte entgelt erstattet änderungen des veranstaltungsprogramms bleiben vorbehalten in jedem falle werden angemeldeten personen rechtzeitig über informiert 4 rücktritt können nach bgb verträgen zurücktreten diese widerrufe finden keine anwendung verträge erbringung dienstleistungen bereichen wie z.b freizeitgestaltung (hier veranstaltungen) anbieter vertragsschluss verpflichtet dienstleistung innerhalb eines genau zeitraums erbringen einzeln gebuchte kann ersatzteilnehmer gestellt regelung jedoch beginn fortlaufenden mehr ihnen massage‐ kinder‐veranstaltung verbindlich gebucht müssen wir nichterscheinen taggleicher absage aufgrund uns vorbereitung durchführung dieser personal‐präsenz entstandenen vereinbarte summe stellen werktagen vor tag gebuchten stornogebühr 30% vereinbarten 5 datenschutz personenbezogene daten im zusammenhang kursteilnahme gespeichert automatisiert weiterverarbeitet dritte weitergegeben alle personenbezogenen bundesdatenschutzgesetzes dsgvo nieders datenschutzgesetzes behandelt nutzung und&#x2F;oder umsetzung teilnehmerunterlagen konzepten darstellung urheberrechtsgesetz (urhg) erfolgt ausschließlich durch unserer ausdrücklichen zustimmung 6 bestimmungen jeder trägt volle verantwortung seine handlungen außerhalb kommt eventuell verursachte schäden psychotherapie dar diese ersetzen setzt normale psychische physische belastbarkeit voraus 7 sektenerklärung der veranstalter erklärt dass sowohl trainer co‐trainer mitarbeiterinnen mitarbeiter technologie l ron hubbard (gründer scientology‐organisation) arbeiten gearbeitet haben sämtliche durchgeführt er lehnt sektiererische praktiken jedweder art ab distanziert davon zudem gibt es keinerlei einbeziehung welcher immer religiös esoterisch anmutenden ansichten thesen 8 erfüllungsort leistungen vertrag parteien sowie ausschließlicher gerichtsstand vertragsverhältnis ergebenden streitigkeiten sitz 9 salvatorische klausel unwirksamkeit einzelner allgemeinen hat gesamten bedingungen folge stand 01.07.2018 anschrift (auch rücktritts‐&#x2F;widerrufs‐mitteilungen) im strange 12 37520 osterode am harz email andrea @ nielbock.de up ";
+				
+ 
+						aName[8] = "Für DICH";
+						aDescription[8] = "";
+						aURL[8] = "rauszeiten.html";
+						aKeys[8] = "für dich #d0d0d0 mitgliedschaften interne links up  gern komme ich für veranstaltungen im rahmen der gesundheitsvorsorge in ihr haus sei es mit qigong entspannungsmethoden klang achtsamkeit oder einem mix aus allem freue mich auf eine nachricht wünschen und vorstellungen mögliche gesundheitstage ihrer firma gesundheitsmessen zertifizierte gesundheitskurse (qigong at pmr) deinem fitnessstudio klangschalenmassagen können zur zeit wegen nicht vorhandener räumlichkeiten statt finden &gt;&gt; seite 1 darstellung inaktiv mouseover entspannungskurse angebote 2023&#x2F;24 ■ die kunst lebensenergie umzugehen die ersten qi gong übungen sind wohl einer höhle am feuer entstanden bei den langsam ausgeführten stellte sich ein gefühl von angenehmer harmonie es entstand wärme-der beginn des ob so war anders ist genau bekannt heute folge meditativ bewegungen gesundheitsfördernde wirkung haben der einstieg ins jedem alter möglich leicht zu erlernen zeigen ihre wenn sie häufig wiederholt regelmäßig durchgeführt werden teil traditionellen chinesischen medizin jeder kann mal erleben vertiefen genießen herzlich willkommen kleine erlernbare ermöglichen auch beginnern einen einfachen praxis sie aktivieren alle gelenke körperbereiche sehr wirksam kurs klick https:&#x2F;&#x2F;stresspraevention.coachy.net&#x2F;lp&#x2F;qigong-2&#x2F; autogenes training bei diesem bekanntesten entspannungsverfahren kommen teilnehmer gefühlsbetonten träumerischen zustand sog.alpha-zustand diese methode wurde vom berliner psychiater prof.johannes schultz entwickelt autosuggestion hypnose durch gedankliches suggerieren man hier ruhe entspannung herbeiführen herzschlag blutdruck atmung gezielt beeinflusst kursinfo klick https:&#x2F;&#x2F;stresspraevention.coachy.net&#x2F;lp&#x2F;autogenestraining2024-1&#x2F; pmr progressive muskelentspannung wir erreichen durch vorangegangene anspannung verschiedene muskelgruppen nacheinander angespannt entspannt somit tiefer ruhezustand erreicht dient dem allgemeinen wohlbefinden führt angenehmen körpergefühl mehr gelassenheit eignet hervorragend stressprävention sowie einschlafstörungen u.a mit hilfe progressiver einzelne kopf bis fuß anspannen wieder locker lassen dabei kommt nach inneren besser schlafen innere ausgeglichenheit das resultat sein hier findest du klangveranstaltungen";
+				
+						aName[9] = "";
+						aDescription[9] = "";
+						aURL[9] = "";
+						aKeys[9] = "";
+					
+ 
+						aName[10] = "Das THEMA";
+						aDescription[10] = "";
+						aURL[10] = "das-thema.html";
+						aKeys[10] = "das thema ein absolutes tabu thema noch  denn immer mehr mutige frauen wollen nicht schweigen sie mit ihrer geschichte raus aufmerksam darauf machen was ihnen passiert ist sprechen über das sexualisierte gewalt entscheiden sich für emotionale freiheit und befreien von ihren tabus scham angst sind allgegenwärtig es braucht viel mut zu zeigen es muss ja gleich so in die öffentlichkeit wie ich vielen anderen mutigen getan habe überhaupt erst einmal darüber ein erster großer schritt wenn wir unseren geschichten dann auch um umdenken der politik gesellschaft erreichen wusstest du lt einer weltweiten studie jede 3.frau ihrem leben sexualisierte erfährt die who sagt gegen eines größten gesundheitsrisiken alarmierende zahlen finde dabei sollten uns alle gleichberechtigt auf augenhöhe begegnen für eine würdevolle welt gegenseitigem respekt (oder männer) als kind erfahren haben begeben nachweislich öfter beziehungen geprägt andere ich 45 jahren tat kleines mädchen bis dahin hatte mein gehirn fein säuberlich im verborgenen gehalten dann begann zeit aufarbeitung erkenntnisse warum-wieso weshalb wurde leichter meine ausbildungen zum coach trainer waren geschenk meinem weg wieder durfte dort an meinen grenzen schnuppern diese schließlich sprengen viele tränen geflossen gut probleme wasserlöslich spruch meiner klangausbilderin bin vom achtsamkeit fest überzeugt im hier jetzt sein den körper fokussieren begleiter wichtig traumata bearbeiten ganz ganz sicher dein mir findet tatsächlich gegenwart statt raus aus opferrolle augenblick beim atem spüren fühlen wahrnehmen selbstliebe selbstwertschätzung frieden unsichtbar gesicht hier kannst du buch dich bestellen bei dem coautorin egal ob dir schenkst oder jemand bei bestellungen nach 15.dezember diesen jahres werde rücksicht zusteller neuen jahr versenden sichere noch dein exemplar ersten zehn erhalten individuelles lesezeichen dazu zur buchbestellung https:&#x2F;&#x2F;stresspraevention.coachy.net&#x2F;lp&#x2F;unsichtbar 1 darstellung inaktiv mouseover";
+				
+						aName[11] = "";
+						aDescription[11] = "";
+						aURL[11] = "";
+						aKeys[11] = "";
+					
+ 
+						aName[12] = "Blog";
+						aDescription[12] = "";
+						aURL[12] = "blog.html";
+						aKeys[12] = "blog andrea nielbock  mindfulness achtsamkeit qigong auszeit klang klangmassage nlp coaching #d0d0d0 für unternehmerinnen so findest du den zugang von | 01 ist zu einem absoluten modewort geworden auch unternehmer sollen immer achtsamer werden – burnout-prävention da die rede stressbewältigung und sogar verbesserter führungskompetenz was nun wirklich dran am thema vor allem wie können wir als vorteile der genießen in diesem artikel antworten durch mehr ausgeglichenheit selbstbestimmtheit gesundheit es mag dich zunächst unglaublich klingen aber tatsächlich wirkt auf so vielen ebenen in deinem leben dass achtsamkeitsübungen unbedingt repertoire gehören sollten oberflächlich betrachtet geht es darum körper geist eine kleine auszeit gönnen das auch nur ein paar minuten täglich sein natürlich tut uns im unternehmerinnen-alltag gut sobald einer gewohnheit wird beginnt sie jedoch viel weitreichendere wirkung entfalten du spürst zum einen körperlicher ebene beispiel durch besseren schlaf niedrigeren blutdruck oder tiefere entspannung zum anderen deine gedanken klarer wirst dir deiner bedürfnisse bewusster kannst entschlossener entscheidungen treffen prioritäten setzen dass insgesamt gelassener ausgeglichener durchs gehst fast noch positiver nebeneffekt genau funktioniert mit einmal „nur“ besondere form aufmerksamkeit das bedeutet absolut moment präsent bist jeden jedes gefühl zulässt zwar ohne verurteilen bewerten darin liegt bereits erste herausforderung denn menschen ständig als beurteilen jede situation um dann sinnvolle entscheidung gerade deswegen außergewöhnliche kraft vollkommen wertfreie zeit erleben selbst wenn sind kann unbeschreiblich erholsam gibt zahllose angeleitet nicht ihrer einfachsten betreibst schon indem stillen nimmst beobachtest deinen gefühle empfindungen diese tu dies fünf zehn wahrscheinlich feststellen ungeahnte darstellt je größer desto wichtiger dein und hoffnung tägliche übung leichter hat potenzial business viele arten positiv beeinflussen sie unternehmerin jederzeit an jedem ort anwendbar äußeren umständen abhängig klingt bedeutet ich universum beten kreis tanzen muss natürlich etwas spiritualität tun haben die positiven auswirkungen wissenschaftlich belegt logisch nachvollziehbar versetzt bewusst entspannten zustand sich ganzen auswirkt • wenn entspannst entspannen muskeln deine atmung tiefer sodass besser sauerstoff versorgt weniger stresshormone ausgeschüttet dadurch sinken schaffst ruhige große äußere reize erfährst daher erholung wahr schneller reagieren anspannungen anderes unwohlsein entdeckst auf weise krankheiten vermeiden ganz glaubhaft denke darüber nach was geschieht plötzlich erschreckst innerhalb sekundenbruchteilen adrenalin geflutet herzschlag explodiert bereit kämpfen fliehen unser jahrtausendealtes warnsystem damals wie heute gefahren schützt flucht kampfsystem heute müssen regel damit rechnen bär ecke kommt kampf zwingt unsere kämpfe laufen schwierigkeit großen teil unbewusst ab also 12 gleichzeitig kopf behältst to-do-liste morgen planst dafür sorgen produziert anspannung herzklopfen kopfschmerzen schlafstörungen keinem zeitpunkt gefahr allein erzeugen diesen stress ebenso lernen zur ruhe bringen schöne brauchst erlernen wieder anwenden mal kurze warum gehen alle tag vollkommener haken im falle zwei nummer 1 zwang 2 unser unterbewusstsein offen veränderungen gern möchtest andere stößt unternehmerinnen-mindset um erfolgreich benötigen häufig durchsetzungskraft klarheit entschlossenheit manchmal starrsinn gehst mindset heran schnell merken nichts kopf-durch-die-wand dazu zwingen achtsam dem bewertest verlierst sicherheitsbedürfnis deines unterbewusstseins keine aus evolutionsperspektive bedeutete veränderung meistens versuchst neue angewohnheit etablieren meldet möglicherweise stört stille passenden warum schlechte idee gemeine kennt sehr worte finden davon überzeugen übungen lassen solltest bringt doch eh dafür hab ich e-mails beantworten wahrscheinlich alles esoterischer humbug … dennoch alltag integrierst eine gute vorbereitung halbe miete lass erwartung los expertin ersten male überhaupt effekt spüren training auszahlt gewisse disziplin erfordert versprich aufgeben egal sagt bei darfst forscherin beobachte während welche abwehrmechanismen entlarven zeigen erholungsphasen besonders vielleicht gedankenstrom etwa ist zeitverschwendung hier mache herrn brehmer zurückrufen oh interessant ablehnender gedanke den habe erkannt frage mich oft negativ merke sowieso über voll ja daher sollte rumsitzen meine verschwenden schau mal interessanter der effizienteste weg seminar erfahren verinnerlichen am leichtesten gewohntes umfeld verlässt befreit allen verpflichtungen (und möglichkeit arbeiten) lässt intensiver beruhigung möglich hast gelegenheit widerstände trainerin besprechen aufzulösen bewusstheit sehnst schwierigkeiten bei umsetzung lade meinen seminaren mehr informationen wünsche freude erfolg beim üben freu achtsames entspannteres up optionen monkey mind geh affen 02 (w) springen wild umher sitzen nie still baum einfach dies jenes hört kaum fertig-zack nächste mach bin genug hab richtig gemacht erledigen zuerst hechelst kommst baumspringer entstehen hören sehen schmecken riechen fühlen nachdenken hirnforscher klar denken weil hirnprozesse ablaufen besonders eindrucksvolle erinnerungen gespeichert eins ein muskel baut trainieren masse gehirn verknüpfungen verstärken aus trampelpfad benutzung autobahn pfad rad fahren umso übst prozess automatisiert oder denkst machst bevor aufs fahrrad steigst genauso trainieren biete ihm atemübung wirkungsvolle medizin keinen arzt kein rezept apotheke „atem“ lenke atem beobachte ihn nimm nichts nur beobachten folgen ausatmest gar verhindern passiert einatmen hebt bauchdecke ausatmen senkt geatmet nebenwirkungen ihren dienst gedankenpause einlegen warten bahn stehen schlange akte bearbeiten willst kurz mehrere atemzüge konzentrieren kurzen bändigst affenhorde alltäglichen zuwendest kommen abend schlafen kein problem wertschätzend respekt lenke fokus ruhig weiter erholsame nacht mein 03 04 atmen guten zweck daran gedacht atmen musst glaube kenne antwort gar höre sagen praktisch hinein fließt heraus strömt dinge erinnert er auffällig sei gerade steilen berg hinauf gelaufen treppe vollen einkaufstüten (hoffentlich plastik) erklommen infekt atemwege freien gehindert gesamter versorgung stell folgende bürotür öffnet mitarbeiter&#x2F;kollegen schmeißt urlaub betrieblichen gründen verwehrt schwierige verhandlung geschäftspartner hinter angespannt obwohl bleiben wolltest regt dein steigt spannst dieses passieren würde danach balance zwischen hilfreich unterhosengummibund bleibt spannung nachts darf locker leider meisten anders wir dauerspannung bemerken flach kennst denen zurufen atmen dabei richtige atemtechnik allgemein gemüt meinem persönlichen war unangenehme sache zahnarzt tage vorher all fähigkeiten benötigt einigermaßen immer fokussiert termin überstanden dann des zahnarztbesuchs diese gesamte atmosphäre mund-kiefer-gesichtschirurgen heimelig eigentlich macht mir krankenschwester selber stuhl nochmal unterstützung entspannendes ohren und....atme schön wahrnehmen ausströmt einige später vorbei darauf fokussieren unangenehmen momente vergleich rest pro 20.000 sieben millionen jahr viel momenten mit richtigen unsere bestimmter verbessern steuern wohlbefinden auswirken reduzieren entgegen wirken fürs beginnen mehrmals bleibe völlig unbemerkt überall bus schreibtisch telefon klingelt 3 bewusste hörer abnimmst ganz easy bewirkt wunder atme frei fühl resilienz wort verschiedenen zeitschriften erfuhr damals gereist sortierten zeitungsläden bahnhöfen zeilen verschlang zugfahrten wurde besitze man hatte einiges erlebt wofür spreche gemeint sexueller übergriff meiner kindheit schwer geprägt ereignis geführt strategien entwickelt krisen umzugehen weiterleben 10 frauen buch geschrieben kannten haben sozialen medien kennengelernt buchprojekt zusammen gefunden stresspraevention.coachy.net&#x2F;lp&#x2F;unsichtbar widerstandskraft hilft jetzt durchdrehen wende a nnehmen b ewertungen c harmant leben nachrichten schaue neutraler beobachter reduziere minimum hier jetzt vergangenheit zukunft findet augenblick statt nutze persönlich schöne genieße gemeinsame mann hatten gesellschaftlich nützlich gehe impfen klangschalen meditation besinnen frische luft pustet unnötigen fort eigene strategie dieser klaren bewahren ausprobieren empfehlen wege alten kennst isolation körperebene echte freunde familienangehörige sehen umarmen da großes geschenk nehme bonus komme gesund pandemie";
+				
+						aName[13] = "";
+						aDescription[13] = "";
+						aURL[13] = "";
+						aKeys[13] = "";
+					
+ 
+						aName[14] = "newsletter";
+						aDescription[14] = "";
+						aURL[14] = "newletter.html";
+						aKeys[14] = "newsletter hier kannst du dich bei interesse für den bezug meiner newsletter eintragen erhälst danach von meinem anbieter sendinblue eine bestätigungsmail 2 klick  home &#x2F; up seite startseite 1 darstellung inaktiv mouseover";
+				
+ 
+						aName[15] = "Impressum";
+						aDescription[15] = "";
+						aURL[15] = "impressum.html";
+						aKeys[15] = "impressum andrea nielbock  #d0d0d0 mitgliedschaften interne links up bildnachweise urheber und bildquelle der verwendeten bilder &#x2F; ralf zetaproducer (lizenzgeber) oder angegeben wikipedia= w haftungshinweis trotz sorgfältiger inhaltlicher kontrolle übernehmen wir keine haftung für die inhalte externer für den inhalt verlinkten seiten sind ausschließlich deren betreiber verantwortlich zu dieser web-veröffentlichung mit hinweisen rechtlichen urheberrechtsvermerken angaben nach tmg&#x2F; rstv betreiberin web-seiten andrea.nielbock.de ( www.rauszeiten.me ) trainatur.de coaching training klangmassagen geschäftsanschrift im strange 12 37520 osterode am harz tel 05522 76666 email andrea (at) nielbock.de ustid de234566043 web-technik datentransfer domaininhaber dr mail musign.de vertretungsberechtigte inhaltlich verantwortlicher gemäß § 55 abs 2";
+				
+						aName[16] = "";
+						aDescription[16] = "";
+						aURL[16] = "";
+						aKeys[16] = "";
+					
+ 
+						aName[17] = "QiGong";
+						aDescription[17] = "";
+						aURL[17] = "qigong.html";
+						aKeys[17] = "qigong  kurs ihr alltag hat sie fest im griff funktionieren wirklich einwandfrei haben alles unter kontrolle ständig kreisen ihre gedanken um all die dinge und menschen umgeben immer sind zur stelle wenn gebraucht werden auch nachts kommen nicht ruhe –zu sehr quälen lassen sie ein-oder durchschlafen dann ist dieser genau das richtige für die angeleiteten übungen wunderbar geeignet bisher keine vorkenntnisse leicht erlernbar bieten ihnen einen angenehmen einstieg in praxis schnell eine wohltuende veränderung bemerken mit viel spaß erfahren wie zukunft besser sich sorgen können am ende gelassen den körper geatmet wolken geteilt regenbogen geschwungen ein gefühl von langsamer leichtigkeit termine 2024 datum uhrzeit ab dem 04 januar fortlaufend donnerstags 17:30 18:45 uhr ort kneipp bund hotel heikenberg bad lauterberg heikenbergstraße 21 kurse bezuschusst gesetzlichen krankenkassen anmeldungen an andrea@nielbock.de qi gong tausendjährige chinesische bewegungspraxis geist atmung harmonisiert im lernst du verschiedene bewegungsübungen atemtechniken deine energie zu stärken gesundheit verbessern jeden wird der gruppe praktiziert wir diesem wochenende sanfte körperübungen atemübungen durchführen meditationen kann wohlbefinden auf körperlicher emotionaler mentaler ebene in kompaktkurs kannst körperliche fitness flexibilität stress anspannung reduzieren emotionale stabilität konzentration aktuelle info &gt;&gt; https:&#x2F;&#x2F;stresspraevention.coachy.net&#x2F;lp&#x2F;qigong-2&#x2F; 1 darstellung inaktiv mouseover #d0d0d0";
+				
+						aName[18] = "";
+						aDescription[18] = "";
+						aURL[18] = "";
+						aKeys[18] = "";
+					
+						aName[19] = "";
+						aDescription[19] = "";
+						aURL[19] = "";
+						aKeys[19] = "";
+					
+ 
+						aName[20] = "Autogenes Training";
+						aDescription[20] = "";
+						aURL[20] = "autogenes-training.html";
+						aKeys[20] = "autogenes training  kurs die belastungen des alltags abzubauen und mehr innere ausgeglichenheit zu finden ist ganz einfach möglich – mit regelmäßigem autogenem in diesem klassischen entspannungsverfahren wird die aufmerksamkeit auf körperliche entspannungsempfindungen wie ruhe schwere wärme gelenkt durch regelmäßiges lernt ihr körper der zeit sich selbst zur in einen zustand tiefen entspannung bringen diese tiefenentspannung fördert gelassenheit konzentration leistungsfähigkeit damit ihre psychische gesundheit dieser zertifizierte von den gesetzlichen krankenkassen bezuschusst neue termine datum uhrzeit ab dem 04 januar 2024 fortlaufend donnerstags 19:00 20:30 uhr ort kneipp bund hotel heikenberg bad lauterberg heikenbergstraße 21 info &gt;&gt; https:&#x2F;&#x2F;stresspraevention.coachy.net&#x2F;lp&#x2F;autogenestraining2024-1&#x2F; 1 darstellung inaktiv mouseover #d0d0d0";
+				
+ 
+						aName[21] = "PMR Progressive Muskelentspannung";
+						aDescription[21] = "";
+						aURL[21] = "pmr-progressive-muskelentspannung.html";
+						aKeys[21] = "pmr progressive muskelentspannung nach jacobsen in kurzer zeit zu ruhe und entspannung finden mit der progressiven erlernen sie in wenigen wochen ihren körper aktiv jeder alltagssituation sofort entspannen die pme-methode fördert nicht nur das ein durchschlafen sondern reduziert auch schmerzzustände stressbedingte erschöpfung pme ist eine wirksame für jeden leicht erlernbare entspannungsmethode soforthilfe charakter neue termine dauer kosten werden hier angegeben dieser zertifizierte kurs wird von den gesetzlichen krankenkassen bezuschusst aok versicherte können kostenlos teilnehmen wenn sie sich vorher einen gutschein holen  #d0d0d0";
+				
+						aName[22] = "";
+						aDescription[22] = "";
+						aURL[22] = "";
+						aKeys[22] = "";
+					
+ 
+						aName[23] = "Klang";
+						aDescription[23] = "";
+						aURL[23] = "klang.html";
+						aKeys[23] = "klang #d0d0d0 in der einhornhöhle und stille für kurze zeit aus dem alltagsleben heraus treten an einen besonderen ort in die dieser mystischen beruhigenden atmosphäre bei sich selbst sein lauten gedanken abstellen den klängen von klangschalen gongs lauschen sind begleiter reise dient hier konzentration erhöht aufmerksamkeit  ankommen innehalten eigenen impulsen folgen schafft raum immer wieder ist sie da zwischen all das höhlenlabyrinth durchströmen kommende termine saison 2024 werden u.a auch auf hp bekannt gegeben alle unter vorbehalt es können änderungen ergeben evtl gekaufte tickets behalten für eine andere veranstaltung ihre gültigkeit die veranstaltungen beginnen jeweils punkt 18:00 späteres erscheinen zur berechtigt nicht ticketrückgabe ein zugang untertage-veranstaltung nach 18 uhr mehr möglich leitung andrea nielbock trainatur kooperation mit guf e.v tel 05521 &#x2F; 997559 treffpunkt haus einhorn 37412 herzberg am harz anmeldung unbedingt reservierung mail@einhornhoehle.de bitte warm anziehen decke&#x2F;sitzkissen mitbringen entgelt 25 € p.p bereits seit über 10 jahren finden sommermonaten regelmäßig klangveranstaltungen statt der weg location führt durch scharzfeld (navi-eingabe straße im rott) zu unserem waldparkplatz von dort es wenige minuten fuß zum dein höhle parkplatz an unnamed road 480 320 optionen up zurück dich &gt;&gt; artikel (seite klang) 1 darstellung inaktiv mouseover";
+				
+ 
+						aName[24] = "Waldbaden";
+						aDescription[24] = "";
+						aURL[24] = "waldbaden.html";
+						aKeys[24] = "waldbaden und qigong qigongachtsam im wald an der einhornhöhle kommende termine 2023 sonntag 23.juli 26.august 01.oktober jeweils von 11:00 bis 14:00 uhr entgelt 39 euro inkl 19%mwst zzgl 5 nutzungsgebühr für die hängematte diese sind verbindlich vor ort zu bezahlen am abend zuvor findet klang stille in statt wenn du beiden veranstaltungen teil nimmst bekommst kostenfrei zur nutzung zeit veranstaltung anmelden weitere infos mitgliedschaften interne links up  https:&#x2F;&#x2F;stresspraevention.coachy.net&#x2F;lp&#x2F;waldbaden&#x2F; 1 darstellung inaktiv mouseover";
+				
+	 
+			  var kw = c;
+			  if (kw != "") {
+				kw = kw.toLowerCase();
+				document.write( '<p class="restitle">Suchergebnisse für &quot;<span style="font-weight:bold">' + encode_html(kw) + '</span>&quot;:</p>' );
+				var nFound = 0;
+				var i;
+				document.write( "<div class='SO-SiteSearchList'>" );
+				function Trim(txt) {
+					var i=0, j=txt.length-1;
+					while (i<txt.length && txt.charAt(i) == " ") i++; // von Anfang und Ende nach nicht Leerzeichen
+					while (j>=0 && txt.charAt(j) == " ") j--;		  // suchen 
+					return txt.substring(i, j+1);
+				}
+
+				kw = Trim (kw);
+				// da im index "." und "-" durch leerzeichen ersetzt sind, müssen wir im Suchstring das selbe machen damit wir korrekte Matches erhalten
+				// no longer needed in ZP 11.2 as the index is fixed
+				//kw = kw.replace(/\./g, " ");
+				//kw = kw.replace(/\-/g, " ");
+				// da im index " und ' entfernt sind, müssen wir im Suchstring das selbe machen damit wir korrekte Matches erhalten
+				kw = kw.replace(/\"/g, "");
+				kw = kw.replace(/\'/g, "");
+	
+				var NumberOfWords = 0;
+				var pos;
+				var field = new Array(15);
+				var temp = encode_html(kw);
+				var loop = true;
+				while (loop) // Eingegebener String nach Wörter durchsuchen
+				{
+					pos = temp.indexOf(" ");
+					if (pos >= 0) 
+					{
+						field[NumberOfWords] = temp.substr(0,pos);
+						temp = temp.substr(pos+1,temp.length-1);
+					}
+					else
+					{
+						field[NumberOfWords] = temp.substr(0,temp.length);
+						loop = false;
+					}
+					NumberOfWords++; // Anzahl der gefundenen Wörter
+				}
+				var nFound = 0;
+				var foundWords = 0;
+				for(a=0; a<25; a++) //Felder hochzählen
+				{
+					foundWords = 0;
+					for (y=0; y<NumberOfWords; y++) //jedes Wort testen
+					{
+							kw = field[y];
+							if (aKeys[a].indexOf( kw ) >= 0) // Wenn Wort vorhanden..
+							{
+								foundWords++; 
+							}
+					}	
+					if (foundWords==NumberOfWords) // wenn alle Wörter in dem Feld gefunden wurden
+					{
+						nFound++;
+						document.write("<div class=\"SO-SiteSearchResult\">");
+						document.write('<h3><a href="' + aURL[a] + '" target="_top">' + encode_html(aName[a]) + '</a></h3>');
+						document.write('<div class="search-description">' + 	encode_html(aDescription[a]) + '</div>' );
+						document.write("</div>");
+					}
+				}
+				document.write( "</div>" );
+				if (nFound == 0){
+				  document.write( "Es wurden keine Seiten gefunden." );
+				}
+				else{
+				  document.write( '<span class="rescount">' + nFound + ' Treffer</span>' );
+				}
+			  }
+			}
+			else {
+				document.write("<p>Bitte geben Sie einen Suchbegriff ein.</p>");
+			}
+		</script> </div> </div> </div> </div></div> </div> </div> </div> </div> <div id="footer" class="container"> <div id="xmenu" class=""> <a href="index.html">Startseite</a> <a href="datenschutz.html">Datenschutz</a> <a href="impressum.html">Impressum</a> </div> <div id="copyright"> © 2020 andrea nielbock </div> </div> <script>	
+		function setoverflown(){
+			if ( $z("#nav").is(":hover") || ! $z("#nav > ul > li").length ){
+				return;
+			}
+			if ( $z("#nav:not(.on)").overflown() ){
+				$z("#nav > ul").css("text-align", "left");
+				$z("#nav, #nav > ul li.overflownonly").addClass("overflown");
+				// hide overflown list items
+				var firstTop = $z("#nav > ul > li").eq(0).position().top;
+				$z("#nav > ul > li").each(function(){
+					if ( $z(this).position().top > firstTop ){
+						$z(this).addClass("overflowing");
+					}
+				});
+			}
+			else{
+				$z("#nav > ul").css("text-align", "");
+				$z("#nav, #nav > ul li.overflownonly").removeClass("overflown");
+				// re show previously hidden, overflowing li
+				$z("#nav > ul > li").removeClass("overflowing");
+			}
+		}
+		
+		$z(document).ready(function(){
+			// switches the Mobile Navigation-Menu on/off, when "Menu" link is clicked.
+			$z("a#mobilenavtoggle").on("click", function(e){
+				e.preventDefault();
+				if ( $z("#nav").hasClass("on") ){
+					// we're switching to off now
+					$z("#nav ul li").removeClass("hoverToClickMenuAdded clicked");
+					$z("#nav ul ul").css("display", "").css("visibility", "");
+				}
+				$z("#nav").toggleClass("on");
+			});	
+			
+			setoverflown();
+			var resizeTimeout = null;
+			$z(window).resize(function() {
+				if (resizeTimeout) {
+					clearTimeout(resizeTimeout);
+				}
+				// throttle the resize event
+				resizeTimeout = setTimeout(function () {
+					setoverflown();
+				},150);
+			});
+		});
+		
+		$z(window).load(function(){
+			setoverflown();
+			setTimeout(function(){setoverflown();}, 1000);
+		});
+	</script> 
+<!--
+* Layout: Locus Responsive by StS
+* $Id: default.html 68738 2018-11-09 13:07:55Z sseiz $
+-->
+ </body> </html>

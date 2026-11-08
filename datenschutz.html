@@ -1,0 +1,150 @@
+<!DOCTYPE HTML> <html class="no-js responsivelayout" lang="de"> <head> <script>
+		document.documentElement.className = document.documentElement.className.replace(/no-js/g, 'js');
+	</script> <title>Datenschutz</title> <meta http-equiv="content-type" content="text/html; charset=utf-8"> <meta name="description" content=""> <meta name="keywords" content=""> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <meta name="generator" content="Zeta Producer 14.3.3.0, ZP14B, 04.09.2018 12:40:38"> <meta name="robots" content="index, follow"> <link rel="shortcut icon" type="image/x-icon" href="assets/unbenannt-1.gif"> <script>
+		// if after 1000ms we haven't got webfonts, show the user something, a FOUT is better than nothing
+		// http://kevindew.me/post/47052453532/a-fallback-for-when-google-web-font-loader-fails
+		setTimeout(function() {
+			// you can have the webfont.js cached but still have no classes fire and you will have a window.WebFontConfig object
+			if ( ! ("WebFont" in window)) {
+				// non wfl loader class name because their events could still fire
+				document.getElementsByTagName("html")[0].className += " wf-fail";
+			}
+		}, 1000);
+	
+		WebFontConfig = {
+			google: { families: [ 'Roboto:300,400,700' ] }
+		};
+		(function() {
+			var wf = document.createElement('script');
+			wf.src = "assets/js/webfont/1.5.18/webfont.js";
+			wf.type = 'text/javascript';
+			wf.async = 'true';
+			var s = document.getElementsByTagName('script')[0];
+			s.parentNode.insertBefore(wf, s);
+		})(); 
+	</script> <noscript> <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto:300,400,700"> </noscript> <link rel="stylesheet" type="text/css" href="assets/bundle.css?v=636921753586239797"> <link rel="stylesheet" type="text/css" href="assets/bundle-print.css?v=636831786603833613" media="print"> <script type="text/javascript" src="assets/bundle.js?v=636921753586239797"></script> </head> <body id="locus-responsive" class="notouch"> <a id="top"></a> <div id="logo"><a href="index.html"><img src="assets/logo.png" width="67" height="50" alt="index.html"></a></div> <div id="wrapper" class="container"> <div id="header"> <div class="topline"> <div id="webdescription"> <div id="webtext"> <div id="webname"><a href="index.html">andrea nielbock</a></div> </div> <div class="clearx"></div> </div> </div> <div id="nav"> <ul data-trianglemode="true" class="submenu touchhovermenu clickhovermenu"> <li class="haschilds"> <a href="index.html">Startseite</a> <ul> <li> <a href="ueber-mich.html">Ueber mich</a> </li> <li> <a href="das-thema.html">Das THEMA</a> </li> <li> <a href="newletter.html">newsletter</a> </li> </ul> </li> <li class="haschilds"> <a href="rauszeiten.html">Für DICH</a> <ul> <li> <a href="qigong.html">QiGong</a> </li> <li> <a href="autogenes-training.html">Autogenes Training</a> </li> <li> <a href="pmr-progressive-muskelentspannung.html">PMR Progressive Muskelentspannung</a> </li> <li> <a href="klang.html">Klang</a> </li> <li> <a href="waldbaden.html">Waldbaden</a> </li> </ul> </li> <li> <a href="blog.html">Blog</a> </li> <li class="haschilds active open"> <a href="impressum.html">Impressum</a> <ul> <li class="active"> <a class="active" href="datenschutz.html">Datenschutz</a> </li> <li> <a href="agbs.html">AGBs</a> </li> </ul> </li> <li class="overflownonly"><a href="#" id="mobilenavtoggle" class="tabletonly toggle" aria-label="Menü ein-/ausblenden">&#9776; Menü</a></li> </ul> </div> </div> <div id="slider" class="noprint"> <a id="a1690"></a> <div id="headerslider" class="flexslider"> <div class="flex-container"> <ul class="slides"> <li> <img src="media/images/2019-andrea-nielbock-2304-large-large.png" alt=""> <div class="flex-caption"> <h2 style="color: #660099; ">STARK wie ein Baum</h2> </div> </li> </ul> </div> </div> <script>
+		$z(document).ready(function() {
+			var useCssAnimation = true;
+			if ( $z.browser.safari ){
+				useCssAnimation = false;
+			}
+			
+			function initSlider(){
+				$z('#headerslider .flex-container').flexslider({
+					useCSS: useCssAnimation,
+					touch: true,
+					keyboard: true,
+					itemMargin: 0,
+					animation: 'slide',
+					controlsContainer: '#headerslider.flexslider',
+					slideshow: false,
+					slideshowSpeed: 7000,
+					directionNav: true,
+					controlNav: false,
+					randomize: false,
+					
+					pauseOnHover: true,
+					smoothHeight: true,
+					prevText: "zur&#252;ck",
+					nextText: "weiter"
+				});
+			}
+			
+			if ( $z('#headerslider .flex-container ul.slides li img').length > 0 ){
+				// init flexslider after 1st image has loaded, so have dimensions as quickly as possible without having to wait too long on window loaded or such and can start right with doc ready
+				$z('#headerslider .flex-container ul.slides li img').first().one("load", initSlider).each(function() {
+					if(this.complete) $z(this).load();
+				}); // .each() is to work around a browser bugs which don't fire load() for cached images http://stackoverflow.com/a/3877079
+			}
+			else{
+				// also init flexslider if it doesn't contain images and is text only
+				initSlider();
+			}
+			
+			// activate links for individual slideshow
+			$z('#headerslider .flex-container ul.slides li[data-clickurl]').css("cursor","pointer");
+			$z('#headerslider .flex-container ul.slides li[data-clickurl]').click(function (event){
+				// Because this script captures clicks for a container, it will also fire when a regular link inside the container 
+				// is clicked. Therefore, we check below, if a regular link i.e. <a href="#"> was the target of the click.
+				// Depending on the browser used, event.target might not be available, but event.srcElement would…
+				var targ;
+				if (event.target){
+					targ = event.target;
+				}
+				else if (event.srcElement) {
+					targ = event.srcElement;
+				}
+				if (targ.nodeName == "A") {
+					// a regular link i.e. in a Caption was clicked. Return early, so the link's href doesn't get overridden
+					return;
+				}
+				
+				if ( $z(this).data("clicktarget") ){
+					window.open($z(this).data("clickurl"), $z(this).data("clicktarget"));
+				}
+				else{
+					window.location = $z(this).data("clickurl");
+				}
+				event.preventDefault;
+				return false;
+			});
+		});
+  	</script> </div> <div id="content" class="main style1 rounded"> <div class="zparea zpgrid" data-numcolumns="" data-areaname="Standard"> <div class="zpContainer "> <div class="zpRow standard "><div class="zpRowInner"> <div class="zpColumn odd zpColumnWidth1 c12" style=" "> <div class="zpColumnItem"> <div id="a1689" data-articleid="1689" class="articlearea zpwText"> <h2 style="color: #090909; ">Datenschutz</h2> <p><strong>Geltungsbereich</strong></p> <p>Diese Datenschutzerklärung soll die Nutzer dieser Website gemäß DSGVO, Bundesdatenschutzgesetz und Telemediengesetz über die Art, den Umfang und den Zweck der Erhebung und Verwendung personenbezogener Daten durch den Websitebetreiber informieren.</p> <p><strong>Datenschutz</strong></p> <p>Die Betreiber dieser Site nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.<br>Die Nutzung unserer Website ist in der Regel ohne Angabe personenbezogener Daten möglich. Soweit auf unseren Seiten oder duch die Nutzung von Kontaktmöglichkeiten auf unserer Site&nbsp;personenbezogene Daten (beispielsweise Name, Anschrift oder E-Mail-Adressen) erhoben werden, erfolgt dies, soweit möglich, stets auf freiwilliger Basis. Diese Daten werden ohne Ihre ausdrückliche Zustimmung nicht an Dritte weitergegeben.<br>Wir weisen darauf hin, dass die Datenübertragung im Internet (z.B. bei der Kommunikation per E-Mail) Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich.</p> <p><strong>Umgang mit Kontaktdaten</strong></p> <p>Nehmen Sie mit dem Websitebetreiber durch die angebotenen Kontaktmöglichkeiten Verbindung auf, werden Ihre Angaben gespeichert, damit auf diese zur Bearbeitung und Beantwortung Ihrer Anfrage zurückgegriffen werden kann. Ohne Ihre Einwilligung werden diese Daten nicht an Dritte weitergegeben. Wir halten uns an die Grundsätze der Datenvermeidung und Datensparsamkeit. Wir speichern Ihre personenbezogenen Daten daher nur so lange, wie dies zur Erreichung der hier genannten Zwecke erforderlich ist oder wie es die vom Gesetzgeber vorgesehenen vielfältigen Speicherfristen vorsehen. Nach Fortfall des jeweiligen Zweckes bzw. Ablauf dieser Fristen werden die entsprechenden Daten routinemäßig und entsprechend den gesetzlichen Vorschriften gesperrt oder gelöscht.</p> <p><strong>Server-Log-Files</strong><br></p> <p>Der Provider der Seiten erhebt und speichert automatisch Informationen in so genannten Server-Log<br>Files, die Ihr Browser automatisch an uns übermittelt. Dies sind:<br>- Browsertyp und Browserversion<br>- verwendetes Betriebssystem<br>- Referrer URL<br>- Hostname des zugreifenden Rechners<br>- Uhrzeit der Serveranfrage<br>Diese Daten sind nicht bestimmten Personen zuordenbar. Eine Zusammenführung dieser Daten mit anderen Datenquellen wird nicht vorgenommen. Wir behalten uns vor, diese Daten nachträglich zu prüfen, wenn uns konkrete Anhaltspunkte für eine rechtswidrige Nutzung bekannt werden.</p> <p>Wir benutzen auf unseren Seiten keine Cookies oder Webanalysedienste.</p> <p><strong>Facebook-Plugins (Like-Button) o.ä.<br></strong></p> <p>Auf unseren Seiten sind zZt&nbsp;keine Plugins des sozialen Netzwerks Facebook, oder anderer Sozial Media wie YouTube oder Twitter integriert.</p> <p><strong>Recht auf Auskunft, Löschung, Sperrung<br></strong></p> <p>Sie haben jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten, deren Herkunft und Empfänger und den Zweck der Datenverarbeitung sowie ein Recht auf Berichtigung, Sperrung oder Löschung dieser Daten. Hierzu sowie zu weiteren Fragen zum Thema personenbezogene Daten können Sie sich jederzeit unter der im Impressum angegebenen Adresse an uns wenden.<br></p> <p><strong>Widerspruch Werbe-Mails</strong></p> <p>Der Nutzung von im Rahmen der Impressumspflicht veröffentlichten Kontaktdaten zur Übersendung von nicht ausdrücklich angeforderter Werbung und Informationsmaterialien wird hiermit widersprochen. Die Betreiber der Seiten behalten sich ausdrücklich rechtliche Schritte im Falle der unverlangten Zusendung von Werbeinformationen, etwa durch Spam-E-Mails, vor.</p> <p style="text-align: right"><a href="index.html"><em><span style="color: #808080">&nbsp;up&nbsp;</span></em></a></p> <p><strong>Datenschutzbestimmungen zu Einsatz und Verwendung von Linkweiterleitungen:</strong></p> <p><strong><em>PayPal</em></strong></p> <p>Auf unserer Website bieten wir für einige Kauf-Angebote u.a. die Bezahlung via PayPal an. Anbieter dieses Zahlungsdienstes ist die PayPal (Europe), S.à.r.l. et Cie, S.C.A., 22-24 Boulevard Royal, L-2449 Luxembourg (im Folgenden “PayPal”).</p> <p>Wenn Sie die Bezahlung via PayPal auswählen, werden die von Ihnen eingegebenen Zahlungsdaten an PayPal übermittelt. Die Übermittlung Ihrer Daten an PayPal erfolgt auf Grundlage von Art. 6 Abs. 1 lit. a DSGVO (Einwilligung) und Art. 6 Abs. 1 lit. b DSGVO (Verarbeitung zur Erfüllung eines Vertrags). Sie haben die Möglichkeit, Ihre Einwilligung zur Datenverarbeitung jederzeit zu widerrufen. Ein Widerruf wirkt sich auf die Wirksamkeit von in der Vergangenheit liegenden Datenverarbeitungsvorgängen nicht aus.</p> <p><em><strong>Coachy</strong></em></p> <p>Wir bieten auf dieser Website zusätzlich Webinare und Online-Coachings über den Anbieter “Coachy” an. Es wurden entsprechende Verlinkungen auf unsere Angebote zu "Coachy" integriert. Coachy ist ein Internet-Video-Kursportal, dass Video-Publishern das Einstellen von Onlinekursen ermöglicht.</p> <p>Inhaber von Coachy ist Dennis Spohr, Coachy International Limited, 36, St. Domenica Street, Victoria VCT 9030, Malta, E-Mail: support@coachy.net</p> <p>Coachy stellt dem für die Verarbeitung Verantwortlichen die eingegebenen Daten des Nutzers zwecks Kundensupport zur Verfügung – Name und Emailadresse – so dass der für die Verarbeitung Verantwortliche den Kundensupport durchführen kann. Weitere Informationen zu Coachy können unter https://www.coachy.net/ abgerufen werden.</p> <p>Die von Coachy veröffentlichten Datenschutzbestimmungen, die unter https://www.coachy.net/de/datenschutzerklaerung/ abrufbar sind, geben Aufschluss über die Erhebung, Verarbeitung und Nutzung personenbezogener Daten durch Coachy.</p> <p><em><strong>Digistore24</strong></em></p> <p>Von dieser Website aus werden in einem externen Link über coachy.net u.a. digitale Produkte&nbsp;wie zB ein Online-Kurs zum Kauf angeboten. Dafür nutzen wir den Dienst der Digistore24 GmbH, St.-Godehard-Straße 32, 31139 Hildesheim, Deutschland. Sobald Sie auf einen unserer Produktbutton auf der Website coachy.net klicken, werden Sie zum Digistore24 weitergeleitet. Digistore wird damit der Vertragspartner der Käufer von Leistungen bzw. Produkten und ist für die Verarbeitung der Daten der Käufer verantwortlich. Für den Erwerb und die begleitende Verarbeitung von Daten gelten die Bestimmungen von Digistore. AGB: https://www.digistore24.com/info/terms?language=de, und 2. Datenschutzerklärung: https://www.digistore24.com/info/privacy?language=de.</p> <p>Rechtsgrundlage für die Verarbeitung von personenbezogenen Daten via „Digistore24“ ist Art. 6 Abs. 1 lit. b) DSGVO.</p> <p><strong><em>Shore GmbH</em></strong></p> <p>Für die Verwaltung der Termine (Online Terminbuchung, Terminerinnerung) nutzten wir in einem externen Link das Serviceangebot der Firma Shore GmbH, Seidlstrasse 23, 80335 München.</p> <p>Bei der Nutzung des Service der Shore GmbH werden u. a. personenbezogene Daten an die Shore GmbH übermittelt.</p> <p>Für die Verarbeitung dieser Daten ist allein die Shore GmbH verantwortlich. Die Nutzung der Shore GmbH Dienste unterliegt vollständig den Datenschutz- und Nutzungsbedingungen der Shore GmbH.<br>Einzelheiten zu dem Umgang mit Ihren Daten durch die Shore GmbH sowie zu Ihren Rechten und Einstellungsmöglichkeiten zum Schutz Ihrer persönlichen Daten finden Sie unter: <a href="https://www.shore.com/de/datenschutz/">https://www.shore.com/de/datenschutz/</a> </p> <p><strong><em>sendinblue</em></strong></p> <p>Für die Anmeldung zu unserem Newsletter benutzen wird das Doppelklick-Prinzip. Unser Partner für diese Anmeldung ist die Fa. sendinblue GmbH in Köpenicker Straße 126, 10179 Berlin. Für die Verarbeitung dieser Daten ist allein die&nbsp;sendinblue GmbH verantwortlich. Die Nutzung der sendinblue-Dienste unterliegt vollständig den Datenschutz- und Nutzungsbedingungen der sendinblue GmbH.<br>Einzelheiten zum Umgang mit den erfassten Daten erfahren Sie unter: <a href="https://de.sendinblue.com/datenschutz-uebersicht/">de.sendinblue.com/datenschutz-uebersicht/</a></p> <p>&nbsp;</p> <p><em><strong>Messenger-Dienst WhatsApp</strong></em></p> <p>Um unsere Kunden zu kontaktieren, nutzen wir mit Ihrer Zustimmung auch den Messenger-Dienst WhatsApp. Reine Webseiten-Besucher sind von dieser Datenverarbeitungsart nicht betroffen. Rechtsgrundlage für die Nutzung des WhatsApp Instant Messenger Dienstes ist Art. 6 Abs. 1 lit. a DSGVO, somit Ihre Einwilligung. Soweit diese vorliegt, haben Sie jederzeit das Recht des Widerrufs, ohne dass die Rechtmäßigkeit der aufgrund der Einwilligung bis zum Widerruf erfolgten Verarbeitung berührt wird.</p> <p>Wir übertragen an WhatsApp hierbei im Kontaktverzeichnis hinterlegte personenbezogene Daten, um die Kommunikation über den Messenger-Dienst ermöglichen. Dies sind vorrangig Vor- und Nachname sowie Telefonnummer. </p> <p>Wir selbst speichern ausschließlich Ihre Kontaktdaten und Ihre Telefonnummer, über die die Identifikation bei WhatsApp funktioniert sowie die persönliche Nachrichten mit Ihnen. Neben WhatsApp teilen wir Dritten diese Daten nicht mit.</p> <p>WhatsApp erhebt wiederum eigenständig Daten, holt hierfür eigenständig Ihre Einwilligung ein und informiert über Zweck, Umfang, Verarbeitung, Ihre Rechte und Einstellungsoptionen zum Schutz Ihrer Privatsphäre. Bezüglich dieser Datenschutzinformationen verweisen wir auf das Webangebot (https://www.whatsapp. com/legal/#privacy-policy) des Instant-Messaging-Dienstes „WhatsApp“ der WhatsApp Ireland Limited, 4 Grand Canal Square, Grand Canal Harbour, Dublin 2, Irland.</p> <p>Wenn der Nutzer in einem Land der Europäischen Union lebt, soll die WhatsApp Ireland Limited für die Datenverarbeitung zuständig sein. Wir können jedoch nicht ausschließen, dass WhatsApp personenbezogene Daten (insbesondere Metadaten der Kommunikation) erhält, die auch auf Servern in Staaten außerhalb der EU (z.B. USA) verarbeitet werden. Diese Daten gibt WhatsApp möglicherweise an andere Unternehmen innerhalb und außerhalb der Facebook-Unternehmensgruppe weiter. EMS for you hat weder genaue Kenntnis noch Einfluss auf die Datenverarbeitung durch die WhatsApp, Inc.</p> <p>WhatsApp gibt an beim US-Handelsministerium für das EU-US-Datenschutzschild und das Schweiz-US-Datenschutzschild zertifiziert zu sein.</p> <p><strong>Änderung unserer Datenschutzbestimmungen</strong></p> <p>Wir behalten uns vor, diese Datenschutzerklärung gelegentlich anzupassen, damit sie stets den aktuellen rechtlichen Anforderungen entspricht oder um Änderungen unserer Leistungen in der Datenschutzerklärung umzusetzen, z. B. bei der Einführung neuer Services. Für Ihr erneutes&nbsp;Aufsuchen dieser Website&nbsp;gilt dann die neue Datenschutzerklärung.</p> <p><em>Verantwortlich für diese Website ist folgender Anbieter:</em></p> <p>Andrea Nielbock - &nbsp;Im Strange 12, 37520 Osterode am Harz - &nbsp;05522-76666 - andrea @ trainatur.de</p> <p><em>Diese Erklärung wurde mit Generator von&nbsp;eRecht24.de erstellt und zusätzlich ergänzt.</em></p> <p style="text-align: right"><a href="index.html"><em><span style="color: #808080">&nbsp;up&nbsp;</span></em></a></p> </div> </div> </div> </div></div> <div class="zpRow standard "><div class="zpRowInner"> <div class="zpColumn odd zpColumnWidth1 c12" style=" "> <div class="clearx"></div> <div class="zpColumnItem"> <div id="a1759" data-articleid="1759" class="articlearea zpwTrennlinie zpSO-separator"> <hr class="zpSO-separator" style="display:block;border:none;height:1px;line-height:1px;color:#D0D0D0;background-color:#D0D0D0;margin-top:30px;margin-bottom:20px;"> </div> </div> </div> </div></div> </div> </div> </div> </div> <div id="footer" class="container"> <div id="xmenu" class=""> <a href="index.html">Startseite</a> <a href="datenschutz.html">Datenschutz</a> <a href="impressum.html">Impressum</a> </div> <div id="copyright"> © 2020 andrea nielbock </div> </div> <script>	
+		function setoverflown(){
+			if ( $z("#nav").is(":hover") || ! $z("#nav > ul > li").length ){
+				return;
+			}
+			if ( $z("#nav:not(.on)").overflown() ){
+				$z("#nav > ul").css("text-align", "left");
+				$z("#nav, #nav > ul li.overflownonly").addClass("overflown");
+				// hide overflown list items
+				var firstTop = $z("#nav > ul > li").eq(0).position().top;
+				$z("#nav > ul > li").each(function(){
+					if ( $z(this).position().top > firstTop ){
+						$z(this).addClass("overflowing");
+					}
+				});
+			}
+			else{
+				$z("#nav > ul").css("text-align", "");
+				$z("#nav, #nav > ul li.overflownonly").removeClass("overflown");
+				// re show previously hidden, overflowing li
+				$z("#nav > ul > li").removeClass("overflowing");
+			}
+		}
+		
+		$z(document).ready(function(){
+			// switches the Mobile Navigation-Menu on/off, when "Menu" link is clicked.
+			$z("a#mobilenavtoggle").on("click", function(e){
+				e.preventDefault();
+				if ( $z("#nav").hasClass("on") ){
+					// we're switching to off now
+					$z("#nav ul li").removeClass("hoverToClickMenuAdded clicked");
+					$z("#nav ul ul").css("display", "").css("visibility", "");
+				}
+				$z("#nav").toggleClass("on");
+			});	
+			
+			setoverflown();
+			var resizeTimeout = null;
+			$z(window).resize(function() {
+				if (resizeTimeout) {
+					clearTimeout(resizeTimeout);
+				}
+				// throttle the resize event
+				resizeTimeout = setTimeout(function () {
+					setoverflown();
+				},150);
+			});
+		});
+		
+		$z(window).load(function(){
+			setoverflown();
+			setTimeout(function(){setoverflown();}, 1000);
+		});
+	</script> 
+<!--
+* Layout: Locus Responsive by StS
+* $Id: default.html 68738 2018-11-09 13:07:55Z sseiz $
+-->
+ </body> </html>
