@@ -426,7 +426,7 @@ body { margin: 0; padding-left: var(--g-l); padding-right: var(--g-r); }
     <p class="why" id="sWhy"></p>
     <div class="listen">
       <p><b>Übung anhören:</b> Andrea führt dich mit ihrer Stimme durch die Übung, mit echten Pausen zum Mitmachen.</p>
-      <a class="btn play" id="sAudio" href="#" target="_blank" rel="noopener">Anhören</a>
+      <audio id="sAudio" controls preload="none" style="width:100%;margin-top:8px"></audio>
     </div>
     <ol class="steps" id="sSteps"></ol>
     <p class="tip" id="sTip"></p>
@@ -567,12 +567,12 @@ const DAYS = [
     tip:"Danke, dass du dir im Advent diese Zeit genommen hast. Frohe und ruhige Weihnachten!" }
 ];
 
-// Tonspuren mit Andreas Stimme (HeyGen Voice Clone), öffnen im Browser-Player
+// Tonspuren mit Andreas Stimme, liegen auf der eigenen Website (audio/01.mp3 ...)
 const AUDIO = ["8e75474ea1994ca785967b60bcaeefb9","62c60fdfcad84874a32499e8438d350c","28bebb4426cd4563ad149f88fae3f7f0","265df02ccd9347cc902e7c1dc0d36f82","efcd29840b5148d29ffbdc72ac0b76e8","f2471e6c762347e9ac65a07052607318",
   "75e00e1bdbf54aacae384e96697c3009","4f9f78d0f43244ed996b5e261234fe91","1507066a8c0240a7839b6688381af0de","14f6fbcd40074a209552d72d2d100382","a0cf61c846da4b25bd61c9ed3fcd502c","d007a3ef76744450a7ae5865e7ae1b77",
   "c822937e91b840c5b4f38a155539c7ac","43fd139c0af54dbcbcbc950db43a99e7","7149cdf71af34a1ea310fe0efb4e5cb9","3c66868faa304002941d35c8959cdfd8","3c61acc2a89846c985c49baef80e1901","55fd6f680b2e44a99716bc3be5fa3991",
   "c47f8b2a6e3a4be99db83c2b73995ed2","f0dbb5fb41b24b76a04089903d7d0016","5cc15772241f4648a4c9681315a6ea1b","faa151cff4be492a9fca4ec10fe72363","430f43ffcf0d41d38c5ca714ac58e8aa","3261e3e554514da1b5454ef325a70abf"];
-const audioUrl = n => `https://resource2.heygen.ai/audio/${AUDIO[n - 1]}/original.mp3`;
+const audioUrl = n => `audio/${String(n).padStart(2, "0")}.mp3`;
 
 // Ein ruhiges Bild pro Woche: Kerze, Tannenzweig, Winternacht, Adventskranz
 const weekOf = n => n <= 7 ? 1 : n <= 14 ? 2 : n <= 21 ? 3 : 4;
@@ -760,7 +760,7 @@ function openDay(n) {
   $("#sTitle").textContent = day.t;
   $("#sFacts").innerHTML = `<span>${day.min} Minuten</span><span>${day.pos}</span>`;
   paintArt($("#sArt"), weekOf(n));
-  $("#sAudio").href = audioUrl(n);
+  $("#sAudio").pause(); $("#sAudio").src = audioUrl(n);
   $("#sWhy").textContent = day.why;
   $("#sSteps").innerHTML = day.steps.map(s => `<li><span>${s}</span></li>`).join("");
   $("#sTip").innerHTML = `<b>Für den Alltag:</b> ${day.tip}`;
@@ -779,7 +779,7 @@ $("#tDone").addEventListener("click", () => {
   updateDoneBtn(); render();
 });
 $("#sClose").addEventListener("click", () => $("#sheet").close());
-$("#sheet").addEventListener("close", stopTimer);
+$("#sheet").addEventListener("close", () => { stopTimer(); $("#sAudio").pause(); });
 $("#sheet").addEventListener("click", e => { if (e.target === $("#sheet")) $("#sheet").close(); });
 
 // Timer mit Atemkreis: 4 s ein, 6 s aus
