@@ -269,8 +269,22 @@ footer a{color:inherit;text-underline-offset:3px}
 .advent-sticker i{font-size:.62rem;margin-top:4px}
 .advent-sticker.hund{right:-8px;left:auto}
 @media(min-width:820px){.hero .photo{margin-bottom:0}.advent-sticker{width:140px;padding:10px 10px 12px;top:10px;bottom:auto;left:-80px}.advent-sticker svg{width:64px}.advent-sticker b{font-size:.6rem;letter-spacing:.1em}.advent-sticker span{font-size:1rem}.advent-sticker i{font-size:.7rem}.advent-sticker.hund{top:auto;bottom:16px;right:-70px;left:auto}}
+/* Advent-Menü mit beiden Kalendern (Saison) */
+.nav-advent{position:relative;font-size:.84rem}
+.nav-advent summary{list-style:none;cursor:pointer;padding:6px 0;color:#b8333a;font-weight:700}
+.nav-advent summary::-webkit-details-marker{display:none}
+.nav-advent>div{position:absolute;left:0;top:100%;z-index:50;background:#fffdf8;border:2px solid #b8333a;box-shadow:0 8px 24px #0003;padding:6px;display:flex;flex-direction:column;min-width:250px}
+.nav-advent>div a{padding:10px 12px;font-size:.9rem;white-space:normal}
+.nav-advent>div a:hover{background:#f3e9dc;text-decoration:none}
+/* Sticker größer und sanft schwingend */
+@keyframes sticker-schwingen{0%,100%{rotate:-2.5deg}50%{rotate:2.5deg}}
+.advent-sticker{transform-origin:50% 0;animation:sticker-schwingen 4s ease-in-out infinite}
+.advent-sticker.hund{animation-delay:-2s}
+@media(prefers-reduced-motion:reduce){.advent-sticker{animation:none}}
+.advent-sticker{width:124px!important}
+@media(min-width:820px){.advent-sticker{width:210px!important}.advent-sticker span{font-size:1.25rem!important}.advent-sticker b{font-size:.72rem!important}.advent-sticker i{font-size:.85rem!important}}
 </style></head><body>
-<header><div class="wrap nav"><a class="brand" href="#start"><img src="img/logo-herz.png" alt="" width="40" height="46"/><span>Andrea Nielbock<small>tierisch erfolgreich</small></span></a><nav aria-label="Hauptnavigation"><a href="https://b044490d.sibforms.com/serve/MUIFAHEQpjRpyM9vOaJ5exGUA5o2MCCXuiICGlJG6BaGBbWRdFn4S_xs6VlbRo9Ef8P04YIQoK32ICoPGoZIr4jctSui-j9hH0D-887nsnBmUDSZcgnodcLvc8kQmvRlJEoCSqoYv-mdjYB4LC6s9xAqrbQVEGkHiPmLu2VwMYjI6wei7y5dLn9-GvRTbeYGplJp0yX30M-wjLYd" target="_blank" rel="noopener">Advent</a><a href="#ueber">Über Andrea</a><a href="#magazin">Magazin</a><a href="#angebote">Angebote</a><a href="#firmen">Für Firmen</a><a href="#kontakt">Kontakt</a></nav></div></header>
+<header><div class="wrap nav"><a class="brand" href="#start"><img src="img/logo-herz.png" alt="" width="40" height="46"/><span>Andrea Nielbock<small>tierisch erfolgreich</small></span></a><nav aria-label="Hauptnavigation"><details class="nav-advent"><summary>Advent ▾</summary><div><a href="https://b044490d.sibforms.com/serve/MUIFAHEQpjRpyM9vOaJ5exGUA5o2MCCXuiICGlJG6BaGBbWRdFn4S_xs6VlbRo9Ef8P04YIQoK32ICoPGoZIr4jctSui-j9hH0D-887nsnBmUDSZcgnodcLvc8kQmvRlJEoCSqoYv-mdjYB4LC6s9xAqrbQVEGkHiPmLu2VwMYjI6wei7y5dLn9-GvRTbeYGplJp0yX30M-wjLYd" target="_blank" rel="noopener">🌿 Durchatmen im Advent</a><a href="https://b044490d.sibforms.com/serve/MUIFAPKaemPsMowEDddD5A0C9osgPKd3g1hTtFW7yFu3jfa9SLgM4uaY_QoXPIV9iH_3TyYlNxSrdVItJ7ZG7d1cDJoV41czmSAeAdNGRg8mqQWh7fhfTVXp8iQxh1gZlq_MYA3ytPRvmHQ8pQr7wRma5OfBI6QYf_IQGwC3tKlZC2Txbnje8aJOVJ110lYwoMud_X7ZJBRSJitJ" target="_blank" rel="noopener">🐾 Adventsnapf für dich und deinen Hund</a></div></details><a href="#ueber">Über Andrea</a><a href="#magazin">Magazin</a><a href="#angebote">Angebote</a><a href="#firmen">Für Firmen</a><a href="#kontakt">Kontakt</a></nav></div></header>
 
 <main id="start">
 
