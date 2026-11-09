@@ -1,0 +1,1007 @@
+<!doctype html><html><head>
+<meta name="robots" content="noindex">
+<meta name="robots" content="noindex"><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Durchatmen im Advent</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: ruhiger Kopf, darunter das Kalender-Raster (Türchen in gemischter Reihenfolge), dann Kursinfos. Türchen öffnen eine Übungskarte mit Atem-Timer. */
+:root {
+  --bg: #eef1ec;
+  --surface: #ffffff;
+  --surface-2: #e3e8e1;
+  --fg: #1d2a24;
+  --muted: #5a6a61;
+  --line: #cdd6cc;
+  --accent: #b5651d;      /* Kerzenlicht */
+  --accent-fg: #ffffff;
+  --door: #24433a;        /* Tannengrün */
+  --door-fg: #f3efe3;
+  --door-done: #c9d4c8;
+  --m-atem: #3d7ea6;
+  --m-pmr: #c07a1f;
+  --m-at: #7a5a9e;
+  --m-qi: #2f8a62;
+  --m-acht: #b8566e;
+  /* Wochenbilder: Salbei, Creme, Taubenblau, Rosé */
+  --w1-bg: #dfe7d9; --w1-ink: #7d9677; --w1-soft: #c9d6c2;
+  --w2-bg: #f1eadb; --w2-ink: #8f7f5d; --w2-soft: #e3d8c0;
+  --w3-bg: #dde5ea; --w3-ink: #7890a1; --w3-soft: #c7d4dd;
+  --w4-bg: #f3e5dc; --w4-ink: #a87c6c; --w4-soft: #e6cfc2;
+  --wax: #fbf7ee; --flame: #f0b54a; --glow: #f7d58a;
+  --shadow: 0 1px 2px rgba(20,40,30,.08), 0 8px 24px rgba(20,40,30,.08);
+  --f-display: "Young Serif", Georgia, "Times New Roman", serif;
+  --f-body: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f1a17; --surface: #172420; --surface-2: #1e2e29; --fg: #e9ede6; --muted: #9fb0a6; --line: #2c3f39;
+    --accent: #e3a05a; --accent-fg: #1a120a; --door: #24433a; --door-fg: #f3efe3; --door-done: #22332e;
+    --m-atem: #7db7dc; --m-pmr: #e5a54e; --m-at: #b597d8; --m-qi: #6cc79b; --m-acht: #e58aa1;
+    --w1-bg: #1f2c25; --w1-ink: #8fab88; --w1-soft: #2a3a31; --w2-bg: #2b271e; --w2-ink: #b9a77f; --w2-soft: #383226;
+    --w3-bg: #1d262d; --w3-ink: #93abbd; --w3-soft: #283541; --w4-bg: #2d2220; --w4-ink: #c99a88; --w4-soft: #3b2d29;
+    --wax: #e9e2d2; --flame: #f2bd5c; --glow: #7a5a26;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f1a17; --surface: #172420; --surface-2: #1e2e29; --fg: #e9ede6; --muted: #9fb0a6; --line: #2c3f39;
+  --accent: #e3a05a; --accent-fg: #1a120a; --door: #24433a; --door-fg: #f3efe3; --door-done: #22332e;
+  --m-atem: #7db7dc; --m-pmr: #e5a54e; --m-at: #b597d8; --m-qi: #6cc79b; --m-acht: #e58aa1;
+  --w1-bg: #1f2c25; --w1-ink: #8fab88; --w1-soft: #2a3a31; --w2-bg: #2b271e; --w2-ink: #b9a77f; --w2-soft: #383226;
+  --w3-bg: #1d262d; --w3-ink: #93abbd; --w3-soft: #283541; --w4-bg: #2d2220; --w4-ink: #c99a88; --w4-soft: #3b2d29;
+  --wax: #e9e2d2; --flame: #f2bd5c; --glow: #7a5a26;
+  --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--fg);
+  font-family: var(--f-body); font-size: 16px; line-height: 1.55;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 1040px; margin: 0 auto; padding-block: 40px 64px; display: grid; gap: 40px; }
+h1, h2, h3 { font-family: var(--f-display); font-weight: 400; text-wrap: balance; margin: 0; line-height: 1.15; }
+p { margin: 0; }
+button { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* Kopf */
+header { display: grid; gap: 14px; }
+.eyebrow { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+h1 { font-size: clamp(36px, 6vw, 60px); }
+h1 em { font-style: normal; color: var(--accent); }
+.lede { max-width: 62ch; color: var(--muted); font-size: 17px; }
+.bar { display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: center; justify-content: space-between; padding-top: 6px; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 14px; color: var(--muted); }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; background: var(--c); flex: none; }
+.controls { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; font-size: 14px; }
+.progress { font-variant-numeric: tabular-nums; color: var(--muted); }
+.progress b { color: var(--fg); }
+.switch { display: inline-flex; gap: 8px; align-items: center; cursor: pointer; color: var(--muted); }
+.switch input { accent-color: var(--accent); width: 16px; height: 16px; }
+
+/* Kalender */
+.calendar { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; }
+@media (max-width: 760px) { .calendar { grid-template-columns: repeat(4, 1fr); } }
+@media (max-width: 460px) { .calendar { grid-template-columns: repeat(3, 1fr); gap: 8px; } }
+.door {
+  position: relative; aspect-ratio: 1 / 1.08; max-width: 100%;
+  border: 0; border-radius: 6px; cursor: pointer; text-align: left;
+  background: var(--door); color: var(--door-fg);
+  padding: 10px 12px; display: flex; flex-direction: column; justify-content: space-between;
+  box-shadow: var(--shadow);
+  transition: transform .25s ease, background .25s ease;
+  overflow: hidden;
+}
+.door::after { /* Türfalz */
+  content: ""; position: absolute; inset: 6px; border: 1px dashed rgba(243,239,227,.22); border-radius: 3px; pointer-events: none;
+}
+.door .num { font-family: var(--f-display); font-size: clamp(28px, 4.4vw, 44px); line-height: 1; }
+.door .meta { display: flex; align-items: center; gap: 6px; font-size: 12px; opacity: .85; position: relative; z-index: 1; }
+.door .meta .dot { box-shadow: 0 0 0 2px rgba(243,239,227,.25); }
+.door:hover:not(:disabled) { transform: perspective(600px) rotateY(-8deg); }
+.door:disabled { cursor: not-allowed; opacity: .55; }
+.door:disabled .meta { visibility: hidden; }
+.door.done { background: var(--door-done); color: var(--fg); }
+.door.done::after { border-color: var(--line); }
+.door.done .check { display: block; }
+.check { display: none; position: absolute; top: 10px; right: 12px; font-size: 13px; font-weight: 700; color: var(--accent); }
+.door.today { outline: 2px solid var(--accent); outline-offset: 3px; }
+.lock-note { font-size: 14px; color: var(--muted); }
+
+/* Wochen */
+.section { display: grid; gap: 18px; }
+.section h2 { font-size: 28px; }
+.weeks { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+@media (max-width: 860px) { .weeks { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .weeks { grid-template-columns: 1fr; } }
+.week { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 16px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.week .days { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+.week h3 { font-size: 19px; }
+.week p { font-size: 14.5px; color: var(--muted); }
+.info { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+@media (max-width: 720px) { .info { grid-template-columns: 1fr; } }
+.info > div { display: grid; gap: 10px; align-content: start; min-width: 0; }
+.info h3 { font-size: 20px; }
+.info ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; color: var(--muted); }
+.note { font-size: 14px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 16px; max-width: 80ch; }
+
+/* Übungskarte */
+dialog {
+  border: 0; padding: 0; border-radius: 10px; width: min(640px, calc(100vw - 24px)); max-height: calc(100dvh - 32px);
+  background: var(--surface); color: var(--fg); box-shadow: 0 20px 60px rgba(0,0,0,.35);
+}
+dialog::backdrop { background: rgba(10,20,16,.55); }
+.sheet { display: grid; gap: 18px; padding: 24px clamp(18px, 4vw, 32px) 28px; }
+.sheet-top { display: flex; justify-content: space-between; align-items: start; gap: 12px; }
+.chip { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--c); }
+.close { border: 1px solid var(--line); background: transparent; border-radius: 50%; width: 36px; height: 36px; cursor: pointer; flex: none; font-size: 18px; line-height: 1; }
+.sheet h2 { font-size: clamp(26px, 4vw, 34px); margin-top: 6px; }
+.facts { display: flex; flex-wrap: wrap; gap: 8px; }
+.facts span { background: var(--surface-2); border-radius: 999px; padding: 4px 12px; font-size: 13.5px; font-variant-numeric: tabular-nums; }
+.why { color: var(--muted); max-width: 62ch; }
+.steps { margin: 0; padding: 0; list-style: none; counter-reset: s; display: grid; gap: 10px; }
+.steps li { counter-increment: s; display: grid; grid-template-columns: 28px 1fr; gap: 10px; }
+.steps li::before { content: counter(s); font-family: var(--f-display); color: var(--c); font-size: 18px; line-height: 1.4; }
+.tip { background: var(--surface-2); border-radius: 6px; padding: 12px 14px; font-size: 15px; }
+.tip b { color: var(--c); }
+.timer { display: grid; grid-template-columns: auto 1fr; gap: 18px; align-items: center; border-top: 1px solid var(--line); padding-top: 18px; }
+.ring { width: 84px; height: 84px; border-radius: 50%; display: grid; place-items: center; position: relative; }
+.ring::before { content: ""; position: absolute; inset: 0; border-radius: 50%; background: var(--c); opacity: .18; transform: scale(.6); transition: transform 4s ease-in-out; }
+.ring.in::before { transform: scale(1); transition-duration: 4s; }
+.ring.out::before { transform: scale(.6); transition-duration: 6s; }
+.ring span { position: relative; font-variant-numeric: tabular-nums; font-weight: 600; font-size: 17px; }
+.timer-side { display: grid; gap: 8px; }
+.timer-label { font-size: 14px; color: var(--muted); min-height: 1.5em; }
+.btns { display: flex; flex-wrap: wrap; gap: 8px; }
+.btn { border: 0; border-radius: 999px; padding: 9px 18px; cursor: pointer; font-weight: 600; background: var(--accent); color: var(--accent-fg); }
+.btn.ghost { background: transparent; color: var(--fg); border: 1px solid var(--line); }
+/* Wochenbild und Tonspur */
+.art { background: var(--wbg); border-radius: 6px; overflow: hidden; aspect-ratio: 3 / 1; max-width: 100%; }
+.art svg { display: block; width: 100%; height: 100%; }
+.week .art { margin: -4px -4px 6px; }
+.listen { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center; background: var(--surface-2); border-radius: 6px; padding: 12px 14px; }
+.listen p { flex: 1 1 220px; font-size: 14.5px; color: var(--muted); min-width: 0; }
+.listen p b { color: var(--fg); font-weight: 600; }
+.btn.play { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; background: var(--c); color: var(--surface); }
+.btn.play::before { content: ""; width: 0; height: 0; border-left: 9px solid currentColor; border-top: 6px solid transparent; border-bottom: 6px solid transparent; }
+/* Advent-Deko: Girlande mit Kugeln, Adventskranz im Kopf, Kalender als Tannenbrett */
+:root { --needle-1: #2f5a46; --needle-2: #3e7059; --needle-3: #23463a; --b-red: #a8323e; --b-gold: #d3a443; --b-copper: #b5651d; --b-cream: #efe6d2; --board: #1d3a31; --board-fg: rgba(243,239,227,.16); }
+.garland { height: 118px; margin: -40px 0 -64px; pointer-events: none; }
+.garland svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.bauble { transform-box: fill-box; transform-origin: 50% 0; animation: sway 6s ease-in-out infinite alternate; }
+@keyframes sway { from { transform: rotate(-2.5deg); } to { transform: rotate(2.5deg); } }
+.hero { display: grid; grid-template-columns: 1fr 240px; gap: 24px; align-items: end; }
+@media (max-width: 760px) { .hero { grid-template-columns: 1fr; } .wreath { order: -1; max-width: 220px; justify-self: center; } }
+.hero > div { display: grid; gap: 14px; min-width: 0; }
+.wreath svg { display: block; width: 100%; height: auto; }
+.flame { transform-box: fill-box; transform-origin: 50% 100%; animation: flicker 2.6s ease-in-out infinite alternate; }
+@keyframes flicker { 0% { transform: scale(1, 1) rotate(-1deg); } 50% { transform: scale(.94, 1.06) rotate(1.5deg); } 100% { transform: scale(1.03, .96) rotate(-.5deg); } }
+.wreath-note { font-size: 13px; color: var(--muted); text-align: center; margin-top: 4px; }
+.door.today { outline-color: var(--b-gold); }
+@media (prefers-reduced-motion: reduce) { .bauble, .flame { animation: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .door, .ring::before { transition: none !important; }
+  .door:hover:not(:disabled) { transform: none; }
+}
+/* Kalenderfront: Winterdorf in der Abenddämmerung über die ganze Breite, Türchen liegen wie beim Papierkalender darauf */
+:root { --g-l: max(16px, env(safe-area-inset-left, 0px)); --g-r: max(16px, env(safe-area-inset-right, 0px)); --land-h: clamp(400px, 50vw, 700px);
+  --snow-1: #f6f4ef; --snow-2: #e2e7ef; --snow-3: #c9d1e2; --cream: #fbf6ea; --door-ink: #22413a; }
+body { margin: 0; padding-left: var(--g-l); padding-right: var(--g-r); }
+.scene { position: relative; overflow: hidden; margin-left: calc(-1 * var(--g-l)); margin-right: calc(-1 * var(--g-r)); isolation: isolate;
+  background: linear-gradient(180deg, #14263f 0%, #1f3a59 45%, #2d4a6c 100%); color: var(--cream);
+  --fg: var(--cream); --muted: rgba(251,246,234,.8); --line: rgba(251,246,234,.3); }
+.scene > * { position: absolute; inset: 0; pointer-events: none; }
+.scene > .scene-in { position: relative; inset: auto; pointer-events: auto; z-index: 3; padding-bottom: clamp(56px, 9vw, 120px); padding-inline: var(--g-l) var(--g-r); max-width: calc(1040px + var(--g-l) + var(--g-r)); }
+.sky { z-index: 0; }
+.stars { width: 100%; height: 100%; display: block; }
+.stars .tw { animation: twinkle 3.5s ease-in-out infinite alternate; }
+@keyframes twinkle { from { opacity: .25; } to { opacity: 1; } }
+.moon { position: absolute; top: 34px; right: 3%; width: 62px; height: 62px; border-radius: 50%;
+  background: radial-gradient(circle at 38% 36%, #fffaf0, #f2e3c0 70%); box-shadow: 0 0 50px 18px rgba(247,226,170,.22), 0 0 140px 60px rgba(247,226,170,.08); }
+.dusk { position: absolute; inset: auto 0 0 0; height: calc(var(--land-h) + 360px);
+  background: linear-gradient(180deg, rgba(45,74,108,0) 0%, rgba(110,104,150,.55) 38%, rgba(203,148,145,.85) 64%, #eab68f 82%, #f3cfa3 100%); }
+.land { z-index: 1; top: auto; height: var(--land-h); }
+.land svg { display: block; width: 100%; height: 100%; }
+.snow { z-index: 2; background-repeat: repeat;
+  background-image: radial-gradient(2.4px 2.4px at 30px 40px, rgba(255,255,255,.9) 50%, transparent 52%), radial-gradient(1.8px 1.8px at 140px 120px, rgba(255,255,255,.75) 50%, transparent 52%), radial-gradient(2.8px 2.8px at 220px 20px, rgba(255,255,255,.8) 50%, transparent 52%), radial-gradient(1.6px 1.6px at 90px 230px, rgba(255,255,255,.7) 50%, transparent 52%), radial-gradient(2.2px 2.2px at 260px 190px, rgba(255,255,255,.85) 50%, transparent 52%), radial-gradient(1.6px 1.6px at 180px 280px, rgba(255,255,255,.6) 50%, transparent 52%);
+  background-size: 300px 300px; animation: snowfall 26s linear infinite; opacity: .8; }
+.snow.s2 { background-size: 190px 190px; animation-duration: 18s; opacity: .45; filter: blur(.6px); }
+@keyframes snowfall { from { background-position: 0 0; } to { background-position: 60px 300px; } }
+.snow.s2 { animation-name: snowfall2; }
+@keyframes snowfall2 { from { background-position: 0 0; } to { background-position: -38px 190px; } }
+.flicker { animation: winflick 4s ease-in-out infinite alternate; }
+@keyframes winflick { 0% { opacity: .85; } 40% { opacity: 1; } 70% { opacity: .9; } 100% { opacity: 1; } }
+
+.scene .eyebrow { color: #f2cf8e; }
+.scene h1 { text-shadow: 0 2px 18px rgba(10,20,40,.45); }
+.scene h1 em { color: #f2bd5c; }
+.scene .lede { color: rgba(251,246,234,.86); }
+.scene .legend { --m-atem: #8ec4e6; --m-pmr: #f0b25e; --m-at: #c3a6e6; --m-qi: #7dd4a9; --m-acht: #f09bb1; }
+.scene .switch input { accent-color: #e3a05a; }
+.scene .wreath-note { color: rgba(251,246,234,.75); }
+.scene .wreath svg { filter: drop-shadow(0 6px 14px rgba(10,20,40,.35)); }
+
+.board { position: relative; }
+.board .door { background: rgba(251,246,234,.05); -webkit-backdrop-filter: saturate(1.15); backdrop-filter: saturate(1.15);
+  border: 1.5px dashed rgba(251,246,234,.85); box-shadow: 0 0 0 1px rgba(20,30,55,.22), 0 6px 18px rgba(10,20,40,.12); color: var(--door-ink); }
+.board .door::after { display: none; }
+.board .door .num { display: grid; place-items: center; width: 1.75em; height: 1.75em; border-radius: 50%; font-size: clamp(20px, 3.2vw, 30px);
+  background: var(--cream); color: var(--door-ink); box-shadow: 0 2px 8px rgba(10,20,40,.3); }
+.board .door .meta { align-self: flex-start; background: rgba(251,246,234,.92); color: var(--door-ink); border-radius: 999px; padding: 2px 8px 2px 6px; opacity: 1; font-weight: 600; }
+.board .door .meta .dot { box-shadow: none; }
+.board .door:hover:not(:disabled) { background: rgba(251,246,234,.16); }
+.board .door:disabled { opacity: 1; }
+.board .door:disabled .num { background: rgba(251,246,234,.82); }
+.board .door.done { background: radial-gradient(circle at 50% 62%, rgba(255,226,150,.85), rgba(240,181,74,.5) 55%, rgba(181,101,29,.35)); border-style: solid; border-color: rgba(255,236,190,.95); color: var(--door-ink); }
+.board .door .check { top: 10px; right: 10px; width: 24px; height: 24px; border-radius: 50%; background: #b5651d; color: #fff; place-items: center; font-size: 13px; }
+.board .door.done .check { display: grid; }
+.board .door.today { outline: 2px solid #f2bd5c; outline-offset: 3px; box-shadow: 0 0 0 1px rgba(20,30,55,.22), 0 0 26px rgba(242,189,92,.55); }
+.wrap.after { padding-top: 20px; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --snow-1: #d5dbe3; --snow-2: #bcc6d3; --snow-3: #a3afc4; } }
+:root[data-theme="dark"] { --snow-1: #d5dbe3; --snow-2: #bcc6d3; --snow-3: #a3afc4; }
+@media (prefers-reduced-motion: reduce) { .snow, .stars .tw, .flicker { animation: none; } }
+/* Stress-Check: kurzes Fragespiel an Türchen 1 (Start) und 24 (Abschluss), Antworten optional mit Einwilligung an Brevo */
+.scene .check-cta { background: rgba(251,246,234,.12); color: var(--cream); border: 1px solid rgba(251,246,234,.55); padding: 7px 16px; }
+.scene .check-cta:hover { background: rgba(251,246,234,.22); }
+.checkin { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center; border: 1.5px dashed var(--accent); border-radius: 6px; padding: 12px 14px; }
+.checkin[hidden] { display: none; }
+.checkin p { flex: 1 1 220px; font-size: 14.5px; min-width: 0; }
+.checkin p b { font-weight: 600; }
+.quiz { display: grid; gap: 18px; padding: 24px clamp(18px, 4vw, 32px) 28px; }
+.q-dots { display: flex; gap: 6px; }
+.q-dots i { width: 22px; height: 4px; border-radius: 2px; background: var(--line); }
+.q-dots i.on { background: var(--accent); }
+.quiz h2 { font-size: clamp(24px, 4vw, 30px); }
+.q-hint { color: var(--muted); font-size: 14.5px; }
+.opts { display: flex; flex-wrap: wrap; gap: 8px; }
+.opt { border: 1px solid var(--line); background: var(--surface); border-radius: 999px; padding: 8px 16px; cursor: pointer; font-size: 15px; }
+.opt[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-fg); }
+.scale { display: grid; gap: 10px; }
+.scale input { width: 100%; accent-color: var(--accent); height: 28px; }
+.thermo { height: 12px; border-radius: 999px; background: var(--surface-2); overflow: hidden; }
+.thermo i { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--m-qi), var(--m-pmr) 60%, #a8323e); background-size: var(--full, 100%) 100%; transition: width .2s ease; }
+.scale-val { display: flex; align-items: baseline; gap: 12px; }
+.scale-val b { font-family: var(--f-display); font-weight: 400; font-size: 44px; line-height: 1; font-variant-numeric: tabular-nums; }
+.scale-val span { color: var(--muted); }
+.q-text { width: 100%; font: inherit; color: inherit; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 10px 12px; }
+.q-field { display: grid; gap: 6px; font-size: 14.5px; }
+.consent { display: grid; grid-template-columns: 20px 1fr; gap: 10px; font-size: 14px; color: var(--muted); align-items: start; }
+.consent input { accent-color: var(--accent); width: 18px; height: 18px; margin: 2px 0 0; }
+.consent a { color: var(--accent); }
+.q-nav { display: flex; flex-wrap: wrap; gap: 8px; justify-content: space-between; align-items: center; border-top: 1px solid var(--line); padding-top: 18px; }
+.q-nav[hidden] { display: none; }
+.q-nav .btns { margin-left: auto; }
+.btn:disabled { opacity: .45; cursor: not-allowed; }
+.result { display: grid; gap: 12px; }
+.result .tip { display: grid; gap: 6px; }
+.q-small { font-size: 13.5px; color: var(--muted); }
+/* Türchen 24: Weihnachtsgruß von Andrea oben in der Übungskarte */
+.xmas { display: grid; gap: 8px; background: linear-gradient(135deg, #24433a, #1d3a31); color: #fbf6ea; border-radius: 8px; padding: 18px 20px; }
+.xmas[hidden] { display: none; }
+.xmas .xmas-hi { font-family: var(--f-display); font-size: clamp(24px, 4vw, 30px); color: #f2bd5c; line-height: 1.15; }
+.xmas p { font-size: 15.5px; }
+.xmas .sig { font-family: var(--f-display); font-size: 19px; color: #f2cf8e; }
+/* Fußbereich mit Name und Rechtlichem, wie auf der Landingpage */
+.site-foot { border-top: 1px solid var(--line); padding-block: 28px; font-size: 14px; color: var(--muted); }
+.foot-in { max-width: 1040px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+.site-foot nav { display: flex; gap: 18px; flex-wrap: wrap; }
+.site-foot a { color: var(--fg); text-underline-offset: 3px; }
+/* Wie geht es weiter: Abschluss-Check, Folgekurs, Kontakt */
+.next-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+@media (max-width: 860px) { .next-grid { grid-template-columns: 1fr; } }
+.next-card { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 18px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.next-card.hl { background: var(--w2-bg); border-color: var(--w2-soft); }
+.next-card .days { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+.next-card h3 { font-size: 20px; }
+.next-card p { font-size: 15px; color: var(--muted); }
+.next-card .btn { justify-self: start; margin-top: 4px; text-decoration: none; }
+.next-card .btn:disabled { opacity: .5; cursor: not-allowed; }
+</style>
+
+<div class="scene">
+  <div class="sky" aria-hidden="true"><div class="moon"></div><svg class="stars" id="stars"></svg><div class="dusk"></div></div>
+  <div class="land" aria-hidden="true"><svg id="land" viewBox="0 0 1600 640" preserveAspectRatio="xMidYMax slice"></svg></div>
+  <div class="snow" aria-hidden="true"></div><div class="snow s2" aria-hidden="true"></div>
+  <div class="wrap scene-in">
+  <div class="garland" aria-hidden="true"><svg id="garland" viewBox="0 0 1040 118" preserveAspectRatio="xMidYMin slice"></svg></div>
+  <header>
+    <div class="hero">
+    <div>
+    <div class="eyebrow">Digitaler Adventskurs · 1. bis 24. Dezember</div>
+    <h1>Durchatmen <em>im Advent</em></h1>
+    <p class="lede">24 kleine Pausen für den Berufsalltag. Jeden Tag öffnet sich ein Türchen mit einer Übung aus Progressiver Muskelentspannung, Autogenem Training, QiGong, Atemarbeit oder Achtsamkeit. Zwei bis drei Minuten, am Schreibtisch oder im Stehen, ohne Matte und ohne Umziehen.</p>
+    </div>
+    <figure class="wreath" style="margin:0" aria-label="Adventskranz"><svg id="wreath" viewBox="0 -22 260 212"></svg><figcaption class="wreath-note" id="wreathNote"></figcaption></figure>
+    </div>
+    <div class="bar">
+      <div class="legend" id="legend"></div>
+      <div class="controls">
+        <span class="progress" id="progress"></span>
+        <button class="btn check-cta" id="checkBtn">Wie gestresst bist du?</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="section" aria-label="Adventskalender">
+    <div class="board"><div class="calendar" id="calendar"></div></div>
+  </main>
+  </div>
+</div>
+
+<div class="wrap after">
+  <p class="lock-note" id="lockNote"></p>
+
+  <section class="section" aria-labelledby="wk">
+    <h2 id="wk">Der Weg durch die vier Wochen</h2>
+    <div class="weeks">
+      <div class="week"><div class="art" aria-hidden="true"></div><div class="days">1.–7. Dezember</div><h3>Ankommen und Atmen</h3><p>Den Atem als schnellsten Weg zur Ruhe kennenlernen und die ersten Muskelgruppen entspannen.</p></div>
+      <div class="week"><div class="art" aria-hidden="true"></div><div class="days">8.–14. Dezember</div><h3>Den Körper lösen</h3><p>PMR für Schultern, Nacken und Gesicht, dazu die ersten Formeln des Autogenen Trainings.</p></div>
+      <div class="week"><div class="art" aria-hidden="true"></div><div class="days">15.–21. Dezember</div><h3>In Bewegung kommen</h3><p>Kurze QiGong-Übungen gegen langes Sitzen, die PMR-Kurzform und ein Mini-Bodyscan.</p></div>
+      <div class="week"><div class="art" aria-hidden="true"></div><div class="days">22.–24. Dezember</div><h3>Mitnehmen</h3><p>Anspannung im Alltag früh bemerken und ein eigenes 3-Minuten-Ritual für das neue Jahr bauen.</p></div>
+    </div>
+  </section>
+
+  <section class="section info" aria-label="Kursinformationen">
+    <div>
+      <h3>So nutzt du den Kalender</h3>
+      <ul>
+        <li>Öffne jeden Tag ein Türchen, am besten zur selben Zeit, etwa vor der Mittagspause.</li>
+        <li>In jeder Übungskarte kannst du dir die Anleitung mit Andreas Stimme anhören.</li>
+        <li>Mit dem Timer in der Übungskarte atmest du im Rhythmus: 4 Sekunden ein, 6 Sekunden aus.</li>
+        <li>Verpasst? Geöffnete Türchen bleiben offen und lassen sich jederzeit nachholen.</li>
+        <li>Hake ab, was du gemacht hast. Dein Fortschritt bleibt in diesem Browser gespeichert.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Für wen der Kurs gedacht ist</h3>
+      <ul>
+        <li>Berufstätige im Büro, im Homeoffice oder unterwegs, die wenig Zeit haben.</li>
+        <li>Einsteigerinnen und Einsteiger ohne Vorkenntnisse.</li>
+        <li>Alle, die nach dem Advent eine Handvoll Übungen sicher beherrschen möchten.</li>
+      </ul>
+    </div>
+    <p class="note">Hinweis: Die Übungen ersetzen keine ärztliche oder psychotherapeutische Behandlung. Spanne bei Schmerzen, frischen Verletzungen oder Bluthochdruck nur sanft an. Wer an Epilepsie, einer Psychose oder schweren Herz-Kreislauf-Erkrankungen leidet, klärt Autogenes Training vorher ärztlich ab. Beende jede AT-Übung mit dem Zurücknehmen.</p>
+  </section>
+
+  <section class="section next" id="weiter" aria-labelledby="h-weiter">
+    <h2 id="h-weiter">Wie geht es weiter?</h2>
+    <div class="next-grid">
+      <div class="next-card">
+        <div class="days">Am 24. Dezember</div>
+        <h3>Wie geht's dir jetzt?</h3>
+        <p>Zum Abschluss schaust du noch einmal auf deinen Stresspegel und vergleichst ihn mit deinem Start. Eine Minute, drei kurze Fragen.</p>
+        <button class="btn" id="nextCheck">Zum Abschluss-Check</button>
+      </div>
+      <div class="next-card hl">
+        <div class="days">Ab Februar 2027 · 8 Wochen · online</div>
+        <h3>Folgekurs „Durchatmen im Alltag“</h3>
+        <p>Im Folgekurs vertiefen wir die Übungen aus dem Advent und machen daraus eine feste Routine, die auch im vollen Arbeitsalltag hält. Du bekommst die Infos per Mail, sobald die Anmeldung öffnet.</p>
+      </div>
+      <div class="next-card">
+        <div class="days">Kontakt</div>
+        <h3>Schreib mir gern</h3>
+        <p>Fragen zu einer Übung, Wunsch nach persönlicher Begleitung oder ein Kurs für dein Team? Ich freue mich, von dir zu hören.</p>
+        <a class="btn ghost" href="https://andrea.nielbock.de" target="_blank" rel="noopener">andrea.nielbock.de</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer class="site-foot">
+  <div class="foot-in">
+    <span>© <span id="yr">2026</span> Andrea Nielbock · Stressmanagement, PMR, Autogenes Training, QiGong</span>
+    <nav aria-label="Rechtliches">
+      <a href="https://andrea.nielbock.de" target="_blank" rel="noopener">andrea.nielbock.de</a>
+      <a href="https://andrea.nielbock.de/impressum.html" target="_blank" rel="noopener">Impressum</a>
+      <a href="https://andrea.nielbock.de/datenschutz.html" target="_blank" rel="noopener">Datenschutz</a>
+    </nav>
+  </div>
+</footer>
+
+<dialog id="sheet" aria-labelledby="sTitle">
+  <div class="sheet" id="sheetBody">
+    <div class="sheet-top">
+      <div>
+        <div class="chip" id="sChip"></div>
+        <h2 id="sTitle"></h2>
+      </div>
+      <button class="close" id="sClose" aria-label="Schließen">×</button>
+    </div>
+    <div class="xmas" id="sXmas" hidden>
+      <p class="xmas-hi">Frohe Weihnachten!</p>
+      <p>Heute ist Heiligabend, und du hast es geschafft: 24 kleine Pausen mitten im Trubel. Danke, dass du dir diese Zeit für dich genommen hast. Mit der letzten Übung baust du dir dein eigenes 3-Minuten-Ritual, das dich ins neue Jahr begleitet.</p>
+      <p>Ich wünsche dir ruhige, warme Weihnachtstage und einen guten Start ins neue Jahr.</p>
+      <p class="sig">Deine Andrea</p>
+    </div>
+    <div class="checkin" id="sCheck" hidden><p id="sCheckText"></p><button class="btn" id="sCheckGo">Zum Stress-Check</button></div>
+    <div class="art" id="sArt" aria-hidden="true"></div>
+    <div class="facts" id="sFacts"></div>
+    <p class="why" id="sWhy"></p>
+    <div class="listen">
+      <p><b>Übung anhören:</b> Andrea führt dich mit ihrer Stimme durch die Übung, mit echten Pausen zum Mitmachen.</p>
+      <audio id="sAudio" controls preload="none" style="width:100%;margin-top:8px"></audio>
+    </div>
+    <ol class="steps" id="sSteps"></ol>
+    <p class="tip" id="sTip"></p>
+    <div class="timer">
+      <div class="ring" id="ring"><span id="ringTime">0:00</span></div>
+      <div class="timer-side">
+        <div class="timer-label" id="timerLabel">Starte den Timer und folge dem Kreis: wächst er, atmest du ein.</div>
+        <div class="btns">
+          <button class="btn" id="tStart">Timer starten</button>
+          <button class="btn ghost" id="tDone">Als gemacht abhaken</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<!-- Stress-Check (Fragespiel) -->
+<dialog id="quiz" aria-labelledby="qTitle">
+  <div class="quiz">
+    <div class="sheet-top">
+      <div class="q-dots" id="qDots" aria-hidden="true"></div>
+      <button class="close" id="qClose" aria-label="Schließen">×</button>
+    </div>
+    <div id="qBody"></div>
+    <div class="q-nav" id="qNav">
+      <button class="btn ghost" id="qBack">Zurück</button>
+      <div class="btns"><button class="btn" id="qNext">Weiter</button></div>
+    </div>
+  </div>
+</dialog>
+
+<script>
+const METHODS = {
+  atem: { name: "Atem", c: "var(--m-atem)" },
+  pmr:  { name: "PMR", c: "var(--m-pmr)" },
+  at:   { name: "Autogenes Training", c: "var(--m-at)" },
+  qi:   { name: "QiGong", c: "var(--m-qi)" },
+  acht: { name: "Achtsamkeit", c: "var(--m-acht)" }
+};
+const AT_END = "Zurücknehmen: Arme fest anwinkeln und strecken, tief einatmen, Augen öffnen.";
+
+const DAYS = [
+  { d:1, m:"atem", t:"Drei Atemzüge zum Ankommen", min:2, pos:"im Sitzen",
+    why:"Bevor du irgendetwas veränderst, nimmst du wahr, wie du gerade atmest. Schon das bewusste Hinspüren bremst das innere Tempo.",
+    steps:["Stelle beide Füße flach auf den Boden und lege die Hände auf die Oberschenkel.","Atme durch die Nase ein und spüre, wo sich dein Körper bewegt: Bauch, Flanken oder Brust.","Lass die Ausatmung ohne Druck durch den leicht geöffneten Mund ausströmen.","Wiederhole das dreimal und mache danach eine Minute einfach weiter, ohne den Atem zu steuern."],
+    tip:"Koppel die drei Atemzüge an etwas, das du ohnehin täglich tust, zum Beispiel an das Hochfahren des Rechners." },
+  { d:2, m:"atem", t:"", min:3, pos:"",
+    why:"",
+    steps:["","","",""],
+    tip:"" },
+  { d:3, m:"pmr", t:"", min:3, pos:"",
+    why:"",
+    steps:["","","",""],
+    tip:"" },
+  { d:4, m:"qi", t:"", min:3, pos:"",
+    why:"",
+    steps:["","","",""],
+    tip:"" },
+  { d:5, m:"acht", t:"", min:2, pos:"",
+    why:"",
+    steps:["","","",""],
+    tip:"" },
+  { d:6, m:"pmr", t:"", min:2, pos:"",
+    why:"",
+    steps:["","","",""],
+    tip:"" },
+  { d:7, m:"at", t:"", min:3, pos:"",
+    why:"",
+    steps:["","","","", AT_END],
+    tip:"" },
+  { d:8, m:"pmr", t:"", min:2, pos:"",
+    why:"",
+    steps:["","","",""],
+    tip:"" },
+  { d:9, m:"qi", t:"", min:3, pos:"",
+    why:"",
+    steps:["","","",""],
+    tip:"" },
+  { d:10, m:"atem", t:"", min:2, pos:"",
+    why:"",
+    steps:["","","",""],
+    tip:"" },
+  { d:11, m:"pmr", t:"", min:2, pos:"",
+    why:"",
+    steps:["","","",""],
+    tip:"" },
+  { d:12, m:"acht", t:"", min:3, pos:"",
+    why:"",
+    steps:["","","",""],
+    tip:"" },
+  { d:13, m:"at", t:"", min:3, pos:"",
+    why:"",
+    steps:["","","","", AT_END],
+    tip:"" },
+  { d:14, m:"qi", t:"", min:2, pos:"",
+    why:"",
+    steps:["","","",""],
+    tip:"" },
+  { d:15, m:"pmr", t:"", min:3, pos:"",
+    why:"",
+    steps:["","","",""],
+    tip:"" },
+  { d:16, m:"atem", t:"", min:2, pos:"",
+    why:"",
+    steps:["","","",""],
+    tip:"" },
+  { d:17, m:"qi", t:"", min:3, pos:"",
+    why:"",
+    steps:["","","",""],
+    tip:"" },
+  { d:18, m:"acht", t:"", min:3, pos:"",
+    why:"",
+    steps:["","","",""],
+    tip:"" },
+  { d:19, m:"at", t:"", min:3, pos:"",
+    why:"",
+    steps:["","","","", AT_END],
+    tip:"" },
+  { d:20, m:"qi", t:"", min:2, pos:"",
+    why:"",
+    steps:["","","",""],
+    tip:"" },
+  { d:21, m:"acht", t:"", min:3, pos:"",
+    why:"",
+    steps:["","","",""],
+    tip:"" },
+  { d:22, m:"pmr", t:"", min:2, pos:"",
+    why:"",
+    steps:["","","",""],
+    tip:"" },
+  { d:23, m:"qi", t:"", min:3, pos:"",
+    why:"",
+    steps:["","","",""],
+    tip:"" },
+  { d:24, m:"atem", t:"", min:3, pos:"",
+    why:"",
+    steps:["","","",""],
+    tip:"" }
+];
+
+// Tonspuren mit Andreas Stimme, liegen auf der eigenen Website (audio/01.mp3 ...)
+const AUDIO = [];
+const audioUrl = n => `audio/${String(n).padStart(2, "0")}.mp3`;
+
+// Ein ruhiges Bild pro Woche: Kerze, Tannenzweig, Winternacht, Adventskranz
+const weekOf = n => n <= 7 ? 1 : n <= 14 ? 2 : n <= 21 ? 3 : 4;
+const candle = (x, y, h, w = 22) => `
+  <ellipse cx="${x}" cy="${y - h - 16}" rx="${w * 1.6}" ry="${w * 1.9}" fill="var(--glow)" opacity=".35"/>
+  <rect x="${x - w / 2}" y="${y - h}" width="${w}" height="${h}" rx="3" fill="var(--wax)"/>
+  <line x1="${x}" y1="${y - h}" x2="${x}" y2="${y - h - 6}" stroke="var(--ink)" stroke-width="1.5"/>
+  <path d="M${x} ${y - h - 30} C ${x + 8} ${y - h - 18}, ${x + 6} ${y - h - 7}, ${x} ${y - h - 6} C ${x - 6} ${y - h - 7}, ${x - 8} ${y - h - 18}, ${x} ${y - h - 30} Z" fill="var(--flame)"/>`;
+const sprig = (x, y, len, ang, op = 1) => {
+  let n = "";
+  for (let i = 12; i < len; i += 11) n += `<line x1="${i}" y1="0" x2="${i + 9}" y2="-12"/><line x1="${i}" y1="0" x2="${i + 9}" y2="12"/>`;
+  return `<g transform="translate(${x} ${y}) rotate(${ang})" stroke="var(--ink)" stroke-width="2.4" stroke-linecap="round" opacity="${op}"><line x1="0" y1="0" x2="${len}" y2="0"/>${n}</g>`;
+};
+const flake = (x, y, r, op) => `<g transform="translate(${x} ${y})" stroke="var(--ink)" stroke-width="1.6" stroke-linecap="round" opacity="${op}">${[0, 60, 120].map(a => `<line x1="${-r}" y1="0" x2="${r}" y2="0" transform="rotate(${a})"/>`).join("")}</g>`;
+const ART = {
+  1: `<circle cx="470" cy="-20" r="150" fill="var(--soft)"/>${sprig(40, 185, 170, -28, .55)}${sprig(560, 185, 120, -150, .4)}${candle(300, 182, 74, 26)}`,
+  2: `<circle cx="120" cy="230" r="170" fill="var(--soft)"/>${sprig(-10, 40, 330, 14)}${sprig(150, 72, 120, 52, .7)}${sprig(250, 95, 90, -30, .6)}<circle cx="470" cy="70" r="5" fill="var(--flame)"/><circle cx="520" cy="120" r="3.5" fill="var(--flame)" opacity=".7"/><circle cx="430" cy="140" r="2.5" fill="var(--flame)" opacity=".6"/>`,
+  3: `<path d="M500 30 a40 40 0 1 0 34 60 a32 32 0 1 1 -34 -60 Z" fill="var(--wax)" opacity=".9"/><path d="M0 170 Q 150 130 300 165 T 600 150 V 200 H 0 Z" fill="var(--soft)"/>${flake(90, 60, 12, .8)}${flake(200, 110, 8, .6)}${flake(320, 45, 10, .7)}${flake(400, 120, 6, .5)}${flake(150, 160, 6, .4)}`,
+  4: `<ellipse cx="300" cy="182" rx="220" ry="16" fill="var(--soft)"/>${sprig(80, 180, 220, -4, .7)}${sprig(520, 180, 220, 184, .7)}${candle(195, 176, 54)}${candle(265, 176, 70)}${candle(335, 176, 62)}${candle(405, 176, 48)}`
+};
+const artSvg = w => `<svg viewBox="0 0 600 200" preserveAspectRatio="xMidYMid slice" style="--ink:var(--w${w}-ink);--soft:var(--w${w}-soft)">${ART[w]}</svg>`;
+function paintArt(el, w) { el.style.setProperty("--wbg", `var(--w${w}-bg)`); el.innerHTML = artSvg(w); }
+document.querySelectorAll(".week .art").forEach((el, i) => paintArt(el, i + 1));
+
+
+// Advent-Deko: Girlande und Kranz, Kerzen brennen nach Adventssonntagen
+(function () {
+  let seed = 7; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+  const NEEDLES = ["var(--needle-1)", "var(--needle-2)", "var(--needle-3)"];
+  const tuft = (x, y, r) => { let g = ""; for (let i = 0; i < 7; i++) { const a = rnd() * 360; g += `<ellipse cx="${x + Math.cos(a) * r * .35}" cy="${y + Math.sin(a) * r * .35}" rx="${r}" ry="${r * .22}" fill="${NEEDLES[i % 3]}" transform="rotate(${a} ${x} ${y})"/>`; } return g; };
+  const bauble = (x, y, len, r, col) => `<g class="bauble" style="animation-delay:-${(rnd() * 6).toFixed(1)}s"><line x1="${x}" y1="${y}" x2="${x}" y2="${y + len}" stroke="var(--b-gold)" stroke-width="1" opacity=".7"/><rect x="${x - r * .28}" y="${y + len - 2}" width="${r * .56}" height="${r * .4}" rx="1" fill="var(--b-gold)"/><circle cx="${x}" cy="${y + len + r}" r="${r}" fill="${col}"/><circle cx="${x - r * .35}" cy="${y + len + r * .6}" r="${r * .28}" fill="#fff" opacity=".35"/></g>`;
+  // Girlande: drei Bögen über die ganze Breite
+  let g = "", hangs = "";
+  const swags = [[-20, 360], [340, 700], [680, 1060]];
+  const COLS = ["var(--b-red)", "var(--b-gold)", "var(--b-copper)", "var(--b-cream)"];
+  swags.forEach(([a, b], k) => {
+    for (let t = 0; t <= 1.0001; t += 0.035) {
+      const x = a + (b - a) * t, y = 10 + 34 * 4 * t * (1 - t);
+      g += tuft(x, y, 11 + rnd() * 5);
+    }
+    const mid = (a + b) / 2;
+    hangs += bauble(mid, 44, 18 + k * 6, 12, COLS[k % 4]) + bauble(mid - 70, 36, 10, 8, COLS[(k + 1) % 4]) + bauble(mid + 72, 36, 22, 9, COLS[(k + 2) % 4]);
+  });
+  [340, 690].forEach(x => { g += `<circle cx="${x}" cy="12" r="6" fill="var(--b-red)"/><circle cx="${x + 9}" cy="9" r="5" fill="var(--b-red)"/>`; });
+  document.getElementById("garland").innerHTML = g + hangs;
+
+  // Kranz mit vier Kerzen
+  const year = new Date().getFullYear(), xmas = new Date(year, 11, 24);
+  const fourth = new Date(xmas); fourth.setDate(24 - (xmas.getDay() === 0 ? 7 : xmas.getDay()));
+  const today = new Date(); today.setHours(0, 0, 0, 0);
+  let lit = [0, 1, 2, 3].filter(i => { const d = new Date(fourth); d.setDate(fourth.getDate() - 7 * (3 - i)); return today >= d; }).length;
+  const before = lit === 0 && today < xmas;
+  if (before || today > new Date(year, 11, 26)) lit = 4; // vor dem Advent und nach Weihnachten als Deko: alle brennen
+  const cand = [[62, 118, 70], [106, 108, 82], [154, 108, 76], [198, 118, 64]];
+  let w = `<ellipse cx="130" cy="134" rx="104" ry="28" fill="var(--needle-3)"/>`;
+  for (let i = 0; i < 46; i++) { const a = i / 46 * Math.PI * 2; if (Math.sin(a) > 0) continue; w += tuft(130 + Math.cos(a) * 100, 132 + Math.sin(a) * 26, 14); }
+  cand.forEach(([x, base, h], i) => {
+    const on = i < lit, top = base - h;
+    if (on) w += `<ellipse cx="${x}" cy="${top - 14}" rx="17" ry="22" fill="var(--glow)" opacity=".45"/>`;
+    w += `<rect x="${x - 11}" y="${top}" width="22" height="${h}" rx="3" fill="${i === 2 ? "#c9a6a0" : "var(--b-red)"}"/><rect x="${x - 11}" y="${top}" width="7" height="${h}" rx="3" fill="#fff" opacity=".12"/><line x1="${x}" y1="${top}" x2="${x}" y2="${top - 6}" stroke="var(--fg)" stroke-width="1.5"/>`;
+    if (on) w += `<path class="flame" style="animation-delay:-${i * .7}s" d="M${x} ${top - 30} C ${x + 8} ${top - 18}, ${x + 6} ${top - 7}, ${x} ${top - 6} C ${x - 6} ${top - 7}, ${x - 8} ${top - 18}, ${x} ${top - 30} Z" fill="var(--flame)"/>`;
+  });
+  for (let i = 0; i < 46; i++) { const a = i / 46 * Math.PI * 2; if (Math.sin(a) <= 0) continue; w += tuft(130 + Math.cos(a) * 100, 132 + Math.sin(a) * 26, 15); }
+  [[40, 150], [92, 160], [176, 162], [224, 148], [132, 164]].forEach(([x, y]) => { w += `<circle cx="${x}" cy="${y}" r="4.5" fill="var(--b-red)"/><circle cx="${x + 6}" cy="${y - 3}" r="4" fill="var(--b-red)"/>`; });
+  w += bauble(70, 140, 4, 9, "var(--b-gold)") + bauble(190, 142, 4, 8, "var(--b-copper)");
+  document.getElementById("wreath").innerHTML = w;
+  const names = ["", "Erster Advent", "Zweiter Advent", "Dritter Advent", "Vierter Advent"];
+  document.getElementById("wreathNote").textContent = before ? "Bald ist erster Advent" : (today.getMonth() === 11 && today.getDate() <= 26 ? names[lit] : "");
+})();
+
+// Kalenderfront: Sternenhimmel und Winterdorf mit erleuchteten Fenstern
+(function () {
+  let seed = 23; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+  let st = "";
+  for (let i = 0; i < 90; i++) {
+    const x = (rnd() * 100).toFixed(2), y = (Math.pow(rnd(), 1.4) * 62).toFixed(2), r = (.6 + rnd() * 1.3).toFixed(2);
+    st += `<circle cx="${x}%" cy="${y}%" r="${r}" fill="#fff8e8" ${i % 4 === 0 ? `class="tw" style="animation-delay:-${(rnd() * 3.5).toFixed(1)}s"` : `opacity="${(.35 + rnd() * .5).toFixed(2)}"`}/>`;
+  }
+  document.getElementById("stars").innerHTML = st;
+
+  const WIN = "#f7c561", GLOW = "#ffd98a";
+  const tree = (x, y, h, c1, c2, lights = false, snow = "var(--snow-1)") => {
+    let t = `<rect x="${x - h * .035}" y="${y - h * .12}" width="${h * .07}" height="${h * .12}" fill="#3a2e2a"/>`;
+    const tiers = 4;
+    for (let i = 0; i < tiers; i++) {
+      const top = y - h + i * h * .2, bot = y - h * .1 - (tiers - 1 - i) * h * .14, hw = h * (.16 + i * .075);
+      t += `<path d="M${x} ${top} L${x + hw} ${bot} Q${x} ${bot - h * .04} ${x - hw} ${bot} Z" fill="${i % 2 ? c2 : c1}"/>`;
+      t += `<path d="M${x - hw * .82} ${bot - h * .01} Q${x - hw * .3} ${bot - h * .07} ${x} ${bot - h * .05} Q${x + hw * .4} ${bot - h * .075} ${x + hw * .7} ${bot - h * .02}" stroke="${snow}" stroke-width="${Math.max(2, h * .018)}" fill="none" stroke-linecap="round" opacity=".9"/>`;
+      if (lights) for (let k = -1; k <= 1; k++) { const lx = x + k * hw * .55, ly = bot - h * .06 + Math.abs(k) * h * .02; t += `<circle cx="${lx}" cy="${ly}" r="${h * .022}" fill="${GLOW}" opacity=".35"/><circle class="flicker" style="animation-delay:-${(rnd() * 4).toFixed(1)}s" cx="${lx}" cy="${ly}" r="${h * .009}" fill="${WIN}"/>`; }
+    }
+    t += `<path d="M${x} ${y - h - h * .04} l${h * .018} ${h * .03} l${h * .032} ${h * .004} l-${h * .025} ${h * .02} l${h * .009} ${h * .033} l-${h * .034} -${h * .018} l-${h * .034} ${h * .018} l${h * .009} -${h * .033} l-${h * .025} -${h * .02} l${h * .032} -${h * .004} Z" fill="${lights ? "#f2bd5c" : "none"}"/>`;
+    return t;
+  };
+  const win = (x, y, w, h) => `<circle cx="${x + w / 2}" cy="${y + h / 2}" r="${w * 1.5}" fill="${GLOW}" opacity=".22"/><rect class="flicker" style="animation-delay:-${(rnd() * 4).toFixed(1)}s" x="${x}" y="${y}" width="${w}" height="${h}" rx="1.5" fill="${WIN}"/><path d="M${x + w / 2} ${y} V${y + h} M${x} ${y + h / 2} H${x + w}" stroke="#7a4b2a" stroke-width="1.2" opacity=".55"/>`;
+  const house = (x, y, w, h, wall, roof) => {
+    const rh = w * .55;
+    let g = `<rect x="${x + w * .62}" y="${y - h - rh * .75}" width="${w * .1}" height="${rh * .5}" fill="#4a3a3a"/><rect x="${x + w * .6}" y="${y - h - rh * .78}" width="${w * .14}" height="${w * .04}" rx="2" fill="var(--snow-1)"/>`;
+    g += `<path d="M${x + w * .67} ${y - h - rh * .85} q-14 -16 4 -30 q16 -12 -2 -30" stroke="#e9e4ee" stroke-width="5" fill="none" stroke-linecap="round" opacity=".35"/>`;
+    g += `<rect x="${x}" y="${y - h}" width="${w}" height="${h}" fill="${wall}"/>`;
+    g += `<path d="M${x - w * .08} ${y - h + 2} L${x + w / 2} ${y - h - rh} L${x + w * 1.08} ${y - h + 2} Z" fill="${roof}"/>`;
+    g += `<path d="M${x - w * .1} ${y - h + 2} L${x + w / 2} ${y - h - rh - 3} L${x + w * 1.1} ${y - h + 2} L${x + w * .98} ${y - h + 7} Q${x + w * .75} ${y - h - rh * .3} ${x + w / 2} ${y - h - rh + 12} Q${x + w * .25} ${y - h - rh * .3} ${x + w * .02} ${y - h + 7} Z" fill="var(--snow-1)"/>`;
+    const ww = w * .17, wh = w * .2;
+    g += win(x + w * .17, y - h * .72, ww, wh) + win(x + w * .66, y - h * .72, ww, wh);
+    g += `<rect x="${x + w * .42}" y="${y - h * .42}" width="${w * .17}" height="${h * .42}" rx="3" fill="#5a3b2c"/><circle cx="${x + w * .5}" cy="${y - h * .5}" r="${w * .06}" fill="#3e6b4f"/>`;
+    return g;
+  };
+  const church = (x, y) => {
+    let g = `<rect x="${x}" y="${y - 70}" width="110" height="70" fill="#7c6a7f"/><path d="M${x - 8} ${y - 68} L${x + 55} ${y - 112} L${x + 118} ${y - 68} Z" fill="#3d3550"/><path d="M${x - 10} ${y - 67} L${x + 55} ${y - 115} L${x + 120} ${y - 67} L${x + 108} ${y - 62} Q${x + 55} ${y - 100} ${x + 2} ${y - 62} Z" fill="var(--snow-1)"/>`;
+    g += `<rect x="${x + 82}" y="${y - 150}" width="38" height="150" fill="#86738a"/><path d="M${x + 76} ${y - 148} L${x + 101} ${y - 222} L${x + 126} ${y - 148} Z" fill="#3d3550"/><path d="M${x + 76} ${y - 147} L${x + 101} ${y - 224} L${x + 126} ${y - 147} L${x + 116} ${y - 144} L${x + 101} ${y - 190} L${x + 86} ${y - 144} Z" fill="var(--snow-1)" opacity=".95"/>`;
+    g += `<line x1="${x + 101}" y1="${y - 222}" x2="${x + 101}" y2="${y - 246}" stroke="#d3a443" stroke-width="2.5"/><circle cx="${x + 101}" cy="${y - 252}" r="22" fill="${GLOW}" opacity=".25"/><path d="M${x + 101} ${y - 264} l3 9 l9 3 l-9 3 l-3 9 l-3 -9 l-9 -3 l9 -3 Z" fill="#f2bd5c"/>`;
+    g += `<circle cx="${x + 101}" cy="${y - 118}" r="16" fill="${GLOW}" opacity=".25"/><circle class="flicker" cx="${x + 101}" cy="${y - 118}" r="8" fill="${WIN}"/>`;
+    [16, 42].forEach(o => { g += `<circle cx="${x + o + 7}" cy="${y - 36}" r="20" fill="${GLOW}" opacity=".2"/><path class="flicker" style="animation-delay:-${o / 10}s" d="M${x + o} ${y - 24} V${y - 46} a7 7 0 0 1 14 0 V${y - 24} Z" fill="${WIN}"/>`; });
+    return g;
+  };
+  let L = "";
+  // ferne Berge
+  L += `<path d="M0 330 L110 262 L190 300 L320 205 L430 292 L540 238 L660 312 L780 250 L900 318 L1030 228 L1150 300 L1270 242 L1380 296 L1500 220 L1600 280 V640 H0 Z" fill="#7d84a8" opacity=".55"/>`;
+  L += `<path d="M320 205 L292 226 L312 222 L330 232 L350 220 Z M1030 228 L1006 246 L1024 243 L1040 252 L1056 242 Z M1500 220 L1474 240 L1492 236 L1508 246 L1524 236 Z M540 238 L522 252 L540 250 L556 256 Z" fill="#ece6ef" opacity=".7"/>`;
+  // ferner Waldrand
+  for (let x = -10; x < 1620; x += 14 + rnd() * 10) { const h = 26 + rnd() * 26, y = 352 + Math.sin(x / 140) * 8; L += `<path d="M${x} ${y - h} L${x + h * .3} ${y} L${x - h * .3} ${y} Z" fill="#4f5f80" opacity=".75"/>`; }
+  L += `<path d="M0 362 Q 400 336 800 356 T 1600 346 V640 H0 Z" fill="var(--snow-3)"/>`;
+  // Dorfhügel
+  L += `<path d="M0 452 C 300 392, 560 380, 820 404 S 1300 432 1600 392 V640 H0 Z" fill="var(--snow-2)"/>`;
+  [[250, 432, 70], [360, 420, 54], [1180, 424, 64], [1290, 414, 80], [1400, 404, 58]].forEach(([x, y, h]) => { L += tree(x, y, h, "#2f5a46", "#3e7059"); });
+  L += church(720, 410);
+  L += house(480, 430, 96, 62, "#a2674d", "#4b3a46") + house(600, 420, 82, 54, "#d7c1a0", "#5a3f3c") + house(880, 420, 100, 64, "#6c7f96", "#3d3550") + house(1010, 430, 86, 58, "#b5804f", "#4b3a46");
+  [[440, 452, 64], [575, 446, 46], [1000, 450, 52], [1110, 446, 70], [850, 448, 44]].forEach(([x, y, h]) => { L += tree(x, y, h, "#264c3d", "#336652"); });
+  L += `<path d="M0 476 C 260 444, 520 450, 800 462 S 1300 452 1600 440 V640 H0 Z" fill="var(--snow-2)"/>`;
+  // Vordergrund mit großen Tannen und Lichterketten
+  L += `<path d="M0 548 C 240 512, 520 530, 800 546 S 1320 518 1600 536 V640 H0 Z" fill="var(--snow-2)" opacity=".9"/><path d="M0 562 C 260 528, 540 548, 820 560 S 1320 532 1600 552 V640 H0 Z" fill="var(--snow-1)"/>`;
+  L += tree(200, 604, 330, "#23463a", "#2f5a46", true) + tree(330, 592, 200, "#2f5a46", "#3e7059") + tree(1290, 594, 210, "#2f5a46", "#3e7059") + tree(1420, 606, 340, "#23463a", "#2f5a46", true) + tree(40, 590, 240, "#2f5a46", "#3e7059") + tree(1560, 588, 230, "#2f5a46", "#3e7059");
+  // Laterne am Weg
+  L += `<rect x="1180" y="470" width="5" height="96" fill="#2d2a33"/><circle cx="1182" cy="462" r="34" fill="${GLOW}" opacity=".25"/><path d="M1170 470 h24 l-3 -20 h-18 Z" fill="#2d2a33"/><rect class="flicker" x="1175" y="452" width="14" height="16" fill="${WIN}"/><path d="M1168 452 h28 l-14 -10 Z" fill="var(--snow-1)"/>`;
+  document.getElementById("land").innerHTML = L;
+})();
+
+// klassisch gemischte Türchen-Reihenfolge
+const ORDER = [17,3,22,9,1,14,6,20,11,24,4,15,8,19,2,12,23,5,16,10,21,7,13,18];
+
+const $ = s => document.querySelector(s);
+const store = {
+  get(k, d) { try { const v = localStorage.getItem(k); return v === null ? d : JSON.parse(v); } catch (e) { return d; } },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+};
+let done = new Set(store.get("adv-done", []));
+let now = new Date();
+const inDecember = now.getMonth() === 11;
+const todayNum = inDecember ? now.getDate() : 0;
+// Türchen öffnen sich nur am jeweiligen Tag (keine Vorschau für Besucher)
+let preview = false;
+
+const isOpen = d => d === 1;
+
+$("#legend").innerHTML = Object.values(METHODS).map(m => `<span><i class="dot" style="--c:${m.c}"></i>${m.name}</span>`).join("");
+
+function render() {
+  const cal = $("#calendar");
+  cal.innerHTML = "";
+  ORDER.forEach(n => {
+    const day = DAYS[n - 1], m = METHODS[day.m];
+    const b = document.createElement("button");
+    b.className = "door" + (done.has(n) ? " done" : "") + (n === todayNum ? " today" : "");
+    b.disabled = !isOpen(n);
+    b.setAttribute("aria-label", isOpen(n) ? `Türchen ${n}: ${day.t}, ${day.min} Minuten` : `Türchen ${n}, öffnet am ${n}. Dezember`);
+    b.innerHTML = `<span class="num">${n}</span><span class="check">✓</span><span class="meta"><i class="dot" style="--c:${m.c}"></i>${day.min} Min</span>`;
+    b.addEventListener("click", () => openDay(n));
+    cal.appendChild(b);
+  });
+  const endOpen = isOpen(24);
+  $("#nextCheck").disabled = !endOpen;
+  $("#nextCheck").textContent = endOpen ? (store.get("adv-check-end", null) ? "Abschluss-Check ansehen" : "Zum Abschluss-Check") : "Öffnet am 24. Dezember";
+  $("#progress").innerHTML = `<b>${done.size}</b> von 24 Pausen gemacht`;
+  $("#lockNote").textContent = preview
+    ? "Vorschau ist an: Alle Türchen lassen sich öffnen. Schalte sie aus, um den Kalender so zu sehen wie Teilnehmende im Dezember."
+    : "Schnupper-Ansicht: Türchen 1 ist offen. Die anderen gibt es nach der Anmeldung.";
+}
+
+let current = null;
+function openDay(n) {
+  const day = DAYS[n - 1], m = METHODS[day.m];
+  current = n;
+  $("#sheetBody").style.setProperty("--c", m.c);
+  $("#ring").style.setProperty("--c", m.c);
+  $("#sChip").innerHTML = `<i class="dot" style="--c:${m.c}"></i>${n}. Dezember · ${m.name}`;
+  $("#sTitle").textContent = day.t;
+  $("#sFacts").innerHTML = `<span>${day.min} Minuten</span><span>${day.pos}</span>`;
+  paintArt($("#sArt"), weekOf(n));
+  $("#sAudio").pause(); $("#sAudio").src = audioUrl(n);
+  $("#sWhy").textContent = day.why;
+  $("#sSteps").innerHTML = day.steps.map(s => `<li><span>${s}</span></li>`).join("");
+  $("#sTip").innerHTML = `<b>Für den Alltag:</b> ${day.tip}`;
+  stopTimer();
+  $("#ringTime").textContent = fmt(day.min * 60);
+  updateDoneBtn();
+  refreshCheckin();
+  if (!$("#sheet").open) $("#sheet").showModal();
+}
+function updateDoneBtn() {
+  $("#tDone").textContent = done.has(current) ? "Abhaken rückgängig" : "Als gemacht abhaken";
+}
+$("#tDone").addEventListener("click", () => {
+  done.has(current) ? done.delete(current) : done.add(current);
+  store.set("adv-done", [...done]);
+  updateDoneBtn(); render();
+});
+$("#sClose").addEventListener("click", () => $("#sheet").close());
+$("#sheet").addEventListener("close", () => { stopTimer(); $("#sAudio").pause(); });
+$("#sheet").addEventListener("click", e => { if (e.target === $("#sheet")) $("#sheet").close(); });
+
+// Timer mit Atemkreis: 4 s ein, 6 s aus
+let tick = null, left = 0, phaseT = 0;
+const fmt = s => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`;
+function setPhase(inhale) {
+  const r = $("#ring");
+  r.classList.toggle("in", inhale); r.classList.toggle("out", !inhale);
+  $("#timerLabel").textContent = inhale ? "Einatmen …" : "Ausatmen …";
+}
+function startTimer() {
+  left = DAYS[current - 1].min * 60; phaseT = 0;
+  $("#ringTime").textContent = fmt(left);
+  setPhase(true);
+  $("#tStart").textContent = "Timer stoppen";
+  tick = setInterval(() => {
+    left--; phaseT = (phaseT + 1) % 10;
+    $("#ringTime").textContent = fmt(left);
+    if (phaseT === 0) setPhase(true); else if (phaseT === 4) setPhase(false);
+    if (left <= 0) {
+      stopTimer();
+      $("#timerLabel").textContent = "Fertig. Spür noch einen Moment nach, bevor du weitermachst.";
+      if (!done.has(current)) { done.add(current); store.set("adv-done", [...done]); updateDoneBtn(); render(); }
+    }
+  }, 1000);
+}
+function stopTimer() {
+  clearInterval(tick); tick = null;
+  const r = $("#ring"); r.classList.remove("in", "out");
+  $("#tStart").textContent = "Timer starten";
+  $("#timerLabel").textContent = "Starte den Timer und folge dem Kreis: wächst er, atmest du ein.";
+}
+$("#tStart").addEventListener("click", () => tick ? stopTimer() : startTimer());
+
+// Stress-Check: Start an Türchen 1, Abschluss-Runde an Türchen 24
+// BREVO: url = action-URL des Brevo-Formulars "Stress-Check" einsetzen. Die Feldnamen müssen den Attributen in Brevo entsprechen.
+// Solange url leer ist, wird nichts gesendet; die Antworten bleiben nur in diesem Browser.
+const BREVO = {
+  url: "",
+  fields: {
+    level_start: "STRESS_START", ort: "STRESS_ORT", ausloeser: "STRESS_AUSLOESER", strategien: "STRATEGIEN",
+    zeit: "ZEIT_PRO_TAG", wunsch: "WUNSCH", wunsch_text: "WUNSCH_TEXT",
+    level_end: "STRESS_ENDE", hilfreich: "HILFREICH", weiter: "FOLGEKURS"
+  }
+};
+const DATENSCHUTZ = "https://andrea.nielbock.de/datenschutz.html";
+const NOTHING = "Bisher noch nichts";
+const CHECKS = {
+  start: [
+    { id: "level_start", type: "scale", q: "Wie hoch ist dein Stresspegel gerade?", hint: "1 heißt tiefenentspannt, 10 heißt am Limit. Nimm einfach die erste Zahl, die dir einfällt." },
+    { id: "ort", type: "multi", q: "Wo merkst du Stress zuerst?", hint: "Mehrere Antworten möglich.", opts: ["Nacken und Schultern", "Kopf", "Bauch", "Schlaf", "Gedankenkarussell", "Gereiztheit"] },
+    { id: "ausloeser", type: "multi", q: "Was stresst dich im Moment am meisten?", hint: "Mehrere Antworten möglich.", opts: ["Arbeit und Termindruck", "Familie", "Weihnachtsvorbereitung", "Gesundheit", "Zu wenig Zeit für mich", "Etwas anderes"] },
+    { id: "strategien", type: "multi", q: "Was tust du schon für dich?", hint: "Alles zählt, auch Kleines.", opts: ["Bewegung oder Sport", "Spazierengehen", "Atemübungen", "Yoga oder QiGong", "PMR oder Autogenes Training", "Meditation", NOTHING] },
+    { id: "zeit", type: "single", q: "Wie viel Zeit hast du realistisch am Tag für dich?", opts: ["2 bis 5 Minuten", "Etwa 10 Minuten", "20 Minuten oder mehr"] },
+    { id: "wunsch", type: "multi", q: "Was wünschst du dir fürs neue Jahr?", hint: "Mehrere Antworten möglich.", opts: ["Besser schlafen", "Gelassener im Job", "Verspannungen lösen", "Eine feste kleine Routine"], text: "wunsch_text", textLabel: "Oder in deinen eigenen Worten (freiwillig)" }
+  ],
+  end: [
+    { id: "level_end", type: "scale", q: "Wie hoch ist dein Stresspegel jetzt, am Ende des Advents?", hint: "1 heißt tiefenentspannt, 10 heißt am Limit." },
+    { id: "hilfreich", type: "multi", q: "Was hat dir am meisten geholfen?", hint: "Mehrere Antworten möglich.", opts: ["Atemübungen", "PMR", "Autogenes Training", "QiGong", "Achtsamkeit"] },
+    { id: "weiter", type: "single", q: "Möchtest du im Januar weitermachen?", opts: ["Ja, erzähl mir mehr", "Vielleicht", "Gerade nicht"] }
+  ]
+};
+// Türchen-Tipp passend dazu, wo sich Stress zuerst zeigt
+const TIPS = {
+  "Nacken und Schultern": [8, "Schultern und Nacken einmal fest anspannen und dann bewusst loslassen. Das spürst du sofort."],
+  "Kopf": [11, "Stirn, Augen und Kiefer halten oft unbemerkt fest. Hier lernst du, sie gezielt zu lösen."],
+  "Bauch": [10, "Die Hände auf dem Bauch bringen den Atem dorthin, wo er ruhig wird."],
+  "Schlaf": [7, "Ruhe und Schwere aus dem Autogenen Training ist ein schöner Begleiter für den Abend."],
+  "Gedankenkarussell": [5, "Die fünf Sinne holen dich aus dem Kopf zurück in den Moment."],
+  "Gereiztheit": [2, "Länger aus- als einatmen ist die schnellste Bremse, die dein Körper hat."]
+};
+
+let qKind = "start", qStep = 0, qAns = {}, qSent = null;
+const qList = () => CHECKS[qKind];
+const qEmail = () => { const p = new URLSearchParams(location.search).get("email"); return p || store.get("adv-email", ""); };
+
+function openCheck(kind) {
+  qKind = kind; qStep = 0; qSent = null;
+  qAns = { ...(store.get("adv-check-" + kind, {})) };
+  if (qKind === "start" && qAns.level_start == null) qAns.level_start = 5;
+  if (qKind === "end" && qAns.level_end == null) qAns.level_end = 5;
+  drawQ();
+  if (!$("#quiz").open) $("#quiz").showModal();
+}
+
+function drawQ() {
+  const list = qList(), total = list.length + 1;
+  $("#qDots").innerHTML = Array.from({ length: total }, (_, i) => `<i class="${i <= qStep ? "on" : ""}"></i>`).join("");
+  $("#qNav").hidden = qStep > list.length;
+  $("#qBack").style.visibility = qStep === 0 ? "hidden" : "visible";
+  if (qStep < list.length) drawQuestion(list[qStep]);
+  else if (qStep === list.length) drawSend();
+  else drawResult();
+}
+
+function drawQuestion(it) {
+  let h = `<h2 id="qTitle">${it.q}</h2>${it.hint ? `<p class="q-hint">${it.hint}</p>` : ""}`;
+  if (it.type === "scale") {
+    const v = qAns[it.id];
+    h += `<div class="scale"><div class="scale-val"><b id="qVal">${v}</b><span id="qWord">${levelWord(v)}</span></div>
+      <input type="range" min="1" max="10" step="1" value="${v}" id="qRange" aria-label="Stresspegel von 1 bis 10">
+      <div class="thermo" aria-hidden="true"><i id="qBar"></i></div></div>`;
+  } else {
+    const sel = [].concat(qAns[it.id] || []);
+    h += `<div class="opts" role="group" aria-label="${it.q}">${it.opts.map(o => `<button type="button" class="opt" aria-pressed="${sel.includes(o)}" data-o="${o}">${o}</button>`).join("")}</div>`;
+    if (it.text) h += `<label class="q-field">${it.textLabel}<input class="q-text" id="qFree" maxlength="200" value="${esc(qAns[it.text] || "")}"></label>`;
+  }
+  $("#qBody").innerHTML = h;
+  $("#qNext").textContent = "Weiter";
+  if (it.type === "scale") {
+    const upd = () => { const v = +$("#qRange").value; qAns[it.id] = v; $("#qVal").textContent = v; $("#qWord").textContent = levelWord(v); const bar = $("#qBar"); bar.style.width = v * 10 + "%"; bar.style.setProperty("--full", (1000 / v) + "%"); };
+    $("#qRange").addEventListener("input", upd); upd();
+  } else {
+    $("#qBody").querySelectorAll(".opt").forEach(b => b.addEventListener("click", () => {
+      const o = b.dataset.o;
+      if (it.type === "single") qAns[it.id] = o;
+      else {
+        let sel = [].concat(qAns[it.id] || []);
+        sel = sel.includes(o) ? sel.filter(x => x !== o) : [...sel, o];
+        if (o === NOTHING && sel.includes(o)) sel = [o]; else if (o !== NOTHING) sel = sel.filter(x => x !== NOTHING);
+        qAns[it.id] = sel;
+      }
+      drawQuestion(it);
+    }));
+    if (it.text) $("#qFree").addEventListener("input", e => { qAns[it.text] = e.target.value; });
+  }
+  $("#qNext").disabled = it.type !== "scale" && ![].concat(qAns[it.id] || []).length && !(it.text && qAns[it.text]);
+}
+
+function drawSend() {
+  $("#qBody").innerHTML = `<h2 id="qTitle">Danke dir! Magst du deine Antworten mit mir teilen?</h2>
+    <p class="q-hint">Dann kann ich im Folgekurs genau auf das eingehen, was dich gerade beschäftigt. Das ist freiwillig, deinen Tipp bekommst du so oder so.</p>
+    <label class="q-field">Deine E-Mail-Adresse (die, mit der du angemeldet bist)<input class="q-text" type="email" id="qMail" autocomplete="email" value="${esc(qEmail())}"></label>
+    <label class="consent"><input type="checkbox" id="qOk"><span>Ich bin einverstanden, dass Andrea Nielbock meine Antworten zusammen mit meiner E-Mail-Adresse speichert, um ihre Kurse darauf abzustimmen und mich über den Folgekurs zu informieren. Ich kann das jederzeit per Mail widerrufen. Mehr dazu in der <a href="${DATENSCHUTZ}" target="_blank" rel="noopener">Datenschutzerklärung</a>.</span></label>`;
+  $("#qNext").textContent = "Teilen und Tipp ansehen";
+  const valid = () => { $("#qNext").disabled = !($("#qOk").checked && /^\S+@\S+\.\S+$/.test($("#qMail").value.trim())); };
+  $("#qMail").addEventListener("input", valid); $("#qOk").addEventListener("change", valid); valid();
+  $("#qNav .btns").querySelector("#qSkip") || $("#qNav .btns").insertAdjacentHTML("afterbegin", `<button class="btn ghost" id="qSkip">Nur Tipp ansehen</button>`);
+  $("#qSkip").onclick = () => finish(false);
+}
+
+async function finish(share) {
+  store.set("adv-check-" + qKind, qAns);
+  qSent = "local";
+  if (share) {
+    const mail = $("#qMail").value.trim();
+    store.set("adv-email", mail);
+    qSent = await sendCheck(mail);
+  }
+  qStep++; drawQ(); refreshCheckin();
+}
+
+async function sendCheck(mail) {
+  if (!BREVO.url) return "demo";
+  const fd = new FormData();
+  fd.append("EMAIL", mail);
+  qList().forEach(it => {
+    fd.append(BREVO.fields[it.id], [].concat(qAns[it.id]).join(", "));
+    if (it.text) fd.append(BREVO.fields[it.text], qAns[it.text] || "");
+  });
+  fd.append("email_address_check", ""); fd.append("locale", "de");
+  try { await fetch(BREVO.url, { method: "POST", mode: "no-cors", body: fd }); return "ok"; } catch (e) { return "fail"; }
+}
+
+function drawResult() {
+  $("#qNav .btns").querySelector("#qSkip")?.remove();
+  const sentNote = { ok: "Deine Antworten sind bei mir angekommen. Danke für dein Vertrauen!", fail: "Das Senden hat gerade nicht geklappt. Deine Antworten sind in diesem Browser gespeichert, versuch es später gern noch einmal.", demo: "Vorschau: Die Antworten werden erst gesendet, wenn das Brevo-Formular verbunden ist.", local: "Deine Antworten bleiben nur in diesem Browser." }[qSent];
+  let h = "";
+  if (qKind === "start") {
+    const first = [].concat(qAns.ort || [])[0] || "Nacken und Schultern";
+    const [n, why] = TIPS[first], day = DAYS[n - 1];
+    const short = qAns.zeit === "2 bis 5 Minuten" ? " Und keine Sorge wegen der Zeit: Jedes Türchen dauert nur zwei bis drei Minuten." : "";
+    const start = [].concat(qAns.strategien || []).includes(NOTHING) ? " Schön, dass du jetzt anfängst." : " Schön, dass du schon etwas für dich tust. Der Kalender ergänzt das.";
+    h = `<h2 id="qTitle">Dein Türchen-Tipp: Türchen ${n}</h2>
+      <div class="result"><p class="tip"><b>${day.t}</b>${why}</p>
+      <p>Dein Stresspegel zum Start: <b>${qAns.level_start} von 10</b>. Am 24. Dezember fragen wir noch einmal nach, dann siehst du, was sich getan hat.${start}${short}</p>
+      <div class="btns">${isOpen(n) ? `<button class="btn" id="qGo" data-n="${n}">Zu Türchen ${n}</button>` : `<span class="q-small">Türchen ${n} öffnet am ${n}. Dezember.</span>`}<button class="btn ghost" id="qEnd">Schließen</button></div></div>`;
+  } else {
+    const a = store.get("adv-check-start", {}).level_start, b = qAns.level_end;
+    let cmp = `Dein Stresspegel jetzt: <b>${b} von 10</b>.`;
+    if (a != null) cmp = b < a ? `Am Anfang <b>${a}</b>, jetzt <b>${b}</b>: ${a - b} ${a - b === 1 ? "Punkt" : "Punkte"} weniger. Das hast du dir erarbeitet!`
+      : b === a ? `Am Anfang <b>${a}</b>, jetzt <b>${b}</b>. Der Advent war fordernd, und du hast dir trotzdem deine Pausen genommen.`
+      : `Am Anfang <b>${a}</b>, jetzt <b>${b}</b>. Eine anstrengende Zeit. Umso wertvoller sind die Übungen, die du jetzt kennst.`;
+    const yes = qAns.weiter === "Ja, erzähl mir mehr" || qAns.weiter === "Vielleicht";
+    h = `<h2 id="qTitle">Dein Advent im Rückblick</h2>
+      <div class="result"><p>${cmp}</p>
+      <p class="tip"><b>Wie es weitergeht</b>Ab Februar 2027 starte ich den Folgekurs „Durchatmen im Alltag“, in dem wir die Übungen vertiefen und zu einer festen Routine machen.${yes && qSent === "ok" ? " Ich schreibe dir rechtzeitig, wenn es losgeht." : ""}</p>
+      <div class="btns"><button class="btn" id="qMore">Wie es weitergeht</button><button class="btn ghost" id="qEnd">Schließen</button></div></div>`;
+  }
+  h += `<p class="q-small">${sentNote}</p>`;
+  $("#qBody").innerHTML = h;
+  $("#qEnd").onclick = () => $("#quiz").close();
+  if ($("#qMore")) $("#qMore").onclick = () => { $("#quiz").close(); if ($("#sheet").open) $("#sheet").close(); $("#weiter").scrollIntoView({ behavior: "smooth" }); };
+  if ($("#qGo")) $("#qGo").onclick = e => { const n = +e.target.dataset.n; $("#quiz").close(); if ($("#sheet").open) $("#sheet").close(); openDay(n); };
+}
+
+function levelWord(v) { return v <= 3 ? "ziemlich entspannt" : v <= 6 ? "spürbar angespannt" : v <= 8 ? "ganz schön gestresst" : "am Limit"; }
+function esc(s) { return String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]); }
+
+$("#qNext").addEventListener("click", () => { if (qStep === qList().length) finish(true); else { qStep++; drawQ(); } });
+$("#qBack").addEventListener("click", () => { $("#qNav .btns").querySelector("#qSkip")?.remove(); qStep--; drawQ(); });
+$("#qClose").addEventListener("click", () => $("#quiz").close());
+$("#quiz").addEventListener("click", e => { if (e.target === $("#quiz")) $("#quiz").close(); });
+$("#quiz").addEventListener("close", () => $("#qNav .btns").querySelector("#qSkip")?.remove());
+$("#checkBtn").addEventListener("click", () => openCheck(store.get("adv-check-start", null) && (preview || todayNum >= 24) ? "end" : "start"));
+$("#sCheckGo").addEventListener("click", () => openCheck(current === 24 ? "end" : "start"));
+
+// Hinweis in der Übungskarte von Türchen 1 und 24
+function refreshCheckin() {
+  const box = $("#sCheck");
+  $("#sXmas").hidden = current !== 24;
+  if (current !== 1 && current !== 24) { box.hidden = true; return; }
+  box.hidden = false;
+  const s = store.get("adv-check-start", null), e = store.get("adv-check-end", null);
+  if (current === 1) $("#sCheckText").innerHTML = s ? `<b>Dein Stresspegel zum Start: ${s.level_start} von 10.</b> Am 24. Dezember schauen wir noch einmal hin.` : `<b>Bevor du startest:</b> Wie geht's dir gerade? Der Stress-Check dauert eine Minute, danach bekommst du ein Türchen, das genau zu dir passt.`;
+  else $("#sCheckText").innerHTML = e ? `<b>Dein Stresspegel jetzt: ${e.level_end} von 10.</b>${s ? ` Zum Start waren es ${s.level_start}.` : ""}` : `<b>Wie geht's dir heute?</b> Drei kurze Fragen zum Abschluss: dein Stresspegel jetzt im Vergleich zum Start und wie es für dich weitergeht.`;
+  $("#sCheckGo").textContent = (current === 1 ? s : e) ? "Noch einmal" : current === 24 ? "Zum Abschluss-Check" : "Zum Stress-Check";
+}
+
+$("#nextCheck").addEventListener("click", () => openCheck("end"));
+render();
+document.getElementById("yr").textContent = new Date().getFullYear();
+</script>
+
+<style>.schau-bar{position:fixed;left:0;right:0;bottom:0;z-index:60;background:#fff;color:#222;padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));box-shadow:0 -4px 18px rgba(0,0,0,.18);display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap;font:15px/1.35 system-ui,sans-serif;text-align:center}.schau-bar a{background:#2f6b4f;color:#fff;text-decoration:none;font-weight:700;padding:10px 18px;border-radius:999px;white-space:nowrap}body{padding-bottom:90px}.toast{bottom:100px!important}</style>
+<div class="schau-bar"><span>24 kleine Pausen zum Durchatmen. Neugierig?</span><a href="/adventskalender">Jetzt kostenlos anmelden</a></div>
+</body></html>
