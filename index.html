@@ -25,6 +25,7 @@ p{margin:0 0 1.15em}
 .lead{font-size:clamp(1.18rem,4.6vw,1.6rem);line-height:1.5;color:var(--ink)}
 .eyebrow{display:block;font-size:.7rem;letter-spacing:.17em;text-transform:uppercase;font-weight:700;color:var(--rose)}
 .mini{font-size:.84rem;color:var(--sub)}
+#audio-status{display:inline-block;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--sub);opacity:.75;margin:6px 0 0;padding:0}
 .quote{font-size:clamp(1.45rem,5.6vw,2.3rem);line-height:1.35;margin:1.6em 0;padding-left:20px;border-left:2px solid var(--rose)}
 .prose{max-width:640px}
 
@@ -764,7 +765,7 @@ document.querySelectorAll('.audio-choice').forEach(button=>button.addEventListen
   a.controls=true;a.preload='none';a.src=src;
   a.addEventListener('error',nurText); /* Datei fehlt? Dann still auf Text umschalten. */
   $('audio-player').replaceChildren(a);
-  $('audio-status').textContent='In Andreas Stimme, mit KI erzeugt · etwa 30 bis 40 Sekunden';
+  $('audio-status').textContent='KI-Stimme';
   $('audio-details').open=false;
  } else nurText();
  $('audio-result').hidden=false;
