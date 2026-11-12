@@ -1002,6 +1002,9 @@ function refreshCheckin() {
 $("#nextCheck").addEventListener("click", () => openCheck("end"));
 render();
 document.getElementById("yr").textContent = new Date().getFullYear();
+
+// Direktlink aus der Tagesmail: ?tuer=7 öffnet Türchen 7, wenn es schon offen ist
+(function () { const t = +new URLSearchParams(location.search).get("tuer"); if (t >= 1 && t <= 24 && isOpen(t)) openDay(t); })();
 </script>
 
 </body></html>
