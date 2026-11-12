@@ -390,6 +390,9 @@ else if(now.getMonth()<11 && !(now.getMonth()===0 && now.getDate()<=6)){
 }
 document.getElementById('legend').innerHTML = Object.keys(KINDS).map(k=>'<span>'+KINDS[k].label+' · '+DATA.filter(x=>x.kind===k).length+'</span>').join('');
 render();
+
+// Direktlink aus der Tagesmail: ?tuer=7 öffnet Türchen 7, wenn es schon offen ist
+(function(){ const t = parseInt(new URLSearchParams(location.search).get('tuer'),10); if(!(t>=1 && t<=24)) return; const b = grid.querySelector('[data-d="'+t+'"]'); if(b) setTimeout(()=>{ b.scrollIntoView({block:'center'}); openDoor(t,b); }, 500); })();
 </script>
 
 </body></html>
