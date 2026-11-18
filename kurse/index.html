@@ -209,6 +209,9 @@ footer a { color: var(--muted); }
   document.querySelectorAll('[data-kurs]').forEach(function (a) {
     a.addEventListener('click', function () { var cb = document.getElementById('k-' + a.dataset.kurs); if (cb) cb.checked = true; });
   });
+  // QR-Codes auf den Plakaten: /kurse/#pmr bzw. /kurse/#qigong hakt den Kurs im Formular schon an
+  function preselect() { var k = (location.hash || '').slice(1); var cb = document.getElementById('k-' + k); if (cb) cb.checked = true; }
+  preselect(); window.addEventListener('hashchange', preselect);
   var live = /(^|\.)andrea\.nielbock\.de$/.test(location.hostname);
   form.addEventListener('submit', async function (e) {
     e.preventDefault();
