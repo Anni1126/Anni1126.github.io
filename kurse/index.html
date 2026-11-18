@@ -160,19 +160,20 @@ footer a { color: var(--muted); }
       <div class="card">
         <h2>Anmeldung</h2>
         <!--
-          BREVO: Formular "Kurse 2027" (Listenauswahl: "PMR 2027" und "QiGong 2027" (ID 32), mit Double-Opt-in).
-          Die action-URL und die value-Werte der Kurs-Checkboxen (Listen-IDs) kommen aus dem Einbettungscode des Brevo-Formulars.
-          In den Formular-Einstellungen im Brevo-Dashboard:
-          • Nach dem Absenden  → https://andrea.nielbock.de/kurse/fast-geschafft.html
-          • Nach der Bestätigung (Double-Opt-in) → https://andrea.nielbock.de/kurse/danke.html
+          BREVO: zwei Formulare, je Kurs eins (beide mit Double-Opt-in):
+          • "Kurse 2027" → Liste "PMR 2027" (ID 34), leitet weiter auf /kurse/fast-geschafft.html und /kurse/danke.html
+          • "QiGong 2027" → Liste "QiGong 2027" (ID 32)
+          Das Skript unten schickt die Anmeldung an das Formular des gewählten Kurses (bei beiden Kursen an beide)
+          und leitet danach auf /kurse/fast-geschafft.html weiter.
         -->
-        <form id="sib-form" method="POST" action="BREVO_FORM_URL">
+        <form id="sib-form" method="POST" action="https://b044490d.sibforms.com/serve/MUIFAMcwGQUnfc3ZjhIv6U_PXWLbbhMq4C4uc_zPG7cGpz-VZrQkpqvY_mEiAuLkx7WkJEeElLHV8q6gieuODVITg5Fidf1OKyof0W9Q7vwyDO6wY4lepBbDRbnls_s1P9cOX0OzpMlpvKFw9I4uJw6fQ7BFmNVF8qGI8RGfFaoKnCLUa7qz8vTsQ7haqFYp52fTFJ2_BZBCHyPc">
           <input type="text" name="email_address_check" value="" style="display:none" tabindex="-1" aria-hidden="true" autocomplete="off">
           <input type="hidden" name="locale" value="de">
+          <input type="hidden" name="html_type" value="simple">
           <fieldset>
             <legend>Welcher Kurs?</legend>
-            <label class="choice"><input type="checkbox" name="lists[]" value="BREVO_LIST_PMR" id="k-pmr"><span>Progressive Muskelentspannung <small>· Di 9.2.2027, 18:00 Uhr</small></span></label>
-            <label class="choice"><input type="checkbox" name="lists[]" value="32" id="k-qigong"><span>QiGong <small>· Di 9.2.2027, 19:30 Uhr</small></span></label>
+            <label class="choice"><input type="checkbox" name="kurs" value="https://b044490d.sibforms.com/serve/MUIFAMcwGQUnfc3ZjhIv6U_PXWLbbhMq4C4uc_zPG7cGpz-VZrQkpqvY_mEiAuLkx7WkJEeElLHV8q6gieuODVITg5Fidf1OKyof0W9Q7vwyDO6wY4lepBbDRbnls_s1P9cOX0OzpMlpvKFw9I4uJw6fQ7BFmNVF8qGI8RGfFaoKnCLUa7qz8vTsQ7haqFYp52fTFJ2_BZBCHyPc" id="k-pmr"><span>Progressive Muskelentspannung <small>· Di 9.2.2027, 18:00 Uhr</small></span></label>
+            <label class="choice"><input type="checkbox" name="kurs" value="https://b044490d.sibforms.com/serve/MUIFAKAhsnGl0SsWuTX_atUHLjfncf1YDzu0sr2aWD79_CP0Qm3nN-AAvdM9p6rf_AZoEfITRD7xZAoa35psn0t-olnI7PF172b6JX6Kqg_-aZjyNHIDtPAGQT_aauGokev3AhDgQ99TPSORIiybSXoO_74kpEz1gM_S2CKOzc1VbYwx89FxKruQC-MhGhJFvSAUTJuD1kf7c3Jf" id="k-qigong"><span>QiGong <small>· Di 9.2.2027, 19:30 Uhr</small></span></label>
             <p class="err" id="kursErr" role="alert">Bitte wähle mindestens einen Kurs aus.</p>
           </fieldset>
           <div class="row2">
@@ -181,7 +182,7 @@ footer a { color: var(--muted); }
           </div>
           <div class="field"><label for="em">E-Mail-Adresse</label><input id="em" name="EMAIL" type="email" autocomplete="email" placeholder="deine@email.de" required></div>
           <div class="field"><label for="tel">Telefon <small>(für kurzfristige Absprachen)</small></label><input id="tel" name="TELEFONNUMMER" type="tel" autocomplete="tel" required></div>
-          <label class="consent"><input type="checkbox" required><span>Ich melde mich verbindlich für den gewählten Kurs an. Andrea Nielbock darf mich per E-Mail und Telefon zum Kurs kontaktieren.</span></label>
+          <label class="consent"><input type="checkbox" name="OPT_IN" value="1" required><span>Ich melde mich verbindlich für den gewählten Kurs an. Andrea Nielbock darf mich per E-Mail und Telefon zum Kurs kontaktieren.</span></label>
           <button class="btn" type="submit">Jetzt anmelden</button>
           <p class="hint">Du bekommst gleich eine E-Mail, mit der du deine Anmeldung bestätigst. Hinweise zum Datenschutz und zum Versand über Brevo findest du in der <a href="https://andrea.nielbock.de/datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a>.</p>
           <p class="note" id="previewNote" role="status">Vorschau: Hier wird noch nichts gesendet. Auf andrea.nielbock.de geht die Anmeldung direkt an Brevo.</p>
@@ -208,14 +209,25 @@ footer a { color: var(--muted); }
   document.querySelectorAll('[data-kurs]').forEach(function (a) {
     a.addEventListener('click', function () { var cb = document.getElementById('k-' + a.dataset.kurs); if (cb) cb.checked = true; });
   });
-  var live = /(^|\.)andrea\.nielbock\.de$/.test(location.hostname) && form.action.indexOf('sibforms.com') > -1;
-  form.addEventListener('submit', function (e) {
-    var any = form.querySelectorAll('input[name="lists[]"]:checked').length > 0;
-    document.getElementById('kursErr').classList.toggle('show', !any);
-    if (!any) { e.preventDefault(); return; }
-    if (!live) { e.preventDefault(); document.getElementById('previewNote').classList.add('show'); return; }
+  var live = /(^|\.)andrea\.nielbock\.de$/.test(location.hostname);
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    var picked = [].slice.call(form.querySelectorAll('input[name="kurs"]:checked'));
+    document.getElementById('kursErr').classList.toggle('show', picked.length === 0);
+    if (!picked.length) return;
+    if (!live) { document.getElementById('previewNote').classList.add('show'); return; }
     var btn = form.querySelector('button[type="submit"]');
     btn.disabled = true; btn.textContent = 'Wird gesendet …';
+    var base = new FormData(form); base.delete('kurs');
+    try {
+      await Promise.all(picked.map(function (cb) { return fetch(cb.value, { method: 'POST', mode: 'no-cors', body: base }); }));
+      location.href = '/kurse/fast-geschafft.html';
+    } catch (err) {
+      btn.disabled = false; btn.textContent = 'Jetzt anmelden';
+      var n = document.getElementById('previewNote');
+      n.textContent = 'Das Senden hat gerade nicht geklappt. Bitte versuch es noch einmal oder melde dich per Telefon, WhatsApp oder E-Mail.';
+      n.classList.add('show');
+    }
   });
 })();
 </script>
