@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kurse 2027: PMR und QiGong in Osterode – Andrea Nielbock</title>
+<meta name="description" content="Präventionskurse 2027 in der Fitnessunion Osterode: Progressive Muskelentspannung (PMR) und QiGong. Start Dienstag, 9. Februar 2027. Jetzt anmelden.">
+<meta property="og:title" content="PMR und QiGong in Osterode – Start 9. Februar 2027">
+<meta property="og:description" content="Präventionskurse in der Fitnessunion Osterode. Jetzt einen Platz sichern.">
+<meta property="og:url" content="https://andrea.nielbock.de/kurse/">
+<meta property="og:type" content="website">
+<link rel="icon" href="/adventskalender/img/logo.png">
+<style>
+@font-face { font-family: "Young Serif"; src: url(/stressampel/fonts/young-serif-latin-400-normal.woff2) format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Figtree"; src: url(/stressampel/fonts/figtree-latin-400-normal.woff2) format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Figtree"; src: url(/stressampel/fonts/figtree-latin-600-normal.woff2) format("woff2"); font-weight: 600; font-display: swap; }
+@font-face { font-family: "Figtree"; src: url(/stressampel/fonts/figtree-latin-700-normal.woff2) format("woff2"); font-weight: 700; font-display: swap; }
+:root {
+  --bg: #f6f3ee; --surface: #fffdf9; --surface-2: #ece6dc; --fg: #26344f; --muted: #5d6576; --line: #ddd5c8;
+  --pmr: #33405f; --pmr-soft: #a3acc9; --qi: #5f8a6c; --qi-soft: #b7cdb9; --sun: #d9b49a;
+  --f-display: "Young Serif", Georgia, serif;
+  --f-body: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --shadow: 0 1px 2px rgba(30,30,40,.06), 0 14px 34px rgba(30,30,40,.10);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--f-body); font-size: 17px; line-height: 1.6; overflow-x: hidden;
+  background-image: radial-gradient(circle at 10% 6%, rgba(163,172,201,.22), transparent 38%), radial-gradient(circle at 92% 28%, rgba(183,205,185,.30), transparent 40%); background-attachment: fixed; }
+h1, h2, h3 { font-family: var(--f-display); font-weight: 400; line-height: 1.15; margin: 0; text-wrap: balance; }
+p { margin: 0; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--sun); outline-offset: 2px; }
+.in { max-width: 1100px; margin: 0 auto; padding-inline: 16px; }
+@media (min-width: 700px) { .in { padding-inline: 28px; } }
+
+header { padding: 28px 0 24px; }
+.top { display: flex; justify-content: space-between; align-items: center; gap: 12px; font-size: 14.5px; color: var(--muted); flex-wrap: wrap; }
+.top a { text-decoration: none; font-weight: 600; color: var(--fg); }
+.hero { margin-top: 40px; max-width: 760px; }
+.kicker { font-size: 13px; letter-spacing: .14em; text-transform: uppercase; font-weight: 700; color: var(--sun); filter: brightness(.8); }
+.hero h1 { font-size: clamp(36px, 5.6vw, 60px); margin-top: 10px; }
+.hero .lead { font-size: 19px; margin-top: 18px; color: var(--muted); }
+.start { display: inline-flex; flex-wrap: wrap; align-items: baseline; gap: 6px 16px; margin-top: 26px; background: var(--pmr); color: #fff; border-radius: 999px; padding: 14px 26px; box-shadow: var(--shadow); }
+.start small { font-size: 13px; letter-spacing: .14em; text-transform: uppercase; opacity: .8; }
+.start strong { font-size: 21px; font-weight: 600; }
+
+section { padding: 40px 0; }
+.courses { display: grid; gap: 22px; }
+@media (min-width: 860px) { .courses { grid-template-columns: 1fr 1fr; } }
+.course { background: var(--surface); border-radius: 18px; padding: 30px clamp(20px, 4vw, 30px); box-shadow: var(--shadow); border-top: 8px solid var(--c); display: grid; gap: 14px; align-content: start; }
+.course h2 { font-size: clamp(26px, 3vw, 32px); }
+.course .sub { font-family: var(--f-display); font-style: italic; color: var(--c-soft); filter: brightness(.75); margin-top: -6px; }
+.course ul { margin: 0; padding-left: 20px; }
+.course li::marker { color: var(--c-soft); }
+.facts { display: grid; grid-template-columns: auto 1fr; gap: 6px 18px; background: var(--bg); border-radius: 12px; padding: 16px 18px; font-size: 16px; }
+.facts dt { font-size: 12.5px; letter-spacing: .12em; text-transform: uppercase; font-weight: 700; color: var(--muted); padding-top: 3px; }
+.facts dd { margin: 0; }
+.course .btn { justify-self: start; }
+
+.wrapform { display: grid; gap: 28px; align-items: start; }
+@media (min-width: 900px) { .wrapform { grid-template-columns: .9fr 1.1fr; gap: 48px; } }
+.side h2 { font-size: clamp(28px, 3.6vw, 38px); }
+.side p { margin-top: 12px; color: var(--muted); }
+.side .contact { margin-top: 18px; color: var(--fg); }
+.card { background: var(--surface); border-radius: 18px; padding: 32px clamp(20px, 4vw, 32px) 26px; display: grid; gap: 14px; box-shadow: var(--shadow); border-top: 8px solid var(--sun); }
+.card h2 { font-size: 28px; }
+.row2 { display: grid; gap: 14px; }
+@media (min-width: 560px) { .row2 { grid-template-columns: 1fr 1fr; } }
+.field { display: grid; gap: 5px; }
+.field label, fieldset legend { font-size: 14.5px; font-weight: 600; }
+.field input { font: inherit; font-size: 16px; color: var(--fg); background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; width: 100%; }
+.field input:focus { border-color: var(--pmr-soft); outline: none; box-shadow: 0 0 0 3px rgba(163,172,201,.35); }
+fieldset { border: 0; margin: 0; padding: 0; display: grid; gap: 8px; }
+.choice { display: flex; gap: 10px; align-items: center; background: var(--bg); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; cursor: pointer; }
+.choice input { width: 18px; height: 18px; margin: 0; accent-color: var(--pmr); }
+.choice small { color: var(--muted); }
+.consent { display: grid; grid-template-columns: 20px 1fr; gap: 10px; font-size: 14px; color: var(--muted); align-items: start; }
+.consent input { width: 18px; height: 18px; margin: 3px 0 0; accent-color: var(--pmr); }
+.btn { display: inline-flex; justify-content: center; align-items: center; border: 0; border-radius: 999px; padding: 14px 26px; font: inherit; font-weight: 700; font-size: 17px; cursor: pointer; background: var(--pmr); color: #fff; text-decoration: none; box-shadow: 0 6px 18px rgba(38,52,79,.25); }
+.btn:hover { background: #26304a; }
+.btn.qi { background: var(--qi); }
+.btn.qi:hover { background: #4c7058; }
+.btn:disabled { opacity: .6; cursor: wait; }
+.hint { font-size: 13.5px; color: var(--muted); }
+.hint a { color: var(--fg); }
+.note { display: none; font-size: 14px; background: var(--surface-2); border-radius: 8px; padding: 10px 12px; }
+.note.show { display: block; }
+.err { display: none; font-size: 14px; color: #a2483c; }
+.err.show { display: block; }
+.disc { font-size: 14px; color: var(--muted); background: var(--surface-2); border-radius: 12px; padding: 16px 20px; }
+footer { padding: 34px 0 44px; font-size: 14px; color: var(--muted); text-align: center; }
+footer a { color: var(--muted); }
+</style>
+<script src="/meta-pixel.js" defer></script>
+</head>
+<body>
+<header>
+  <div class="in">
+    <div class="top"><a href="https://andrea.nielbock.de/">← Andrea Nielbock</a><span>Fitnessunion Osterode · An der Söse 11</span></div>
+    <div class="hero">
+      <p class="kicker">Präventionskurse 2027</p>
+      <h1>Progressive Muskelentspannung und QiGong in Osterode</h1>
+      <p class="lead">Zwei ruhige Wege, Stress abzubauen und wieder bei dir anzukommen. Ohne Vorkenntnisse, in kleiner Gruppe, mit Übungen, die du danach auch zu Hause nutzen kannst.</p>
+      <p class="start"><small>Kursstart</small><strong>Dienstag, 9. Februar 2027</strong></p>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section>
+    <div class="in courses">
+      <article class="course" id="pmr" style="--c: var(--pmr); --c-soft: var(--pmr-soft)">
+        <h2>Progressive Muskelentspannung</h2>
+        <p class="sub">PMR nach Jacobson · Anspannen. Loslassen. Ankommen.</p>
+        <p>Mit gezieltem An- und Entspannen einzelner Muskelgruppen lernst du, Stress bewusst abzubauen und zur Ruhe zu kommen. Einfach erlernbar und alltagstauglich.</p>
+        <ul>
+          <li>Stress abbauen und gelassener werden</li>
+          <li>Besser ein- und durchschlafen</li>
+          <li>Körperwahrnehmung stärken</li>
+        </ul>
+        <dl class="facts">
+          <dt>Start</dt><dd>Dienstag, 9. Februar 2027</dd>
+          <dt>Uhrzeit</dt><dd data-fill="pmr-uhrzeit">wird noch bekannt gegeben</dd>
+          <dt>Dauer</dt><dd data-fill="pmr-dauer">wird noch bekannt gegeben</dd>
+          <dt>Preis</dt><dd data-fill="pmr-preis">wird noch bekannt gegeben</dd>
+          <dt>Ort</dt><dd>Fitnessunion Osterode<br>An der Söse 11, 37520 Osterode am Harz</dd>
+        </dl>
+        <a class="btn" href="#anmelden" data-kurs="pmr">Für PMR anmelden</a>
+      </article>
+
+      <article class="course" id="qigong" style="--c: var(--qi); --c-soft: var(--qi-soft)">
+        <h2>QiGong</h2>
+        <p class="sub">Bewegung · Atmung · Achtsamkeit</p>
+        <p>Fließende, langsame Bewegungen im Einklang mit dem Atem fördern Beweglichkeit, Gleichgewicht und Wohlbefinden. Für jedes Alter geeignet, ohne Vorkenntnisse.</p>
+        <ul>
+          <li>Beweglichkeit und Gleichgewicht fördern</li>
+          <li>Atmung vertiefen, Energie tanken</li>
+          <li>Gelassenheit im Alltag finden</li>
+        </ul>
+        <dl class="facts">
+          <dt>Start</dt><dd>Dienstag, 9. Februar 2027</dd>
+          <dt>Uhrzeit</dt><dd data-fill="qi-uhrzeit">wird noch bekannt gegeben</dd>
+          <dt>Dauer</dt><dd data-fill="qi-dauer">wird noch bekannt gegeben</dd>
+          <dt>Preis</dt><dd data-fill="qi-preis">wird noch bekannt gegeben</dd>
+          <dt>Ort</dt><dd>Fitnessunion Osterode<br>An der Söse 11, 37520 Osterode am Harz</dd>
+        </dl>
+        <a class="btn qi" href="#anmelden" data-kurs="qigong">Für QiGong anmelden</a>
+      </article>
+    </div>
+  </section>
+
+  <section id="anmelden">
+    <div class="in wrapform">
+      <div class="side">
+        <h2>Sichere dir deinen Platz</h2>
+        <p>Die Plätze sind begrenzt. Melde dich mit dem Formular an, ich melde mich dann persönlich bei dir mit allen Infos zum Kurs und zur Bezahlung.</p>
+        <p data-fill="zuschuss">Ob deine Krankenkasse einen Teil der Kursgebühr übernimmt, kläre ich gern mit dir.</p>
+        <p class="contact">Lieber persönlich? Ruf mich an oder schreib mir:<br>
+          <a href="tel:+491708942976">0170 8942976</a> · <a href="https://wa.me/491708942976">WhatsApp</a> · <a href="mailto:andrea@nielbock.de?subject=Anmeldung%20Kurs%202027">andrea@nielbock.de</a></p>
+      </div>
+
+      <div class="card">
+        <h2>Anmeldung</h2>
+        <!--
+          BREVO: Formular "Kurse 2027" (Listenauswahl: "PMR 2027" und "QiGong 2027" (ID 32), mit Double-Opt-in).
+          Die action-URL und die value-Werte der Kurs-Checkboxen (Listen-IDs) kommen aus dem Einbettungscode des Brevo-Formulars.
+          In den Formular-Einstellungen im Brevo-Dashboard:
+          • Nach dem Absenden  → https://andrea.nielbock.de/kurse/fast-geschafft.html
+          • Nach der Bestätigung (Double-Opt-in) → https://andrea.nielbock.de/kurse/danke.html
+        -->
+        <form id="sib-form" method="POST" action="BREVO_FORM_URL">
+          <input type="text" name="email_address_check" value="" style="display:none" tabindex="-1" aria-hidden="true" autocomplete="off">
+          <input type="hidden" name="locale" value="de">
+          <fieldset>
+            <legend>Welcher Kurs?</legend>
+            <label class="choice"><input type="checkbox" name="lists[]" value="BREVO_LIST_PMR" id="k-pmr"><span>Progressive Muskelentspannung <small>· Start 9.2.2027</small></span></label>
+            <label class="choice"><input type="checkbox" name="lists[]" value="32" id="k-qigong"><span>QiGong <small>· Start 9.2.2027</small></span></label>
+            <p class="err" id="kursErr" role="alert">Bitte wähle mindestens einen Kurs aus.</p>
+          </fieldset>
+          <div class="row2">
+            <div class="field"><label for="vn">Vorname</label><input id="vn" name="VORNAME" type="text" autocomplete="given-name" required></div>
+            <div class="field"><label for="nn">Nachname</label><input id="nn" name="NACHNAME" type="text" autocomplete="family-name" required></div>
+          </div>
+          <div class="field"><label for="em">E-Mail-Adresse</label><input id="em" name="EMAIL" type="email" autocomplete="email" placeholder="deine@email.de" required></div>
+          <div class="field"><label for="tel">Telefon <small>(für kurzfristige Absprachen)</small></label><input id="tel" name="TELEFONNUMMER" type="tel" autocomplete="tel" required></div>
+          <label class="consent"><input type="checkbox" required><span>Ich melde mich verbindlich für den gewählten Kurs an. Andrea Nielbock darf mich per E-Mail und Telefon zum Kurs kontaktieren.</span></label>
+          <button class="btn" type="submit">Jetzt anmelden</button>
+          <p class="hint">Du bekommst gleich eine E-Mail, mit der du deine Anmeldung bestätigst. Hinweise zum Datenschutz und zum Versand über Brevo findest du in der <a href="https://andrea.nielbock.de/datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a>.</p>
+          <p class="note" id="previewNote" role="status">Vorschau: Hier wird noch nichts gesendet. Auf andrea.nielbock.de geht die Anmeldung direkt an Brevo.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="in">
+      <p class="disc">Hinweis: Die Kurse dienen der Gesundheitsförderung und Entspannung und ersetzen keine ärztliche oder psychotherapeutische Behandlung. Wenn du unsicher bist, ob die Übungen für dich geeignet sind, sprich bitte vorher mit deiner Ärztin oder deinem Arzt.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="in">Andrea Nielbock · Im Strange 12 · 37520 Osterode am Harz · <a href="https://andrea.nielbock.de/impressum.html">Impressum</a> · <a href="https://andrea.nielbock.de/datenschutz.html">Datenschutz</a></div>
+</footer>
+
+<script>
+(function () {
+  var form = document.getElementById('sib-form');
+  // Klick auf "Für PMR/QiGong anmelden" hakt den Kurs im Formular an
+  document.querySelectorAll('[data-kurs]').forEach(function (a) {
+    a.addEventListener('click', function () { var cb = document.getElementById('k-' + a.dataset.kurs); if (cb) cb.checked = true; });
+  });
+  var live = /(^|\.)andrea\.nielbock\.de$/.test(location.hostname) && form.action.indexOf('sibforms.com') > -1;
+  form.addEventListener('submit', function (e) {
+    var any = form.querySelectorAll('input[name="lists[]"]:checked').length > 0;
+    document.getElementById('kursErr').classList.toggle('show', !any);
+    if (!any) { e.preventDefault(); return; }
+    if (!live) { e.preventDefault(); document.getElementById('previewNote').classList.add('show'); return; }
+    var btn = form.querySelector('button[type="submit"]');
+    btn.disabled = true; btn.textContent = 'Wird gesendet …';
+  });
+})();
+</script>
+</body>
+</html>
