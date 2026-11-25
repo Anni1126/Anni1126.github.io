@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="de"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>Zusammenarbeit – Andrea Nielbock</title><meta content="Entspannungskurse in Osterode am Harz (PMR, QiGong), von Krankenkassen bezuschusst. Klang in der Einhornhöhle, Angebote für Firmen und Ernährungsberatung für Hunde." name="description"/><meta name="theme-color" content="#f7f3ed"/><style>
+/* ================================================================
+   Andrea Nielbock · tierisch erfolgreich
+   Fassung 3 · mobile-first (Basis = Handy, ab 820px = Desktop)
+
+   ================================================================ */
+:root{--bg:#f7f3ed;--ink:#30302c;--sub:#5f5a53;--rose:#9a7570;--rose-soft:#e9dcd6;--sand:#ece4d9;--taupe:#e4dbd0;--line:#d8d0c7;--dark:#333934;--white:#fbf8f4}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+html,body{max-width:100%;overflow-x:clip}
+body{margin:0;background:var(--bg);color:var(--ink);font:16.5px/1.7 system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--rose);outline-offset:3px}
+[id]{scroll-margin-top:90px}
+
+/* ---------- Typografie ---------- */
+h1,h2,h3,.brand,.lead,.quote{font-family:Georgia,"Times New Roman",serif;font-weight:400}
+h1{font-size:clamp(2.3rem,9.5vw,5.4rem);line-height:1.08;letter-spacing:-.035em;margin:.25em 0 .4em}
+h2{font-size:clamp(1.85rem,7.6vw,3.6rem);line-height:1.14;letter-spacing:-.025em;margin:.25em 0 .6em;overflow-wrap:break-word;hyphens:manual}
+h3{font-size:clamp(1.35rem,5.4vw,2rem);line-height:1.22;margin:1.6em 0 .5em}
+p{margin:0 0 1.15em}
+.lead{font-size:clamp(1.18rem,4.6vw,1.6rem);line-height:1.5;color:var(--ink)}
+.eyebrow{display:block;font-size:.7rem;letter-spacing:.17em;text-transform:uppercase;font-weight:700;color:var(--rose)}
+.mini{font-size:.84rem;color:var(--sub)}
+#audio-status{display:inline-block;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--sub);opacity:.75;margin:6px 0 0;padding:0}
+.quote{font-size:clamp(1.45rem,5.6vw,2.3rem);line-height:1.35;margin:1.6em 0;padding-left:20px;border-left:2px solid var(--rose)}
+.prose{max-width:640px}
+
+/* ---------- Grundgerüst ---------- */
+.wrap{width:min(1100px,calc(100% - 40px));margin-inline:auto}
+section{padding:56px 0}
+.band{background:var(--sand)}
+.two{display:grid;gap:8px}
+.two>*{min-width:0}
+
+/* ---------- Kopfzeile ---------- */
+header{background:#f7f3edf2;border-bottom:1px solid var(--line);z-index:20}
+.nav{display:flex;flex-direction:column;gap:10px;padding:14px 0 12px}
+.brand{text-decoration:none;font-size:1.25rem;line-height:1.1}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{width:40px;height:auto;flex:none}
+footer .brand img{filter:brightness(1.6) saturate(.8)}
+.brand small{display:block;font:900 1.3rem/1.1 system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#8a5f59;margin-top:5px}
+.brand img{width:46px}
+nav{display:flex;gap:4px 13px;flex-wrap:wrap}
+nav a{text-decoration:none;font-size:.84rem;padding:6px 0;white-space:nowrap}
+nav a:hover{text-decoration:underline;text-underline-offset:4px}
+
+/* ---------- Knöpfe & Links ---------- */
+.actions{display:flex;flex-direction:column;gap:10px;margin-top:22px}
+.btn{display:flex;align-items:center;justify-content:center;min-height:48px;background:var(--dark);color:#fff;text-decoration:none;padding:12px 22px;font-size:.88rem;letter-spacing:.02em;text-align:center}
+.btn.whatsapp{background:#25643f}
+.btn.secondary{background:transparent;border:1px solid var(--dark);color:var(--dark)}
+.btn:hover{opacity:.85}
+.textlink{display:inline-block;text-decoration:none;border-bottom:1px solid var(--rose);padding:6px 0 3px;font-weight:600;font-size:.9rem}
+
+/* ---------- Bilder ---------- */
+.photo{margin:0;overflow:hidden;min-height:0}
+.photo img{width:100%;height:100%;object-fit:cover}
+figcaption,.image-caption{font-size:.8rem;color:var(--sub);margin-top:8px}
+/* Bildplatz: einheitlicher Platzhalter für noch fehlende Stimmungsfotos */
+.bildplatz{position:relative;margin:0;aspect-ratio:3/2;display:flex;flex-direction:column;justify-content:flex-end;padding:18px 20px;color:#4a443e;background:linear-gradient(150deg,#d9d2c6 0%,#ece3d7 50%,#c9c8b8 100%)}
+.bildplatz b{font:italic 400 1.08rem/1.35 Georgia,serif}
+.bildplatz small{font-size:.74rem;color:#6a625a;margin-top:4px}
+.bildplatz::before{content:"Bildplatz";position:absolute;top:12px;left:14px;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:#7d6f66}
+.bp-hoehle{background:linear-gradient(160deg,#5b544c 0%,#8a7a6a 45%,#c7b39c 100%);color:#f6efe6}
+.bp-hoehle small,.bp-hoehle::before{color:#eadfd2}
+.bp-natur{background:linear-gradient(160deg,#c4cbbb 0%,#e7e3d6 55%,#b9c1ad 100%)}
+.bp-napf{background:linear-gradient(160deg,#e3d2c7 0%,#f1e7dc 55%,#d6c2b4 100%)}
+.bp-weite{background:linear-gradient(160deg,#c9d1d4 0%,#ebe5db 55%,#c7c1b4 100%)}
+
+/* ---------- Für Unternehmen ---------- */
+.firmen-liste{display:grid;gap:14px;margin:26px 0 8px}
+.firmen-item{background:var(--white);border-left:3px solid var(--rose);padding:18px 20px}
+.firmen-item h3{margin:.2em 0 .3em;font-size:1.15rem}
+.firmen-item p{margin:0;color:var(--sub)}
+.foerder{background:var(--rose-soft);padding:16px 18px;margin:22px 0;font-size:.95rem}
+.firmen-item details{margin-top:10px}
+.firmen-item summary{cursor:pointer;font-weight:600;font-size:.9rem;padding:8px 0 4px;display:inline-block;border-bottom:1px solid var(--rose)}
+.firmen-item details[open] summary{margin-bottom:12px}
+.firmen-item details p,.firmen-item details li{color:var(--ink);font-size:.95rem}
+.firmen-item details p{margin:0 0 .9em}
+.firmen-item h4{font:400 1.1rem/1.3 Georgia,"Times New Roman",serif;margin:1.1em 0 .4em}
+.firmen-item ol,.firmen-item ul{padding-left:1.2em;margin:0 0 1em}
+.firmen-item li{margin-bottom:.35em}
+.firmen-item .fakten{list-style:none;padding:12px 14px;background:var(--bg)}
+.firmen-liste{align-items:start}
+@media(min-width:760px){.firmen-liste{grid-template-columns:repeat(2,1fr)}}
+
+/* ---------- Startbereich ---------- */
+.hero .copy{padding:26px 20px 52px}
+.hero .photo{width:calc(100% - 40px);margin:20px auto 0;aspect-ratio:4/3;max-height:270px}
+.hero .photo img{object-position:center 42%}
+
+/* ---------- Über Andrea ---------- */
+#ueber .lead{margin-bottom:1.3em}
+
+/* ---------- Augenblick / Audio ---------- */
+.audio-area{background:#eee7de}
+.audio-choices{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:26px 0 20px}
+.audio-choice{border:1px solid #c8b8aa;background:var(--white);color:var(--ink);cursor:pointer;padding:0 0 12px;font:inherit;font-size:.95rem;text-align:center;overflow:hidden;transition:background .2s,box-shadow .2s}
+.audio-choice img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;margin-bottom:10px;transition:transform .4s}
+.audio-choice:hover img{transform:scale(1.04)}
+.audio-choice span{color:var(--rose);margin-right:5px}
+.audio-choice{position:relative}
+.audio-choice::after{content:"\25B6";position:absolute;right:10px;top:10px;width:42px;height:42px;border-radius:50%;background:#fbf8f4eb;color:var(--rose);font-size:1rem;line-height:42px;text-indent:3px;box-shadow:0 2px 10px #0003;pointer-events:none;transition:transform .2s}
+.audio-choice:hover::after{transform:scale(1.1)}
+.audio-choice small{display:block;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--sub);margin-top:2px}
+.audio-choice[aria-pressed=true]{background:#ded0c4;border-color:#866e64;box-shadow:0 0 0 2px #866e64}
+
+.audio-result{padding:22px 20px;background:var(--white);border-left:3px solid var(--rose);margin-bottom:18px}
+.audio-result[hidden]{display:none}
+.audio-result h3{margin:.3em 0 .4em}
+.audio-result audio{display:block;width:100%;margin:14px 0}
+.audio-script{margin-top:14px;padding-top:12px;border-top:1px solid #d9cec3}
+.audio-script summary{cursor:pointer;font-weight:600;font-size:.9rem;padding:6px 0}
+.audio-script p{margin-top:10px}
+
+/* ---------- KI-Video ---------- */
+.video-area{background:var(--taupe)}
+.claim{font-size:clamp(1.6rem,6.4vw,2.8rem);line-height:1.2}
+.claim span{display:block;text-wrap:balance}
+.claim span+span{color:var(--rose);margin-top:.15em}
+.ki-hinweis{font-size:.92rem;background:var(--white);border-left:3px solid var(--rose);padding:14px 16px;margin:6px 0 24px}
+.video-frame{position:relative;margin:0 auto;max-width:300px}
+.video-frame video{display:block;width:100%;aspect-ratio:9/16;background:#2c2a27;object-fit:cover}
+.ki-badge{position:absolute;top:10px;left:10px;z-index:2;background:#333934e6;color:#fff;font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:4px 9px;pointer-events:none}
+.video-frame figcaption{text-align:center}
+
+/* ---------- Magazin ---------- */
+.feature{display:grid;gap:22px;margin-top:10px}
+
+/* ---------- Magazin: Gedanke der Woche & Beiträge ---------- */
+.gedanke{background:var(--white);border-left:3px solid var(--rose);padding:22px 20px;margin:30px 0 10px;max-width:760px}
+.gedanke h3{margin:.35em 0 .45em}
+.gedanke .frage{font-style:italic;color:var(--sub)}
+.artikel-liste{display:grid;gap:18px;margin-top:30px}
+.artikel{background:var(--white);padding:22px 22px 16px;min-width:0}
+.artikel h3{margin-top:.35em}
+.artikel summary{cursor:pointer;font-weight:600;font-size:.9rem;padding:8px 0 4px;display:inline-block;border-bottom:1px solid var(--rose)}
+.artikel details[open] summary{margin-bottom:16px}
+.artikel h4{font:400 1.2rem/1.3 Georgia,"Times New Roman",serif;margin:1.4em 0 .45em}
+.artikel ul{padding-left:1.2em;margin:0 0 1.15em}
+.artikel li{margin-bottom:.45em}
+.ebook{padding:24px 20px;background:var(--white);border-top:3px solid var(--rose);margin:26px 0}
+.ebook-top{display:grid;gap:8px}
+.buch{width:150px;margin:6px auto 22px;perspective:900px}
+.buch-cover{position:relative;aspect-ratio:3/4.2;display:flex;flex-direction:column;gap:7px;padding:16px 14px 14px 20px;color:#fbf8f4;background:linear-gradient(155deg,#a8827c 0%,#8a6862 60%,#6f524d 100%);border-radius:2px 6px 6px 2px;box-shadow:inset 7px 0 0 #00000026,inset 9px 0 0 #ffffff1f,12px 14px 26px #3339344d;transform:rotateY(-16deg);transform-origin:left center}
+.buch-cover::after{content:"";position:absolute;right:-7px;top:5px;bottom:5px;width:7px;border-radius:0 3px 3px 0;background:repeating-linear-gradient(#fbf8f4 0 2px,#e2d8cc 2px 3px)}
+.buch-cover img{width:26px;height:auto;filter:brightness(0) invert(1);opacity:.9}
+.buch-label{font-size:.5rem;letter-spacing:.1em;white-space:nowrap;text-transform:uppercase;font-weight:700;opacity:.85}
+.buch-cover b{font:400 1.18rem/1.12 Georgia,"Times New Roman",serif}
+.buch-sub{font-size:.62rem;line-height:1.35;opacity:.9}
+.buch-cover small{margin-top:auto;font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;opacity:.85}
+.ebook-punkte{list-style:none;padding:0;margin:0 0 18px;display:grid;gap:10px}
+.ebook-punkte li{display:flex;align-items:center;gap:12px;font-size:.93rem}
+.ebook-punkte svg{width:30px;height:30px;flex:none;padding:5px;border-radius:50%;background:var(--rose-soft);fill:none;stroke:var(--rose);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.ebook-extras{display:grid;gap:12px;margin-top:22px;padding-top:20px;border-top:1px solid var(--line)}
+.extra{display:grid;grid-template-columns:60px minmax(0,1fr);gap:14px;background:var(--bg);padding:16px}
+.extra-icon{width:60px;height:60px;border-radius:50%;background:var(--rose-soft);display:grid;place-items:center}
+.extra-icon svg{width:36px;height:36px;fill:none;stroke:var(--rose);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.extra h4{font:400 1.15rem/1.25 Georgia,"Times New Roman",serif;margin:4px 0 6px}
+.extra p{font-size:.9rem;margin-bottom:8px}
+/* ---------- Angebote (Karten) ---------- */
+.cards{display:grid;gap:18px;margin-top:28px}
+.card{background:var(--white);display:flex;flex-direction:column}
+.card .bildplatz{aspect-ratio:16/10}
+.card .photo img{aspect-ratio:16/10;height:auto}
+.photo.wide img{aspect-ratio:3/2;height:auto}
+.card .body{padding:22px 22px 26px}
+.card h3{margin-top:.35em}
+.card p{color:var(--sub)}
+
+/* ---------- Detail-Abschnitte ---------- */
+.detail .two{gap:4px}
+.detail .media{margin:4px 0 26px}
+.portrait{max-width:420px;aspect-ratio:4/3}
+.portrait img{object-position:28% 38%}
+.book{padding:22px;background:var(--rose-soft);margin:26px 0}
+.book .btn{margin-top:6px}
+.note{border-top:1px solid var(--line);padding-top:16px;margin-top:26px;font-size:.86rem;color:var(--sub)}
+.podcast{display:flex;flex-direction:column;gap:10px;margin:20px 0}
+
+/* ---------- Kontakt & Fußzeile ---------- */
+.contact{background:var(--taupe)}
+.contact-card{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:22px 0 18px;max-width:440px}
+.contact-card .whatsapp{grid-column:1/-1}
+.contact-social{font-size:.88rem;color:var(--sub);display:flex;flex-wrap:wrap;gap:8px 10px;align-items:center}
+.contact-social a{display:inline-flex;align-items:center;min-height:40px;padding:6px 16px;border:1px solid var(--rose);border-radius:999px;text-decoration:none;color:var(--ink)}
+.legal{border-top:1px solid var(--line);font-size:.92rem}
+.legal h2{font-size:clamp(1.6rem,6vw,2.4rem)}
+.legal h3{font-size:1.15rem;margin:1.5em 0 .4em}
+.legal a:not(.textlink){overflow-wrap:anywhere}
+footer{background:var(--dark);color:#f4eee7;padding:40px 0 46px}
+footer .brand small{color:#d9bdb6}
+footer .mini{color:#cfc7bd;margin-top:16px}
+footer a{color:inherit;text-underline-offset:3px}
+.footer-links a{display:inline-block;padding:8px 0}
+
+/* ================= Ab Tablet/Desktop ================= */
+@media(min-width:560px){
+ .actions,.podcast{flex-direction:row;flex-wrap:wrap}
+ .audio-choices{grid-template-columns:repeat(4,1fr)}
+ .cards{grid-template-columns:repeat(2,1fr)}
+}
+@media(min-width:820px){
+ body{font-size:17px}
+ section{padding:88px 0}
+ header{position:sticky;top:0}
+ .nav{flex-direction:row;align-items:center;justify-content:space-between;min-height:76px;padding:0}
+ .brand{font-size:1.4rem}
+ .brand small{font-size:1.55rem}
+ .brand img{width:52px}
+ nav{gap:26px}
+ .hero{display:grid;grid-template-columns:1.1fr .9fr;align-items:center;width:min(1100px,calc(100% - 40px));margin:auto;gap:56px;padding:56px 0 64px}
+ .hero .copy{padding:0}
+ .hero .photo{order:2;width:100%;margin:0;aspect-ratio:4/5;max-height:560px}
+ .two{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:64px;align-items:start}
+ .detail .media{margin:22px 0 0}
+ .feature{grid-template-columns:1fr 1fr;gap:44px;align-items:center}
+ .cards{gap:22px}
+ .artikel-liste{grid-template-columns:1fr 1fr;align-items:start;gap:22px}
+ .ebook{padding:30px 28px}
+ .ebook-top{grid-template-columns:160px minmax(0,1fr);gap:28px;align-items:start}
+ .buch{margin:8px 0 0}
+ .portrait{aspect-ratio:4/5;max-width:380px}
+ .portrait img{object-position:40% 40%}
+ .audio-result{padding:28px 30px;max-width:760px}
+ .video-area .two{align-items:center}
+ .video-frame{max-width:320px;margin:0}
+}
+/* ---------- Adventskalender-Sticker auf dem Startfoto (Saison) ---------- */
+.hero .photo{position:relative}
+.advent-sticker{position:absolute;bottom:12px;left:10px;width:116px;transform:rotate(-8deg);background:#fbf8f4;border:2px solid #e8c48a;box-shadow:0 6px 18px #0004;padding:10px 10px 12px;text-align:center;text-decoration:none;color:var(--dark);z-index:2;transition:transform .2s}
+.advent-sticker:hover{transform:rotate(-4deg) scale(1.04)}
+.advent-sticker svg{display:block;width:70px;margin:0 auto 4px}
+.advent-sticker b{display:block;font-size:.56rem;letter-spacing:.08em;text-transform:uppercase;color:var(--rose)}
+.advent-sticker span{display:block;font-family:Georgia,serif;font-size:.92rem;line-height:1.15;margin-top:3px}
+.advent-sticker i{display:block;font-style:normal;font-size:.7rem;font-weight:700;margin-top:6px;border-bottom:1px solid var(--rose);display:inline-block}
+@media(min-width:820px){.advent-sticker{width:160px;top:22px;bottom:auto;left:-26px}.advent-sticker b{font-size:.62rem;letter-spacing:.12em}.advent-sticker span{font-size:1.05rem}.hero .photo{overflow:visible}}
+.advent-sticker.hund{left:auto;right:10px;transform:rotate(7deg);border-color:#9a7570}
+.advent-sticker.hund:hover{transform:rotate(4deg) scale(1.04)}
+.advent-sticker img{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:cover;margin:0 0 6px;border:1px solid #0001}
+.advent-sticker{background:#fffdf8;border:3px solid #b8333a!important;outline:2px dashed #e8c48a;outline-offset:-8px;padding:8px 8px 10px!important}
+.advent-sticker::before{content:"★";display:none;position:absolute;top:-14px;right:-10px;width:30px;height:30px;line-height:30px;border-radius:50%;background:#2f6b4f;color:#f2c14e;font-size:16px;box-shadow:0 3px 8px #0003}
+.advent-sticker b{color:#b8333a!important}
+.advent-sticker.hund{border-color:#2f6b4f!important}
+/* Advent: Tannenzweig mit Kugeln oben am Sticker, Zweig unten (Saison) */
+.advent-sticker::after{content:"";position:absolute;left:-16px;right:-16px;top:-24px;height:62px;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20120%2054%22%3E%3Crect%20x%3D%22-2%22%20y%3D%223%22%20width%3D%22124%22%20height%3D%229%22%20rx%3D%224%22%20fill%3D%22%2324492d%22/%3E%3Cpath%20d%3D%22M0%206%20l7%2012%22%20stroke%3D%22%232f5d3a%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3Cpath%20d%3D%22M5%208%20l-7%2015%22%20stroke%3D%22%233f7a4a%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3Cpath%20d%3D%22M10%207%20l7%2018%22%20stroke%3D%22%2324492d%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3Cpath%20d%3D%22M15%206%20l-7%2012%22%20stroke%3D%22%232f5d3a%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3Cpath%20d%3D%22M20%208%20l7%2015%22%20stroke%3D%22%233f7a4a%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3Cpath%20d%3D%22M25%207%20l-7%2018%22%20stroke%3D%22%2324492d%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3Cpath%20d%3D%22M30%206%20l7%2012%22%20stroke%3D%22%232f5d3a%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3Cpath%20d%3D%22M35%208%20l-7%2015%22%20stroke%3D%22%233f7a4a%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3Cpath%20d%3D%22M40%207%20l7%2018%22%20stroke%3D%22%2324492d%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3Cpath%20d%3D%22M45%206%20l-7%2012%22%20stroke%3D%22%232f5d3a%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3Cpath%20d%3D%22M50%208%20l7%2015%22%20stroke%3D%22%233f7a4a%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3Cpath%20d%3D%22M55%207%20l-7%2018%22%20stroke%3D%22%2324492d%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3Cpath%20d%3D%22M60%206%20l7%2012%22%20stroke%3D%22%232f5d3a%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3Cpath%20d%3D%22M65%208%20l-7%2015%22%20stroke%3D%22%233f7a4a%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3Cpath%20d%3D%22M70%207%20l7%2018%22%20stroke%3D%22%2324492d%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3Cpath%20d%3D%22M75%206%20l-7%2012%22%20stroke%3D%22%232f5d3a%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3Cpath%20d%3D%22M80%208%20l7%2015%22%20stroke%3D%22%233f7a4a%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3Cpath%20d%3D%22M85%207%20l-7%2018%22%20stroke%3D%22%2324492d%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3Cpath%20d%3D%22M90%206%20l7%2012%22%20stroke%3D%22%232f5d3a%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3Cpath%20d%3D%22M95%208%20l-7%2015%22%20stroke%3D%22%233f7a4a%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3Cpath%20d%3D%22M100%207%20l7%2018%22%20stroke%3D%22%2324492d%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3Cpath%20d%3D%22M105%206%20l-7%2012%22%20stroke%3D%22%232f5d3a%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3Cpath%20d%3D%22M110%208%20l7%2015%22%20stroke%3D%22%233f7a4a%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3Cpath%20d%3D%22M115%207%20l-7%2018%22%20stroke%3D%22%2324492d%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3Cpath%20d%3D%22M120%206%20l7%2012%22%20stroke%3D%22%232f5d3a%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%0A%3Cline%20x1%3D%2230%22%20y1%3D%2214%22%20x2%3D%2230%22%20y2%3D%2230%22%20stroke%3D%22%23c9a24a%22%20stroke-width%3D%221%22/%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2237%22%20r%3D%228%22%20fill%3D%22%23b8333a%22/%3E%3Ccircle%20cx%3D%2227%22%20cy%3D%2234%22%20r%3D%222.2%22%20fill%3D%22%23fff%22%20opacity%3D%22.6%22/%3E%3Crect%20x%3D%2227.5%22%20y%3D%2227%22%20width%3D%225%22%20height%3D%223%22%20fill%3D%22%23c9a24a%22/%3E%0A%3Cline%20x1%3D%2288%22%20y1%3D%2214%22%20x2%3D%2288%22%20y2%3D%2224%22%20stroke%3D%22%23c9a24a%22%20stroke-width%3D%221%22/%3E%3Ccircle%20cx%3D%2288%22%20cy%3D%2230%22%20r%3D%226.5%22%20fill%3D%22%23d9a93a%22/%3E%3Ccircle%20cx%3D%2286%22%20cy%3D%2228%22%20r%3D%221.8%22%20fill%3D%22%23fff%22%20opacity%3D%22.6%22/%3E%3Crect%20x%3D%2286%22%20y%3D%2221.5%22%20width%3D%224%22%20height%3D%223%22%20fill%3D%22%23b07f1f%22/%3E%0A%3Ccircle%20cx%3D%2260%22%20cy%3D%2216%22%20r%3D%223%22%20fill%3D%22%23b8333a%22/%3E%3Ccircle%20cx%3D%2264%22%20cy%3D%2218%22%20r%3D%223%22%20fill%3D%22%23b8333a%22/%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2217%22%20r%3D%222.6%22%20fill%3D%22%23b8333a%22/%3E%3C/svg%3E") 50% 0/auto 100% repeat-x;pointer-events:none;filter:drop-shadow(0 2px 2px #0005)}
+.advent-sticker{padding-top:22px!important}
+/* Advent: leise rieselnder Schnee auf den Stickern (Saison) */
+.advent-sticker::before{content:""!important;display:block!important;position:absolute;top:22px;left:8px;right:8px;bottom:auto;aspect-ratio:1;width:auto;height:auto;border-radius:0;box-shadow:none;background:radial-gradient(circle,#fff 0 1.6px,transparent 2.2px) 0 0/34px 34px,radial-gradient(circle,#fff 0 1.1px,transparent 1.7px) 11px 7px/23px 23px,radial-gradient(circle,#ffffffcc 0 2.2px,transparent 2.8px) 19px 15px/53px 53px;opacity:.95;z-index:1;pointer-events:none;animation:sticker-schnee 7s linear infinite;filter:drop-shadow(0 0 1px #0004)}
+@keyframes sticker-schnee{from{background-position:0 0,11px 7px,19px 15px}to{background-position:8px 136px,1px 99px,27px 121px}}
+@media(prefers-reduced-motion:reduce){.advent-sticker::before{animation:none}}
+@media(max-width:819px){.advent-sticker b{font-size:.5rem;letter-spacing:.02em}}
+
+@media(min-width:820px){.advent-sticker.hund{top:auto;bottom:28px;right:-26px}}
+/* Sticker weiter an den Rand, damit das Gesicht frei bleibt */
+.hero .photo{overflow:visible;margin-bottom:34px}
+.hero .photo img{display:block}
+.advent-sticker{width:98px;padding:7px 7px 9px;bottom:-30px;left:-8px}
+.advent-sticker svg{width:52px}
+.advent-sticker b{font-size:.46rem;letter-spacing:.02em}
+.advent-sticker span{font-size:.8rem}
+.advent-sticker i{font-size:.62rem;margin-top:4px}
+.advent-sticker.hund{right:-8px;left:auto}
+@media(min-width:820px){.hero .photo{margin-bottom:0}.advent-sticker{width:140px;padding:10px 10px 12px;top:10px;bottom:auto;left:-80px}.advent-sticker svg{width:64px}.advent-sticker b{font-size:.6rem;letter-spacing:.1em}.advent-sticker span{font-size:1rem}.advent-sticker i{font-size:.7rem}.advent-sticker.hund{top:auto;bottom:16px;right:-70px;left:auto}}
+/* Advent-Menü mit beiden Kalendern (Saison) */
+.nav-advent{position:relative;font-size:.84rem}
+.nav-advent summary{list-style:none;cursor:pointer;padding:6px 0;color:#b8333a;font-weight:700}
+.nav-advent summary::-webkit-details-marker{display:none}
+.nav-advent>div{position:absolute;left:0;top:100%;z-index:50;background:#fffdf8;border:2px solid #b8333a;box-shadow:0 8px 24px #0003;padding:6px;display:flex;flex-direction:column;min-width:250px}
+.nav-advent>div a{padding:10px 12px;font-size:.9rem;white-space:normal}
+.nav-advent>div a:hover{background:#f3e9dc;text-decoration:none}
+/* Sticker unten am Bildrand (Gesicht frei), ab und zu kleines Wackeln wie ein Geschenk */
+/* Durchatmen-Sticker atmet ruhig ein und aus; Hunde-Sticker: Pfoten tapsen drüber und er hüpft kurz */
+@keyframes sticker-atmen{0%,100%{scale:1}45%{scale:1.06}55%{scale:1.06}}
+@keyframes sticker-hopsen{0%,80%,100%{translate:0 0}84%{translate:0 -14px}88%{translate:0 0}91%{translate:0 -7px}94%{translate:0 0}}
+.advent-sticker{animation:sticker-atmen 5s ease-in-out infinite}
+.advent-sticker.hund{animation:sticker-hopsen 5s ease-out infinite}
+.advent-sticker .pfoten{position:absolute;inset:0;pointer-events:none;z-index:3}
+.advent-sticker .pfoten i{position:absolute;width:26px;height:26px;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Cg%20fill%3D%22%236b3f2a%22%20stroke%3D%22%23fff%22%20stroke-width%3D%222%22%3E%3Cellipse%20cx%3D%2220%22%20cy%3D%2227%22%20rx%3D%229%22%20ry%3D%228%22/%3E%3Cellipse%20cx%3D%229%22%20cy%3D%2217%22%20rx%3D%224%22%20ry%3D%225%22/%3E%3Cellipse%20cx%3D%2216%22%20cy%3D%2210%22%20rx%3D%224%22%20ry%3D%225%22/%3E%3Cellipse%20cx%3D%2224%22%20cy%3D%2210%22%20rx%3D%224%22%20ry%3D%225%22/%3E%3Cellipse%20cx%3D%2231%22%20cy%3D%2217%22%20rx%3D%224%22%20ry%3D%225%22/%3E%3C/g%3E%3C/svg%3E") center/contain no-repeat;opacity:0;border:0!important;margin:0!important;animation:pfote 5s linear infinite;filter:drop-shadow(0 1px 1px #0006)}
+.advent-sticker .pfoten i:nth-child(1){left:6%;top:50%;rotate:-20deg;animation-delay:0s}
+.advent-sticker .pfoten i:nth-child(2){left:26%;top:41%;rotate:-10deg;animation-delay:.35s}
+.advent-sticker .pfoten i:nth-child(3){left:46%;top:32%;rotate:5deg;animation-delay:.7s}
+.advent-sticker .pfoten i:nth-child(4){left:64%;top:22%;rotate:15deg;animation-delay:1.05s}
+.advent-sticker .pfoten i:nth-child(5){left:80%;top:12%;rotate:25deg;animation-delay:1.4s}
+@keyframes pfote{0%{opacity:0}4%{opacity:1}40%{opacity:1}55%{opacity:0}100%{opacity:0}}
+@media(prefers-reduced-motion:reduce){.advent-sticker,.advent-sticker .pfoten i{animation:none}}
+@media(prefers-reduced-motion:reduce){.advent-sticker{animation:none}}
+.advent-sticker::before{filter:drop-shadow(0 0 1.5px #0009) drop-shadow(0 0 2px #0005)!important}
+.hero .photo{margin-bottom:150px!important}
+.advent-sticker{width:124px!important;top:auto!important;bottom:-150px!important;left:6px!important;right:auto!important}
+.advent-sticker.hund{left:auto!important;right:6px!important}
+@media(min-width:820px){
+ .hero .photo{margin-bottom:80px!important}
+ .advent-sticker{width:180px!important;bottom:-80px!important;left:-10px!important}
+ .advent-sticker.hund{left:auto!important;right:-50px!important}
+ .advent-sticker span{font-size:1.15rem!important}.advent-sticker b{font-size:.68rem!important}.advent-sticker i{font-size:.82rem!important}
+}
+</style></head><body>
+<header><div class="wrap nav"><a class="brand" href="./#start"><img src="img/logo-herz.png" alt="" width="40" height="46"/><span>Andrea Nielbock<small>tierisch erfolgreich</small></span></a><nav aria-label="Hauptnavigation"><details class="nav-advent"><summary>Advent ▾</summary><div><a href="adventskalender/">🌿 Durchatmen im Advent</a><a href="adventsnapf/">🐾 Adventsnapf für dich und deinen Hund</a></div></details><a href="./#ueber">Über Andrea</a><a href="./#magazin">Magazin</a><a href="./#angebote">Angebote</a><a href="kurse/">Kurse 2027</a><a href="./#firmen">Für Firmen</a><a href="./#kontakt">Kontakt</a></nav></div></header>
+
+<main id="start">
+<p class="wrap" style="padding-top:1.5rem"><a class="textlink" href="./">← Zur Startseite</a></p>
+
+<!-- ===== 04 Zusammenarbeit ===== -->
+<section class="detail band" id="partnerschaft"><div class="wrap two">
+ <div>
+  <span class="eyebrow">Zusammenarbeit &amp; eigene Perspektiven</span>
+  <h2>Neue Wege beginnen selten mit einem fertigen Plan.</h2>
+  <div class="media"><figure class="photo wide"><img alt="Andrea arbeitet im Wohnmobil am Laptop, mit einer Tasse in der Hand" src="img/arbeiten-unterwegs.jpg"/></figure></div>
+ </div>
+ <div class="prose">
+  <p class="lead">Manchmal beginnt eine neue Perspektive genau dort, wo man sie am wenigsten erwartet.</p>
+  <p>Es gab eine Zeit, in der ich mir nicht hätte vorstellen können, im Network Marketing tätig zu sein. Zu groß waren meine Vorbehalte gegenüber einer Vertriebsform, die ich vor allem mit Verkaufsdruck und unrealistischen Versprechungen verband.</p>
+  <p>Dass ich mich dennoch näher damit beschäftigt habe, hatte zunächst nichts mit beruflichen Plänen zu tun. Es begann mit meinem Hund und der Suche nach einer Ernährung, die zu ihm passt.</p>
+  <p>Aus einer persönlichen Erfahrung wurde Neugier. Und irgendwann entstand die Frage, ob sich daraus auch beruflich etwas entwickeln könnte. Nicht als radikaler Neuanfang, sondern Schritt für Schritt.</p>
+  <h3>Erfolg hat für mich auch mit Haltung zu tun.</h3>
+  <p class="quote">Ich möchte Menschen nicht überreden. Ich möchte ihnen zuhören.</p>
+  <p>Ich möchte ihre Wünsche verstehen und gemeinsam herausfinden, ob eine Zusammenarbeit sinnvoll ist. Dazu gehören Ehrlichkeit, Verlässlichkeit und die Freiheit, auch Nein sagen zu dürfen. Ein gutes Netzwerk wächst für mich dort, wo Menschen sich gegenseitig unterstützen, Verantwortung übernehmen und ihren eigenen Weg gestalten können.</p>
+  <h3>Freiheit braucht Eigenverantwortung.</h3>
+  <p>Mich reizt die Möglichkeit, unternehmerisch tätig zu sein und den Arbeitsalltag selbst zu gestalten. Eigene Ideen verfolgen. Vielleicht eines Tages auch unterwegs arbeiten, mit meinem Hund an meiner Seite.</p>
+  <p>Gleichzeitig weiß ich: Ein eigenes Geschäft entsteht nicht von allein. Es braucht Einsatz, Geduld, Lernbereitschaft – und ein gutes Gespür für die eigenen Grenzen. Auch das habe ich auf meinem Weg gelernt.</p>
+  <h3>Vielleicht beginnt auch dein nächster Weg mit einem Gespräch.</h3>
+  <p>Du musst keine fertige Geschäftsidee haben. Und du musst auch nicht bereits überzeugt sein. Wenn du neugierig bist, wie ich arbeite und was eine Zusammenarbeit bedeutet, erzähle ich dir gern mehr – offen und ohne Erwartungsdruck.</p>
+  <p><a class="btn" href="https://www.supersaas.de/schedule/andrea_nielbock/Zusammenarbeit" rel="noopener" target="_blank">Kennenlerngespräch buchen</a></p>
+  <p class="mini" style="margin-bottom:0">Meine Geschichte im Podcast:</p>
+  <div class="podcast"><a class="btn" href="https://youtu.be/_UeJBdA5-y4" rel="noopener" target="_blank">Auf YouTube ansehen</a><a class="btn secondary" href="https://open.spotify.com/episode/5xn50RLRnYWDzhrHZt8NtR" rel="noopener" target="_blank">Auf Spotify anhören</a></div>
+  <p class="note">Ich arbeite als selbstständige Vertriebspartnerin mit REICO Vital-Systeme. Die Tätigkeit ist mit unternehmerischem Aufwand und Risiken verbunden; ein bestimmtes Einkommen ist nicht zugesichert.</p>
+ </div>
+</div></section>
+
+<!-- ===== KI-Video „Alles ist möglich“ ===== -->
+<section class="video-area" id="moeglich"><div class="wrap two">
+ <div>
+  <h2 class="claim"><span>Du kannst alles schaffen.</span> <span>Die Grenzen sind nur in deinem Kopf.</span></h2>
+  <p class="ki-hinweis"><strong>Mit KI erstellt:</strong> Hier ist mein KI-Zwilling unterwegs – nicht ganz 1:1 ich, und diese Abenteuer habe ich so nicht erlebt.</p>
+ </div>
+ <figure class="video-frame">
+  <span class="ki-badge" aria-hidden="true">KI-Video</span>
+  <video controls playsinline preload="none" poster="video/alles-ist-moeglich-poster.jpg" aria-label="KI-generiertes Video: Andrea als Figur in verschiedenen Abenteuern">
+   <source src="video/alles-ist-moeglich.mp4" type="video/mp4"/>
+  </video>
+  <figcaption>KI-generiert · ca. 30 Sekunden · startet erst, wenn du auf Abspielen tippst</figcaption>
+ </figure>
+</div></section>
+
+<!-- ===== Kontakt ===== -->
+<section class="contact" id="kontakt"><div class="wrap two">
+ <div><span class="eyebrow">Kontakt</span><h2>Vielleicht beginnt alles mit einem Gespräch.</h2></div>
+ <div class="prose">
+  <p class="lead">Eine Frage, eine Idee oder einfach Neugier?</p>
+  <p>Ich freue mich, von dir zu hören.</p>
+  <div class="contact-card">
+   <a class="btn whatsapp" href="https://wa.me/491708942976" rel="noopener" target="_blank">WhatsApp</a>
+   <a class="btn secondary" href="mailto:andrea@nielbock.de">E-Mail</a>
+   <a class="btn secondary" href="tel:+491708942976">Anrufen</a>
+  </div>
+  <p class="contact-social"><span>Folge mir:</span> <a href="https://www.facebook.com/nielbock.de/" rel="noopener" target="_blank">Facebook</a> <a href="https://www.instagram.com/andreanielbock_rauszeiten/" rel="noopener" target="_blank">Instagram</a></p>
+ </div>
+</div></section>
+
+
+</main>
+
+<footer><div class="wrap">
+ <div class="brand"><img src="img/logo-herz.png" alt="" width="40" height="46"/><span>Andrea Nielbock<small>tierisch erfolgreich</small></span></div>
+ <p class="mini footer-links"><a href="./#impressum">Impressum</a> · <a href="./#datenschutz">Datenschutz</a> · <a href="#start">Nach oben</a></p>
+ 
+</div></footer>
+
+
+</body></html>
